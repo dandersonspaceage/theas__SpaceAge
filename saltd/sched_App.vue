@@ -13,7 +13,7 @@
                 
                 <div class="fastscroll" style="height:75vh;" v-swipeleft="prevtab" v-swiperight="nexttab">
 
-                  <b-card v-for="wo in data_WOs" :key="wo.qguid" @click="clickWODetail">
+                  <b-card v-for="wo in data_WOs" :key="wo.qguid" @click="clickWODetail(wo.qguid, $event)">
 
                     <b-row>
                       <b-col>
@@ -142,8 +142,7 @@
 
                   <h3>North Press</h3>
 
-
-                    <b-card v-for="wo in data_PressN" :key="wo.qguid" @click="clickWODetail(wo.qguid)">
+                    <b-card v-for="wo in data_PressN" :key="wo.qguid" @click="clickWODetail(wo.qguid, $event)">
                       <b-row>
                         <b-col>
                           <draggable v-model="data_PressN" group="woN" @change="log">
@@ -280,7 +279,7 @@
 
                   <h3>South Press</h3>
 
-                    <b-card v-for="wo in data_PressS" :key="wo.qguid" @click="clickWODetail(wo.qguid)">
+                    <b-card v-for="wo in data_PressS" :key="wo.qguid" @click="clickWODetail(wo.qguid, $event)">
                       <b-row>
                         <b-col>
                           <draggable v-model="data_PressS" group="woS" @change="log">
@@ -324,7 +323,7 @@
 
                   <h3>West Press</h3>
 
-                    <b-card v-for="wo in data_PressW" :key="wo.qguid" @click="clickWODetail(wo.qguid)">
+                    <b-card v-for="wo in data_PressW" :key="wo.qguid" @click="clickWODetail(wo.qguid, $event)">
                       <b-row>
                         <b-col>
                           <draggable v-model="data_PressW" group="woW" @change="log">
@@ -368,7 +367,7 @@
 
                   <h3>Northwest Press</h3>
 
-                    <b-card v-for="wo in data_PressNW" :key="wo.qguid" @click="clickWODetail(wo.qguid)">
+                    <b-card v-for="wo in data_PressNW" :key="wo.qguid" @click="clickWODetail(wo.qguid, $event)">
                       <b-row>
                         <b-col>
                           <draggable v-model="data_PressNW" group="woNW" @change="log">
