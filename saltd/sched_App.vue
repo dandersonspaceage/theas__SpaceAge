@@ -488,14 +488,12 @@
           }
       },      
 
-
       clickWODetail: function(qguid, event) {
         // save reference to Vue object
         let thatVue = this;
         
         // find the corresponding WO  https://stackoverflow.com/questions/12462318/find-a-value-in-an-array-of-objects-in-javascript
         thatVue.data_ThisWO = thatVue.data_WOs.find(o => o.qguid === qguid);
-
         thatVue.saveWO();
       },
 
