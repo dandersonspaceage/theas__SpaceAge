@@ -488,7 +488,7 @@
           }
       },      
 
-      clickWODetail: function(event) {
+      clickWODetail: function(qguid, event) {
         // save reference to Vue object
         let thatVue = this;
         
