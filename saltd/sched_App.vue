@@ -487,7 +487,7 @@
           }
       },      
 
-      clickWODetail: function(event, qguid) {
+      clickWODetail: function(qguid, event) {
         // save reference to Vue object
         let thatVue = this;
         
@@ -496,7 +496,7 @@
         thatVue.saveWO();
       },
 
-      toggleWODetail: function(event, qguid) {
+      toggleWODetail: function(qguid, event) {
         // save reference to Vue object
         let thatVue = this;
         
