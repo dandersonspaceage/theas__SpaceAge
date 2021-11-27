@@ -736,7 +736,7 @@
 
 
           thatVue.$th.sendAsync({
-              url: 'async',
+              url: "/async/" + thatVue.asyncResource_WOs,
               asyncCmd: 'UpdWO',
               data: {WO: thatVue.data_ThisWO}, //note: passes to @FormParams
 
