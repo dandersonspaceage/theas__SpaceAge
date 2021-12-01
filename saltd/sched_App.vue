@@ -26,6 +26,12 @@
 
                     <b-row>
                       <b-col>
+                        <h5>[[ wo.CalcPressETA ]]
+                      </b-col>
+                    </b-row>
+
+                    <b-row>
+                      <b-col>
                         <h4>[[ wo.CustomerName ]]</h4>
                       </b-col>
                     </b-row>
