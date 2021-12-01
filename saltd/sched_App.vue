@@ -26,7 +26,7 @@
 
                     <b-row>
                       <b-col>
-                        <h5>[[ wo.CalcPressETA ]]
+                        <h5>[[ wo.TestWed ]]
                       </b-col>
                     </b-row>
 
