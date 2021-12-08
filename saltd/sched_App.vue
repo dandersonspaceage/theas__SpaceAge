@@ -485,7 +485,7 @@
           if (thatVue.currentTabNumber > thatVue.tabCount - 1) {
               thatVue.currentTabNumber = 0
           }
-
+      },      
 
       toggleWODetail: function(qguid, event) {
         // save reference to Vue object
