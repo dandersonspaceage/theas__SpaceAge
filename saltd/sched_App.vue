@@ -13,7 +13,7 @@
                 
                 <div class="fastscroll" style="height:75vh;" v-swipeleft="prevtab" v-swiperight="nexttab">
 
-                  <b-card v-for="wo in data_WOs" :key="wo.qguid" @click="clickWODetail(wo.qguid, $event)">
+                  <b-card v-for="wo in data_WOs" :key="wo.qguid">
 
                     <b-row>
                       <b-col>
