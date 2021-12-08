@@ -142,7 +142,7 @@
 
                   <h3>North Press</h3>
 
-                    <b-card v-for="wo in data_PressN" :key="wo.qguid" @click="clickWODetail(wo.qguid, $event)">
+                    <b-card v-for="wo in data_PressN" :key="wo.qguid">
                       <b-row>
                         <b-col>
                           <draggable v-model="data_PressN" group="woN" @change="log">
@@ -279,7 +279,7 @@
 
                   <h3>South Press</h3>
 
-                    <b-card v-for="wo in data_PressS" :key="wo.qguid" @click="clickWODetail(wo.qguid, $event)">
+                    <b-card v-for="wo in data_PressS" :key="wo.qguid">
                       <b-row>
                         <b-col>
                           <draggable v-model="data_PressS" group="woS" @change="log">
@@ -323,7 +323,7 @@
 
                   <h3>West Press</h3>
 
-                    <b-card v-for="wo in data_PressW" :key="wo.qguid" @click="clickWODetail(wo.qguid, $event)">
+                    <b-card v-for="wo in data_PressW" :key="wo.qguid">
                       <b-row>
                         <b-col>
                           <draggable v-model="data_PressW" group="woW" @change="log">
@@ -367,7 +367,7 @@
 
                   <h3>Northwest Press</h3>
 
-                    <b-card v-for="wo in data_PressNW" :key="wo.qguid" @click="clickWODetail(wo.qguid, $event)">
+                    <b-card v-for="wo in data_PressNW" :key="wo.qguid">
                       <b-row>
                         <b-col>
                           <draggable v-model="data_PressNW" group="woNW" @change="log">
@@ -485,16 +485,7 @@
           if (thatVue.currentTabNumber > thatVue.tabCount - 1) {
               thatVue.currentTabNumber = 0
           }
-      },      
 
-      clickWODetail: function(qguid, event) {
-        // save reference to Vue object
-        let thatVue = this;
-        
-        // find the corresponding WO  https://stackoverflow.com/questions/12462318/find-a-value-in-an-array-of-objects-in-javascript
-        thatVue.data_ThisWO = thatVue.data_WOs.find(o => o.qguid === qguid);
-        thatVue.saveWO();
-      },
 
       toggleWODetail: function(qguid, event) {
         // save reference to Vue object
