@@ -83,7 +83,6 @@
 
 </head>
 <body style="height:85vh">
-  <h1>Test1</h1>
     <!--This form is used internally by Theas for session tracking et al.  It must have id="theasForm"-->
     <form method="post" class="form-horizontal" id="theasForm">
         {{ "__th"|theasXSRF }}
