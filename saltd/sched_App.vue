@@ -68,7 +68,7 @@
                           <b-form-group label="Planned Press"
                                         :label-for="'planpress' + [[ wo.qguid ]]">
                             <b-form-select :id="'planpress' + [[ wo.qguid ]]"
-                                          v-model="wo.PlannedPress" :options="pressCodes"
+                                          v-model="wo.PlannedPress" :options="pressCodes" @change="onChangePlan()"
                                           size="sm"></b-form-select>
                           </b-form-group>
                         </b-col>
@@ -88,8 +88,9 @@
 
                                   <b-form-datepicker :id="'dp' + [[ wo.qguid ]]"
                                                     :value-as-date="true"
-                                                    :date-format-options="{year:undefined, month: '2-digit', day: '2-digit', weekday: 'short' }"
-                                                    v-model="wo.CommitDate" :min="today"
+                                                    :date-format-options="{year:undefined, month: '2-digit', day: '2-digit', weekday: 'short' }",
+                                                    value-as-date = true,
+                                                    v-model="thisWO_CommitDate" :min="today" @change="onChangePlan()"
                                                     size="sm" :dark="true" locale="en">
                                   </b-form-datepicker>
 
@@ -448,7 +449,7 @@
         pressCodes: ["N", "NW", "S", "W"],
 
         data_ThisWO: {},
-
+        thisWO_CommitDate: null, // object for datepicker
       };
     },
 
@@ -493,8 +494,7 @@
         
         // find the corresponding WO  https://stackoverflow.com/questions/12462318/find-a-value-in-an-array-of-objects-in-javascript
         thatVue.data_ThisWO = thatVue.data_WOs.find(o => o.qguid === qguid);
-
-        thatVue.saveWO();
+        thatVue.thisWO_CommitDate.set
       },
 
       flushDirt: function () {
@@ -721,13 +721,15 @@
         }
       },
 
+      onChangePlan: function () {
+          let thatVue = this;
+          thatVue.data_ThisWO.CommitDate = thisWO_CommitDate.toISOString();
+          thatVue.saveWO();          
+      },
+
       saveWO: function () {
           // save reference to Vue object that can be used in async callbacks
           let thatVue = this;
-
-          let thisWO = thatVue.data_ThisWO;
-
-          thisWO.CommitDate = thisWO.CommitDate.toISOString();
 
           thatVue.$th.sendAsync({
               url: "/async/" + thatVue.asyncResource_WOs,
