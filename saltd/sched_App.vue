@@ -87,7 +87,6 @@
                                 <b-td>
 
                                   <b-form-datepicker :id="'dp' + [[ wo.qguid ]]"
-                                                    :value-as-date="true"
                                                     :date-format-options="{year:undefined, month: '2-digit', day: '2-digit', weekday: 'short' }"
                                                     v-model="wo.CommitDate"
                                                     :min="today" @change="onChangePlan()"
