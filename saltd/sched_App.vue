@@ -742,10 +742,11 @@
           // save reference to Vue object that can be used in async callbacks
           let thatVue = this;
 
+
           thatVue.$th.sendAsync({
               url: "/async/" + thatVue.asyncResource_WOs,
               asyncCmd: 'updateWO',
-              data: {WO: thisWO}, //note: passes to @FormParams
+              data: {WO: thatVue.data_ThisWO}, //note: passes to @FormParams
 
               onResponse: function (rd, response) {
                   // rd contains the response data split into an object (of name/value pairs)
