@@ -493,8 +493,7 @@
         let thatVue = this;
         
         // find the corresponding WO  https://stackoverflow.com/questions/12462318/find-a-value-in-an-array-of-objects-in-javascript
-        thatVue.data_ThisWO = thatVue.data_WOs.find(o => o.qguid === qguid);
-        thatVue.thisWO_CommitDate.set
+        thatVue.data_ThisWO = thatVue.data_WOs.find(o => o.qguid === qguid);           
       },
 
       flushDirt: function () {
@@ -562,6 +561,18 @@
               } else {
                 thatVue.lastFetch_WOs = "1/1/1900";
               }
+
+              /* Copy the current date over to the datepicker's value object */
+              if (thatVue.data_thisWO.qguid) {
+                thatVue.data_ThisWO = thatVue.data_WOs.find(o => o.qguid === thatVue.data_thisWO.qguid);                
+                thatVue.thisWO_CommitDate = thatVue.data_ThisWO.CommitDate;                
+              }
+              else {
+                thatVue.thisWO_CommitDate = null;
+              }
+
+ 
+          
             }
 
             thisObj = {};
@@ -723,7 +734,7 @@
 
       onChangePlan: function () {
           let thatVue = this;
-          thatVue.data_ThisWO.CommitDate = thisWO_CommitDate.toISOString();
+          thatVue.data_ThisWO.CommitDate = thatVue.thisWO_CommitDate.toISOString();
           thatVue.saveWO();          
       },
 
