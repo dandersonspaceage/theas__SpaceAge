@@ -563,7 +563,7 @@
               }
 
               /* Copy the current date over to the datepicker's value object */
-              if (thatVue.data_thisWO.qguid) {
+              if (thatVue && thatVue.data_thisWO && thatVue.data_thisWO.qguid) {
                 thatVue.data_ThisWO = thatVue.data_WOs.find(o => o.qguid === thatVue.data_thisWO.qguid);                
                 thatVue.thisWO_CommitDate = thatVue.data_ThisWO.CommitDate;                
               }
