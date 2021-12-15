@@ -6,7 +6,6 @@
       <b-row no-gutters fluid>
 
         <b-col>
-          <h3>Hi Scott</h3>
           <b-row>
 
             <b-tabs ref="tabs" v-model="currentTabNumber" @click="flushDirt" active>
