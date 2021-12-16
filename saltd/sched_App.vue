@@ -11,7 +11,7 @@
             <b-form-group label="List name"
                           :label-for="'ListName'">
               <b-form-select :id="'listName'"
-                            v-model="curWOList" :options="woListNames" @change="fetchWOs()"
+                            v-model="curWOList" :options="woListNames" @change="switchWOList()"
                             size="sm"></b-form-select>
             </b-form-group>
 
@@ -200,6 +200,12 @@
         }
       },
   
+      switchWOList: function() {
+        let thatVue = this;        
+        
+        thatVue.data_WOs = [];
+        thatVue.fetchWOs();
+      },
 
       toggleWODetail: function(qguid, event) {
         // save reference to Vue object
