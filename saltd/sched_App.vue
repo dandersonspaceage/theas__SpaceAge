@@ -230,7 +230,7 @@
           url: "/async/" + thatVue.asyncResource_WOs,
           asyncCmd: thatVue.asyncCmd_WOs,
           lastFetchDate: thatVue.lastFetch_WOs,
-          data: {listName: curWOList}, //note: passes to @FormParams
+          data: {listName: thatVue.curWOList}, //note: passes to @FormParams
 
           onResponse: function (rd, response) {
             // rd contains the response data split into an object (of name/value pairs)
