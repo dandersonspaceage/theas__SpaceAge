@@ -11,7 +11,7 @@
             <b-form-group label="List name"
                           :label-for="'ListName'">
               <b-form-select :id="'listName'"
-                            v-model="curListName" :options="woListNames" @change="fetchWOs()"
+                            v-model="curWOList" :options="woListNames" @change="fetchWOs()"
                             size="sm"></b-form-select>
             </b-form-group>
 
