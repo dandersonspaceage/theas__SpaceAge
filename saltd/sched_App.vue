@@ -15,659 +15,132 @@
                             size="sm"></b-form-select>
             </b-form-group>
 
-            <b-tabs ref="tabs" v-model="currentTabNumber" @click="flushDirt" active>
-              <b-tab title="To Schedule">
-                
-                <div class="fastscroll" style="height:75vh;" v-swipeleft="prevtab" v-swiperight="nexttab">
+            <h3>[[ curWOList ]]</h3>
+              <div class="fastscroll" style="height:75vh;">
 
-                  <b-card v-for="wo in data_WOs" :key="wo.qguid">
+                <b-card v-for="wo in data_WOs" :key="wo.qguid">
 
-                    <b-row>
-                      <b-col>
-                        <h4>WO: [[ wo.WONumber ]]</h4>
-                      </b-col>
-                      <b-col>
-                        <h4>SO: [[ wo.LinkedSONumber ]]</h4>
-                      </b-col>
-                    </b-row>
+                  <b-row>
+                    <b-col>
+                      <h4>WO: [[ wo.WONumber ]]</h4>
+                    </b-col>
+                    <b-col>
+                      <h4>SO: [[ wo.LinkedSONumber ]]</h4>
+                    </b-col>
+                  </b-row>
 
-                    <b-row>
-                      <b-col>
-                        <h4>[[ wo.CustomerName ]]</h4>
-                      </b-col>
-                    </b-row>
+                  <b-row>
+                    <b-col>
+                      <h4>[[ wo.CustomerName ]]</h4>
+                    </b-col>
+                  </b-row>
 
-                    <b-row>
-                      <b-col>
-                        <h5>Item: [[ wo.ItemNumber ]]</h5>
-                      </b-col>
-                    </b-row>
+                  <b-row>
+                    <b-col>
+                      <h5>Item: [[ wo.ItemNumber ]]</h5>
+                    </b-col>
+                  </b-row>
 
-                    <b-row>
-                      <b-col>
-                        <h5>Qty: [[ wo.Quantity ]]<span class='bg-warning' v-if="wo.CurrentShotCount">Qty Remaining:
-                          [[ wo.QtyRemaining ]]</span></h5>
-                      </b-col>
-                    </b-row>
+                  <b-row>
+                    <b-col>
+                      <h5>Qty: [[ wo.Quantity ]]<span class='bg-warning' v-if="wo.CurrentShotCount">Qty Remaining:
+                        [[ wo.QtyRemaining ]]</span></h5>
+                    </b-col>
+                  </b-row>
 
-                    <b-btn v-b-toggle="'collapse' + wo.qguid" @click="toggleWODetail(wo.qguid, $event)" >
-                      <span class="when-opened">
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  <b-btn v-b-toggle="'collapse' + wo.qguid" @click="toggleWODetail(wo.qguid, $event)" >
+                    <span class="when-opened">
+                      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </span>
+                    <span class="when-closed">       
+                      <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                        [[ formatDate(wo.CommitDate, 'ddd MM/DD') ]]   
                       </span>
-                      <span class="when-closed">       
-                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
-                          [[ formatDate(wo.CommitDate, 'ddd MM/DD') ]]   
-                        </span>
-                    </b-btn>
+                  </b-btn>
 
-                    <b-collapse :id="'collapse' + wo.qguid">
-                      <b-row>
-                        <b-col>
-                          <p>[[ wo.ItemDescription ]]</p>
-                        </b-col>
-                      </b-row>
-
-                      <b-row>
-                        <b-col>
-                          Sugg. Press: <b>[[ wo.SuggestedPress ]]</b>
-                        </b-col>
-                        <b-col>
-                          <b-form-group label="Planned Press"
-                                        :label-for="'planpress' + [[ wo.qguid ]]">
-                            <b-form-select :id="'planpress' + [[ wo.qguid ]]"
-                                          v-model="wo.PlannedPress" :options="pressCodes" @change="onChangePlan()"
-                                          size="sm"></b-form-select>
-                          </b-form-group>
-                        </b-col>
-                      </b-row>
-
-                      <b-row>
-                        <b-col>
-                          <b-table-simple class="table-borderless table-sm">
-                            <b-tbody>
-
-
-                              <b-tr>
-                                <b-td>
-                                  Commit Date
-                                </b-td>
-                                <b-td>
-
-                                  <b-form-datepicker :id="'dp' + [[ wo.qguid ]]"
-                                                    :date-format-options="{year:undefined, month: '2-digit', day: '2-digit', weekday: 'short' }"
-                                                    v-model="wo.CommitDate"
-                                                    :min="today" @change="onChangePlan()"
-                                                    size="sm" :dark="true" locale="en">
-                                  </b-form-datepicker>
-
-                                </b-td>
-                              </b-tr>
-
-                              <b-tr>
-                                <b-td>
-                                  Press Date
-                                </b-td>
-                                <b-td>
-                                  [[ formatDate(wo.SchedPressDate, 'ddd MM/DD') ]]
-                                </b-td>
-                              </b-tr>
-
-
-                              <b-tr>
-                                <b-td>
-                                  Request Date
-                                </b-td>
-                                <b-td>
-                                  [[ formatDate(wo.RequestDate, 'ddd MM/DD') ]]
-                                </b-td>
-                              </b-tr>
-
-                            </b-tbody>
-                          </b-table-simple>
-                        </b-col>
-                      </b-row>
-
-                      <b-row>
-                        <b-col>
-                          <b-form-group label="Notes" :label-for="'notes' + [[wo.qguid]]">
-                            <b-form-textarea :id="'notes' + [[wo.qguid]]" debounce="1000"
-                                            @change="onChangePlan()"
-                                            v-model="wo.Notes" rows="3" max-rows="3">
-                            </b-form-textarea>
-                          </b-form-group>
-                        </b-col>
-                      </b-row>
-
-                    </b-collapse>
-
-                  </b-card>
-
-                </div>
-              </b-tab>
-
-              <b-tab title="North Press">
-                <div class="fastscroll" style="height:75vh;" v-swipeleft="prevtab" v-swiperight="nexttab">
-
-                  <h3>North Press</h3>
-
-                  <b-card v-for="wo in data_PressN" :key="wo.qguid">
-
+                  <b-collapse :id="'collapse' + wo.qguid">
                     <b-row>
                       <b-col>
-                        <h4>WO: [[ wo.WONumber ]]</h4>
-                      </b-col>
-                      <b-col>
-                        <h4>SO: [[ wo.LinkedSONumber ]]</h4>
+                        <p>[[ wo.ItemDescription ]]</p>
                       </b-col>
                     </b-row>
 
                     <b-row>
                       <b-col>
-                        <h4>[[ wo.CustomerName ]]</h4>
+                        Sugg. Press: <b>[[ wo.SuggestedPress ]]</b>
+                      </b-col>
+                      <b-col>
+                        <b-form-group label="Planned Press"
+                                      :label-for="'planpress' + [[ wo.qguid ]]">
+                          <b-form-select :id="'planpress' + [[ wo.qguid ]]"
+                                        v-model="wo.PlannedPress" :options="pressCodes" @change="onChangePlan()"
+                                        size="sm"></b-form-select>
+                        </b-form-group>
                       </b-col>
                     </b-row>
 
                     <b-row>
                       <b-col>
-                        <h5>Item: [[ wo.ItemNumber ]]</h5>
+                        <b-table-simple class="table-borderless table-sm">
+                          <b-tbody>
+
+
+                            <b-tr>
+                              <b-td>
+                                Commit Date
+                              </b-td>
+                              <b-td>
+
+                                <b-form-datepicker :id="'dp' + [[ wo.qguid ]]"
+                                                  :date-format-options="{year:undefined, month: '2-digit', day: '2-digit', weekday: 'short' }"
+                                                  v-model="wo.CommitDate"
+                                                  :min="today" @change="onChangePlan()"
+                                                  size="sm" :dark="true" locale="en">
+                                </b-form-datepicker>
+
+                              </b-td>
+                            </b-tr>
+
+                            <b-tr>
+                              <b-td>
+                                Press Date
+                              </b-td>
+                              <b-td>
+                                [[ formatDate(wo.SchedPressDate, 'ddd MM/DD') ]]
+                              </b-td>
+                            </b-tr>
+
+
+                            <b-tr>
+                              <b-td>
+                                Request Date
+                              </b-td>
+                              <b-td>
+                                [[ formatDate(wo.RequestDate, 'ddd MM/DD') ]]
+                              </b-td>
+                            </b-tr>
+
+                          </b-tbody>
+                        </b-table-simple>
                       </b-col>
                     </b-row>
 
                     <b-row>
                       <b-col>
-                        <h5>Qty: [[ wo.Quantity ]]<span class='bg-warning' v-if="wo.CurrentShotCount">Qty Remaining:
-                          [[ wo.QtyRemaining ]]</span></h5>
+                        <b-form-group label="Notes" :label-for="'notes' + [[wo.qguid]]">
+                          <b-form-textarea :id="'notes' + [[wo.qguid]]" debounce="1000"
+                                          @change="onChangePlan()"
+                                          v-model="wo.Notes" rows="3" max-rows="3">
+                          </b-form-textarea>
+                        </b-form-group>
                       </b-col>
                     </b-row>
 
-                    <b-btn v-b-toggle="'collapse' + wo.qguid" @click="toggleWODetail(wo.qguid, $event)" >
-                      <span class="when-opened">
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                      </span>
-                      <span class="when-closed">       
-                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
-                          [[ formatDate(wo.CommitDate, 'ddd MM/DD') ]]   
-                        </span>
-                    </b-btn>
+                  </b-collapse>
 
-                    <b-collapse :id="'collapse' + wo.qguid">
-                      <b-row>
-                        <b-col>
-                          <p>[[ wo.ItemDescription ]]</p>
-                        </b-col>
-                      </b-row>
+                </b-card>
 
-                      <b-row>
-                        <b-col>
-                          Sugg. Press: <b>[[ wo.SuggestedPress ]]</b>
-                        </b-col>
-                        <b-col>
-                          <b-form-group label="Planned Press"
-                                        :label-for="'planpress' + [[ wo.qguid ]]">
-                            <b-form-select :id="'planpress' + [[ wo.qguid ]]"
-                                          v-model="wo.PlannedPress" :options="pressCodes" @change="onChangePlan()"
-                                          size="sm"></b-form-select>
-                          </b-form-group>
-                        </b-col>
-                      </b-row>
-
-                      <b-row>
-                        <b-col>
-                          <b-table-simple class="table-borderless table-sm">
-                            <b-tbody>
-
-
-                              <b-tr>
-                                <b-td>
-                                  Commit Date
-                                </b-td>
-                                <b-td>
-
-                                  <b-form-datepicker :id="'dp' + [[ wo.qguid ]]"
-                                                    :date-format-options="{year:undefined, month: '2-digit', day: '2-digit', weekday: 'short' }"
-                                                    v-model="wo.CommitDate"
-                                                    :min="today" @change="onChangePlan()"
-                                                    size="sm" :dark="true" locale="en">
-                                  </b-form-datepicker>
-
-                                </b-td>
-                              </b-tr>
-
-                              <b-tr>
-                                <b-td>
-                                  Press Date
-                                </b-td>
-                                <b-td>
-                                  [[ formatDate(wo.SchedPressDate, 'ddd MM/DD') ]]
-                                </b-td>
-                              </b-tr>
-
-
-                              <b-tr>
-                                <b-td>
-                                  Request Date
-                                </b-td>
-                                <b-td>
-                                  [[ formatDate(wo.RequestDate, 'ddd MM/DD') ]]
-                                </b-td>
-                              </b-tr>
-
-                            </b-tbody>
-                          </b-table-simple>
-                        </b-col>
-                      </b-row>
-
-                      <b-row>
-                        <b-col>
-                          <b-form-group label="Notes" :label-for="'notes' + [[wo.qguid]]">
-                            <b-form-textarea :id="'notes' + [[wo.qguid]]" debounce="1000"
-                                            @change="onChangePlan()"
-                                            v-model="wo.Notes" rows="3" max-rows="3">
-                            </b-form-textarea>
-                          </b-form-group>
-                        </b-col>
-                      </b-row>
-
-                    </b-collapse>
-
-                  </b-card>
-                  
-                </div>
-              </b-tab>
-
-              <b-tab title="South Press">
-                <div class="fastscroll" style="height:75vh;" v-swipeleft="prevtab" v-swiperight="nexttab">
-
-                  <h3>South Press</h3>
-
-                  <b-card v-for="wo in data_PressS" :key="wo.qguid">
-
-                    <b-row>
-                      <b-col>
-                        <h4>WO: [[ wo.WONumber ]]</h4>
-                      </b-col>
-                      <b-col>
-                        <h4>SO: [[ wo.LinkedSONumber ]]</h4>
-                      </b-col>
-                    </b-row>
-
-                    <b-row>
-                      <b-col>
-                        <h4>[[ wo.CustomerName ]]</h4>
-                      </b-col>
-                    </b-row>
-
-                    <b-row>
-                      <b-col>
-                        <h5>Item: [[ wo.ItemNumber ]]</h5>
-                      </b-col>
-                    </b-row>
-
-                    <b-row>
-                      <b-col>
-                        <h5>Qty: [[ wo.Quantity ]]<span class='bg-warning' v-if="wo.CurrentShotCount">Qty Remaining:
-                          [[ wo.QtyRemaining ]]</span></h5>
-                      </b-col>
-                    </b-row>
-
-                    <b-btn v-b-toggle="'collapse' + wo.qguid" @click="toggleWODetail(wo.qguid, $event)" >
-                      <span class="when-opened">
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                      </span>
-                      <span class="when-closed">       
-                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
-                          [[ formatDate(wo.CommitDate, 'ddd MM/DD') ]]   
-                        </span>
-                    </b-btn>
-
-                    <b-collapse :id="'collapse' + wo.qguid">
-                      <b-row>
-                        <b-col>
-                          <p>[[ wo.ItemDescription ]]</p>
-                        </b-col>
-                      </b-row>
-
-                      <b-row>
-                        <b-col>
-                          Sugg. Press: <b>[[ wo.SuggestedPress ]]</b>
-                        </b-col>
-                        <b-col>
-                          <b-form-group label="Planned Press"
-                                        :label-for="'planpress' + [[ wo.qguid ]]">
-                            <b-form-select :id="'planpress' + [[ wo.qguid ]]"
-                                          v-model="wo.PlannedPress" :options="pressCodes" @change="onChangePlan()"
-                                          size="sm"></b-form-select>
-                          </b-form-group>
-                        </b-col>
-                      </b-row>
-
-                      <b-row>
-                        <b-col>
-                          <b-table-simple class="table-borderless table-sm">
-                            <b-tbody>
-
-
-                              <b-tr>
-                                <b-td>
-                                  Commit Date
-                                </b-td>
-                                <b-td>
-
-                                  <b-form-datepicker :id="'dp' + [[ wo.qguid ]]"
-                                                    :date-format-options="{year:undefined, month: '2-digit', day: '2-digit', weekday: 'short' }"
-                                                    v-model="wo.CommitDate"
-                                                    :min="today" @change="onChangePlan()"
-                                                    size="sm" :dark="true" locale="en">
-                                  </b-form-datepicker>
-
-                                </b-td>
-                              </b-tr>
-
-                              <b-tr>
-                                <b-td>
-                                  Press Date
-                                </b-td>
-                                <b-td>
-                                  [[ formatDate(wo.SchedPressDate, 'ddd MM/DD') ]]
-                                </b-td>
-                              </b-tr>
-
-
-                              <b-tr>
-                                <b-td>
-                                  Request Date
-                                </b-td>
-                                <b-td>
-                                  [[ formatDate(wo.RequestDate, 'ddd MM/DD') ]]
-                                </b-td>
-                              </b-tr>
-
-                            </b-tbody>
-                          </b-table-simple>
-                        </b-col>
-                      </b-row>
-
-                      <b-row>
-                        <b-col>
-                          <b-form-group label="Notes" :label-for="'notes' + [[wo.qguid]]">
-                            <b-form-textarea :id="'notes' + [[wo.qguid]]" debounce="1000"
-                                            @change="onChangePlan()"
-                                            v-model="wo.Notes" rows="3" max-rows="3">
-                            </b-form-textarea>
-                          </b-form-group>
-                        </b-col>
-                      </b-row>
-
-                    </b-collapse>
-
-                  </b-card>
-                  <!--/draggable -->
-
-                </div>
-              </b-tab>
-
-              <b-tab title="West Press">
-                <div class="fastscroll" style="height:75vh;" v-swipeleft="prevtab" v-swiperight="nexttab">
-
-                  <h3>West Press</h3>
-
-                  <b-card v-for="wo in data_PressW" :key="wo.qguid">
-
-                    <b-row>
-                      <b-col>
-                        <h4>WO: [[ wo.WONumber ]]</h4>
-                      </b-col>
-                      <b-col>
-                        <h4>SO: [[ wo.LinkedSONumber ]]</h4>
-                      </b-col>
-                    </b-row>
-
-                    <b-row>
-                      <b-col>
-                        <h4>[[ wo.CustomerName ]]</h4>
-                      </b-col>
-                    </b-row>
-
-                    <b-row>
-                      <b-col>
-                        <h5>Item: [[ wo.ItemNumber ]]</h5>
-                      </b-col>
-                    </b-row>
-
-                    <b-row>
-                      <b-col>
-                        <h5>Qty: [[ wo.Quantity ]]<span class='bg-warning' v-if="wo.CurrentShotCount">Qty Remaining:
-                          [[ wo.QtyRemaining ]]</span></h5>
-                      </b-col>
-                    </b-row>
-
-                    <b-btn v-b-toggle="'collapse' + wo.qguid" @click="toggleWODetail(wo.qguid, $event)" >
-                      <span class="when-opened">
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                      </span>
-                      <span class="when-closed">       
-                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
-                          [[ formatDate(wo.CommitDate, 'ddd MM/DD') ]]   
-                        </span>
-                    </b-btn>
-
-                    <b-collapse :id="'collapse' + wo.qguid">
-                      <b-row>
-                        <b-col>
-                          <p>[[ wo.ItemDescription ]]</p>
-                        </b-col>
-                      </b-row>
-
-                      <b-row>
-                        <b-col>
-                          Sugg. Press: <b>[[ wo.SuggestedPress ]]</b>
-                        </b-col>
-                        <b-col>
-                          <b-form-group label="Planned Press"
-                                        :label-for="'planpress' + [[ wo.qguid ]]">
-                            <b-form-select :id="'planpress' + [[ wo.qguid ]]"
-                                          v-model="wo.PlannedPress" :options="pressCodes" @change="onChangePlan()"
-                                          size="sm"></b-form-select>
-                          </b-form-group>
-                        </b-col>
-                      </b-row>
-
-                      <b-row>
-                        <b-col>
-                          <b-table-simple class="table-borderless table-sm">
-                            <b-tbody>
-
-
-                              <b-tr>
-                                <b-td>
-                                  Commit Date
-                                </b-td>
-                                <b-td>
-
-                                  <b-form-datepicker :id="'dp' + [[ wo.qguid ]]"
-                                                    :date-format-options="{year:undefined, month: '2-digit', day: '2-digit', weekday: 'short' }"
-                                                    v-model="wo.CommitDate"
-                                                    :min="today" @change="onChangePlan()"
-                                                    size="sm" :dark="true" locale="en">
-                                  </b-form-datepicker>
-
-                                </b-td>
-                              </b-tr>
-
-                              <b-tr>
-                                <b-td>
-                                  Press Date
-                                </b-td>
-                                <b-td>
-                                  [[ formatDate(wo.SchedPressDate, 'ddd MM/DD') ]]
-                                </b-td>
-                              </b-tr>
-
-
-                              <b-tr>
-                                <b-td>
-                                  Request Date
-                                </b-td>
-                                <b-td>
-                                  [[ formatDate(wo.RequestDate, 'ddd MM/DD') ]]
-                                </b-td>
-                              </b-tr>
-
-                            </b-tbody>
-                          </b-table-simple>
-                        </b-col>
-                      </b-row>
-
-                      <b-row>
-                        <b-col>
-                          <b-form-group label="Notes" :label-for="'notes' + [[wo.qguid]]">
-                            <b-form-textarea :id="'notes' + [[wo.qguid]]" debounce="1000"
-                                            @change="onChangePlan()"
-                                            v-model="wo.Notes" rows="3" max-rows="3">
-                            </b-form-textarea>
-                          </b-form-group>
-                        </b-col>
-                      </b-row>
-
-                    </b-collapse>
-
-                  </b-card>
-                  <!-- /draggable -->
-
-                </div>
-              </b-tab>          
-              
-              <b-tab title="Northwest Press">
-                <div class="fastscroll" style="height:75vh;" v-swipeleft="prevtab" v-swiperight="nexttab">
-
-                  <h3>Northwest Press</h3>
-
-                  <b-card v-for="wo in data_PressNW" :key="wo.qguid">
-
-                    <b-row>
-                      <b-col>
-                        <h4>WO: [[ wo.WONumber ]]</h4>
-                      </b-col>
-                      <b-col>
-                        <h4>SO: [[ wo.LinkedSONumber ]]</h4>
-                      </b-col>
-                    </b-row>
-
-                    <b-row>
-                      <b-col>
-                        <h4>[[ wo.CustomerName ]]</h4>
-                      </b-col>
-                    </b-row>
-
-                    <b-row>
-                      <b-col>
-                        <h5>Item: [[ wo.ItemNumber ]]</h5>
-                      </b-col>
-                    </b-row>
-
-                    <b-row>
-                      <b-col>
-                        <h5>Qty: [[ wo.Quantity ]]<span class='bg-warning' v-if="wo.CurrentShotCount">Qty Remaining:
-                          [[ wo.QtyRemaining ]]</span></h5>
-                      </b-col>
-                    </b-row>
-
-                    <b-btn v-b-toggle="'collapse' + wo.qguid" @click="toggleWODetail(wo.qguid, $event)" >
-                      <span class="when-opened">
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                      </span>
-                      <span class="when-closed">       
-                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
-                          [[ formatDate(wo.CommitDate, 'ddd MM/DD') ]]   
-                        </span>
-                    </b-btn>
-
-                    <b-collapse :id="'collapse' + wo.qguid">
-                      <b-row>
-                        <b-col>
-                          <p>[[ wo.ItemDescription ]]</p>
-                        </b-col>
-                      </b-row>
-
-                      <b-row>
-                        <b-col>
-                          Sugg. Press: <b>[[ wo.SuggestedPress ]]</b>
-                        </b-col>
-                        <b-col>
-                          <b-form-group label="Planned Press"
-                                        :label-for="'planpress' + [[ wo.qguid ]]">
-                            <b-form-select :id="'planpress' + [[ wo.qguid ]]"
-                                          v-model="wo.PlannedPress" :options="pressCodes" @change="onChangePlan()"
-                                          size="sm"></b-form-select>
-                          </b-form-group>
-                        </b-col>
-                      </b-row>
-
-                      <b-row>
-                        <b-col>
-                          <b-table-simple class="table-borderless table-sm">
-                            <b-tbody>
-
-
-                              <b-tr>
-                                <b-td>
-                                  Commit Date
-                                </b-td>
-                                <b-td>
-
-                                  <b-form-datepicker :id="'dp' + [[ wo.qguid ]]"
-                                                    :date-format-options="{year:undefined, month: '2-digit', day: '2-digit', weekday: 'short' }"
-                                                    v-model="wo.CommitDate"
-                                                    :min="today" @change="onChangePlan()"
-                                                    size="sm" :dark="true" locale="en">
-                                  </b-form-datepicker>
-
-                                </b-td>
-                              </b-tr>
-
-                              <b-tr>
-                                <b-td>
-                                  Press Date
-                                </b-td>
-                                <b-td>
-                                  [[ formatDate(wo.SchedPressDate, 'ddd MM/DD') ]]
-                                </b-td>
-                              </b-tr>
-
-
-                              <b-tr>
-                                <b-td>
-                                  Request Date
-                                </b-td>
-                                <b-td>
-                                  [[ formatDate(wo.RequestDate, 'ddd MM/DD') ]]
-                                </b-td>
-                              </b-tr>
-
-                            </b-tbody>
-                          </b-table-simple>
-                        </b-col>
-                      </b-row>
-
-                      <b-row>
-                        <b-col>
-                          <b-form-group label="Notes" :label-for="'notes' + [[wo.qguid]]">
-                            <b-form-textarea :id="'notes' + [[wo.qguid]]" debounce="1000"
-                                            @change="onChangePlan()"
-                                            v-model="wo.Notes" rows="3" max-rows="3">
-                            </b-form-textarea>
-                          </b-form-group>
-                        </b-col>
-                      </b-row>
-
-                    </b-collapse>
-
-                  </b-card>
-                  <!-- /draggable -->
-
-                </div>
-              </b-tab>                 
-            </b-tabs>
+              </div>
 
         </b-col>
 
@@ -726,28 +199,7 @@
           screenfull.request();
         }
       },
-
-      nexttab: function (e) {
-          let thatVue = this;
-
-          thatVue.flushDirt();
-
-          thatVue.currentTabNumber--;
-          if (thatVue.currentTabNumber < 0) {
-              thatVue.currentTabNumber = thatVue.tabCount - 1
-          }
-      },
-
-      prevtab: function (e) {
-          let thatVue = this;
-
-          thatVue.flushDirt();
-
-          thatVue.currentTabNumber++;
-          if (thatVue.currentTabNumber > thatVue.tabCount - 1) {
-              thatVue.currentTabNumber = 0
-          }
-      },      
+  
 
       toggleWODetail: function(qguid, event) {
         // save reference to Vue object
