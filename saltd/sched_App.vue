@@ -8,6 +8,13 @@
         <b-col>
           <b-row>
 
+            <b-form-group label="List name"
+                          :label-for="'ListName'">
+              <b-form-select :id="'listName'"
+                            v-model="curListName" :options="woListNames" @change="fetchWOs()"
+                            size="sm"></b-form-select>
+            </b-form-group>
+
             <b-tabs ref="tabs" v-model="currentTabNumber" @click="flushDirt" active>
               <b-tab title="To Schedule">
                 
@@ -691,16 +698,16 @@
 
         // Dynamic data will be fetched asynchronously
         data_WOs: [],
-        data_PressN: [],
-        data_PressS: [],
-        data_PressW: [],
-        data_PressNW: [],
-        lastFetch_WOs: null,
-        lastFetch_PressN: null,
-        asyncResource_WOs: "saltd/sched_App.vue",
-        asyncCmd_WOs: "fetchWOs",
 
-        pressCodes: ["N", "NW", "S", "W"],
+        lastFetch_WOs: null,
+
+        asyncResource_WOs: 'saltd/sched_App.vue',
+        asyncCmd_WOs: 'fetchWOs',
+
+        pressCodes: ['N', 'NW', 'S', 'W'],
+
+        woListNames: ['Unscheduled', 'N', 'NW', 'S', 'W'],
+        curWOList: 'Unscheduled',
 
         data_ThisWO: {},
         thisWO_CommitDate: null, // object for datepicker
@@ -771,6 +778,7 @@
           url: "/async/" + thatVue.asyncResource_WOs,
           asyncCmd: thatVue.asyncCmd_WOs,
           lastFetchDate: thatVue.lastFetch_WOs,
+          data: {listName: curWOList}, //note: passes to @FormParams
 
           onResponse: function (rd, response) {
             // rd contains the response data split into an object (of name/value pairs)
@@ -829,137 +837,6 @@
           
             }
 
-            thisObj = {};
-            thisData = [];
-            thisFetchDate = null;
-
-            //  PressN
-            if (rd["PressN"]) {
-              thisObj = JSON.parse(rd["PressN"])[0];
-              thisData = thisObj["JSONData"];
-              thisFetchDate = thisObj["FetchDate"];
-
-              if (thisData) {
-                thatVue.data_PressN = thatVue.$th.merge(
-                        // string (optional): key field name with unique values to merge on
-                        "qguid",
-                        // string (optional): key value to exclude from merge (i.e. currently-displayed rows)
-                        //'someIDValue'
-                        thatVue.data_PressN,
-                        thisData
-                );
-              }
-              thatVue.data_PressN = thatVue.$th.sortArray(
-                      thatVue.data_PressN,
-                      "Seq",
-                      false //false=ascending, true=descending
-              );
-
-              if (thatVue.lastFetch_WOs) {
-                thatVue.lastFetch_PressN = thisFetchDate;
-              } else {
-                thatVue.lastFetch_PressN = "1/1/1900";
-              }
-            }
-
-            thisObj = {};
-            thisData = [];
-            thisFetchDate = null;
-
-            //  PressS
-            if (rd["PressS"]) {
-              thisObj = JSON.parse(rd["PressS"])[0];
-              thisData = thisObj["JSONData"];
-              thisFetchDate = thisObj["FetchDate"];
-
-              if (thisData) {
-                thatVue.data_PressS = thatVue.$th.merge(
-                        // string (optional): key field name with unique values to merge on
-                        "qguid",
-                        // string (optional): key value to exclude from merge (i.e. currently-displayed rows)
-                        //'someIDValue'
-                        thatVue.data_PressS,
-                        thisData
-                );
-              }
-              thatVue.data_WOs = thatVue.$th.sortArray(
-                      thatVue.data_PressS,
-                      "Seq",
-                      false //false=ascending, true=descending
-              );
-
-              if (thatVue.lastFetch_PressS) {
-                thatVue.lastFetch_PressS = thisFetchDate;
-              } else {
-                thatVue.lastFetch_PressS = "1/1/1900";
-              }
-            }
-
-            thisObj = {};
-            thisData = [];
-            thisFetchDate = null;
-
-            //  PressNW
-            if (rd["PressNW"]) {
-              thisObj = JSON.parse(rd["PressNW"])[0];
-              thisData = thisObj["JSONData"];
-              thisFetchDate = thisObj["FetchDate"];
-
-              if (thisData) {
-                thatVue.data_PressNW = thatVue.$th.merge(
-                        // string (optional): key field name with unique values to merge on
-                        "qguid",
-                        // string (optional): key value to exclude from merge (i.e. currently-displayed rows)
-                        //'someIDValue'
-                        thatVue.data_PressNW,
-                        thisData
-                );
-              }
-              thatVue.data_WOs = thatVue.$th.sortArray(
-                      thatVue.data_PressNW,
-                      "Seq",
-                      false //false=ascending, true=descending
-              );
-
-              if (thatVue.lastFetch_PressNW) {
-                thatVue.lastFetch_PressS = thisFetchDate;
-              } else {
-                thatVue.lastFetch_PressS = "1/1/1900";
-              }
-            }
-
-            thisObj = {};
-            thisData = [];
-            thisFetchDate = null;
-
-            //  PressW
-            if (rd["PressW"]) {
-              thisObj = JSON.parse(rd["PressW"])[0];
-              thisData = thisObj["JSONData"];
-              thisFetchDate = thisObj["FetchDate"];
-
-              if (thisData) {
-                thatVue.data_PressW = thatVue.$th.merge(
-                        // string (optional): key field name with unique values to merge on
-                        "qguid",
-                        // string (optional): key value to exclude from merge (i.e. currently-displayed rows)
-                        //'someIDValue'
-                        thatVue.data_PressW,
-                        thisData
-                );
-              }
-              thatVue.data_WOs = thatVue.$th.sortArray(
-                      thatVue.data_PressW,
-                      "Seq",
-                      false //false=ascending, true=descending
-              );
-
-              if (thatVue.lastFetch_PressW) {
-                thatVue.lastFetch_PressS = thisFetchDate;
-              } else {
-                thatVue.lastFetch_PressS = "1/1/1900";
-              }
-            }
           },
         });
       },
