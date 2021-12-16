@@ -6,9 +6,7 @@
       <b-row no-gutters fluid>
 
         <b-col>
-          <b-row>
-
-            <b-form-group label="List name"
+            <b-form-group label="Press"
                           :label-for="'ListName'">
               <b-form-select :id="'listName'"
                             v-model="curWOList" :options="woListNames" @change="switchWOList()"
@@ -204,7 +202,7 @@
         let thatVue = this;        
         
         thatVue.data_WOs = [];
-        thatVue.lastFetch_WOs = null;
+        thatVue.lastFetch_WOs = null;:
         thatVue.fetchWOs();
       },
 
