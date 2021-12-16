@@ -204,6 +204,7 @@
         let thatVue = this;        
         
         thatVue.data_WOs = [];
+        thatVue.lastFetch_WOs = null;
         thatVue.fetchWOs();
       },
 
