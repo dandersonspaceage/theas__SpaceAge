@@ -6,8 +6,6 @@
       <b-row no-gutters fluid>
 
         <b-col>
-            
-            <b-button @click="testMe()">Test</b-button>
 
             <b-form-group label="Press"
                           :label-for="'ListName'">
