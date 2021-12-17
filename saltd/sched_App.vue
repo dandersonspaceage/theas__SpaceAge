@@ -71,7 +71,7 @@
                         <b-form-group label="Planned Press"
                                       :label-for="'planpress' + [[ wo.qguid ]]">
                           <b-form-select :id="'planpress' + [[ wo.qguid ]]"
-                                        v-model="wo.PlannedPress" :options="pressCodes" @change="onChangePlan()"
+                                        v-model="wo.PlannedPress" :options="pressCodes" @change="onChangePlan([[wo.qguid ]], $event)"
                                         size="sm"></b-form-select>
                         </b-form-group>
                       </b-col>
@@ -92,7 +92,7 @@
                                 <b-form-datepicker :id="'dp' + [[ wo.qguid ]]"
                                                   :date-format-options="{year:undefined, month: '2-digit', day: '2-digit', weekday: 'short' }"
                                                   v-model="wo.CommitDate"
-                                                  :min="today" @input="onChangePlan()"
+                                                  :min="today" @input="onChangePlan([[ wo.qguid ]], $event)"
                                                   size="sm" :dark="true" locale="en">
                                 </b-form-datepicker>
 
@@ -321,13 +321,13 @@
       },
     
 
-      onChangePlan: function () {
+      onChangePlan: function (qguid, event) {
           let thatVue = this;
           //thatVue.data_ThisWO.CommitDate = thatVue.thisWO_CommitDate.toISOString();
-          thatVue.saveWO();          
+          thatVue.saveWO(qguid, event);          
       },
 
-      saveWO: function () {
+      saveWO: function (qguid, event) {
           // save reference to Vue object that can be used in async callbacks
           var thatVue = this;
 
@@ -357,14 +357,6 @@
                     thatVue.data_ThisWO = {};                    
                   }
 
-
-                  //if (response.data && response.data.length > 0 && response.data[0].JSONData) {
-                  //    thatVue.dataPatients = thatVue.th.merge(thatVue.dataPatients, response.data[0].JSONData);
-                  //    thatVue.fetchedPatients = thisObj['FetchDate'];
-
-                      // patients were updated, so rebuild name-value list
-                  //    thatVue.nvPatients = thatVue.th.arrayObjToNV(thatVue.dataPatients, 'qguid', 'PatientName');
-                  //}
               }
 
 
