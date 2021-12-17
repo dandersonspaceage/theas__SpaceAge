@@ -339,11 +339,8 @@
                         thatVue.data_ThisWO = {};                    
                       }
                   }
-
-
               }
-
-
+              
           });
       },
 
