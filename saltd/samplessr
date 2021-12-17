@@ -59,7 +59,10 @@ $thInclude_incBodyEnd
 <script>
 
     $(document).ready(function() {
-
+      if (!th.haveError()) {
+        th.raiseError('No error, so here is a fake one');
+      }
+      
 //th.raiseError('Sample Error');
 
         th.get('theas:doResetPTL', 0);
