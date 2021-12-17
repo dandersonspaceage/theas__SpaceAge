@@ -13,6 +13,8 @@
                             size="sm"></b-form-select>
             </b-form-group>
 
+            <b-button @click="testMe()">Test</b-button>
+
             <h3>[[ curWOList ]]</h3>
               <div class="fastscroll" style="height:75vh;">
 
@@ -197,7 +199,11 @@
           screenfull.request();
         }
       },
-  
+
+      testMe: function() {
+        thatVue.$th.raiseError('Here is a fake error')
+      },
+
       switchWOList: function() {
         let thatVue = this;        
         
@@ -340,7 +346,7 @@
                       }
                   }
               }
-              
+
           });
       },
 
