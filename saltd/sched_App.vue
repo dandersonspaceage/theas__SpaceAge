@@ -13,7 +13,7 @@
                             size="sm"></b-form-select>
             </b-form-group>
 
-            <b-button @click="testMe()">Test</b-button>
+            <b-button v-b-modal.modal-1>Test</b-button>
 
             <h3>[[ curWOList ]]</h3>
               <div class="fastscroll" style="height:75vh;">
@@ -148,8 +148,10 @@
 
     <b-container>
 
+  <b-modal id="modal-1" title="BootstrapVue">
+    <p class="my-4">Hello from modal!</p>
+  </b-modal>
 
-    <modal v-if="showModal" @close="showModal = false">
   </div>
 
 </template>
