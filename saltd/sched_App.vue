@@ -215,7 +215,7 @@
 
       testMe: function() {
         let thatVue = this;
-        thatVue.th.showModal('ABCDEFG');
+        thatVue.$th.showModal('ABCDEFG');
         //thatVue.$bvModal.show('thModal');
 
         //thatVue.$th.showModal('Here is a fake error')
