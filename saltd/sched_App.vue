@@ -331,6 +331,7 @@
           // save reference to Vue object that can be used in async callbacks
           let thatVue = this;
 
+          var qguid = thatVue.data_ThisWO.qguid;
 
           thatVue.$th.sendAsync({
               url: "/async/" + thatVue.asyncResource_WOs,
@@ -347,7 +348,7 @@
 
                   let thatVue = this;                  
 
-                  let thisIndex = thatVue.data_WOs.findIndex(o => o.qguid === thatVue.data_thisWO.qguid)
+                  let thisIndex = thatVue.data_WOs.findIndex(o => o.qguid === qguid)
                   if (thisIndex >= 0 && thatVue.curWOList == 'Unscheduled' && thatVue.data_ThisWO.CommitDate && thatVue.data_ThisWO.PlannedPres) {
                     delete thatVue.data_WOs[thisIndex];
                   }
