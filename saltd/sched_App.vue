@@ -149,15 +149,15 @@
 
     <b-container>
 
-  <b-modal id="bv-modal-example" hide-footer>
-    <template #modal-title>
-      Using <code>$bvModal</code> Methods
-    </template>
-    <div class="d-block text-center">
-      <h3>Hello From This Modal!</h3>
-    </div>
-    <b-button class="mt-3" block @click="$bvModal.hide('bv-modal-example')">Close Me</b-button>
-  </b-modal>
+    <b-modal id="thModal" hide-footer>
+      <template #modal-title>
+        Using <code>$bvModal</code> Methods
+      </template>
+      <div class="d-block text-center">
+        <h3>Hello From This Modal!</h3>
+      </div>
+      <b-button class="mt-3" block @click="$bvModal.hide('thModal')">Close Me</b-button>
+    </b-modal>
 
   </div>
 
@@ -215,7 +215,7 @@
 
       testMe: function() {
         let thatVue = this;
-        thatVue.$bvModal.show('bv-modal-example');
+        thatVue.$bvModal.show('thModal');
 
         //thatVue.$th.showModal('Here is a fake error')
       },
