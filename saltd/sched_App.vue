@@ -211,21 +211,11 @@
         let thatVue = this;
         
         // find the corresponding WO  https://stackoverflow.com/questions/12462318/find-a-value-in-an-array-of-objects-in-javascript
-        thatVue.data_ThisWO = thatVue.data_WOs.find(o => o.qguid === qguid);           
-      },
-
-      flushDirt: function () {
-          let thatVue = this;
-/*
-          if (thatVue.curDirtyComponent && thatVue.curDirtyComponent != {} && thatVue.curDirtyComponent.qguid) {
-              thatVue.onActivityChanged(
-                  thatVue.curDirtyComponent.isNote === true ? thatVue.curARNotes[thatVue.curDirtyComponent.mcode] : thatVue.curAR[thatVue.curDirtyComponent.mcode],
-                  thatVue.curDirtyComponent.qguid,
-                  thatVue.curDirtyComponent.isNote
-              );
-          }
-*/
-      },      
+        thatVue.data_ThisWO = thatVue.data_WOs.find(o => o.qguid === qguid);
+        //Note:  data_thisWO gets set to the most recently-expanded WO, but that is not
+        //a guarantee that data_thisWO is the only one that may be edited by the user (as
+        //multiple WO's could be expanded)
+      },     
 
       fetchWOs: function () {
         // save reference to Vue object
@@ -281,17 +271,10 @@
                 thatVue.lastFetch_WOs = "1/1/1900";
               }
 
-              /* Copy the current date over to the datepicker's value object */
               if (thatVue && thatVue.data_thisWO && thatVue.data_thisWO.qguid) {
-                thatVue.data_ThisWO = thatVue.data_WOs.find(o => o.qguid === thatVue.data_thisWO.qguid);                
-                thatVue.thisWO_CommitDate = thatVue.data_ThisWO.CommitDate;                
-              }
-              else {
-                thatVue.thisWO_CommitDate = null;
+                thatVue.data_ThisWO = thatVue.data_WOs.find(o => o.qguid === thatVue.data_thisWO.qguid);                             
               }
 
- 
-          
             }
 
           },
@@ -322,8 +305,7 @@
     
 
       onChangePlan: function (qguid, event) {
-          let thatVue = this;
-          //thatVue.data_ThisWO.CommitDate = thatVue.thisWO_CommitDate.toISOString();
+          let thatVue = this;                    
           thatVue.saveWO(qguid, event);          
       },
 
@@ -331,12 +313,10 @@
           // save reference to Vue object that can be used in async callbacks
           var thatVue = this;
 
-          var qguid = thatVue.data_ThisWO.qguid;
-
           thatVue.$th.sendAsync({
               url: "/async/" + thatVue.asyncResource_WOs,
               asyncCmd: 'updateWO',
-              data: {WO: thatVue.data_ThisWO}, //note: passes to @FormParams
+              data: {WO: qguid}, //note: passes to @FormParams
 
               onResponse: function (rd, response) {
                   // rd contains the response data split into an object (of name/value pairs)
@@ -347,15 +327,19 @@
                   // the raw data that was received.              
 
                   let thisIndex = thatVue.data_WOs.findIndex(o => o.qguid === qguid)
-                  if ((thisIndex >= 0) && 
+                  if (thisIndex >= 0) {
+                    thatVue.data_ThisWO = thatVue.data_WOs[thisIndex];
+
+                    if
                       (
-                      (thatVue.curWOList == 'Unscheduled' && thatVue.data_ThisWO.CommitDate && thatVue.data_ThisWO.PlannedPress) ||
-                      (thatVue.curWOList != 'Unscheduled' && thatVue.curWOList != thatVue.data_ThisWO.PlannedPress)
-                      )
-                    ){
-                    thatVue.$delete(thatVue.data_WOs, thisIndex);
-                    thatVue.data_ThisWO = {};                    
+                        (thatVue.curWOList == 'Unscheduled' && thatVue.data_ThisWO.CommitDate && thatVue.data_ThisWO.PlannedPress) ||
+                        (thatVue.curWOList != 'Unscheduled' && thatVue.curWOList != thatVue.data_ThisWO.PlannedPress)
+                      ){
+                        thatVue.$delete(thatVue.data_WOs, thisIndex);
+                        thatVue.data_ThisWO = {};                    
+                      }
                   }
+
 
               }
 
