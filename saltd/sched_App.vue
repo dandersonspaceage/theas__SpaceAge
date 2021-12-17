@@ -201,6 +201,8 @@
       },
 
       testMe: function() {
+        let thatVue = this;
+                
         thatVue.$th.raiseError('Here is a fake error')
       },
 
