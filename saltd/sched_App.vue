@@ -71,7 +71,7 @@
                         <b-form-group label="Planned Press"
                                       :label-for="'planpress' + [[ wo.qguid ]]">
                           <b-form-select :id="'planpress' + [[ wo.qguid ]]"
-                                        v-model="wo.PlannedPress" :options="pressCodes" @change="onChangePlan([[wo.qguid ]], $event)"
+                                        v-model="wo.PlannedPress" :options="pressCodes" @change="onChangePlan(wo.qguid, $event)"
                                         size="sm"></b-form-select>
                         </b-form-group>
                       </b-col>
@@ -92,7 +92,7 @@
                                 <b-form-datepicker :id="'dp' + [[ wo.qguid ]]"
                                                   :date-format-options="{year:undefined, month: '2-digit', day: '2-digit', weekday: 'short' }"
                                                   v-model="wo.CommitDate"
-                                                  :min="today" @input="onChangePlan([[ wo.qguid ]], $event)"
+                                                  :min="today" @input="onChangePlan(wo.qguid, $event)"
                                                   size="sm" :dark="true" locale="en">
                                 </b-form-datepicker>
 
