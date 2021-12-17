@@ -347,7 +347,7 @@
                   // the raw data that was received.              
 
                   let thisIndex = thatVue.data_WOs.findIndex(o => o.qguid === qguid)
-                  if (thisIndex >= 0 && thatVue.curWOList == 'Unscheduled' && thatVue.data_ThisWO.CommitDate && thatVue.data_ThisWO.PlannedPres) {
+                  if (thisIndex >= 0 && thatVue.curWOList == 'Unscheduled' && thatVue.data_ThisWO.CommitDate && thatVue.data_ThisWO.PlannedPress) {
                     delete thatVue.data_WOs[thisIndex];
                     thatVue.data_ThisWO = {};                    
                   }
