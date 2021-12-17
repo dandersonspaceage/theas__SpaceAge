@@ -60,7 +60,7 @@ $thInclude_incBodyEnd
 
     $(document).ready(function() {
 
-th.raiseError('Forgot Error');
+//th.raiseError('Sample Error');
 
         th.get('theas:doResetPTL', 0);
         th.get('theas:doCompleteStepGUID', '');
