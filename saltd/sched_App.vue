@@ -349,9 +349,9 @@
                   let thisIndex = thatVue.data_WOs.findIndex(o => o.qguid === qguid)
                   if (thisIndex >= 0 && thatVue.curWOList == 'Unscheduled' && thatVue.data_ThisWO.CommitDate && thatVue.data_ThisWO.PlannedPres) {
                     delete thatVue.data_WOs[thisIndex];
+                    thatVue.data_ThisWO = {};                    
                   }
 
-                  thatVue.data_ThisWO = {};
 
                   //if (response.data && response.data.length > 0 && response.data[0].JSONData) {
                   //    thatVue.dataPatients = thatVue.th.merge(thatVue.dataPatients, response.data[0].JSONData);
