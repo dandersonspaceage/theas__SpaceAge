@@ -6,6 +6,11 @@
       <b-row no-gutters fluid>
 
         <b-col>
+
+            <b-modal id="modal-1" title="BootstrapVue">
+    <p class="my-4">Hello from modal!</p>
+  </b-modal>
+  
             <b-form-group label="Press"
                           :label-for="'ListName'">
               <b-form-select :id="'listName'"
@@ -146,10 +151,6 @@
 
       </b-row>
 
-  <b-modal id="modal-1" title="BootstrapVue">
-    <p class="my-4">Hello from modal!</p>
-  </b-modal>
-  
     <b-container>
 
 
