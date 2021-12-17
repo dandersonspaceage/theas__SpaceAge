@@ -329,7 +329,7 @@
 
       saveWO: function () {
           // save reference to Vue object that can be used in async callbacks
-          let thatVue = this;
+          var thatVue = this;
 
           var qguid = thatVue.data_ThisWO.qguid;
 
@@ -344,9 +344,7 @@
                   // pairs, or as a JSON strong)
 
                   // response contains the complete response object, in which .data contains
-                  // the raw data that was received.
-
-                  let thatVue = this;                  
+                  // the raw data that was received.              
 
                   let thisIndex = thatVue.data_WOs.findIndex(o => o.qguid === qguid)
                   if (thisIndex >= 0 && thatVue.curWOList == 'Unscheduled' && thatVue.data_ThisWO.CommitDate && thatVue.data_ThisWO.PlannedPres) {
