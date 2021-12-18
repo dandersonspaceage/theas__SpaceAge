@@ -265,11 +265,17 @@
         thatVue.incLoading();
         this.$mount();        
 
-        thatVue.data_WOs = [];
-        thatVue.lastFetch_WOs = null;
-        thatVue.fetchWOs();
+        setTimeout(
+          () => {
+                thatVue.data_WOs = [];
+                thatVue.lastFetch_WOs = null;
+                thatVue.fetchWOs();
 
-        thatVue.decLoading();        
+                thatVue.decLoading();  
+          },
+          500
+        );
+     
        
       },
 
