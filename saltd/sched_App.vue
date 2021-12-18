@@ -211,7 +211,9 @@
 
     computed: {
       curCursor: function () {
-        return loadingCount > 0 ? 'progress' : 'default';
+        let thatVue = this;   
+
+        return thatVue.loadingCount > 0 ? 'progress' : 'default';
       }
     },
     
