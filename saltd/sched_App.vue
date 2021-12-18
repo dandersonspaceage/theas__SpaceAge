@@ -11,13 +11,6 @@
 
         <b-col>
 
-
-<select :value="curWOList">
-  <option v-for="option in woListNames" :key="option" :value="option">
-    [[ option]]
-  </option>
-</select>
-
             <b-form-group label="Press"
                           :label-for="'ListName'">
               <b-form-select :id="'listName'"
@@ -80,7 +73,12 @@
                         Sugg. Press: <b>[[ wo.SuggestedPress ]]</b>
                       </b-col>
                       <b-col>
-Press select goes here
+                        <b-form-group label="Planned Press"
+                                      :label-for="'planpress' + [[ wo.qguid ]]">
+                          <b-form-select :id="'planpress' + [[ wo.qguid ]]"
+                                        v-model="wo.PlannedPress" :options="pressCodes" @change="onChangePlan(wo.qguid, $event)"
+                                        size="sm"></b-form-select>
+                        </b-form-group>
                       </b-col>
                     </b-row>
 
@@ -96,7 +94,12 @@ Press select goes here
                               </b-td>
                               <b-td>
 
-Date goes here
+                                <b-form-datepicker :id="'dp' + [[ wo.qguid ]]"
+                                                  :date-format-options="{year:undefined, month: '2-digit', day: '2-digit', weekday: 'short' }"
+                                                  v-model="wo.CommitDate"
+                                                  :min="today" @input="onChangePlan(wo.qguid, $event)"
+                                                  size="sm" :dark="true" locale="en">
+                                </b-form-datepicker>
 
                               </b-td>
                             </b-tr>
@@ -127,8 +130,12 @@ Date goes here
 
                     <b-row>
                       <b-col>
-Notes go here                        
-
+                        <b-form-group label="Notes" :label-for="'notes' + [[wo.qguid]]">
+                          <b-form-textarea :id="'notes' + [[wo.qguid]]" debounce="1000"
+                                          @change="onChangePlan()"
+                                          v-model="wo.Notes" rows="3" max-rows="3">
+                          </b-form-textarea>
+                        </b-form-group>
                       </b-col>
                     </b-row>
 
