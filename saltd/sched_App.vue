@@ -240,7 +240,8 @@
         let thatVue = this;        
 
         thatVue.loadingCount = thatVue.loadingCount + 1;
-        this.$forceUpdate();
+        
+        //this.$forceUpdate();
 
       },
 
@@ -262,6 +263,7 @@
         let thatVue = this;             
         
         thatVue.incLoading();
+        this.$mount();        
 
         thatVue.data_WOs = [];
         thatVue.lastFetch_WOs = null;
