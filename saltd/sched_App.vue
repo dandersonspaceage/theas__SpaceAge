@@ -6,10 +6,10 @@
       <b-row no-gutters fluid>
 
         <div v-if="busyCount">
-          <emp>Loading...</emp>
+          <h5>Loading...</h5>
         </div>
         <div v-else>
-          &nbsp;
+          <h5>&nbsp;</h5>
         </div>
 
         <b-col>
@@ -251,6 +251,7 @@
 
         if (thatVue.busyCount <= 0) {
           thatVue.curCursor = 'default';
+          document.body.style.cursor = 'default';
         }
       },      
 
@@ -276,6 +277,8 @@
       fetchWOs: function () {
         // save reference to Vue object
         let thatVue = this;
+
+        thatVue.incBusy();        
 
         thatVue.$th.sendAsync({
           url: "/async/" + thatVue.asyncResource_WOs,
@@ -332,13 +335,15 @@
               }
 
             }
-
+            thatVue.decBusy();
           },
         });
       },
 
       fetchData: function (forceOnError) {
         let thatVue = this;
+
+        thatVue.incBusy();
 
         // clear out any old, stuck, in-progress async requests
         thatVue.$th.cancelAsync(moment().subtract(30, "s")); //cancel any request started more than 30 seconds ago
@@ -357,6 +362,8 @@
             // can add additional fetches here
           }
         }
+
+        thatVue.decBusy();        
       },
     
 
