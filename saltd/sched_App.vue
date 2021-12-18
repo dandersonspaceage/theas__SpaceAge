@@ -105,7 +105,7 @@
 
                             <b-tr>
                               <b-td>
-                                Press Date
+                                Sched. Press Date
                               </b-td>
                               <b-td>
                                 [[ formatDate(wo.SchedPressDate, 'ddd MM/DD') ]]
