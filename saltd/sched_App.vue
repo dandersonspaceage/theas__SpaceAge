@@ -222,10 +222,14 @@
 
       switchWOList: function() {
         let thatVue = this;        
+
+        thatVue.curCursor = 'progress';          
         
         thatVue.data_WOs = [];
         thatVue.lastFetch_WOs = null;
         thatVue.fetchWOs();
+
+        thatVue.curCursor = 'default';          
       },
 
       toggleWODetail: function(qguid, event) {
