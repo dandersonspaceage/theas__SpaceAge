@@ -223,7 +223,7 @@
       switchWOList: function() {
         let thatVue = this;        
 
-        thatVue.curCursor = 'progress';          
+        document.body.style.cursor = 'progress';         
         
         thatVue.data_WOs = [];
         thatVue.lastFetch_WOs = null;
@@ -303,6 +303,7 @@
               }
 
               thatVue.curCursor = 'default';
+              document.body.style.cursor = 'default';               
 
             }
 
