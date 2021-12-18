@@ -184,7 +184,7 @@
         data_WOs: [],
 
         lastFetch_WOs: null,
-        curCursor = 'default',
+        curCursor: 'default',
 
         asyncResource_WOs: 'saltd/sched_App.vue',
         asyncCmd_WOs: 'fetchWOs',
