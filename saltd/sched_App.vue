@@ -1,12 +1,15 @@
 <template>
   <div v-bind:style="{ cursor: curCursor }">
 
-    <b-container id="NewPage1_Appvue">
+<div v-if="loading">
+   Loading...
+</div>
+
+    <b-container id="NewPage1_Appvue">      
 
       <b-row no-gutters fluid>
 
         <b-col>
-
             <b-form-group label="Press"
                           :label-for="'ListName'">
               <b-form-select :id="'listName'"
@@ -184,7 +187,7 @@
         data_WOs: [],
 
         lastFetch_WOs: null,
-        curCursor: 'default',
+        loading: true,
 
         asyncResource_WOs: 'saltd/sched_App.vue',
         asyncCmd_WOs: 'fetchWOs',
@@ -206,6 +209,13 @@
       this.fetchData(true);        
     },
 
+    computed: function() {
+      curCursor: function() {
+        return loading ? 'progress' : 'default';
+      }
+    },
+    
+
     methods: {
       fullscreen: function () {
         if (screenfull.isEnabled) {
@@ -222,9 +232,7 @@
       },
 
       switchWOList: function() {
-        let thatVue = this;        
-
-        document.body.style.cursor = 'progress';         
+        let thatVue = this;             
         
         thatVue.data_WOs = [];
         thatVue.lastFetch_WOs = null;
@@ -245,9 +253,7 @@
 
       fetchWOs: function () {
         // save reference to Vue object
-        let thatVue = this;
-
-        thatVue.curCursor = 'progress';        
+        let thatVue = this;     
 
         thatVue.$th.sendAsync({
           url: "/async/" + thatVue.asyncResource_WOs,
@@ -301,12 +307,11 @@
 
               if (thatVue && thatVue.data_thisWO && thatVue.data_thisWO.qguid) {
                 thatVue.data_ThisWO = thatVue.data_WOs.find(o => o.qguid === thatVue.data_thisWO.qguid);                             
-              }
-
-              thatVue.curCursor = 'default';
-              document.body.style.cursor = 'default';               
+              }       
 
             }
+
+            thatVue.loading = false;
 
           },
         });
@@ -331,10 +336,9 @@
             thatVue.fetchWOs();
             // can add additional fetches here
           }
-        }
-
-        thatVue.curCursor = 'default';
-        document.body.style.cursor = 'default';           
+        }  
+        
+        thatVue.loading = false;        
 
       },
     
