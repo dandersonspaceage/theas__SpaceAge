@@ -1,11 +1,7 @@
 <template>
-  <div v-bind:style="{ cursor: curCursor }">
+  <div>
 
-<div v-if="loadingCount">
-   Loading...
-</div>
-
-    <b-container id="NewPage1_Appvue">      
+    <b-container id="NewPage1_Appvue">
 
       <b-row no-gutters fluid>
 
@@ -14,7 +10,7 @@
             <b-form-group label="Press"
                           :label-for="'ListName'">
               <b-form-select :id="'listName'"
-                            v-model="curWOList" :options="woListNames" @model.self="switchWOList()"
+                            v-model="curWOList" :options="woListNames" @change="switchWOList()"
                             size="sm"></b-form-select>
             </b-form-group>
 
@@ -183,7 +179,6 @@
         overlayVisible: false,
 
         showModal: false,
-        loadingCount: 1,
 
         // Dynamic data will be fetched asynchronously
         data_WOs: [],
@@ -205,48 +200,15 @@
 
     // method executed when the Vue object is created
     created: function () {
-
       // perform the initial fetch of data
-      this.fetchData(true);        
+      this.fetchData(true);
     },
-
-
-    // method executed when the Vue object is mounted
-    mounted: function () {
-
-      // decrement loadingCount
-      this.decLoading();    
-
-      // set cursor to default
-      document.body.style.cursor = 'default';          
-    },
-
-
-    computed: {
-      curCursor: function () {
-
-        return this.loadingCount > 0 ? 'progress' : 'default';
-      }
-    },
-    
 
     methods: {
       fullscreen: function () {
         if (screenfull.isEnabled) {
           screenfull.request();
         }
-      },
-
-      incLoading: function() {
-        let thatVue = this;        
-
-        thatVue.loadingCount = thatVue.loadingCount + 1;
-      },
-
-      decLoading: function() {
-        let thatVue = this;
-        
-        thatVue.loadingCount = thatVue.loadingCount - 1;
       },
 
       testMe: function() {
@@ -258,22 +220,11 @@
       },
 
       switchWOList: function() {
-        let thatVue = this;             
+        let thatVue = this;        
         
-        thatVue.incLoading();       
-
-        setTimeout(
-          () => {
-                thatVue.data_WOs = [];
-                thatVue.lastFetch_WOs = null;
-                thatVue.fetchWOs();
-
-                thatVue.decLoading();  
-          },
-          100
-        );
-     
-       
+        thatVue.data_WOs = [];
+        thatVue.lastFetch_WOs = null;
+        thatVue.fetchWOs();
       },
 
       toggleWODetail: function(qguid, event) {
@@ -289,9 +240,7 @@
 
       fetchWOs: function () {
         // save reference to Vue object
-        let thatVue = this;     
-
-        thatVue.incLoading();
+        let thatVue = this;
 
         thatVue.$th.sendAsync({
           url: "/async/" + thatVue.asyncResource_WOs,
@@ -345,11 +294,9 @@
 
               if (thatVue && thatVue.data_thisWO && thatVue.data_thisWO.qguid) {
                 thatVue.data_ThisWO = thatVue.data_WOs.find(o => o.qguid === thatVue.data_thisWO.qguid);                             
-              }       
+              }
 
             }
-
-            thatVue.decLoading();
 
           },
         });
@@ -370,16 +317,11 @@
             thatVue.enableFetching = false;
           }
 
-          thatVue.incLoading();
-
           if (thatVue.enableFetching === true) {
             thatVue.fetchWOs();
             // can add additional fetches here
           }
-
-          thatVue.decLoading();          
-        }               
-
+        }
       },
     
 
