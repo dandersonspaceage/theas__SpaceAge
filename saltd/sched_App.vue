@@ -1,7 +1,7 @@
 <template>
   <div v-bind:style="{ cursor: curCursor }">
 
-<div v-if="loadingCount > 0">
+<div v-if="loadingCount">
    Loading...
 </div>
 
