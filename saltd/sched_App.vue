@@ -240,6 +240,8 @@
         let thatVue = this;        
 
         thatVue.loadingCount = thatVue.loadingCount + 1;
+        this.$forceUpdate();
+
       },
 
       decLoading: function() {
