@@ -11,7 +11,7 @@
 
         <b-col>
 
-<select v-model="curWOList">
+<select>
   <option v-for="option in woListNames" :key="option" :value="option">
     [[ option]]
   </option>
