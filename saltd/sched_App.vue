@@ -12,7 +12,7 @@
         <b-col>
 
 <select v-model="curWOList">
-  <option v-for="option in woListNames" :key="option" :value="option" @change="switchWOList()">
+  <option v-for="option in woListNames" :key="option" :value="option" @change.stop="switchWOList()">
     [[ option]]
   </option>
 </select>
@@ -20,7 +20,7 @@
             <b-form-group label="Press"
                           :label-for="'ListName'">
               <b-form-select :id="'listName'"
-                            v-model="curWOList" :options="woListNames" @input="switchWOList()"
+                            v-model="curWOList" :options="woListNames" @model="switchWOList()"
                             size="sm"></b-form-select>
             </b-form-group>
 
