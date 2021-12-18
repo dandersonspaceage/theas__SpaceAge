@@ -261,9 +261,13 @@
       switchWOList: function() {
         let thatVue = this;             
         
+        thatVue.incLoading();
+
         thatVue.data_WOs = [];
         thatVue.lastFetch_WOs = null;
         thatVue.fetchWOs();
+
+        thatVue.decLoading();        
        
       },
 
