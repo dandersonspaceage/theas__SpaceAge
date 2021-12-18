@@ -1,7 +1,7 @@
 <template>
   <div v-bind:style="{ cursor: curCursor }">
 
-<div v-if="loading">
+<div v-if="loadingCount > 0">
    Loading...
 </div>
 
@@ -182,12 +182,12 @@
         overlayVisible: false,
 
         showModal: false,
+        loadingCount: 1,
 
         // Dynamic data will be fetched asynchronously
         data_WOs: [],
 
         lastFetch_WOs: null,
-        loading: true,
 
         asyncResource_WOs: 'saltd/sched_App.vue',
         asyncCmd_WOs: 'fetchWOs',
@@ -211,7 +211,7 @@
 
     computed: {
       curCursor: function () {
-        return loading ? 'progress' : 'default';
+        return loadingCount > 0 ? 'progress' : 'default';
       }
     },
     
@@ -221,6 +221,18 @@
         if (screenfull.isEnabled) {
           screenfull.request();
         }
+      },
+
+      incLoading: function() {
+        let thatVue = this;        
+
+        thatVue.loadingCount = thatVue.loadingCount + 1;
+      },
+
+      decLoading: function() {
+        let thatVue = this;
+        
+        thatVue.loadingCount = thatVue.loadingCount - 1;
       },
 
       testMe: function() {
@@ -254,6 +266,8 @@
       fetchWOs: function () {
         // save reference to Vue object
         let thatVue = this;     
+
+        thatVue.incLoading();
 
         thatVue.$th.sendAsync({
           url: "/async/" + thatVue.asyncResource_WOs,
@@ -311,7 +325,7 @@
 
             }
 
-            thatVue.loading = false;
+            thatVue.decLoading();
 
           },
         });
@@ -332,13 +346,15 @@
             thatVue.enableFetching = false;
           }
 
+          thatVue.incLoading();
+
           if (thatVue.enableFetching === true) {
             thatVue.fetchWOs();
             // can add additional fetches here
           }
-        }  
-        
-        thatVue.loading = false;        
+
+          thatVue.decLoading();          
+        }               
 
       },
     
