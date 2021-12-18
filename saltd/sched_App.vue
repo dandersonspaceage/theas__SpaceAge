@@ -14,7 +14,7 @@
                             size="sm"></b-form-select>
             </b-form-group>
 
-            <h3>[[ curWOList ]]</h3>
+            <h3>[[ curWOList ]]</h3>  <h4>[[ data_WOs.count() ]]</h4>
               <div class="fastscroll" style="height:75vh;">
 
                 <b-card v-for="wo in data_WOs" :key="wo.qguid">
