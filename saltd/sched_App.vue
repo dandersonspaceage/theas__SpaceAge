@@ -1,5 +1,5 @@
 <template>
-  <div v-bind:style="{cursor: curCursor}">
+  <div v-bind:style="{ cursor: curCursor }">
 
     <b-container id="NewPage1_Appvue">
 
@@ -325,7 +325,7 @@
             // can add additional fetches here
           }
         }
-        
+
         thatVue.curCursor = 'default';
       },
     
