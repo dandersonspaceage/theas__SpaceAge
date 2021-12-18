@@ -14,7 +14,7 @@
                             size="sm"></b-form-select>
             </b-form-group>
 
-            <h4>[[ curWOList ]] (<span v-if="busyCount">Loading </span><span v-else>[[ data_WOs.length ]]</span> <span> orders</span>)</h4>
+            <h4>[[ curWOList ]] (<span v-if="busy">Loading </span><span v-else>[[ data_WOs.length ]]</span> <span> orders</span>)</h4>
               <div class="fastscroll" style="height:75vh;">
 
                 <b-card v-for="wo in data_WOs" :key="wo.qguid">
@@ -211,6 +211,12 @@
       // perform the initial fetch of data
       this.decBusy();
     },    
+
+    computed: {
+      busy : function () {
+        return this.busyCount > 0;
+      },
+    },
 
     methods: {
       fullscreen: function () {
