@@ -1,18 +1,11 @@
 <template>
-  <div style="{ cursor: curCursor}">
+  <div :style="{ cursor: curCursor}">
 
     <b-container id="NewPage1_Appvue">
 
       <b-row no-gutters fluid>
 
-        <b-col>
-          
-            <div v-if="busyCount">
-              <h5>Loading...</h5>
-            </div>
-            <div v-else>
-              <h5>&nbsp;</h5>
-            </div>          
+        <b-col>     
 
             <b-form-group label="Press"
                           :label-for="'ListName'">
