@@ -272,7 +272,7 @@
 
                 thatVue.decLoading();  
           },
-          500
+          100
         );
      
        
