@@ -10,6 +10,13 @@
       <b-row no-gutters fluid>
 
         <b-col>
+
+<select v-model="curWOList">
+  <option v-for="option in woListName" :key="option.value" :value="option.value" @change="switchWOList()">
+    [[ option ]]
+  </option>
+</select>
+
             <b-form-group label="Press"
                           :label-for="'ListName'">
               <b-form-select :id="'listName'"
