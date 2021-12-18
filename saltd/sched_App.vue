@@ -241,7 +241,7 @@
 
         thatVue.loadingCount = thatVue.loadingCount + 1;
         
-        //this.$forceUpdate();
+        this.$forceUpdate();
 
       },
 
@@ -262,8 +262,7 @@
       switchWOList: function() {
         let thatVue = this;             
         
-        thatVue.incLoading();
-        //this.$mount();        
+        thatVue.incLoading();       
 
         setTimeout(
           () => {
