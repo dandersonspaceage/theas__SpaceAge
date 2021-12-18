@@ -14,7 +14,7 @@
                             size="sm"></b-form-select>
             </b-form-group>
 
-            <h4>[[ curWOList ]] ([[ data_WOs.length ]] orders)</h4>
+            <h4>[[ curWOList ]] (<span v-if="busyCount">Loading </span><span v-else>[[ data_WOs.length ]]</span> <span> orders</span>)</h4>
               <div class="fastscroll" style="height:75vh;">
 
                 <b-card v-for="wo in data_WOs" :key="wo.qguid">
