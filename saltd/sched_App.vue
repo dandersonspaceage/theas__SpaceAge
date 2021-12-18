@@ -201,8 +201,10 @@
 
     // method executed when the Vue object is created
     created: function () {
+      document.body.style.cursor = 'progress';      
+
       // perform the initial fetch of data
-      this.fetchData(true);
+      this.fetchData(true);        
     },
 
     methods: {
@@ -331,6 +333,9 @@
             // can add additional fetches here
           }
         }
+
+        thatVue.curCursor = 'default';
+        document.body.style.cursor = 'default';           
 
       },
     
