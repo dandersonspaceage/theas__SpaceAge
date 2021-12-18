@@ -1,9 +1,16 @@
 <template>
-  <div>
+  <div style="{ cursor: curCursor}">
 
     <b-container id="NewPage1_Appvue">
 
       <b-row no-gutters fluid>
+
+        <div v-if="busyCount">
+          <emp>Loading...</emp>
+        </div>
+        <div v-else>
+          &nbsp;
+        </div>
 
         <b-col>
 
@@ -175,6 +182,8 @@
         dataRefreshInterval: 15,
         enableFetching: true,
         today: moment().toDate(),
+        busyCount: 1,
+        curCursor: 'progress',
 
         overlayVisible: false,
 
@@ -204,6 +213,12 @@
       this.fetchData(true);
     },
 
+    // method executed when the Vue object is mounted / done rendering
+    mounted: function () {
+      // perform the initial fetch of data
+      this.decBusy();
+    },    
+
     methods: {
       fullscreen: function () {
         if (screenfull.isEnabled) {
@@ -218,6 +233,26 @@
 
         //thatVue.$th.showModal('Here is a fake error')
       },
+
+      incBusy: function() {
+        let thatVue = this;
+
+        thatVue.busyCount = thatVue.busyCount + 1;
+
+        if (thatVue.busyCount > 0) {
+          thatVue.curCursor = 'progress';
+        }        
+      },
+
+      decBusy: function() {
+        let thatVue = this;
+
+        thatVue.busyCount = thatVue.busyCount - 1;
+
+        if (thatVue.busyCount <= 0) {
+          thatVue.curCursor = 'default';
+        }
+      },      
 
       switchWOList: function() {
         let thatVue = this;        
