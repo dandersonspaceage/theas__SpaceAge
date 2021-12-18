@@ -14,7 +14,7 @@
             <b-form-group label="Press"
                           :label-for="'ListName'">
               <b-form-select :id="'listName'"
-                            v-model="curWOList" :options="woListNames" @model="switchWOList()"
+                            v-model="curWOList" :options="woListNames" @model.self="switchWOList()"
                             size="sm"></b-form-select>
             </b-form-group>
 
