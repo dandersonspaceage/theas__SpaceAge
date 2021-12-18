@@ -20,6 +20,9 @@
                 <b-card v-for="wo in data_WOs" :key="wo.qguid">
 
                   <b-row>
+
+                    <draggable v-model="data_WOs" group="wo" @change="log">
+
                     <b-col>
                       <h4>#[[ wo.Seq ]]</h4>
                     </b-col>                    
@@ -29,6 +32,8 @@
                     <b-col>
                       <h4>SO: [[ wo.LinkedSONumber ]]</h4>
                     </b-col>
+
+                    </draggable>
                   </b-row>
 
                   <b-row>
