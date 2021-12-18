@@ -21,7 +21,7 @@
 
                   <b-row>
 
-                    <draggable v-model="data_WOs" group="wo" @change="log">
+                    <draggable v-model="data_WOs" group="wo" @start="drag=true" @end="drag=false"@change="log">
 
                       <b-col>
                         <h4>#[[ wo.Seq ]]</h4>
