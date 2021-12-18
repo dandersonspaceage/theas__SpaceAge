@@ -209,8 +209,8 @@
       this.fetchData(true);        
     },
 
-    computed: function() {
-      curCursor: function() {
+    computed: {
+      curCursor: function () {
         return loading ? 'progress' : 'default';
       }
     },
