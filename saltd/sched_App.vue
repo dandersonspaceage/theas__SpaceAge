@@ -209,11 +209,19 @@
       this.fetchData(true);        
     },
 
+
+    // method executed when the Vue object is mounted
+    mounted: function () {
+
+      // decrement loadingCount
+      this.decLoading();        
+    },
+
+
     computed: {
       curCursor: function () {
-        let thatVue = this;   
-
-        return thatVue.loadingCount > 0 ? 'progress' : 'default';
+        
+        return this.loadingCount > 0 ? 'progress' : 'default';
       }
     },
     
