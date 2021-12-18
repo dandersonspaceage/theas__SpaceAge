@@ -101,12 +101,7 @@
                               </b-td>
                               <b-td>
 
-                                <b-form-datepicker :id="'dp' + [[ wo.qguid ]]"
-                                                  :date-format-options="{year:undefined, month: '2-digit', day: '2-digit', weekday: 'short' }"
-                                                  v-model="wo.CommitDate"
-                                                  :min="today" @input="onChangePlan(wo.qguid, $event)"
-                                                  size="sm" :dark="true" locale="en">
-                                </b-form-datepicker>
+Date goes here
 
                               </b-td>
                             </b-tr>
