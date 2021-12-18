@@ -243,6 +243,8 @@
         // save reference to Vue object
         let thatVue = this;
 
+        thatVue.curCursor = 'progress';        
+
         thatVue.$th.sendAsync({
           url: "/async/" + thatVue.asyncResource_WOs,
           asyncCmd: thatVue.asyncCmd_WOs,
@@ -297,6 +299,8 @@
                 thatVue.data_ThisWO = thatVue.data_WOs.find(o => o.qguid === thatVue.data_thisWO.qguid);                             
               }
 
+              thatVue.curCursor = 'default';
+
             }
 
           },
@@ -305,8 +309,6 @@
 
       fetchData: function (forceOnError) {
         let thatVue = this;
-
-        thatVue.curCursor = 'progress';
 
         // clear out any old, stuck, in-progress async requests
         thatVue.$th.cancelAsync(moment().subtract(30, "s")); //cancel any request started more than 30 seconds ago
@@ -326,7 +328,6 @@
           }
         }
 
-        thatVue.curCursor = 'default';
       },
     
 
