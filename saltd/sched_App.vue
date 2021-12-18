@@ -21,6 +21,9 @@
 
                   <b-row>
                     <b-col>
+                      <h4>#[[ wo.Seq ]]</h4>
+                    </b-col>                    
+                    <b-col>
                       <h4>WO: [[ wo.WONumber ]]</h4>
                     </b-col>
                     <b-col>
