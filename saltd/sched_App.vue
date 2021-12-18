@@ -194,7 +194,7 @@
         overlayVisible: false,
 
         showModal: false,
-        drag, 
+        drag: null, 
 
         // Dynamic data will be fetched asynchronously
         data_WOs: [],
