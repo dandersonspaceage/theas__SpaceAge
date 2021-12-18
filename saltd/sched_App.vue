@@ -23,17 +23,19 @@
 
                     <draggable v-model="data_WOs" group="wo" @change="log">
 
-                    <b-col>
-                      <h4>#[[ wo.Seq ]]</h4>
-                    </b-col>                    
+                      <b-col>
+                        <h4>#[[ wo.Seq ]]</h4>
+                      </b-col>          
+
+                    </draggable>   
+
+
                     <b-col>
                       <h4>WO: [[ wo.WONumber ]]</h4>
                     </b-col>
                     <b-col>
                       <h4>SO: [[ wo.LinkedSONumber ]]</h4>
                     </b-col>
-
-                    </draggable>
                   </b-row>
 
                   <b-row>
@@ -55,6 +57,8 @@
                     </b-col>
                   </b-row>
 
+
+
                   <b-btn v-b-toggle="'collapse' + wo.qguid" @click="toggleWODetail(wo.qguid, $event)" >
                     <span class="when-opened">
                       <i class="fa fa-chevron-down" aria-hidden="true"></i>
@@ -64,6 +68,7 @@
                         [[ formatDate(wo.CommitDate, 'ddd MM/DD') ]]   
                       </span>
                   </b-btn>
+               
 
                   <b-collapse :id="'collapse' + wo.qguid">
                     <b-row>
