@@ -83,6 +83,10 @@
 
 </head>
 <body style="height:85vh">
+  <script>
+    document.body.style.cursor = 'progress';      
+  </script>  
+
     <!--This form is used internally by Theas for session tracking et al.  It must have id="theasForm"-->
     <form method="post" class="form-horizontal" id="theasForm">
         {{ "__th"|theasXSRF }}
@@ -101,6 +105,6 @@
         <!--Optionally, a div with id="thapp" wiil be replaced by Vue-rendered content-->
         <div id="thapp">This whole div is replaced by Vue-rendered content</div>
     </main>
-
+  
 </body>
 </html>
