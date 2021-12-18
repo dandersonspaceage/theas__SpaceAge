@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-bind:style="{cursor: curCursor}">
 
     <b-container id="NewPage1_Appvue">
 
@@ -184,6 +184,7 @@
         data_WOs: [],
 
         lastFetch_WOs: null,
+        curCursor = 'default',
 
         asyncResource_WOs: 'saltd/sched_App.vue',
         asyncCmd_WOs: 'fetchWOs',
@@ -305,6 +306,8 @@
       fetchData: function (forceOnError) {
         let thatVue = this;
 
+        thatVue.curCursor = 'progress';
+
         // clear out any old, stuck, in-progress async requests
         thatVue.$th.cancelAsync(moment().subtract(30, "s")); //cancel any request started more than 30 seconds ago
 
@@ -322,6 +325,8 @@
             // can add additional fetches here
           }
         }
+        
+        thatVue.curCursor = 'default';
       },
     
 
