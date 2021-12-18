@@ -263,7 +263,7 @@
         let thatVue = this;             
         
         thatVue.incLoading();
-        this.$mount();        
+        //this.$mount();        
 
         setTimeout(
           () => {
