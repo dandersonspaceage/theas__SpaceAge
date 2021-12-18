@@ -214,13 +214,16 @@
     mounted: function () {
 
       // decrement loadingCount
-      this.decLoading();        
+      this.decLoading();    
+
+      // set cursor to default
+      document.body.style.cursor = 'default';          
     },
 
 
     computed: {
       curCursor: function () {
-        
+
         return this.loadingCount > 0 ? 'progress' : 'default';
       }
     },
