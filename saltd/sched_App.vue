@@ -80,12 +80,7 @@
                         Sugg. Press: <b>[[ wo.SuggestedPress ]]</b>
                       </b-col>
                       <b-col>
-                        <b-form-group label="Planned Press"
-                                      :label-for="'planpress' + [[ wo.qguid ]]">
-                          <b-form-select :id="'planpress' + [[ wo.qguid ]]"
-                                        v-model="wo.PlannedPress" :options="pressCodes" @change="onChangePlan(wo.qguid, $event)"
-                                        size="sm"></b-form-select>
-                        </b-form-group>
+Press select goes here
                       </b-col>
                     </b-row>
 
@@ -132,12 +127,8 @@ Date goes here
 
                     <b-row>
                       <b-col>
-                        <b-form-group label="Notes" :label-for="'notes' + [[wo.qguid]]">
-                          <b-form-textarea :id="'notes' + [[wo.qguid]]" debounce="1000"
-                                          @change="onChangePlan()"
-                                          v-model="wo.Notes" rows="3" max-rows="3">
-                          </b-form-textarea>
-                        </b-form-group>
+Notes go here                        
+
                       </b-col>
                     </b-row>
 
