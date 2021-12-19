@@ -400,8 +400,8 @@
     
 
       onChangePlan: function (qguid, event) {
-          let thatVue = this;                    
-          thatVue.saveWO(qguid, event);          
+          let thatVue = this;  
+          thatVue.setDirty(qguid);                         
       },
 
       saveWO: function (qguid, event) {
