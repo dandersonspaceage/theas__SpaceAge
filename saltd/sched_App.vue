@@ -138,7 +138,7 @@
                         <b-col>
                           <b-form-group label="Notes" :label-for="'notes' + [[wo.qguid]]">
                             <b-form-textarea :id="'notes' + [[wo.qguid]]" debounce="1000"
-                                            @change="onChangePlan()"
+                                            @change="onChangePlan()" @keyup="setDirty"
                                             v-model="wo.Notes" rows="3" max-rows="3">
                             </b-form-textarea>
                           </b-form-group>
@@ -189,6 +189,7 @@
         today: moment().toDate(),
         busyCount: 1,
         curCursor: 'progress',
+        isDirty: false,
 
         overlayVisible: false,
 
@@ -266,6 +267,15 @@
           document.body.style.cursor = 'default';
         }
       },      
+
+      setDirty: function() {
+        let thatVue = this;
+
+        if (!thatVue.isDirty) {
+          thatVue.isDirty = true;
+          setTimeout (thatVue.saveWO, 1000);          
+        }
+      },
 
       switchWOList: function() {
         let thatVue = this;        
