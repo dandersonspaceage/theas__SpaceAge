@@ -14,7 +14,7 @@
                             size="sm"></b-form-select>
             </b-form-group>
 
-            <h4>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h4>
+            <h5>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h5>
               <div class="fastscroll" style="height:75vh;">
 
                 <draggable v-model="data_WOs" group="wo" handle=".dragHandle" @start="drag=true" @end="drag=false" @change="log">
@@ -24,33 +24,33 @@
                     <b-row>
 
                         <b-col>
-                          <h4>#[[ wo.Seq ]]</h4>
+                          <h5>#[[ wo.Seq ]]</h5>
                         </b-col>          
 
                       <b-col>
-                        <h4>WO: [[ wo.WONumber ]]</h4>
+                        <h5>WO: [[ wo.WONumber ]]</h5>
                       </b-col>
                       <b-col>
-                        <h4>SO: [[ wo.LinkedSONumber ]]</h4>
-                      </b-col>
-                    </b-row>
-
-                    <b-row>
-                      <b-col>
-                        <h4>[[ wo.CustomerName ]]</h4>
+                        <h5>SO: [[ wo.LinkedSONumber ]]</h5>
                       </b-col>
                     </b-row>
 
                     <b-row>
                       <b-col>
-                        <h5>Item: [[ wo.ItemNumber ]]</h5>
+                        <h5>[[ wo.CustomerName ]]</h5>
                       </b-col>
                     </b-row>
 
                     <b-row>
                       <b-col>
-                        <h5>Qty: [[ wo.Quantity ]]<span class='bg-warning' v-if="wo.CurrentShotCount">Qty Remaining:
-                          [[ wo.QtyRemaining ]]</span></h5>
+                        <h6>Item: [[ wo.ItemNumber ]]</h6>
+                      </b-col>
+                    </b-row>
+
+                    <b-row>
+                      <b-col>
+                        <h6>Qty: [[ wo.Quantity ]]<span class='bg-warning' v-if="wo.CurrentShotCount">Qty Remaining:
+                          [[ wo.QtyRemaining ]]</span></h6>
                       </b-col>
                     </b-row>
 
