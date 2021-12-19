@@ -426,6 +426,8 @@
                         thatVue.data_ThisWO = {};                    
                       }
                   }
+
+                  thatVue.isDirty = false;
               }
 
           });
