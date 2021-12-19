@@ -273,7 +273,7 @@
 
         let thisDirty = thatVue.dirtyQGUIDs.find(o => o.qguid === qguid);
         if (!thisDirty) {
-          dirtyQGUIDs.push(qguid);
+          thatVue.dirtyQGUIDs.push(qguid);
           setTimeout (thatVue.saveWO(qguid), 5000);          
         }    
       },
