@@ -56,7 +56,7 @@
 
 
 
-                    <b-btn v-b-toggle="'collapse' + wo.qguid" @click="toggleWODetail(wo.qguid, $event)" class="dragHandle" >
+                    <b-btn v-b-toggle="'collapse' + wo.qguid" @click.native="toggleWODetail(wo.qguid, $event)" class="dragHandle" >
                       <span class="when-opened">
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                       </span>
