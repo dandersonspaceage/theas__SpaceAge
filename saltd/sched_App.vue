@@ -138,7 +138,7 @@
                         <b-col>
                           <b-form-group label="Notes" :label-for="'notes' + [[wo.qguid]]">
                             <b-form-textarea :id="'notes' + [[wo.qguid]]" debounce="1000"
-                                            @change="onChangePlan()" @keyup="setDirty(wo.qguid)"
+                                            @keyup="setDirty(wo.qguid)"
                                             v-model="wo.Notes" rows="3" max-rows="3">
                             </b-form-textarea>
                           </b-form-group>
@@ -189,8 +189,8 @@
         today: moment().toDate(),
         busyCount: 1,
         curCursor: 'progress',
-        dirtyQGUIDs: [],
-        dirtyTimers: [],
+        dirtyQGUIDs: [], // list of qguids that need to be saved
+        dirtyTimers: [], // timers for pending saves of qugids
 
         overlayVisible: false,
 
@@ -270,12 +270,15 @@
       },      
 
       setDirty: function(qguid) {
+        // Enqueues a speific record (via qguid) for saving.
+        // Needed for textarea autosave:  lets us debounce saving, while still triggering save on KeyUp
         let thatVue = this;
 
         let thisDirty = thatVue.dirtyQGUIDs.find(o => o === qguid);
         if (!thisDirty) {
           thatVue.dirtyQGUIDs.push(qguid);
-          thatVue.dirtyTimers.push(setTimeout('thatVue.saveWO(qguid)', 3000));          
+          thatVue.dirtyTimers.push(setTimeout('thatVue.saveWO(qguid)', 3000));
+          //note:  timeout of 3000 must be longer than debounce of 1000 in textarea       
         }    
       },
 
@@ -283,8 +286,8 @@
         let thatVue = this;    
         
         if (thatVue.dirtyQGUIDs.length) {
-          thatVue.dirtyTimers.forEach(o => clearTimeout(o));
-          thatVue.saveWO();
+          thatVue.dirtyTimers.forEach(o => clearTimeout(o)); // clear out any pending dirty timers
+          thatVue.saveWO(); // save any panding qguids
         }
         
         thatVue.data_WOs = [];
@@ -406,10 +409,12 @@
           var thatVue = this;
           
           if (!qguid) {
+            // qguid not specified.  See if there is a qguid in queue awaiting saving.
             qguid = thatVue.dirtyQGUIDs.pop()
           }
 
           while (qguid) {
+            // we loop, to save all qguids in the queue
 
             let thisWO = thatVue.data_WOs.find(o => o.qguid === qguid)
 
