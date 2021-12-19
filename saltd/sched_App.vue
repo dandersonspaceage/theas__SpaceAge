@@ -405,7 +405,7 @@
       },
 
       crazyDebug: function(o) {
-        return 0 === this;
+        return o === this;
       },
 
       saveWO: function (qguid, event) {
