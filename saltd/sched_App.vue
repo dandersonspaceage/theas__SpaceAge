@@ -415,7 +415,7 @@
           if (qguid) {
             // qguid was specified.  We will save it, but first we remove any entries in the queue.
             //let thisIndex = thatVue.dirtyQGUIDs.findIndex(o => o === qguid);
-            let thisIndex = thatVue.dirtyQGUIDs.findIndex(crazyDebug, qguid);            
+            let thisIndex = thatVue.dirtyQGUIDs.findIndex(thatVue.crazyDebug, qguid);            
             if (thisIndex) {
                 thatVue.$delete(thatVue.dirtyQGUIDs, thisIndex);  
                             
