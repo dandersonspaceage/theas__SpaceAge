@@ -17,14 +17,16 @@
             <h4>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h4>
               <div class="fastscroll" style="height:75vh;">
 
-                <draggable v-model="data_WOs" group="wo" @start="drag=true" @end="drag=false" @change="log">
+
 
                   <b-card v-for="wo in data_WOs" :key="wo.qguid">
 
                     <b-row>
 
                         <b-col>
+                <draggable v-model="data_WOs" group="wo" @start="drag=true" @end="drag=false" @change="log">                          
                           <h4>#[[ wo.Seq ]]</h4>
+                </draggable>                               
                         </b-col>          
 
                       <b-col>
@@ -147,9 +149,7 @@
 
                     </b-collapse>
 
-                  </b-card>
-
-                </draggable>                   
+                  </b-card>              
 
               </div>
 
