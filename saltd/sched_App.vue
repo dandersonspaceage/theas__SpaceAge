@@ -411,11 +411,11 @@
           if (qguid) {
             // qguid was specified.  We will save it, but first we remove any entries in the queue.
             let thisIndex = thatVue.dirtyQGUIDs.findIndex((el) => el === qguid);          
-            if (thisIndex) {
+            if (thisIndex >= 0) {
                 thatVue.$delete(thatVue.dirtyQGUIDs, thisIndex);  
                             
               let thisTimerIndex = thatVue.dirtyTimers.findIndex((el) => el.qguid === qguid);
-              if (thisTimerIndex) {
+              if (thisTimerIndex >= 0) {
                 thatVue.$delete(thatVue.dirtyTimers, thisTimerIndex);
               }
             }            
