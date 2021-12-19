@@ -435,13 +435,11 @@
                   }
 
                 }
-            }
+            });
 
             qguid = thatVue.dirtyQGUIDs.pop();
           
           }
-
-        });
       },
 
       formatDate: function (thisDate, thisFormatStr) {
