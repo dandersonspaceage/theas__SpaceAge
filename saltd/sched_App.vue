@@ -274,7 +274,7 @@
         // Needed for textarea autosave:  lets us debounce saving, while still triggering save on KeyUp
         let thatVue = this;
 
-        let thisDirty = thatVue.dirtyQGUIDs.find(o => o === qguid);
+        let thisDirty = thatVue.dirtyQGUIDs.find((el) => el === qguid);
         if (!thisDirty) {
           thatVue.dirtyQGUIDs.push(qguid);
           thatVue.dirtyTimers.push({timer: setTimeout(thatVue.saveWO, 3000, qguid), qguid: qguid});
@@ -300,7 +300,7 @@
         let thatVue = this;
         
         // find the corresponding WO  https://stackoverflow.com/questions/12462318/find-a-value-in-an-array-of-objects-in-javascript
-        thatVue.data_ThisWO = thatVue.data_WOs.find(o => o.qguid === qguid);
+        thatVue.data_ThisWO = thatVue.data_WOs.find((el) => el.qguid === qguid);
         //Note:  data_thisWO gets set to the most recently-expanded WO, but that is not
         //a guarantee that data_thisWO is the only one that may be edited by the user (as
         //multiple WO's could be expanded)
@@ -363,7 +363,7 @@
               }
 
               if (thatVue && thatVue.data_thisWO && thatVue.data_thisWO.qguid) {
-                thatVue.data_ThisWO = thatVue.data_WOs.find(o => o.qguid === thatVue.data_thisWO.qguid);                             
+                thatVue.data_ThisWO = thatVue.data_WOs.find((el) => el.qguid === thatVue.data_thisWO.qguid);                             
               }
 
             }
@@ -404,22 +404,17 @@
           thatVue.setDirty(qguid);                         
       },
 
-      crazyDebug: function(o) {
-        return o === this;
-      },
-
       saveWO: function (qguid, event) {
           // save reference to Vue object that can be used in async callbacks
           var thatVue = this;
           
           if (qguid) {
             // qguid was specified.  We will save it, but first we remove any entries in the queue.
-            //let thisIndex = thatVue.dirtyQGUIDs.findIndex(o => o === qguid);
-            let thisIndex = thatVue.dirtyQGUIDs.findIndex(thatVue.crazyDebug, qguid);            
+            let thisIndex = thatVue.dirtyQGUIDs.findIndex((el) => el === qguid);          
             if (thisIndex) {
                 thatVue.$delete(thatVue.dirtyQGUIDs, thisIndex);  
                             
-              let thisTimerIndex = thatVue.dirtyTimers.findIndex(o => o.qguid === qguid);
+              let thisTimerIndex = thatVue.dirtyTimers.findIndex((el) => el.qguid === qguid);
               if (thisTimerIndex) {
                 thatVue.$delete(thatVue.dirtyTimers, thisTimerIndex);
               }
@@ -433,7 +428,7 @@
           while (qguid) {
             // we loop, to save all qguids in the queue
 
-            let thisWO = thatVue.data_WOs.find(o => o.qguid === qguid)
+            let thisWO = thatVue.data_WOs.find((el) => el.qguid === qguid)
 
             thatVue.$th.sendAsync({
               url: "/async/" + thatVue.asyncResource_WOs,
@@ -448,7 +443,7 @@
                   // response contains the complete response object, in which .data contains
                   // the raw data that was received.              
 
-                  let thisIndex = thatVue.data_WOs.findIndex(o => o.qguid === qguid)
+                  let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === qguid)
                   if (thisIndex >= 0) {
                     thatVue.data_ThisWO = thatVue.data_WOs[thisIndex];
 
