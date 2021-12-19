@@ -138,7 +138,7 @@
                         <b-col>
                           <b-form-group label="Notes" :label-for="'notes' + [[wo.qguid]]">
                             <b-form-textarea :id="'notes' + [[wo.qguid]]" debounce="1000"
-                                            @change="onChangePlan()" @keyup="setDirty"
+                                            @change="onChangePlan()" @keyup="setDirty(wo.qguid)"
                                             v-model="wo.Notes" rows="3" max-rows="3">
                             </b-form-textarea>
                           </b-form-group>
@@ -268,7 +268,7 @@
         }
       },      
 
-      setDirty: function() {
+      setDirty: function(qguid) {
         let thatVue = this;
 
         if (!thatVue.isDirty) {
