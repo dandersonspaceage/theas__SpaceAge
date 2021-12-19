@@ -189,7 +189,6 @@
         today: moment().toDate(),
         busyCount: 1,
         curCursor: 'progress',
-        isDirty: false,
         dirtyQGUIDs: [],
 
         overlayVisible: false,
@@ -399,10 +398,16 @@
       saveWO: function (qguid, event) {
           // save reference to Vue object that can be used in async callbacks
           var thatVue = this;
+          
+          if (!qguid) {
+            qguid = thatVue.dirtyQGUIDs.pop()
+          }
 
-          let thisWO = thatVue.data_WOs.find(o => o.qguid === qguid)
+          while (qguid) {
 
-          thatVue.$th.sendAsync({
+            let thisWO = thatVue.data_WOs.find(o => o.qguid === qguid)
+
+            thatVue.$th.sendAsync({
               url: "/async/" + thatVue.asyncResource_WOs,
               asyncCmd: 'updateWO',
               data: {WO: thisWO}, //note: passes to @FormParams
@@ -429,10 +434,14 @@
                       }
                   }
 
-                  thatVue.isDirty = false;
-              }
+                }
+            }
 
-          });
+            qguid = thatVue.dirtyQGUIDs.pop();
+          
+          }
+
+        });
       },
 
       formatDate: function (thisDate, thisFormatStr) {
