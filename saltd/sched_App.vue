@@ -274,7 +274,7 @@
         let thisDirty = thatVue.dirtyQGUIDs.find(o => o === qguid);
         if (!thisDirty) {
           thatVue.dirtyQGUIDs.push(qguid);
-          setTimeout (thatVue.saveWO(qguid), 5000);          
+          setTimeout ('thatVue.saveWO(qguid)', 5000);          
         }    
       },
 
