@@ -273,7 +273,7 @@
 
         if (!thatVue.isDirty) {
           thatVue.isDirty = true;
-          setTimeout (thatVue.saveWO, 1000);          
+          setTimeout (thatVue.saveWO(qguid), 1000);          
         }
       },
 
