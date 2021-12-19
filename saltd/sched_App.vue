@@ -24,7 +24,7 @@
                     <b-row>
 
                         <b-col>
-                          <h6>#[[ wo.Seq ]]</h6>
+                          <h6 class="dragHandle" ><span class="badge badge-secondary">[[ wo.Seq ]]</span></h6>
                         </b-col>          
 
                       <b-col>
@@ -56,7 +56,7 @@
 
 
 
-                    <b-btn v-b-toggle="'collapse' + wo.qguid" @click.stop="toggleWODetail(wo.qguid, $event)" class="dragHandle" >
+                    <b-btn v-b-toggle="'collapse' + wo.qguid" @click="toggleWODetail(wo.qguid, $event)">
                       <span class="when-opened">
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                       </span>
