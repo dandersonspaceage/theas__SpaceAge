@@ -279,7 +279,11 @@
       },
 
       switchWOList: function() {
-        let thatVue = this;        
+        let thatVue = this;    
+        
+        if (thatVue.dirtyQGUIDs.length) {
+          thatVue.saveWO();
+        }
         
         thatVue.data_WOs = [];
         thatVue.lastFetch_WOs = null;
