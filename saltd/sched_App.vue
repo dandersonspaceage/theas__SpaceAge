@@ -277,7 +277,7 @@
         let thisDirty = thatVue.dirtyQGUIDs.find(o => o === qguid);
         if (!thisDirty) {
           thatVue.dirtyQGUIDs.push(qguid);
-          thatVue.dirtyTimers.push(setTimeout(thatVue.saveWO, 3000, qguid));
+          thatVue.dirtyTimers.push({timer: setTimeout(thatVue.saveWO, 3000, qguid), qguid: qguid});
           //note:  timeout of 3000 must be longer than debounce of 1000 in textarea       
         }    
       },
@@ -286,7 +286,7 @@
         let thatVue = this;    
         
         if (thatVue.dirtyQGUIDs.length) {
-          thatVue.dirtyTimers.forEach(o => clearTimeout(o)); // clear out any pending dirty timers
+          thatVue.dirtyTimers.forEach(o => clearTimeout(o.timer)); // clear out any pending dirty timers
           thatVue.saveWO(); // save any panding qguids
         }
         
@@ -408,7 +408,19 @@
           // save reference to Vue object that can be used in async callbacks
           var thatVue = this;
           
-          if (!qguid) {
+          if (qguid) {
+            // qguid was specified.  We will save it, but first we remove any entries in the queue.
+            let thisIndex = thatVue.dirtyQGUIDs.findIndex(o => o === qguid);
+            if (thisIndex) {
+                thatVue.$delete(thatVue.dirtyQGUIDs, thisIndex);  
+                            
+              let thisTimerIndex = thatVue.dirtyTimers.findIndex(o => o.qguid === qguid);
+              if (thisTimerIndex) {
+                thatVue.$delete(thatVue.dirtyTimers, thisTimerIndex);
+              }
+            }            
+          }
+          else {
             // qguid not specified.  See if there is a qguid in queue awaiting saving.
             qguid = thatVue.dirtyQGUIDs.pop()
           }
