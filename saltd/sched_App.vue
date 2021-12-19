@@ -190,6 +190,7 @@
         busyCount: 1,
         curCursor: 'progress',
         isDirty: false,
+        dirtyQGUIDs: [],
 
         overlayVisible: false,
 
@@ -271,10 +272,11 @@
       setDirty: function(qguid) {
         let thatVue = this;
 
-        if (!thatVue.isDirty) {
-          thatVue.isDirty = true;
+        let thisDirty = thatVue.dirtyQGUIDs.find(o => o.qguid === qguid);
+        if (!thisDirty) {
+          dirtyQGUIDs.push(qguid);
           setTimeout (thatVue.saveWO(qguid), 5000);          
-        }
+        }    
       },
 
       switchWOList: function() {
