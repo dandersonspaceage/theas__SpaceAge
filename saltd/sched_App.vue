@@ -404,13 +404,18 @@
           thatVue.setDirty(qguid);                         
       },
 
+      crazyDebug: function(o) {
+        return 0 === this;
+      },
+
       saveWO: function (qguid, event) {
           // save reference to Vue object that can be used in async callbacks
           var thatVue = this;
           
           if (qguid) {
             // qguid was specified.  We will save it, but first we remove any entries in the queue.
-            let thisIndex = thatVue.dirtyQGUIDs.findIndex(o => o === qguid);
+            //let thisIndex = thatVue.dirtyQGUIDs.findIndex(o => o === qguid);
+            let thisIndex = thatVue.dirtyQGUIDs.findIndex(crazyDebug, qguid);            
             if (thisIndex) {
                 thatVue.$delete(thatVue.dirtyQGUIDs, thisIndex);  
                             
