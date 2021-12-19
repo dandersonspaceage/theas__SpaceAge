@@ -14,7 +14,7 @@
                             size="sm"></b-form-select>
             </b-form-group>
 
-            <h5>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h5>
+            <h6>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>
               <div class="fastscroll" style="height:75vh;">
 
                 <draggable v-model="data_WOs" group="wo" handle=".dragHandle" @start="drag=true" @end="drag=false" @change="log">
@@ -24,20 +24,20 @@
                     <b-row>
 
                         <b-col>
-                          <h5>#[[ wo.Seq ]]</h5>
+                          <h6>#[[ wo.Seq ]]</h6>
                         </b-col>          
 
                       <b-col>
-                        <h5>WO: [[ wo.WONumber ]]</h5>
+                        <h6>WO: [[ wo.WONumber ]]</h6>
                       </b-col>
                       <b-col>
-                        <h5>SO: [[ wo.LinkedSONumber ]]</h5>
+                        <h6>SO: [[ wo.LinkedSONumber ]]</h6>
                       </b-col>
                     </b-row>
 
                     <b-row>
                       <b-col>
-                        <h5>[[ wo.CustomerName ]]</h5>
+                        <h6>[[ wo.CustomerName ]]</h6>
                       </b-col>
                     </b-row>
 
