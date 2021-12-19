@@ -190,6 +190,7 @@
         busyCount: 1,
         curCursor: 'progress',
         dirtyQGUIDs: [],
+        dirtyTimers: [],
 
         overlayVisible: false,
 
@@ -274,7 +275,7 @@
         let thisDirty = thatVue.dirtyQGUIDs.find(o => o === qguid);
         if (!thisDirty) {
           thatVue.dirtyQGUIDs.push(qguid);
-          setTimeout ('thatVue.saveWO(qguid)', 5000);          
+          thatVue.dirtyTimers.push(setTimeout('thatVue.saveWO(qguid)', 3000));          
         }    
       },
 
@@ -282,6 +283,7 @@
         let thatVue = this;    
         
         if (thatVue.dirtyQGUIDs.length) {
+          thatVue.dirtyTimers.forEach(o => clearTimeout(o));
           thatVue.saveWO();
         }
         
