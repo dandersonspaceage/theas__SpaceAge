@@ -449,7 +449,7 @@
 
                     if
                       (
-                        (thatVue.curWOList == 'Unscheduled' && thatVue.data_ThisWO.CommitDate && thatVue.data_ThisWO.PlannedPress) ||
+                        (thatVue.curWOList == 'Unscheduled' && thatVue.data_ThisWO.PlannedPress) ||
                         (thatVue.curWOList != 'Unscheduled' && thatVue.curWOList != thatVue.data_ThisWO.PlannedPress)
                       ){
                         thatVue.$delete(thatVue.data_WOs, thisIndex);
