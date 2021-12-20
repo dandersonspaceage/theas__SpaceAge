@@ -52,6 +52,11 @@
                         <h6>Qty: [[ wo.Quantity ]]<span class='bg-warning' v-if="wo.CurrentShotCount">Qty Remaining:
                           [[ wo.QtyRemaining ]]</span></h6>
                       </b-col>
+                      
+                      <b-col>
+                        <h6>Boards in front: [[ BoardsInFrontThisPress ]]</h6>
+                      </b-col>
+
                     </b-row>
 
 
