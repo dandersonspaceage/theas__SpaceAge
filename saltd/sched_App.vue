@@ -7,12 +7,20 @@
 
         <b-col>     
 
-            <b-form-group label="Press"
-                          :label-for="'ListName'">
-              <b-form-select :id="'listName'"
-                            v-model="curWOList" :options="woListNames" @change="switchWOList()"
-                            size="sm"></b-form-select>
-            </b-form-group>
+            <b-row>
+              <b-col>
+                <b-form-group label="Press"
+                              :label-for="'ListName'">
+                  <b-form-select :id="'listName'"
+                                v-model="curWOList" :options="woListNames" @change="switchWOList()"
+                                size="sm"></b-form-select>
+                </b-form-group>
+              </b-col>
+
+              <b-col>
+                <b-button @click="testMe">Test Me</b-button>
+              </b-col>
+            </b-row>
 
             <h6>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>
               <div class="fastscroll" style="height:75vh;">
