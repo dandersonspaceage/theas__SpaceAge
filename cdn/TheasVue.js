@@ -871,49 +871,15 @@ Theas.prototype.getCurrentLocation = function () {
    }
 };
 
+Theas.prototype.getModal() {
+   // save reference to Theas object
+   let thatTheas = this;
 
+   return thatTheas.thatVue.#refs["thModal"];
+};
 
 Theas.prototype.showModal =  function(msg, title, onClose, goBackOnClose) {
    let $thMsgDlg = this.getModal(msg, title);
-
-   $thMsgDlg.data('origfocused', document.activeElement);
-
-
-   // define an onClose handler
-   $thMsgDlg.on('hidden.bs.modal', function (){
-       doDefaultClose = true;
-
-       if (typeof onClose !== 'undefined') {
-           doDefaultClose = onClose($thMsgDlg);
-           if (typeof skipDefaultClose == 'undefined') {
-               doDefaultClose = true;
-           }
-       }
-
-       if (doDefaultClose) {
-           $thMsgDlg.modal('hide');
-
-           // navigate back in history if applicable
-           if (goBackOnClose && window.history.length) {
-             window.history.back();
-           }
-           else {
-               $origfocused = $($thMsgDlg.data('origfocused'));
-               $origfocused.focus();
-           }
-       }
-
-       // Restore original dialog content
-       if (this.origDialogContent && (this.origDialogContent != $thMsgDlg.find('.modal-main').html())) {
-         $thMsgDlg.find('.modal-main').html(this.origDialogContent);
-       }
-
-       // Restore original dialog title
-       if (this.origDialogTitle && (this.origDialogTitle != $thMsgDlg.find('.modal-title').text())) {
-         $thMsgDlg.find('.modal-title').text(this.origDialogTitle);
-                  this.origDialogTitle = $thMsgDlg.find('.modal-title').text(thisTitle);
-       }
-   });
 
    $thMsgDlg.modal(show=true);
 

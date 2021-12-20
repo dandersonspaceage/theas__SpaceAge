@@ -183,12 +183,12 @@
 
     <b-container>
 
-    <b-modal id="thModal" hide-footer>
+    <b-modal id="thModal" ref="thModal" v-model="$th.theasParams.th$ErrorMessage" hide-footer>
       <template #modal-title>
         Using <code>$bvModal</code> Methods
       </template>
       <div class="d-block text-center">
-        <h3>Hello From This Modal!</h3>
+        <h3>[[ $th.theasParams.th$ErrorMessage ]]</h3>
       </div>
       <b-button class="mt-3" block @click="$bvModal.hide('thModal')">Close Me</b-button>
     </b-modal>
@@ -266,7 +266,9 @@
 
       testMe: function() {
         let thatVue = this;
-        thatVue.$th.showModal('ABCDEFG');
+
+        thatVue.$th.theasParams.th$ErrorMessage = 'Hello error message!';
+        //thatVue.$th.showModal('ABCDEFG');
         //thatVue.$bvModal.show('thModal');
 
         //thatVue.$th.showModal('Here is a fake error')
