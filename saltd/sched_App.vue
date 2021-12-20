@@ -17,7 +17,7 @@
             <h6>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>
               <div class="fastscroll" style="height:75vh;">
 
-                <draggable v-model="data_WOs" group="wo" handle=".dragHandle" @start="drag=true" @end="drag=false" @change="log">
+                <draggable v-model="data_WOs" group="wo" handle=".dragHandle" @start="drag=true" @end="drag=false" @change="onDropWO">
 
                   <b-card v-for="wo in data_WOs" :key="wo.qguid">
 
@@ -484,9 +484,24 @@
           name: el.name + " cloned",
         };
       },
-      log: function (evt) {
-        window.console.log(evt);
-      },
+
+      onDropWO: function (evt) {
+        let thatVue = this;
+        
+        let qguid;
+
+        if (thatVue.data_WOs.length > 1) {
+          if (evt.newIndex == thatVue.data_WOs.length - 1) {
+            //moved to end of list
+            thatVue.data_WOs[evt.newIndex - 1].MoveBeforeWOQGUID =  thatVue.data_WOs[evt.newIndex].qguid;
+            thatVue.setDirty(thatVue.data_WOs[evt.newIndex - 1].qguid);           
+          }                    
+          else {
+            thatVue.data_WOs[evt.newIndex].MoveBeforeWOQGUID =  thatVue.data_WOs[evt.newIndex + 1].qguid
+            thatVue.setDirty(thatVue.data_WOs[evt.newIndex].qguid);          
+          }
+        }   
+      }     
     },
   };
 </script>
