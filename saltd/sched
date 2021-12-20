@@ -38,7 +38,7 @@
     <link type="text/css" rel="stylesheet" href="{{ '/cdn/font-awesome/css/all.css'|theasResource }}">
 
 
-    <title>Theas Page with VueJS and BootstrapVue</title>
+    <title>SpaceAge Press Schedule</title>
 
     <!--Static global styles-->
     <style>
