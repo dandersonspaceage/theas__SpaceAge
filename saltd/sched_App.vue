@@ -54,8 +54,12 @@
                       </b-col>
 
                       <b-col>
-                        <h6>Boards in front: [[ wo.BoardsInFrontThisPress ]]</h6>
+                        <h6>Boards in front: [[ wo.BoardsInFront ]]</h6>
                       </b-col>
+
+                      <b-col>
+                        <h6>Boards in front: [[ wo.PressTimeInFront ]]</h6>
+                      </b-col>                      
 
                     </b-row>
 
