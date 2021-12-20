@@ -465,8 +465,7 @@
                         thatVue.data_ThisWO = {};                    
                       }
                   }
-                  
-                  thatVue.fetchWOs();
+
                 }
             });
 
