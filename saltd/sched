@@ -98,7 +98,6 @@
         <a href="javascript:if (screenfull.isEnabled) { screenfull.request(); }">
 
         <img src="/salted/SpaceAgeLogo.png"></img>
-        <p>Development / Test Only</p>
 
         </a>
 
