@@ -64,16 +64,23 @@
                     </b-row>
 
 
+                    <b-row>
+                      <b-col>
+                        <b-btn v-b-toggle="'collapse' + wo.qguid" @click="toggleWODetail(wo.qguid, $event)">
+                          <span class="when-opened">
+                            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                          </span>
+                          <span class="when-closed">       
+                            <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                              [[ formatDate(wo.RequestDate, 'ddd MM/DD') ]]   
+                            </span>
+                        </b-btn>
+                      </b-col>
 
-                    <b-btn v-b-toggle="'collapse' + wo.qguid" @click="toggleWODetail(wo.qguid, $event)">
-                      <span class="when-opened">
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                      </span>
-                      <span class="when-closed">       
-                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
-                          [[ formatDate(wo.CommitDate, 'ddd MM/DD') ]]   
-                        </span>
-                    </b-btn>
+                      <b-col>
+                        <span class='bg-warning' v-if="!wo.CommitDate">No Commit Date</span>
+                      </b-col>
+                    </b-row>
                 
 
                     <b-collapse :id="'collapse' + wo.qguid">
