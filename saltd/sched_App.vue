@@ -121,10 +121,10 @@
 
                               <b-tr>
                                 <b-td>
-                                  Sched. Press Date
+                                  Calc. Press ETA Date
                                 </b-td>
                                 <b-td>
-                                  [[ formatDate(wo.SchedPressDate, 'ddd MM/DD') ]]
+                                  [[ formatDate(wo.CalcPressETA, 'ddd MM/DD') ]]
                                 </b-td>
                               </b-tr>
 
