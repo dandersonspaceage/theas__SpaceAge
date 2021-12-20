@@ -488,17 +488,17 @@
       onDropWO: function (evt) {
         let thatVue = this;
         
-        let qguid;
+        let newIndex = evt.moved.newIndex;
 
         if (thatVue.data_WOs.length > 1) {
-          if (evt.newIndex == thatVue.data_WOs.length - 1) {
+          if (newIndex == thatVue.data_WOs.length - 1) {
             //moved to end of list
-            thatVue.data_WOs[evt.newIndex - 1].NextQguid =  thatVue.data_WOs[evt.newIndex].qguid;
-            thatVue.setDirty(thatVue.data_WOs[evt.newIndex - 1].qguid);           
+            thatVue.data_WOs[newIndex - 1].NextQguid =  thatVue.data_WOs[newIndex].qguid;
+            thatVue.setDirty(thatVue.data_WOs[newIndex - 1].qguid);           
           }                    
           else {
-            thatVue.data_WOs[evt.newIndex].NextQguid =  thatVue.data_WOs[evt.newIndex + 1].qguid
-            thatVue.setDirty(thatVue.data_WOs[evt.newIndex].qguid);          
+            thatVue.data_WOs[newIndex].NextQguid =  thatVue.data_WOs[newIndex + 1].qguid;
+            thatVue.setDirty(thatVue.data_WOs[newIndex].qguid);          
           }
         }   
       }     
