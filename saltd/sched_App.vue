@@ -217,7 +217,7 @@
         dirtyTimers: [], // timers for pending saves of qugids
 
         overlayVisible: false,
-        errorMessage: $th.theasParams['th$ErrorMessage'],
+        theasParams: {},
 
         showModal: false,
         drag: null, 
@@ -243,6 +243,8 @@
     // method executed when the Vue object is created
     created: function () {
       let thatVue = this;
+
+      Object.assign({}, thatVue.theasParams, thatVue.$th.theasParams);
 
       // perform the initial fetch of data
       this.fetchData(true);
