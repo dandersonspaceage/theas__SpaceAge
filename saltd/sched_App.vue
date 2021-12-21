@@ -365,7 +365,11 @@
             thisObj = {};
             thisData = [];
             thisFetchDate = null;
-            thatVue.$forceUpdate();
+
+           if (thatVue.$th.haveError(true)) {
+             thatVue.$forceUpdate();
+             let noop;
+           }
 
             //  WOs
             if (rd["WOs"]) {
