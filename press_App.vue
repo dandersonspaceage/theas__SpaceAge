@@ -45,7 +45,7 @@
               </thead>
                 <tbody>
                   <tr v-for="wo in data_WOs" :key="wo.qguid">
-                      <td>[[wo.Batch]]</td>
+                      <td>[[wo.BatchNumber]]</td>
                       <td>[[wo.CustomerName]]</td>
                       <td>[[wo.DimThickSanded]]</td>
                       <td>[[wo.DimThick]]</td>
