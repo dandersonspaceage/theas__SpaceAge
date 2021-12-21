@@ -268,6 +268,8 @@
 
       testShowModal: function(show) {
         let thatVue = this;
+
+        thatVue.$th.get('th:ErrorMessage', 'What is this?');
         
         if (show) {
          thatVue.$bvModal.show('thModal');
