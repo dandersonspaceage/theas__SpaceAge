@@ -251,6 +251,17 @@
       this.decBusy();
     },    
 
+    testShowModal: function(show) {
+      let thatVue = this;
+      
+      if (show) {
+        thatVue.refs$('thModal').show();        
+      }
+      else {
+        thatVue.refs$('thModal').hide();
+      }
+    },
+
     errorMessage: function () {
       let thatVue = this;
 
@@ -261,12 +272,6 @@
       }
 
       return thisMsg;
-    },
-
-    errorModalShowing: function() {
-      let thatVue = this;
-      
-      return thatVue.errorMessage.length > 0;
     },
 
     computed: {
@@ -287,6 +292,8 @@
         let thatVue = this;
 
         thatVue.$th.theasParams.th$ErrorMessage = 'Hello error message!';
+        thatVue.testShowModal(true);
+        
         //thatVue.$th.showModal('ABCDEFG');
         //thatVue.$bvModal.show('thModal');
 
