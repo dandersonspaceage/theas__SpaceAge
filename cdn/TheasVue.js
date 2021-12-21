@@ -8,7 +8,6 @@ function Theas(vue) {
    this.thatVue = vue;
    this.theasParams = {th$ErrorMessage: ''};
 
-   this.lastErrorMessage = '',
    this.lastError = {}
 
    this.useCurrentLocation = false;
@@ -833,8 +832,7 @@ Theas.prototype.clearError = function (doFetchData) {
    let thatTheas = this;
 
    thatTheas.theasParams.th$ErrorMessage = '';
-   thatTheas.lastErrorMessage = '';
-   thatTheas.latError = [];   
+   thatTheas.latError = {};  
 
    thatTheas.sendAsync({
                    url: 'async',
@@ -906,24 +904,24 @@ Theas.prototype.haveError = function(showModal) {
 
   let result = false;
 
-  thatTheas.lastErrorMessage = thatTheas.theasParams['th$ErrorMessage'];
+  let msg = thatTheas.theasParams['th$ErrorMessage'];
 
-  if (thatTheas.lastErrorMessage.length > 0) {
+  if (msg.length > 0) {
       result = true;
 
       let lastErr = thatTheas.lastError;
 
-      lastErr.msgRaw = thatTheas.lastErrorMessage;
+      lastErr.msg = msg;
+      lastErr.msgTech = msg;
 
       //message can be pipe-delimited:  TechnicalMessage|Title|FriendlyMessage
-      lastErr.msgParts = thatTheas.lastErrorMessage.split('|');
+      lastErr.msgParts = msg.split('|');
 
       lastErr.msgTitle = 'Error';
       lastErr.msgFriendly = '';
-      lastErr.msgTech = '';
-      lastErr.msg = '';
 
-      if (lastErr.msgParts.length > 1) {      
+      if (lastErr.msgParts.length > 1) {     
+        lastErr.msgTech = lastErr.msgParts[0];         
         lastErr.msgTitle = lastErr.msgParts[1];
 
         if (lastErr.msgParts.length > 2) { 
@@ -931,8 +929,6 @@ Theas.prototype.haveError = function(showModal) {
         }
       }
 
-      thatTheas.lastError.msgTech = lastErr.msgParts[0]      
-    
     if (showModal) {
       thatTheas.thatVue.$bvModal.show('thModal');        
     }     

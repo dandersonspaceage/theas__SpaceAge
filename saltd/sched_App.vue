@@ -365,6 +365,7 @@
             thisObj = {};
             thisData = [];
             thisFetchDate = null;
+            thatVue.$forceUpdate();
 
             //  WOs
             if (rd["WOs"]) {
