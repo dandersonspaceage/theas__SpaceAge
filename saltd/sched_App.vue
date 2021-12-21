@@ -324,7 +324,7 @@
       testMe: function() {
         let thatVue = this;
 
-        thatVue.$th.theasParams.th$ErrorMessage = 'Hello error message!';
+        //thatVue.$th.theasParams.th$ErrorMessage = 'Hello error message!';
         thatVue.testShowModal(true);
 
         //thatVue.$th.showModal('ABCDEFG');
