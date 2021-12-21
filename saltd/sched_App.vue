@@ -261,6 +261,16 @@
       busy : function () {
         return this.busyCount > 0;
       }, 
+
+    },
+
+    methods: {
+      fullscreen: function () {
+        if (screenfull.isEnabled) {
+          screenfull.request();
+        }
+      }, 
+
       
       // showModal is to cause the error modal to be displayed.
       // The modal will try to update the v-model that is set to
@@ -277,16 +287,7 @@
               // but haveError must be settable since we assign
               // haveError to the modal's v-model attribute.
           }
-      },  
-
-    },
-
-    methods: {
-      fullscreen: function () {
-        if (screenfull.isEnabled) {
-          screenfull.request();
-        }
-      }, 
+      },        
                
       testShowModal: function(show) {
         let thatVue = this;
