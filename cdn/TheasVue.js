@@ -8,6 +8,9 @@ function Theas(vue) {
    this.thatVue = vue;
    this.theasParams = {th$ErrorMessage: ''};
 
+   this.lastErrorMessage = '',
+   this.lastError = {};
+
    this.useCurrentLocation = false;
    this.currentLocation = null;
    this.pendingAsyncs = [];
@@ -101,37 +104,49 @@ Theas.prototype.objToStr = function (obj, kstr, formObj) {
 };
 
 
+
 Theas.prototype.updateAllTheasParams = function (nv) {
-   // nv contains a list of name/value strings
-   // generally prepared by splitToNV
+    // nv contains either a list of name/value strings,
+    // or an object of name/json strings
+    // generally prepared by splitToNV ...which may have been passed either
+    // a string or a JSON object
 
-   // save reference to Theas object
-   let thatTheas = this;
+    // save reference to Theas object
+    let thatTheas = this;
 
-   //Update all theas controls as per the updateStr
 
-   const pfx = 'theas:';
-   const pfx2 = 'theas$';
+    if (typeof nv == 'object') {
+      if (nv['__TheasParams']) {
+        Object.assign(that.TheasParams, JSON.parse(nv['__TheasParams']));
+      }
+    }
+    else if (typeof nv == 'string') {
 
-   if (thatTheas.theasParams) {
-       for (let n in nv) {
-           let k;
+      //Update all theas controls as per the updateStr
 
-           if (nv.hasOwnProperty(n)) {
-               if (n.startsWith(pfx)) {
-                   k = n.substring(pfx.length);
-               }
-               else if (n.startsWith(pfx2)) {
-                   k = n.substring(pfx2.length);
-               }
+      const pfx = 'theas:';
+      const pfx2 = 'theas$';
 
-               if (k) {
-                   k = k.replace(':', '$');
-                   thatTheas.theasParams[k] = nv[n];
-               }
-           }
-       }
-   }
+      if (thatTheas.theasParams) {
+          for (let n in nv) {
+              let k;
+
+              if (nv.hasOwnProperty(n)) {
+                  if (n.startsWith(pfx)) {
+                      k = n.substring(pfx.length);
+                  }
+                  else if (n.startsWith(pfx2)) {
+                      k = n.substring(pfx2.length);
+                  }
+
+                  if (k) {
+                      k = k.replace(':', '$');
+                      thatTheas.theasParams[k] = nv[n];
+                  }
+              }
+          }
+      }
+    }
 };
 
 
@@ -153,7 +168,6 @@ Theas.prototype.splitToNV = function (updateStr) {
            isJSON = true;
        }
    }
-
 
    let n;
    let nv;
@@ -330,58 +344,44 @@ Theas.prototype.sendAsync = function (config) {
 
 
 
-   ax.request(axiosConfig)
-       .then(function (response) {
-           // handle success
+    ax.request(axiosConfig)
+      .then(function (response) {
+          // handle success
 
-           // remove cancel entry
-           for (let i=0; i < thatTheas.pendingAsyncs.length; i++ ) {
-               if (thatTheas.pendingAsyncs[i].requestID == response.config.requestID) {
-                   thatTheas.pendingAsyncs.splice(i, 1);
-                   break;
-               }
-           }
+          // remove cancel entry
+          for (let i=0; i < thatTheas.pendingAsyncs.length; i++ ) {
+              if (thatTheas.pendingAsyncs[i].requestID == response.config.requestID) {
+                  thatTheas.pendingAsyncs.splice(i, 1);
+                  break;
+              }
+          }
 
+          let rd;
 
-           /*
-           Removed partial support for non-cookie storage of session tokens on 9/7/2019.
-           Cookie-only for the time being.
+          // The server can return whatever it wants in response.data
+          // For example, response.data could contain URL-encoded name/value pairs
+          // or it contain a JSON string
 
-           // The response may have provided an updated session token in a cookie, in which case
-           // we should update our stored value.
-           // Note, however, that this does not really work when secure cookies are used, as the
-           // server is expecting
-           let new_st_cookie = thatTheas.getCookie('theas:th:ST');
+          if (response.data.length > 0) {
 
-           if (thatTheas.theasParams['th$ST'] != new_st_cookie) {
-               thatTheas.theasParams['th$ST'] = new_st_cookie;
-           }
-           */
+              rd = response.data;
+              rd = thatTheas.splitToNV(rd);              
+/*
+              if (typeof rd === 'string') {
+                  let isJSON = false;
 
-           let rd;
+                  if (rd.length > 0) {
+                      if (rd[0] == '{' || rd[0] == '[') {
+                          // looks like response is JSON
+                          isJSON = true;
+                      }
+                  }
 
-           // The server can return whatever it wants in response.data
-           // For example, response.data could contain URL-encoded name/value pairs
-           // or it contain a JSON string
-
-           if (response.data.length > 0) {
-
-               rd = response.data;
-
-               if (typeof rd === 'string') {
-                   let isJSON = false;
-
-                   if (rd.length > 0) {
-                       if (rd[0] == '{' || rd[0] == '[') {
-                           // looks like response is JSON
-                           isJSON = true;
-                       }
-                   }
-
-                   if (!isJSON) {
+                  if (!isJSON) {
                        rd = thatTheas.splitToNV(rd);
-                   }
+                  }
                }
+*/               
 
            }
 
@@ -893,43 +893,41 @@ Theas.prototype.raiseError = function (errMsg) {
           
  };
 
-Theas.prototype.haveError = function(showModal, backOnError, onClose) {
-   // save reference to Theas object
-   let thatTheas = this;
+Theas.prototype.haveError = function(showModal) {
+  // save reference to Theas object
+  let thatTheas = this;
 
-   if (typeof showModal == 'undefined') {
-       //set default value
-       showModal = true;
-   }
+  let result = false;
 
-   if (typeof backOnError == 'undefined') {
-       //set default value
-       backOnError = false;
-   }
+  th.lastErrorMessage = thatTheas.theasParams['th$ErrorMessage'];
 
-   let haveError = false;
+  if (th.lastErrorMessage.length > 0) {
+    result = true;
+    this.sendAsync('clearError');      
 
-   if (this.get('th:ErrorMessage')) {
-       let thErrorMsg = this.get('th:ErrorMessage').val();
-       if (thErrorMsg) {
-           haveError = true;
-           th.lastError = thErrorMsg;
+      //message can be pipe-delimited:  TechnicalMessage|Title|FriendlyMessage
+      thatTheas.lastError.msgParts = thErrorMsg.split('|');
 
-           // clear the error message
-           this.get('th:ErrorMessage', '');
-           this.sendAsync('clearError');
+      lastTheas.lastError.msgRaw = th.lastErrorMessage;
+      thatTheas.lastError.msgTitle = 'Error';
+      thatTheas.lastError.msgFriendly = '';
+      thatTheas.lastError.msgTech = '';
+      thatTheas.lastError.msg = '';
 
-           if (showModal) {
-               let msgParts = thErrorMsg.split('|');
-               let msgTitle = 'Error';
-               if (msgParts.length > 1) {
-                 msgTitle = msgParts[1];
-                 thErrorMsg = msgParts[0];
-               }
-               thatTheas.showModal(thErrorMsg, msgTitle, onClose, backOnError);
-            }
+      if (msgParts.length > 1) {      
+        thatTheas.lastError.msgTitle = msgParts[1];
 
-       }
-   }
-   return haveError;
+        if (msgParts.length > 2) { 
+          thatTheas.lastError.msgFriendly = msgParts[2];                      
+        }
+      }
+
+      thatTheas.lastError.msgTech = msgParts[0]      
+    
+    if (showModal) {
+      thatTheas.thatVue.$bvModal.show('thModal');        
+    }     
+  }
+
+   return result;
 };
