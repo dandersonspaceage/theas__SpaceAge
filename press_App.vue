@@ -34,10 +34,10 @@
               </thead>
                 <tbody>
                   <tr v-for="wo in data_WOs" :key="wo.qguid">
-                      <td>[[thisRow.WONumber]]</td>
-                      <td>[[thisRow.CustomerName]]</td>
-                      <td>[[thisRow.ItemNumber]]</td>
-                      <td>[[thisRow.Quantity]]</td>
+                      <td>[[wo.WONumber]]</td>
+                      <td>[[wo.CustomerName]]</td>
+                      <td>[[wo.ItemNumber]]</td>
+                      <td>[[wo.Quantity]]</td>
                   </tr>
                 </tbody>
               </table>
