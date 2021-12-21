@@ -299,7 +299,7 @@
 
         return thisMsg;
         */
-        return thatVue.$th && thatVue.$th.theasParams && thatVue.$th.theasParams.th$ErrorMessage;
+        return thatVue.$th.theasParams.th$ErrorMessage;
       },     
             
       testShowModal: function(show) {
