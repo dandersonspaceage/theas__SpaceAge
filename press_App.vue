@@ -1,8 +1,6 @@
 <template>
   <div :style="{cursor: curCursor, width: '100%'}">
 
-    <b-container fluid class="ml-3 mr-3">  
-
       <b-row no-gutters>
         <b-col>
           <b-form-group label="Press"
@@ -73,8 +71,6 @@
 
         </div>
       </b-row>
-
-    </b-container>
 
     <b-modal id="thModal" ref="thModal" @hide="onthModalHide" hide-footer>
       <template #modal-title>
