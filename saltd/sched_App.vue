@@ -268,16 +268,12 @@
 
       testShowModal: function(show) {
         let thatVue = this;
-
-        let thisModal = thatVue.refs$.thModal;
         
-        if (thisModal) {
-          if (show) {
-            thisModal.show()
-          }
-          else {
-            thisModal.hide();
-          }
+        if (show) {
+         $bvModal.show('thModal');
+        }
+        else {
+          $bvModal.show('thModal');
         }
       },
 
