@@ -185,11 +185,11 @@
 
     <b-modal id="thModal" ref="thModal" hide-footer>
       <template #modal-title>
-        [[ thatVue.theasLastError.msgTitle ]]
+        [[ theasLastError.msgTitle ]]
       </template>
       <div class="d-block text-center">
-        <h3>[[ thatVue.theasLastError.msgFriendly ]]</h3>
-        <h5>[[ thatVue.theasLastError.msgTech ]]</h5>        
+        <h3>[[ theasLastError.msgFriendly ]]</h3>
+        <h5>[[ theasLastError.msgTech ]]</h5>        
       </div>
     </b-modal>
 
