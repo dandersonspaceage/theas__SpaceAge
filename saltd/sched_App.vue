@@ -44,6 +44,14 @@
                       </b-col>
                     </b-row>
 
+
+                    <b-row>
+                      <b-col>
+                        <h6>How do you feel?  [[ wo.HowDoYouFeel ]]</h6>
+                      </b-col>
+                    </b-row>
+
+
                     <b-row>
                       <b-col>
                         <h6>[[ wo.CustomerName ]]</h6>
