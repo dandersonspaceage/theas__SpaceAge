@@ -19,7 +19,7 @@
 
         <div class="fastscroll" style="height:75vh;">
 
-          <table class="table small striped" style="width:100%">
+          <table class="table table-condensed table-striped" style="width:100%">
 
             <thead>
                 <tr>
