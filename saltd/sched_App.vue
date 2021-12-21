@@ -257,7 +257,13 @@
       },
 
       errorMessage : function () {
-        return this.$th.theasParams.th$ErrorMessage;
+        let thisMsg = '';
+
+        if (this.$th && this.$th.theasParams && this.$th.theasParams.th$ErrorMessage) {
+          thisMsg = this.$th.theasParams.th$ErrorMessage;
+        }
+      
+        return thisMsg;
       }
     },
 
