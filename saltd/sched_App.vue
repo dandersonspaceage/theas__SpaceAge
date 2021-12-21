@@ -219,7 +219,7 @@
         dirtyTimers: [], // timers for pending saves of qugids
 
         overlayVisible: false,
-        errorMessage: '',
+        errorMessage: thatVue.$th.theasParams['th$ErrorMessage'],
 
         showModal: false,
         drag: null, 
@@ -271,14 +271,14 @@
         }
       }, 
             
+      theasParams = thatTheas.thatVue.$forceUpdate();       
       testShowModal: function(show) {
         let thatVue = this;
 
         //thatVue.$th.theasParams['th$ErrorMessage'] = 'What is this?';
         //this.$forceUpdate();   
 
-        thatVue.$th.raiseError('You know something?');
-        //this.$forceUpdate();           
+        thatVue.$th.raiseError('You know something?');         
       },
 
 
