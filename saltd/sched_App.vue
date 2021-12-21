@@ -245,8 +245,6 @@
     created: function () {
       let thatVue = this;
 
-      thatVue.$th = Theas(thatVue);
-
       // perform the initial fetch of data
       this.fetchData(true);
     },
