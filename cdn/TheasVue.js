@@ -6,7 +6,7 @@ if (!FormData.prototype.set) {
 function Theas(vue) {
    // save reference to Vue object that can be used in async callbacks
    this.thatVue = vue;
-   this.theasParams = {};
+   this.theasParams = {th$ErrorMessage: 'placeholder'};
 
    this.useCurrentLocation = false;
    this.currentLocation = null;
