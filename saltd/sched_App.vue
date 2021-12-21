@@ -16,10 +16,6 @@
                                 size="sm"></b-form-select>
                 </b-form-group>
               </b-col>
-
-              <b-col>
-                <b-button @click="testMe">Test Me</b-button>
-              </b-col>
             </b-row>
 
             <h6>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>
@@ -277,12 +273,6 @@
           screenfull.request();
         }
       }, 
-
-      testMe: function() {
-        let thatVue = this;
-
-        thatVue.$th.raiseError('Looking good.'); 
-      },
 
       onthModalHide: function() {
         let thatVue = this;
