@@ -1,7 +1,7 @@
 <template>
   <div :style="{cursor: curCursor, width: '100%'}">
 
-    <b-container fluid style="{margin-left: 10px; margin-right: 10px}">  
+    <b-container fluid class="ml-3 mr-3">  
 
       <b-row no-gutters>
         <b-col>
