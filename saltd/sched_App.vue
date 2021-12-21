@@ -256,15 +256,23 @@
         return this.busyCount > 0;
       },
 
-      errorMessage : function () {
-        let thisMsg = '';
+      errorMessage : {
+        get: function () {
+          let thisMsg = '';
 
-        if (this.$th && this.$th.theasParams && this.$th.theasParams.th$ErrorMessage) {
-          thisMsg = this.$th.theasParams.th$ErrorMessage;
+          if (this.$th && this.$th.theasParams && this.$th.theasParams.th$ErrorMessage) {
+            thisMsg = this.$th.theasParams.th$ErrorMessage;
+          }
+        
+          return thisMsg;
+        },
+
+        set: function (newValue) {
+          let noop;
         }
-      
-        return thisMsg;
       }
+
+
     },
 
     methods: {
