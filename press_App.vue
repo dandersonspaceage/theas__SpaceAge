@@ -1,7 +1,7 @@
 <template>
   <div :style="{cursor: curCursor, width: '100%'}">
 
-    <b-container fluid>  
+    <b-container fluid no-gutters>  
 
             <b-row>
               <b-col>
