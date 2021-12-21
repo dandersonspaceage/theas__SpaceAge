@@ -886,10 +886,11 @@ Theas.prototype.showModal =  function(msg, title, onClose, goBackOnClose) {
 };
 
 Theas.prototype.raiseError = function (errMsg) {
-       let that = this;
-       that.get('th:ErrorMessage', errMsg);
-       that.haveError(true);
-};
+       let thatTheas = this;
+
+       thatTheas.theasParams['th$ErrorMessage'] = errMsg;
+       thatTheas.thatVue.$forceUpdate();
+ };
 
 Theas.prototype.haveError = function(showModal, backOnError, onClose) {
    // save reference to Theas object

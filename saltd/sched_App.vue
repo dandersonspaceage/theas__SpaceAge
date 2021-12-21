@@ -305,16 +305,19 @@
       testShowModal: function(show) {
         let thatVue = this;
 
-        thatVue.$th.theasParams['th$ErrorMessage'] = 'What is this?';
-        this.$forceUpdate();
+        //thatVue.$th.theasParams['th$ErrorMessage'] = 'What is this?';
+        //this.$forceUpdate();
 
-  
+        thatVue.$th.raiseError('You know something?');
+
+        /*
         if (show) {
          thatVue.$bvModal.show('thModal');
         }
         else {
           thatVue.$bvModal.show('thModal');
         }
+        */
       },
 
 
