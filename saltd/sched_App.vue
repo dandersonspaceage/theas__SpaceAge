@@ -297,7 +297,7 @@
           thisMsg = thatVue.$th.theasParams.th$ErrorMessage;
         }
         return thisMsg;
-      }
+      },
 
       testMe: function() {
         let thatVue = this;
