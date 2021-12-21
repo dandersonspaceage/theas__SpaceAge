@@ -38,7 +38,7 @@
     <link type="text/css" rel="stylesheet" href="{{ '/cdn/font-awesome/css/all.css'|theasResource }}">
 
 
-    <title>SpaceAge Press Schedule</title>
+    <title>SpaceAge Press</title>
 
     <!--Static global styles-->
     <style>
@@ -79,7 +79,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.20.0/vuedraggable.umd.min.js"></script>
 
 
-    <script  type="module" src="{{ '/saltd/sched.js'|theasResource }}"></script>
+    <script  type="module" src="{{ '/press.js'|theasResource }}"></script>
 
 </head>
 <body style="height:85vh">

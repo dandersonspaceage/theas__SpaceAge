@@ -1,7 +1,7 @@
 <template>
   <div :style="{ cursor: curCursor}">
 
-    <b-container id="NewPage1_Appvue">
+    <b-container id="Press_Appvue">
 
       <b-row no-gutters fluid>
 
@@ -224,7 +224,7 @@
 
         lastFetch_WOs: null,
 
-        asyncResource_WOs: 'saltd/sched_App.vue',
+        asyncResource_WOs: 'press_App.vue',
         asyncCmd_WOs: 'fetchWOs',
 
         pressCodes: ['N', 'NW', 'S', 'W'],
