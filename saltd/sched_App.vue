@@ -310,14 +310,14 @@
 
         thatVue.$th.raiseError('You know something?');
 
-        /*
+
         if (show) {
          thatVue.$bvModal.show('thModal');
         }
         else {
           thatVue.$bvModal.show('thModal');
         }
-        */
+
       },
 
 
