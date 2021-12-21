@@ -208,8 +208,8 @@
 
     data() {
       return {
-        theasParams: $th.theasParams,
-
+        theasParams: {},
+                
         dataRefreshInterval: 15,
         enableFetching: true,
         today: moment().toDate(),
@@ -219,8 +219,7 @@
         dirtyTimers: [], // timers for pending saves of qugids
 
         overlayVisible: false,
-
-        showModal: false,
+        
         drag: null, 
 
         // Dynamic data will be fetched asynchronously
@@ -245,7 +244,7 @@
     created: function () {
       let thatVue = this;
 
-      //thatVue.theasParams = thatVue.$th.theasParams;
+      thatVue.theasParams = thatVue.$th.theasParams;
 
       // perform the initial fetch of data
       this.fetchData(true);
@@ -261,7 +260,23 @@
     computed: {
       busy : function () {
         return this.busyCount > 0;
-      },  
+      }, 
+      
+      // showModal is to cause the error modal to be displayed.
+      // The modal will try to update the v-model that is set to
+      // haveError, but really it is a read-only propery.
+
+      showModal: {
+          get () {
+              return this.theasParams.th$ErrorMessage != ''
+          },
+          set (value) {
+              let noop;
+
+              // We don't really need to do anything...
+              // but haveError must be settable since we assign
+              // haveError to the modal's v-model attribute.
+          },   
 
     },
 
