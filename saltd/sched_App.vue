@@ -276,18 +276,9 @@
       // The modal will try to update the v-model that is set to
       // haveError, but really it is a read-only propery.
 
-      showModal: {
-          get () {
-              return this.theasParams.th$ErrorMessage != ''
-          },
-          set (value) {
-              let noop;
-
-              // We don't really need to do anything...
-              // but haveError must be settable since we assign
-              // haveError to the modal's v-model attribute.
-          }
-      },        
+      showModal: function () {
+        return this.theasParams.th$ErrorMessage != ''
+      },
                
       testShowModal: function(show) {
         let thatVue = this;
