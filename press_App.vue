@@ -1,77 +1,77 @@
 <template>
-  <div :style="{cursor: curCursor, width: '100%'}">
+  <div :style="{cursor: curCursor}">
 
-      <b-row no-gutters>
-        <b-col>
-          <b-form-group label="Press"
-                        :label-for="'ListName'">
-            <b-form-select :id="'listName'"
-                          v-model="curWOList" :options="woListNames" @change="switchWOList()"
-                          size="sm"></b-form-select>
-          </b-form-group>
-        </b-col>
-      </b-row>
+    <b-row>
+      <b-col>
+        <b-form-group label="Press"
+                      :label-for="'ListName'">
+          <b-form-select :id="'listName'"
+                        v-model="curWOList" :options="woListNames" @change="switchWOList()"
+                        size="sm"></b-form-select>
+        </b-form-group>
+      </b-col>
+    </b-row>
 
-      <b-row no-gutters>
-        <b-col>
+    <b-row>
+      <b-col>
 
-          <h6>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>
+        <h6>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>
 
-          <div class="fastscroll" style="height:75vh;">
+        <div class="fastscroll" style="height:75vh;">
 
-            <table class="table small" style="width:100%">
+          <table class="table small" style="width:100%">
 
-              <thead>
-                  <tr>
-                      <th>Batch</th>
-                      <th>Customer</th>  
-                      <th>Thick</th>
-                      <th>Overall Thick</th>                    
-                      <th>W</th>
-                      <th>L</th>
-                      <th>Series</th>
-                      <th>Fascoat</th>
-                      <th>Qty</th>
-                      <th>Qty Shot</th>
-                      <th>Shim Layup</th>
-                      <th>Mold Glass Layers</th>
-                      <th>Ship Date</th>
-                      <th>Glass</th>
-                      <th>Total Weight</th>
-                      <th>Total Weight Sanded</th>
-                      <th>Grams per Board</th>
-                      <th>Foam</th>
-                      <th>Notes</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr v-for="wo in data_WOs" :key="wo.qguid">
-                      <td>[[wo.BatchNumber]]</td>
-                      <td>[[wo.CustomerName]]</td>
-                      <td>[[wo.DimThickSanded]]</td>
-                      <td>[[wo.DimThick]]</td>
-                      <td>[[wo.DimWidth]]</td>
-                      <td>[[wo.DimLength]]</td>
-                      <td>[[wo.Series]]</td>
-                      <td>[[wo.Fascoat]]</td>
-                      <td>[[wo.Quantity]]</td>
-                      <td>[[wo.CurrentShotCount]]</td>
-                      <td>[[wo.ShimLayup]]</td>
-                      <td>[[wo.MoldGlassLayers]]</td>
-                      <td>[[wo.EstShipDate]]</td>
-                      <td>[[wo.Glass]]</td>
-                      <td>[[wo.BoardWeight]]</td>
-                      <td>[[wo.BoardWeightSanded]]</td>
-                      <td>[[wo.BoardWeightGrams]]</td>                                                                                                                                                          
-                      <td>[[wo.Foam]]</td>
-                      <td>[[wo.Notes]]</td>                           
-                  </tr>
-              </tbody>
-            </table>
-  
-          </div>
-        </b-col>
-      </b-row>
+            <thead>
+                <tr>
+                    <th>Batch</th>
+                    <th>Customer</th>  
+                    <th>Thick</th>
+                    <th>Overall Thick</th>                    
+                    <th>W</th>
+                    <th>L</th>
+                    <th>Series</th>
+                    <th>Fascoat</th>
+                    <th>Qty</th>
+                    <th>Qty Shot</th>
+                    <th>Shim Layup</th>
+                    <th>Mold Glass Layers</th>
+                    <th>Ship Date</th>
+                    <th>Glass</th>
+                    <th>Total Weight</th>
+                    <th>Total Weight Sanded</th>
+                    <th>Grams per Board</th>
+                    <th>Foam</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="wo in data_WOs" :key="wo.qguid">
+                    <td>[[wo.BatchNumber]]</td>
+                    <td>[[wo.CustomerName]]</td>
+                    <td>[[wo.DimThickSanded]]</td>
+                    <td>[[wo.DimThick]]</td>
+                    <td>[[wo.DimWidth]]</td>
+                    <td>[[wo.DimLength]]</td>
+                    <td>[[wo.Series]]</td>
+                    <td>[[wo.Fascoat]]</td>
+                    <td>[[wo.Quantity]]</td>
+                    <td>[[wo.CurrentShotCount]]</td>
+                    <td>[[wo.ShimLayup]]</td>
+                    <td>[[wo.MoldGlassLayers]]</td>
+                    <td>[[wo.EstShipDate]]</td>
+                    <td>[[wo.Glass]]</td>
+                    <td>[[wo.BoardWeight]]</td>
+                    <td>[[wo.BoardWeightSanded]]</td>
+                    <td>[[wo.BoardWeightGrams]]</td>                                                                                                                                                          
+                    <td>[[wo.Foam]]</td>
+                    <td>[[wo.Notes]]</td>                           
+                </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </b-col>
+    </b-row>
 
     <b-modal id="thModal" ref="thModal" @hide="onthModalHide" hide-footer>
       <template #modal-title>
