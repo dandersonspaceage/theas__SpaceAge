@@ -183,14 +183,14 @@
 
     <b-container>
 
-    <b-modal id="thModal" ref="thModal" v-model="showModal" hide-footer>
+    <b-modal id="thModal" ref="thModal" hide-footer>
       <template #modal-title>
-        Using <code>$bvModal</code> Methods
+        [[ thatVue.theasLastError.msgTitle ]]
       </template>
       <div class="d-block text-center">
-        <h3>[[ theasParams['th$ErrorMessage'] ]]</h3>
+        <h3>[[ thatVue.theasLastError.msgFriendly ]]</h3>
+        <h5>[[ thatVue.theasLastError.msgTech ]]</h5>        
       </div>
-      <b-button class="mt-3" block @click="$bvModal.hide('thModal')">Close Me</b-button>
     </b-modal>
 
   </div>
@@ -209,6 +209,7 @@
     data() {
       return {
         theasParams: {},
+        theasLastError: {},
                 
         dataRefreshInterval: 15,
         enableFetching: true,
@@ -250,6 +251,7 @@
       //we update the reference to point data.theasParams to thatVue.th.theasParams
       //thereby making theasParams reactive.
       thatVue.theasParams = thatVue.$th.theasParams;
+      thatVue.theasLastError = thatVue.$th.lastError;
 
       // perform the initial fetch of data
       this.fetchData(true);
