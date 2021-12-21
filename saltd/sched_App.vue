@@ -3,7 +3,6 @@
 
     <b-container id="NewPage1_Appvue">
 
-<h1>Hi, Josh</h1>
       <b-row no-gutters fluid>
 
         <b-col>     
@@ -43,14 +42,6 @@
                         <h6>SO: [[ wo.LinkedSONumber ]]</h6>
                       </b-col>
                     </b-row>
-
-
-                    <b-row>
-                      <b-col>
-                        <h6>How do you feel?  [[ wo.HowDoYouFeel ]]</h6>
-                      </b-col>
-                    </b-row>
-
 
                     <b-row>
                       <b-col>
