@@ -249,11 +249,11 @@
       thatVue.theasParams = thatVue.$th.theasParams;
       thatVue.theasLastError = thatVue.$th.lastError;
 
-      thatVue.set(theasLastError, 'msg', '');
-      thatVue.set(theasLastError, 'msgTitle', '');
-      thatVue.set(theasLastError, 'msgTech', '');
-      thatVue.set(theasLastError, 'msgFriendlly', '');
-      thatVue.set(theasLastError, 'msgParts', []);
+      thatVue.set(thatVue.theasLastError, 'msg', '');
+      thatVue.set(thatVue.theasLastError, 'msgTitle', '');
+      thatVue.set(thatVue.theasLastError, 'msgTech', '');
+      thatVue.set(thatVue.theasLastError, 'msgFriendlly', '');
+      thatVue.set(thatVue.theasLastError, 'msgParts', []);
 
       // perform the initial fetch of data
       this.fetchData(true);
