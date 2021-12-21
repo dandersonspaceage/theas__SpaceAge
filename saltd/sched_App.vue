@@ -309,7 +309,7 @@
         //this.$forceUpdate();   
 
         thatVue.$th.raiseError('You know something?');
-        this.$forceUpdate();           
+        //this.$forceUpdate();           
       },
 
 
