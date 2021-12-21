@@ -1,11 +1,7 @@
 <template>
   <div :style="{ cursor: curCursor}">
 
-    <b-container id="Press_Appvue">
-
-      <b-row no-gutters fluid>
-
-        <b-col>     
+    <b-container id="Press_Appvue">  
 
             <b-row>
               <b-col>
@@ -74,9 +70,6 @@
  
 
             </div>
-        </b-col>
-
-      </b-row>
 
     <b-container>
 
