@@ -832,14 +832,15 @@ Theas.prototype.clearError = function (doFetchData) {
    // save reference to Theas object
    let thatTheas = this;
 
+   thatTheas.theasParams.th$ErrorMessage = '';
+   thatTheas.lastErrorMessage = '';
+   thatTheas.latError = [];   
+
    thatTheas.sendAsync({
                    url: 'async',
                    asyncCmd: 'clearError',
 
                    onResponse: function (rd, response) {
-                       thatTheas.theasParams.th$ErrorMessage = '';
-                       thatTheas.lastErrorMessage = '';
-                       thatTheas.latError = [];
 
                        if (typeof thatTheas.thatVue.fetchData == 'function' && doFetchData) {
                            // try to immediately do a fetch
