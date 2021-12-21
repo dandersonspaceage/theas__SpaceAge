@@ -219,7 +219,7 @@
         dirtyTimers: [], // timers for pending saves of qugids
 
         overlayVisible: false,
-        errorMessage: thatVue.$th.theasParams['th$ErrorMessage'],
+        errorMessage: $th.theasParams['th$ErrorMessage'],
 
         showModal: false,
         drag: null, 
