@@ -1,7 +1,7 @@
 <template>
-  <div :style="{ cursor: curCursor; width: 100%}">
+  <div :style="{ cursor: curCursor}">
 
-    <b-container id="Press_Appvue" fluid>  
+    <b-container id="Press_Appvue">  
 
             <b-row>
               <b-col>
