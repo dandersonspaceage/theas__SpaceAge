@@ -183,7 +183,7 @@
 
     <b-container>
 
-    <b-modal id="thModal" ref="thModal" hide-footer>
+    <b-modal id="thModal" ref="thModal" v-model="haveError" hide-footer>
       <template #modal-title>
         Using <code>$bvModal</code> Methods
       </template>
@@ -257,6 +257,23 @@
         return this.busyCount > 0;
       },
 
+      // haveError is to cause the error modal to be displayed.
+      // The modal will try to update the v-model that is set to
+      // haveError, but really it is a read-only propery.
+
+      haveError: {
+          get () {
+              return this.theasParams.th$ErrorMessage != ''
+          },
+          set (value) {
+              let thatVue = this;
+
+              // We don't really need to do anything...
+              // but haveError must be settable since we assign
+              // haveError to the modal's v-model attribute.
+          }
+      },      
+
     },
 
     methods: {
@@ -270,13 +287,15 @@
         let thatVue = this;
 
         thatVue.$th.get('th:ErrorMessage', 'What is this?');
-        
+
+        /*
         if (show) {
          thatVue.$bvModal.show('thModal');
         }
         else {
           thatVue.$bvModal.show('thModal');
         }
+        */
       },
 
       errorMessage: function () {
