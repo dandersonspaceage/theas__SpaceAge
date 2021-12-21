@@ -307,9 +307,9 @@
 
         //thatVue.$th.theasParams['th$ErrorMessage'] = 'What is this?';
         //this.$forceUpdate();   
-
+        
         thatVue.$th.raiseError('You know something?');
-
+        this.$forceUpdate();           
       },
 
 
