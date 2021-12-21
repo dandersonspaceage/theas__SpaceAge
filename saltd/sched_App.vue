@@ -289,7 +289,8 @@
 
       errorMessage: function () {
         let thatVue = this;
-
+        
+        /*
         let thisMsg = '';
 
         if (thatVue.$th && thatVue.$th.theasParams && thatVue.$th.theasParams.th$ErrorMessage) {
@@ -297,6 +298,8 @@
         }
 
         return thisMsg;
+        */
+        return thatVue.$th && thatVue.$th.theasParams && thatVue.$th.theasParams.th$ErrorMessage;
       },     
             
       testShowModal: function(show) {
