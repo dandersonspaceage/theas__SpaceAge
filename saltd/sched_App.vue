@@ -183,7 +183,7 @@
 
     <b-container>
 
-    <b-modal id="thModal" ref="thModal" hide-footer>
+    <b-modal id="thModal" ref="thModal" v-model="showModal" hide-footer>
       <template #modal-title>
         Using <code>$bvModal</code> Methods
       </template>
