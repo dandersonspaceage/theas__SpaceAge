@@ -188,7 +188,7 @@
         Using <code>$bvModal</code> Methods
       </template>
       <div class="d-block text-center">
-        <h3>[[ errorMessage() ]]</h3>
+        <h3>[[ errorMessage ]]</h3>
       </div>
       <b-button class="mt-3" block @click="$bvModal.hide('thModal')">Close Me</b-button>
     </b-modal>
