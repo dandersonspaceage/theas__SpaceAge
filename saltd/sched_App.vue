@@ -270,10 +270,10 @@
         let thatVue = this;
         
         if (show) {
-          thatVue.refs$('thModal').show();        
+          thatVue.refs$['thModal'].show();        
         }
         else {
-          thatVue.refs$('thModal').hide();
+          thatVue.refs$['thModal'].hide();
         }
       },
 
