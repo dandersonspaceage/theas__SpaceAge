@@ -208,6 +208,8 @@
 
     data() {
       return {
+        $th: null,
+
         dataRefreshInterval: 15,
         enableFetching: true,
         today: moment().toDate(),
@@ -241,6 +243,10 @@
 
     // method executed when the Vue object is created
     created: function () {
+      let thatVue = this;
+
+      $th = Theas(thatVue);
+
       // perform the initial fetch of data
       this.fetchData(true);
     },
@@ -263,7 +269,7 @@
 
       haveError: {
           get () {
-              return this.theasParams.th$ErrorMessage != ''
+              return this.$th.theasParams.th$ErrorMessage != ''
           },
           set (value) {
               let thatVue = this;
