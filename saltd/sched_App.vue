@@ -183,7 +183,7 @@
 
     <b-container>
 
-    <b-modal id="thModal" ref="thModal" v-model="showErrorModal" hide-footer>
+    <b-modal id="thModal" ref="thModal" v-model="errorModalShowing" hide-footer>
       <template #modal-title>
         Using <code>$bvModal</code> Methods
       </template>
@@ -263,33 +263,16 @@
       return thisMsg;
     },
 
+    errorModalShowing: function() {
+      let thatVue = this;
+      
+      return thatVue.errorMessage.length > 0;
+    },
+
     computed: {
       busy : function () {
         return this.busyCount > 0;
       },
-
-      showErrorModal: {
-        get: function () {
-          let thisMsg = '';
-        
-          return this.errorMessage.length > 0;
-        },
-
-        set: function (newValue) {
-          let noop;
-        }
-      },
-
-      errorMessage: function () {
-        let thisMsg = '';
-
-        if (this.$th && this.$th.theasParams && this.$th.theasParams.th$ErrorMessage) {
-          thisMsg = this.$th.theasParams.th$ErrorMessage;
-        }
-      
-        return thisMsg;
-      },      
-
 
     },
 
