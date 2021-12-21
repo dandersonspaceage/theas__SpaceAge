@@ -208,8 +208,6 @@
 
     data() {
       return {
-        $th: {},
-
         dataRefreshInterval: 15,
         enableFetching: true,
         today: moment().toDate(),
