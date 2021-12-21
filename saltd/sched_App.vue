@@ -241,6 +241,7 @@
     created: function () {
       let thatVue = this;
 
+    /*
       //$th is created automatically (by recipe in sched.js / xxxxx.js) however, it is NOT reactive.
       //For example, $th.theasParams[someParam] is not reactive.
       //So we declared data.theasParams and initialized to an empty object above, and here
@@ -254,6 +255,7 @@
       thatVue.$set(thatVue.theasLastError, 'msgTech', '');
       thatVue.$set(thatVue.theasLastError, 'msgFriendlly', '');
       thatVue.$set(thatVue.theasLastError, 'msgParts', []);
+    */
 
       // perform the initial fetch of data
       this.fetchData(true);
