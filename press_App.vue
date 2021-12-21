@@ -47,17 +47,17 @@
                   <tr v-for="wo in data_WOs" :key="wo.qguid">
                       <td>[[wo.Batch]]</td>
                       <td>[[wo.CustomerName]]</td>
-                      <td>[[wo.Thick]]</td>
-                      <td>[[wo.ThickOverall]]</td>
-                      <td>[[wo.Width]]</td>
-                      <td>[[wo.Length]]</td>
+                      <td>[[wo.DimThickSanded]]</td>
+                      <td>[[wo.DimThick]]</td>
+                      <td>[[wo.DimWidth]]</td>
+                      <td>[[wo.DimLength]]</td>
                       <td>[[wo.Series]]</td>
                       <td>[[wo.Fascoat]]</td>
-                      <td>[[wo.Qty]]</td>
-                      <td>[[wo.QtyShot]]</td>
+                      <td>[[wo.Quantity]]</td>
+                      <td>[[wo.CurrentShotCount]]</td>
                       <td>[[wo.ShimLayup]]</td>
                       <td>[[wo.MoldGlassLayers]]</td>
-                      <td>[[wo.ShipDate]]</td>
+                      <td>[[wo.EstShipDate]]</td>
                       <td>[[wo.Glass]]</td>
                       <td>[[wo.BoardWeight]]</td>
                       <td>[[wo.BoardWeightSanded]]</td>
