@@ -251,6 +251,18 @@
       this.decBusy();
     },    
 
+    errorMessage: function () {
+      let thatVue = this;
+
+      let thisMsg = '';
+
+      if (thatVue.$th && thatVue.$th.theasParams && thatVue.$th.theasParams.th$ErrorMessage) {
+        thisMsg = thatVue.$th.theasParams.th$ErrorMessage;
+      }
+
+      return thisMsg;
+    },
+
     computed: {
       busy : function () {
         return this.busyCount > 0;
@@ -259,12 +271,8 @@
       showErrorModal: {
         get: function () {
           let thisMsg = '';
-
-          if (this.$th && this.$th.theasParams && this.$th.theasParams.th$ErrorMessage) {
-            thisMsg = this.$th.theasParams.th$ErrorMessage;
-          }
         
-          return thisMsg.length > 0;
+          return this.errorMessage.length > 0;
         },
 
         set: function (newValue) {
