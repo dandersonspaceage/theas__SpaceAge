@@ -249,6 +249,12 @@
       thatVue.theasParams = thatVue.$th.theasParams;
       thatVue.theasLastError = thatVue.$th.lastError;
 
+      thatVue.set(theasLastError, 'msg', '');
+      thatVue.set(theasLastError, 'msgTitle', '');
+      thatVue.set(theasLastError, 'msgTech', '');
+      thatVue.set(theasLastError, 'msgFriendlly', '');
+      thatVue.set(theasLastError, 'msgParts', []);
+
       // perform the initial fetch of data
       this.fetchData(true);
     },
@@ -367,7 +373,7 @@
             thisFetchDate = null;
 
            if (thatVue.$th.haveError(true)) {
-             thatVue.$forceUpdate();
+             let noop;
            }
 
             //  WOs
