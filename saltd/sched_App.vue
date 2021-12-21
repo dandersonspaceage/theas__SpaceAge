@@ -276,7 +276,28 @@
               // but haveError must be settable since we assign
               // haveError to the modal's v-model attribute.
           }
-      },      
+      },   
+      
+      errorMessage: {
+          get () {
+            let thatVue = this;
+
+            let thisMsg = '';
+
+            if (thatVue.$th && thatVue.$th.theasParams && thatVue.$th.theasParams.th$ErrorMessage) {
+              thisMsg = thatVue.$th.theasParams.th$ErrorMessage;
+            }
+
+            return thisMsg;
+          },
+          set (value) {
+              let thatVue = this;
+
+              // We don't really need to do anything...
+              // but haveError must be settable since we assign
+              // haveError to the modal's v-model attribute.
+          }
+      },       
 
     },
 
@@ -301,17 +322,6 @@
         }
       },
 
-      errorMessage: function () {
-        let thatVue = this;
-
-        let thisMsg = '';
-
-        if (thatVue.$th && thatVue.$th.theasParams && thatVue.$th.theasParams.th$ErrorMessage) {
-          thisMsg = thatVue.$th.theasParams.th$ErrorMessage;
-        }
-
-        return thisMsg;
-      },
 
       testMe: function() {
         let thatVue = this;
