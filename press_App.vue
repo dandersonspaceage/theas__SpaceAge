@@ -1,5 +1,5 @@
 <template>
-  <div class="ml-10" :style="{cursor: curCursor}">
+  <div class="ml-3" :style="{cursor: curCursor}">
 
     <b-row>
       <b-col>
