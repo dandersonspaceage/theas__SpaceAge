@@ -257,7 +257,7 @@
       },
 
       errorMessage : function () {
-        return this.thatVue.$th.theasParams.th$ErrorMessage;
+        return this.$th.theasParams.th$ErrorMessage;
       }
     },
 
