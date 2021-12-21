@@ -367,8 +367,7 @@
             thisFetchDate = null;
 
            if (thatVue.$th.haveError(true)) {
-             //thatVue.$forceUpdate();
-             let noop;
+             thatVue.$forceUpdate();
            }
 
             //  WOs

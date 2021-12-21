@@ -386,9 +386,6 @@ Theas.prototype.sendAsync = function (config) {
 
            thatTheas.updateAllTheasParams(rd);
 
-           if (thatTheas.haveError(true)) {
-             let noop;
-           }
 
            if (config.onResponse) {
                config.onResponse(rd, response);
@@ -912,16 +909,15 @@ Theas.prototype.haveError = function(showModal) {
       let lastErr = thatTheas.lastError;
 
       lastErr.msg = msg;
-      lastErr.msgTech = msg;
 
       //message can be pipe-delimited:  TechnicalMessage|Title|FriendlyMessage
       lastErr.msgParts = msg.split('|');
 
       lastErr.msgTitle = 'Error';
+      lastErr.msgTech = lastErr.msgParts[0]; 
       lastErr.msgFriendly = '';
 
-      if (lastErr.msgParts.length > 1) {     
-        lastErr.msgTech = lastErr.msgParts[0];         
+      if (lastErr.msgParts.length > 1) {             
         lastErr.msgTitle = lastErr.msgParts[1];
 
         if (lastErr.msgParts.length > 2) { 
