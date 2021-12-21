@@ -18,7 +18,7 @@
 
         <div class="fastscroll" style="height:75vh;">
 
-          <table class="table small">
+          <table class="table small" style="width:100%">
 
           <thead>
               <tr>
