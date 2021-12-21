@@ -9,7 +9,7 @@ function Theas(vue) {
    this.theasParams = {th$ErrorMessage: ''};
 
    this.lastErrorMessage = '',
-   this.lastError = {};
+   this.lastError = {}
 
    this.useCurrentLocation = false;
    this.currentLocation = null;
@@ -117,7 +117,7 @@ Theas.prototype.updateAllTheasParams = function (nv) {
 
     if (typeof nv == 'object') {
       if (nv['__TheasParams']) {
-        Object.assign(that.TheasParams, JSON.parse(nv['__TheasParams']));
+        Object.assign(thatTheas.theasParams, JSON.parse(nv['__TheasParams']));
       }
     }
     else if (typeof nv == 'string') {
@@ -386,6 +386,10 @@ Theas.prototype.sendAsync = function (config) {
            }
 
            thatTheas.updateAllTheasParams(rd);
+
+           if (thatTheas.haveError(true)) {
+             let noop;
+           }
 
            if (config.onResponse) {
                config.onResponse(rd, response);
@@ -834,6 +838,8 @@ Theas.prototype.clearError = function (doFetchData) {
 
                    onResponse: function (rd, response) {
                        thatTheas.theasParams.th$ErrorMessage = '';
+                       thatTheas.lastErrorMessage = '';
+                       thatTheas.latError = [];
 
                        if (typeof thatTheas.thatVue.fetchData == 'function' && doFetchData) {
                            // try to immediately do a fetch
@@ -899,30 +905,32 @@ Theas.prototype.haveError = function(showModal) {
 
   let result = false;
 
-  th.lastErrorMessage = thatTheas.theasParams['th$ErrorMessage'];
+  thatTheas.lastErrorMessage = thatTheas.theasParams['th$ErrorMessage'];
 
-  if (th.lastErrorMessage.length > 0) {
-    result = true;
-    this.sendAsync('clearError');      
+  if (thatTheas.lastErrorMessage.length > 0) {
+      result = true;
+
+      let lastErr = thatTheas.lastError;
+
+      lastErr.msgRaw = thatTheas.lastErrorMessage;
 
       //message can be pipe-delimited:  TechnicalMessage|Title|FriendlyMessage
-      thatTheas.lastError.msgParts = thErrorMsg.split('|');
+      lastErr.msgParts = thatTheas.lastErrorMessage.split('|');
 
-      lastTheas.lastError.msgRaw = th.lastErrorMessage;
-      thatTheas.lastError.msgTitle = 'Error';
-      thatTheas.lastError.msgFriendly = '';
-      thatTheas.lastError.msgTech = '';
-      thatTheas.lastError.msg = '';
+      lastErr.msgTitle = 'Error';
+      lastErr.msgFriendly = '';
+      lastErr.msgTech = '';
+      lastErr.msg = '';
 
-      if (msgParts.length > 1) {      
-        thatTheas.lastError.msgTitle = msgParts[1];
+      if (lastErr.msgParts.length > 1) {      
+        lastErr.msgTitle = lastErr.msgParts[1];
 
-        if (msgParts.length > 2) { 
-          thatTheas.lastError.msgFriendly = msgParts[2];                      
+        if (lastErr.msgParts.length > 2) { 
+          lastErr.msgFriendly = lastErr.msgParts[2];                      
         }
       }
 
-      thatTheas.lastError.msgTech = msgParts[0]      
+      thatTheas.lastError.msgTech = lastErr.msgParts[0]      
     
     if (showModal) {
       thatTheas.thatVue.$bvModal.show('thModal');        

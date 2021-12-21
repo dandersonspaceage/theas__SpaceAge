@@ -183,7 +183,7 @@
 
     <b-container>
 
-    <b-modal id="thModal" ref="thModal" hide-footer>
+    <b-modal id="thModal" ref="thModal" @hide="onthModalHide" hide-footer>
       <template #modal-title>
         [[ theasLastError.msgTitle ]]
       </template>
@@ -281,7 +281,13 @@
       testMe: function() {
         let thatVue = this;
 
-         thatVue.$th.raiseError('Looking good.'); 
+        thatVue.$th.raiseError('Looking good.'); 
+      },
+
+      onthModalHide: function() {
+        let thatVue = this;
+
+        thatVue.$th.clearError();
       },
 
       incBusy: function() {
