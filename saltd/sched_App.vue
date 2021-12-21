@@ -306,6 +306,7 @@
         let thatVue = this;
 
         thatVue.$th.theasParams['th$ErrorMessage'] = 'What is this?';
+        this.$forceUpdate();
 
   
         if (show) {
