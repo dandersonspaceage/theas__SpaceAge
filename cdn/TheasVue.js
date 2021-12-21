@@ -890,7 +890,7 @@ Theas.prototype.raiseError = function (errMsg) {
 
        thatTheas.theasParams['th$ErrorMessage'] = errMsg;
    
-       thatTheas.thatVue.data().errorMessage = errMsg;
+       thatTheas.thatVue.data.errorMessage = errMsg;
        thatTheas.thatVue.$forceUpdate();       
        thatTheas.thatVue.$bvModal.show('thModal');       
  };
