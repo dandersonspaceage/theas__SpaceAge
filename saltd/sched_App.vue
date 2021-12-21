@@ -270,8 +270,7 @@
           screenfull.request();
         }
       }, 
-            
-      theasParams = thatTheas.thatVue.$forceUpdate();       
+               
       testShowModal: function(show) {
         let thatVue = this;
 
