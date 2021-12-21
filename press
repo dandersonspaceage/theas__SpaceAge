@@ -82,7 +82,7 @@
     <script  type="module" src="{{ '/press.js'|theasResource }}"></script>
 
 </head>
-<body style="height:85vh">
+<body style="height:85vh; width:100%">
   <script>
     document.body.style.cursor = 'progress';      
   </script>  
