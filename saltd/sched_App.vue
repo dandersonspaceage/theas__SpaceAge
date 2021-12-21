@@ -270,10 +270,10 @@
         let thatVue = this;
         
         if (show) {
-         $bvModal.show('thModal');
+         thatVue.$bvModal.show('thModal');
         }
         else {
-          $bvModal.show('thModal');
+          thatVue.$bvModal.show('thModal');
         }
       },
 
