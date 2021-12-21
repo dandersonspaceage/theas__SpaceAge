@@ -64,9 +64,9 @@
                       <td>[[wo.ShipDate]]</td>
                       <td>[[wo.Glass]]</td>
                       <td>[[wo.BoardWeight]]</td>
-                      <td>[[wo.BoardWeightSanded]</td>
+                      <td>[[wo.BoardWeightSanded]]</td>
                       <td>[[wo.BoardWeightGrams]]</td>                                                                                                                                                          
-                      <td>[[wo.Foam]</td>
+                      <td>[[wo.Foam]]</td>
                       <td>[[wo.Notes]]</td>                           
                   </tr>
                 </tbody>
