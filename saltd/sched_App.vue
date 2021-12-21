@@ -183,7 +183,7 @@
 
     <b-container>
 
-    <b-modal id="thModal" ref="thModal" v-model="haveError" hide-footer>
+    <b-modal id="thModal" ref="thModal" v-model="haveError" :key="errorMessage()" hide-footer>
       <template #modal-title>
         Using <code>$bvModal</code> Methods
       </template>
@@ -307,7 +307,7 @@
 
         //thatVue.$th.theasParams['th$ErrorMessage'] = 'What is this?';
         //this.$forceUpdate();   
-        
+
         thatVue.$th.raiseError('You know something?');
         this.$forceUpdate();           
       },
