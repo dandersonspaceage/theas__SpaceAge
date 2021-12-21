@@ -271,29 +271,10 @@
         }
       }, 
 
-      
-      // showModal is to cause the error modal to be displayed.
-      // The modal will try to update the v-model that is set to
-      // haveError, but really it is a read-only propery.
-               
-      testShowModal: function(show) {
-        let thatVue = this;
-        
-        thatVue.$th.raiseError('You know something?'); 
-        thatVue.showModal = true;                 
-      },
-
-
       testMe: function() {
         let thatVue = this;
 
-        //thatVue.$th.theasParams.th$ErrorMessage = 'Hello error message!';
-        thatVue.testShowModal(true);
-
-        //thatVue.$th.showModal('ABCDEFG');
-        //thatVue.$bvModal.show('thModal');
-
-        //thatVue.$th.showModal('Here is a fake error')
+         thatVue.$th.raiseError('Looking good.'); 
       },
 
       incBusy: function() {
