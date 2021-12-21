@@ -249,13 +249,6 @@
       //thereby making theasParams reactive.
       thatVue.theasParams = thatVue.$th.theasParams;
       thatVue.theasLastError = thatVue.$th.lastError;
-/*
-      thatVue.$set(thatVue.theasLastError, 'msg', '');
-      thatVue.$set(thatVue.theasLastError, 'msgTitle', '');
-      thatVue.$set(thatVue.theasLastError, 'msgTech', '');
-      thatVue.$set(thatVue.theasLastError, 'msgFriendlly', '');
-      thatVue.$set(thatVue.theasLastError, 'msgParts', []);
-    */
 
       // perform the initial fetch of data
       this.fetchData(true);
