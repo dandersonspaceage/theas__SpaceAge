@@ -1,5 +1,5 @@
 <template>
-  <div :style="{cursor: curCursor; width: '100%'}">
+  <div :style="{cursor: curCursor, width: '100%'}">
 
     <b-container fluid>  
 
