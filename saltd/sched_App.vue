@@ -208,7 +208,7 @@
 
     data() {
       return {
-        $th: null,
+        $th: {},
 
         dataRefreshInterval: 15,
         enableFetching: true,
