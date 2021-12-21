@@ -871,11 +871,11 @@ Theas.prototype.getCurrentLocation = function () {
    }
 };
 
-Theas.prototype.getModal() {
+Theas.prototype.getModal = function () {
    // save reference to Theas object
    let thatTheas = this;
 
-   return thatTheas.thatVue.#refs["thModal"];
+   return thatTheas.thatVue.$refs["thModal"];
 };
 
 Theas.prototype.showModal =  function(msg, title, onClose, goBackOnClose) {

@@ -188,7 +188,7 @@
         Using <code>$bvModal</code> Methods
       </template>
       <div class="d-block text-center">
-        <h3>[[ $th.theasParams.th$ErrorMessage ]]</h3>
+        <h3>[[ errorMessage ]]</h3>
       </div>
       <b-button class="mt-3" block @click="$bvModal.hide('thModal')">Close Me</b-button>
     </b-modal>
@@ -255,6 +255,10 @@
       busy : function () {
         return this.busyCount > 0;
       },
+
+      errorMessage : function () {
+        return this.thatVue.$th.theasParams.th$ErrorMessage;
+      }
     },
 
     methods: {
