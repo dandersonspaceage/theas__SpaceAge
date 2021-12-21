@@ -251,28 +251,6 @@
       this.decBusy();
     },    
 
-    testShowModal: function(show) {
-      let thatVue = this;
-      
-      if (show) {
-        thatVue.refs$('thModal').show();        
-      }
-      else {
-        thatVue.refs$('thModal').hide();
-      }
-    },
-
-    errorMessage: function () {
-      let thatVue = this;
-
-      let thisMsg = '';
-
-      if (thatVue.$th && thatVue.$th.theasParams && thatVue.$th.theasParams.th$ErrorMessage) {
-        thisMsg = thatVue.$th.theasParams.th$ErrorMessage;
-      }
-
-      return thisMsg;
-    },
 
     computed: {
       busy : function () {
@@ -288,6 +266,17 @@
         }
       },
 
+      testShowModal: function(show) {
+        let thatVue = this;
+        
+        if (show) {
+          thatVue.refs$('thModal').show();        
+        }
+        else {
+          thatVue.refs$('thModal').hide();
+        }
+      },
+
       errorMessage: function () {
         let thatVue = this;
 
@@ -296,6 +285,7 @@
         if (thatVue.$th && thatVue.$th.theasParams && thatVue.$th.theasParams.th$ErrorMessage) {
           thisMsg = thatVue.$th.theasParams.th$ErrorMessage;
         }
+
         return thisMsg;
       },
 
