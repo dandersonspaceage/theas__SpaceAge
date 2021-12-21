@@ -241,7 +241,7 @@
     created: function () {
       let thatVue = this;
 
-    /*
+ 
       //$th is created automatically (by recipe in sched.js / xxxxx.js) however, it is NOT reactive.
       //For example, $th.theasParams[someParam] is not reactive.
       //So we declared data.theasParams and initialized to an empty object above, and here
@@ -249,7 +249,7 @@
       //thereby making theasParams reactive.
       thatVue.theasParams = thatVue.$th.theasParams;
       thatVue.theasLastError = thatVue.$th.lastError;
-
+/*
       thatVue.$set(thatVue.theasLastError, 'msg', '');
       thatVue.$set(thatVue.theasLastError, 'msgTitle', '');
       thatVue.$set(thatVue.theasLastError, 'msgTech', '');

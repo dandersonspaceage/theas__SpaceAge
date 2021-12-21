@@ -8,7 +8,7 @@ function Theas(vue) {
    this.thatVue = vue;
    this.theasParams = {th$ErrorMessage: ''};
 
-   this.lastError = {}
+   this.lastError = {msg: '', msgTitle: '', msgTech: '', msgFriendly: '', msgParts: []};
 
    this.useCurrentLocation = false;
    this.currentLocation = null;
@@ -34,7 +34,7 @@ function Theas(vue) {
 
 
 Theas.prototype.setVue = function (vue){
-   this.thatVue = vue;
+  this.thatVue = vue; 
 };
 
 
@@ -385,7 +385,6 @@ Theas.prototype.sendAsync = function (config) {
            }
 
            thatTheas.updateAllTheasParams(rd);
-
 
            if (config.onResponse) {
                config.onResponse(rd, response);
