@@ -833,7 +833,7 @@ Theas.prototype.clearError = function (doFetchData) {
                    asyncCmd: 'clearError',
 
                    onResponse: function (rd, response) {
-                       thatTheas.theasParams.th$ErrorMessage = '';
+                       thatTheas.theasParams.$th.th$ErrorMessage = '';
 
                        if (typeof thatTheas.thatVue.fetchData == 'function' && doFetchData) {
                            // try to immediately do a fetch
