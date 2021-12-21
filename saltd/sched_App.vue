@@ -290,7 +290,7 @@
       testShowModal: function(show) {
         let thatVue = this;
 
-        thatVue.$th.theasParams('th:ErrorMessage') = 'What is this?';
+        thatVue.$th.theasParams['th:ErrorMessage'] = 'What is this?';
 
   
         if (show) {
