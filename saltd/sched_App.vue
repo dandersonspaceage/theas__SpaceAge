@@ -16,6 +16,10 @@
                                 size="sm"></b-form-select>
                 </b-form-group>
               </b-col>
+
+              <b-col>
+                <b-button @click="switchWOList()">Save</b-button>
+              </b-col>              
             </b-row>
 
             <h6>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>
