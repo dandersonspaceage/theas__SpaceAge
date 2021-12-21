@@ -244,7 +244,7 @@
     created: function () {
       let thatVue = this;
 
-      Object.assign({}, thatVue.theasParams, thatVue.$th.theasParams);
+      thatVue.theasParams = thatVue.$th.theasParams;
 
       // perform the initial fetch of data
       this.fetchData(true);
