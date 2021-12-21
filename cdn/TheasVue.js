@@ -889,8 +889,9 @@ Theas.prototype.raiseError = function (errMsg) {
        let thatTheas = this;
 
        thatTheas.theasParams['th$ErrorMessage'] = errMsg;
+       thatTheas.thatVue.errorMessage = errMsg;
+=     
        thatTheas.thatVue.$bvModal.show('thModal');
-       thatTheas.thatVue.$forceUpdate();
  };
 
 Theas.prototype.haveError = function(showModal, backOnError, onClose) {

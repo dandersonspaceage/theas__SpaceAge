@@ -188,7 +188,7 @@
         Using <code>$bvModal</code> Methods
       </template>
       <div class="d-block text-center">
-        <h3>[[ errorMessage() ]]</h3>
+        <h3>[[ errorMessage ]]</h3>
       </div>
       <b-button class="mt-3" block @click="$bvModal.hide('thModal')">Close Me</b-button>
     </b-modal>
@@ -219,6 +219,7 @@
         dirtyTimers: [], // timers for pending saves of qugids
 
         overlayVisible: false,
+        errorMessage: '',
 
         showModal: false,
         drag: null, 
@@ -259,24 +260,7 @@
     computed: {
       busy : function () {
         return this.busyCount > 0;
-      },
-
-      // haveError is to cause the error modal to be displayed.
-      // The modal will try to update the v-model that is set to
-      // haveError, but really it is a read-only propery.
-
-      haveError: {
-          get () {
-              return this.$th.theasParams.th$ErrorMessage != ''
-          },
-          set (value) {
-              let thatVue = this;
-
-              // We don't really need to do anything...
-              // but haveError must be settable since we assign
-              // haveError to the modal's v-model attribute.
-          }
-      },     
+      },  
 
     },
 
@@ -285,22 +269,7 @@
         if (screenfull.isEnabled) {
           screenfull.request();
         }
-      },
-
-      errorMessage: function () {
-        let thatVue = this;
-        
-        /*
-        let thisMsg = '';
-
-        if (thatVue.$th && thatVue.$th.theasParams && thatVue.$th.theasParams.th$ErrorMessage) {
-          thisMsg = thatVue.$th.theasParams.th$ErrorMessage;
-        }
-
-        return thisMsg;
-        */
-        return thatVue.$th.theasParams.th$ErrorMessage;
-      },     
+      }, 
             
       testShowModal: function(show) {
         let thatVue = this;
