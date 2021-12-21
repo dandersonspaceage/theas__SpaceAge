@@ -297,7 +297,6 @@
         }
 
         return thisMsg;
-        }
       },     
             
       testShowModal: function(show) {
