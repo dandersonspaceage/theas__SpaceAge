@@ -183,7 +183,7 @@
 
     <b-container>
 
-    <b-modal id="thModal" ref="thModal" v-model="errorMessage" hide-footer>
+    <b-modal id="thModal" ref="thModal" v-model="showErrorModal" hide-footer>
       <template #modal-title>
         Using <code>$bvModal</code> Methods
       </template>
@@ -256,7 +256,7 @@
         return this.busyCount > 0;
       },
 
-      errorMessage : {
+      showErrorModal: {
         get: function () {
           let thisMsg = '';
 
@@ -264,13 +264,23 @@
             thisMsg = this.$th.theasParams.th$ErrorMessage;
           }
         
-          return thisMsg;
+          return thisMsg.length > 0;
         },
 
         set: function (newValue) {
           let noop;
         }
-      }
+      },
+
+      errorMessage: function () {
+        let thisMsg = '';
+
+        if (this.$th && this.$th.theasParams && this.$th.theasParams.th$ErrorMessage) {
+          thisMsg = this.$th.theasParams.th$ErrorMessage;
+        }
+      
+        return thisMsg;
+      },      
 
 
     },
