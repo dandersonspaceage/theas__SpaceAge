@@ -208,6 +208,8 @@
 
     data() {
       return {
+        theasParams: $th.theasParams,
+
         dataRefreshInterval: 15,
         enableFetching: true,
         today: moment().toDate(),
@@ -217,7 +219,6 @@
         dirtyTimers: [], // timers for pending saves of qugids
 
         overlayVisible: false,
-        theasParams: {},
 
         showModal: false,
         drag: null, 
@@ -244,7 +245,7 @@
     created: function () {
       let thatVue = this;
 
-      thatVue.theasParams = thatVue.$th.theasParams;
+      //thatVue.theasParams = thatVue.$th.theasParams;
 
       // perform the initial fetch of data
       this.fetchData(true);
