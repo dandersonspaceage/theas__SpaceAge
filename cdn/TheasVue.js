@@ -6,7 +6,7 @@ if (!FormData.prototype.set) {
 function Theas(vue) {
    // save reference to Vue object that can be used in async callbacks
    this.thatVue = vue;
-   this.theasParams = {th$ErrorMessage: 'placeholder'};
+   this.theasParams = {th$ErrorMessage: ''};
 
    this.useCurrentLocation = false;
    this.currentLocation = null;
@@ -833,7 +833,7 @@ Theas.prototype.clearError = function (doFetchData) {
                    asyncCmd: 'clearError',
 
                    onResponse: function (rd, response) {
-                       thatTheas.theasParams.$th.th$ErrorMessage = '';
+                       thatTheas.theasParams.th$ErrorMessage = '';
 
                        if (typeof thatTheas.thatVue.fetchData == 'function' && doFetchData) {
                            // try to immediately do a fetch
