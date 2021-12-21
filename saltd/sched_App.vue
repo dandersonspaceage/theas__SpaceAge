@@ -288,12 +288,23 @@
         }
       },
 
+      errorMessage: function () {
+        let thatVue = this;
+
+        let thisMsg = '';
+
+        if (thatVue.$th && thatVue.$th.theasParams && thatVue.$th.theasParams.th$ErrorMessage) {
+          thisMsg = thatVue.$th.theasParams.th$ErrorMessage;
+        }
+        return thisMsg;
+      }
+
       testMe: function() {
         let thatVue = this;
 
         thatVue.$th.theasParams.th$ErrorMessage = 'Hello error message!';
         thatVue.testShowModal(true);
-        
+
         //thatVue.$th.showModal('ABCDEFG');
         //thatVue.$bvModal.show('thModal');
 
