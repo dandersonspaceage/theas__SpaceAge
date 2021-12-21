@@ -219,7 +219,7 @@
         dirtyTimers: [], // timers for pending saves of qugids
 
         overlayVisible: false,
-        
+
         drag: null, 
 
         // Dynamic data will be fetched asynchronously
@@ -276,7 +276,8 @@
               // We don't really need to do anything...
               // but haveError must be settable since we assign
               // haveError to the modal's v-model attribute.
-          },   
+          }
+      },  
 
     },
 
