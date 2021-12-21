@@ -1,5 +1,5 @@
 <template>
-  <div class="ml-3" :style="{cursor: curCursor}">
+  <div class="ml-3 mr-3" :style="{cursor: curCursor}">
 
     <b-row>
       <b-col>
@@ -19,7 +19,7 @@
 
         <div class="fastscroll" style="height:75vh;">
 
-          <table class="table small" style="width:100%">
+          <table class="table small striped" style="width:100%">
 
             <thead>
                 <tr>
