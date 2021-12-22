@@ -482,6 +482,7 @@
               url: "/async/" + thatVue.asyncResource_WOs,
               asyncCmd: 'updateWO',
               data: {WO: thisWO}, //note: passes to @FormParams
+              qguid: qguid,
 
               onResponse: function (rd, response) {
                   // rd contains the response data split into an object (of name/value pairs)
