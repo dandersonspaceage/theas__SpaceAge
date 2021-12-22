@@ -25,7 +25,7 @@
             <h6>[[ curWOList ]] (<span v-if="isBusy()">Loading</span><span v-if="!isBusy()">[[ data_WOs.length ]]</span><span>orders</span>)</h6>
               <div class="fastscroll" style="height:75vh;">
 
-                <draggable v-model="data_WOs" group="wo" handle=".dragHandle" :options="{disabled: disableDraggable}" @start="drag=true" @end="drag=false" @change="onDropWO">
+                <draggable v-model="data_WOs" group="wo" handle=".dragHandle" :disabled"disableDraggable" @start="drag=true" @end="drag=false" @change="onDropWO">
 
                   <b-card v-for="wo in data_WOs" :key="wo.qguid">
 
