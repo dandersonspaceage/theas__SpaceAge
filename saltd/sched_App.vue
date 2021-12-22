@@ -289,7 +289,16 @@
       isDragEnabled: function() {
         let thatVue = this;
 
-        thatVue.dirtyQGUIDs.length === 0;
+        let result;
+
+        if (thatVue.dirtyQGUIDs.length > 0) {
+          result = '*';
+        }
+        else {
+          result = ''
+        }
+
+        return result
       },
 
       onthModalHide: function() {
