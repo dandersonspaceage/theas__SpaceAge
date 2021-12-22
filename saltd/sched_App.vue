@@ -106,7 +106,7 @@
                           <b-form-group label="Planned Press"
                                         :label-for="'planpress' + [[ wo.qguid ]]">
                             <b-form-select :id="'planpress' + [[ wo.qguid ]]"
-                                          v-model="wo.PlannedPress" :options="pressCodes" @change="setDirty(wo.qguid, 0)"
+                                          v-model="wo.PlannedPress" :options="pressCodes" @change="setDirty(wo.qguid, 0, true)"
                                           size="sm"></b-form-select>
                           </b-form-group>
                         </b-col>
