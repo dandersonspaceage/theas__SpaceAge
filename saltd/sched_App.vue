@@ -378,40 +378,40 @@
             thisData = [];
             thisFetchDate = null;
 
-           if (thatVue.$th.haveError(true)) {
-             let noop;
-           }
+           if (!thatVue.$th.haveError(true)) {
 
-            //  WOs
-            if (rd["WOs"]) {
-              thisObj = JSON.parse(rd["WOs"])[0];
-              thisData = thisObj["JSONData"];
-              thisFetchDate = thisObj["FetchDate"];
+              //  WOs
+              if (rd["WOs"]) {
+                thisObj = JSON.parse(rd["WOs"])[0];
+                thisData = thisObj["JSONData"];
+                thisFetchDate = thisObj["FetchDate"];
 
-              if (thisData) {
-                thatVue.data_WOs = thatVue.$th.merge(
-                        // string (optional): key field name with unique values to merge on
-                        "qguid",
-                        // string (optional): key value to exclude from merge (i.e. currently-displayed rows)
-                        //'someIDValue'
+                if (thisData) {
+                  thatVue.data_WOs = thatVue.$th.merge(
+                          // string (optional): key field name with unique values to merge on
+                          "qguid",
+                          // string (optional): key value to exclude from merge (i.e. currently-displayed rows)
+                          //'someIDValue'
+                          thatVue.data_WOs,
+                          thisData
+                  );
+                }
+                thatVue.data_WOs = thatVue.$th.sortArray(
                         thatVue.data_WOs,
-                        thisData
+                        "Seq",
+                        false //false=ascending, true=descending
                 );
-              }
-              thatVue.data_WOs = thatVue.$th.sortArray(
-                      thatVue.data_WOs,
-                      "Seq",
-                      false //false=ascending, true=descending
-              );
 
-              if (thatVue.lastFetch_WOs) {
-                thatVue.lastFetch_WOs = thisFetchDate;
-              } else {
-                thatVue.lastFetch_WOs = "1/1/1900";
-              }
+                if (thatVue.lastFetch_WOs) {
+                  thatVue.lastFetch_WOs = thisFetchDate;
+                } else {
+                  thatVue.lastFetch_WOs = "1/1/1900";
+                }
 
-              if (thatVue && thatVue.data_thisWO && thatVue.data_thisWO.qguid) {
-                thatVue.data_ThisWO = thatVue.data_WOs.find((el) => el.qguid === thatVue.data_thisWO.qguid);                             
+                if (thatVue && thatVue.data_thisWO && thatVue.data_thisWO.qguid) {
+                  thatVue.data_ThisWO = thatVue.data_WOs.find((el) => el.qguid === thatVue.data_thisWO.qguid);                             
+                }
+
               }
 
             }
@@ -491,18 +491,22 @@
                   // response contains the complete response object, in which .data contains
                   // the raw data that was received.              
 
-                  let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === qguid)
-                  if (thisIndex >= 0) {
-                    thatVue.data_ThisWO = thatVue.data_WOs[thisIndex];
+                  if (!thatVue.$th.haveError(true)) {
 
-                    if
-                      (
-                        (thatVue.curWOList == 'Unscheduled' && thatVue.data_ThisWO.PlannedPress) ||
-                        (thatVue.curWOList != 'Unscheduled' && thatVue.curWOList != thatVue.data_ThisWO.PlannedPress)
-                      ){
-                        thatVue.$delete(thatVue.data_WOs, thisIndex);
-                        thatVue.data_ThisWO = {};                    
-                      }
+                    let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === qguid)
+                    if (thisIndex >= 0) {
+                      thatVue.data_ThisWO = thatVue.data_WOs[thisIndex];
+
+                      if
+                        (
+                          (thatVue.curWOList == 'Unscheduled' && thatVue.data_ThisWO.PlannedPress) ||
+                          (thatVue.curWOList != 'Unscheduled' && thatVue.curWOList != thatVue.data_ThisWO.PlannedPress)
+                        ){
+                          thatVue.$delete(thatVue.data_WOs, thisIndex);
+                          thatVue.data_ThisWO = {};                    
+                        }
+                    }
+                    
                   }
 
                 }
