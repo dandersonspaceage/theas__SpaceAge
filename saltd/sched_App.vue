@@ -25,7 +25,7 @@
             <h6>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>
               <div class="fastscroll" style="height:75vh;">
 
-                <draggable v-model="data_WOs" group="wo" filter="isDragEnabled" handle=".dragHandle" @start="drag=true" @end="drag=false" @change="onDropWO">
+                <draggable v-model="data_WOs" group="wo" handle=".dragHandle" @choose="onDragChoose" @start="drag=true" @end="drag=false" @change="onDropWO">
 
                   <b-card v-for="wo in data_WOs" :key="wo.qguid">
 
@@ -286,19 +286,19 @@
         }
       }, 
 
-      isDragEnabled: function() {
+      onDragChoose: function(evt) {
         let thatVue = this;
 
         let result;
 
         if (thatVue.dirtyQGUIDs.length > 0) {
-          result = '*';
+          result = false;
         }
         else {
-          result = ''
+          result = true;
         }
 
-        return result
+        return result;
       },
 
       onthModalHide: function() {
