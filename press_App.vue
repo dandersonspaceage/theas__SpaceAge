@@ -278,7 +278,6 @@
               thisFetchDate = thisObj["FetchDate"];
 
               if (thisData) {
-                thatVue.data_WOs.length = 0; //clear out WO
 
                 thatVue.data_WOs = thatVue.$th.merge(
                         // string (optional): key field name with unique values to merge on
