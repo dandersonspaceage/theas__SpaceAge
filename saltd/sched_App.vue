@@ -313,7 +313,7 @@
         }
       },      
 
-      setDirty: function(qguid, debounceMS) {
+      setDirty: function(qguid, debounceMS, reFetch) {
         // Enqueues a speific record (via qguid) for saving.
         // Needed for textarea autosave:  lets us debounce saving, while still triggering save on KeyUp
         let thatVue = this;
@@ -326,7 +326,7 @@
         let thisDirty = thatVue.dirtyQGUIDs.find((el) => el === qguid);
         if (!thisDirty) {
           thatVue.dirtyQGUIDs.push(qguid);
-          thatVue.dirtyTimers.push({timer: setTimeout(thatVue.saveWO, debounceMS, qguid), qguid: qguid});
+          thatVue.dirtyTimers.push({timer: setTimeout(thatVue.saveWO, debounceMS, qguid, onAfter), qguid: qguid});
           //note:  timeout of 3000 must be longer than debounce of 1000 in textarea       
         }    
       },
@@ -457,7 +457,7 @@
           thatVue.setDirty(qguid);                         
       },
 
-      saveWO: function (qguid, event) {
+      saveWO: function (qguid, reFetch) {
           // save reference to Vue object that can be used in async callbacks
           var thatVue = this;
           
@@ -488,8 +488,9 @@
               asyncCmd: 'updateWO',
               data: {WO: thisWO}, //note: passes to @FormParams
               qguid: qguid,
+              reFetch: reFetch,
 
-              onResponse: function (rd, response, qguid) {
+              onResponse: function (rd, response, config) {
                   // rd contains the response data split into an object (of name/value pairs)
                   // (might have been returned as either a string of URL-encoded name/value
                   // pairs, or as a JSON strong)
@@ -511,6 +512,10 @@
                           thatVue.$delete(thatVue.data_WOs, thisIndex);
                           thatVue.data_ThisWO = {};                    
                         }
+                    }
+
+                    if (config && config.reFetch) {
+                      thatVue.fetchWOs(config.qguid);
                     }
                     
                   }
@@ -552,15 +557,14 @@
           if (newIndex == thatVue.data_WOs.length - 1) {
             //moved to end of list
             thatVue.data_WOs[newIndex - 1].NextQguid =  thatVue.data_WOs[newIndex].qguid;
-            thatVue.setDirty(thatVue.data_WOs[newIndex - 1].qguid, 0);           
+            thatVue.setDirty(thatVue.data_WOs[newIndex - 1].qguid, 0, true);           
           }                    
           else {
             thatVue.data_WOs[newIndex].NextQguid =  thatVue.data_WOs[newIndex + 1].qguid;
-            thatVue.setDirty(thatVue.data_WOs[newIndex].qguid, 0);          
+            thatVue.setDirty(thatVue.data_WOs[newIndex].qguid, 0, true);          
           }
         }   
 
-        thatVue.fetchWOs();
       }     
     },
   };
