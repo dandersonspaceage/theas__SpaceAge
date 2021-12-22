@@ -25,7 +25,7 @@
             <h6>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>
               <div class="fastscroll" style="height:75vh;">
 
-                <draggable v-model="data_WOs" group="wo" handle=".dragHandle" @choose="onDragChoose" @start="drag=true" @end="drag=false" @change="onDropWO">
+                <draggable v-model="data_WOs" group="wo" handle=".dragHandle" :options="{disabled: disableDraggable}" @start="drag=true" @end="drag=false" @change="onDropWO">
 
                   <b-card v-for="wo in data_WOs" :key="wo.qguid">
 
@@ -221,7 +221,8 @@
 
         overlayVisible: false,
 
-        drag: null, 
+        drag: null,
+        disableDraggable: false,
 
         // Dynamic data will be fetched asynchronously
         data_WOs: [],
@@ -286,21 +287,6 @@
         }
       }, 
 
-      onDragChoose: function(evt) {
-        let thatVue = this;
-
-        let result;
-
-        if (thatVue.dirtyQGUIDs.length > 0) {
-          result = false;
-        }
-        else {
-          result = true;
-        }
-
-        return result;
-      },
-
       onthModalHide: function() {
         let thatVue = this;
 
@@ -315,6 +301,8 @@
         if (thatVue.busyCount > 0) {
           thatVue.curCursor = 'progress';
         }        
+
+        thatVue.disableDraggable = thatVue.busyCount > 0;        
       },
 
       decBusy: function() {
@@ -326,12 +314,16 @@
           thatVue.curCursor = 'default';
           document.body.style.cursor = 'default';
         }
+
+        thatVue.disableDraggable = thatVue.busyCount > 0;
       },      
 
       setDirty: function(qguid, debounceMS, reFetch) {
         // Enqueues a speific record (via qguid) for saving.
         // Needed for textarea autosave:  lets us debounce saving, while still triggering save on KeyUp
         let thatVue = this;
+
+        thatVue.disableDraggable = true;
 
         if (!debounceMS && debounceMS !== 0) {
           //default to 3 seconds
@@ -474,7 +466,7 @@
 
       saveWO: function (qguid, reFetch) {
           // save reference to Vue object that can be used in async callbacks
-          var thatVue = this;
+          var thatVue = this;     
           
           if (qguid) {
             // qguid was specified.  We will save it, but first we remove any entries in the queue.
@@ -497,6 +489,8 @@
             // we loop, to save all qguids in the queue
 
             let thisWO = thatVue.data_WOs.find((el) => el.qguid === qguid)
+
+            thatVue.incBusy();     
 
             thatVue.$th.sendAsync({
               url: "/async/" + thatVue.asyncResource_WOs,
@@ -531,9 +525,10 @@
 
                     if (config && config.reFetch) {
                       thatVue.fetchWOs(config.qguid);
-                    }
-                    
+                    }                    
                   }
+                  
+                  thatVue.decBusy();                    
 
                 }
             });
