@@ -530,7 +530,7 @@
                     }
 
                     if (config && config.reFetch) {
-                      thatVue.fetchWOs(config.qguid);
+                      thatVue.fetchWOs(config.qguid, config.reFetch);
                     }                    
                   }
                   
