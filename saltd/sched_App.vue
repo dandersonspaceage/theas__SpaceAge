@@ -323,6 +323,8 @@
         // Needed for textarea autosave:  lets us debounce saving, while still triggering save on KeyUp
         let thatVue = this;
 
+        // temporarily disable draggable
+        // fetchWO and/or saveWO will incBusy / decBusy...which will properly set disableDraggable as needed
         thatVue.disableDraggable = true;
 
         if (!debounceMS && debounceMS !== 0) {
