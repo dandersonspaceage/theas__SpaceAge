@@ -387,7 +387,7 @@ Theas.prototype.sendAsync = function (config) {
            thatTheas.updateAllTheasParams(rd);
 
            if (config.onResponse) {
-               config.onResponse(rd, response);
+               config.onResponse(rd, response, config);
            }
 
 

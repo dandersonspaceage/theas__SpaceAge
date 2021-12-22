@@ -326,7 +326,7 @@
         let thisDirty = thatVue.dirtyQGUIDs.find((el) => el === qguid);
         if (!thisDirty) {
           thatVue.dirtyQGUIDs.push(qguid);
-          thatVue.dirtyTimers.push({timer: setTimeout(thatVue.saveWO, debounceMS, qguid, onAfter), qguid: qguid});
+          thatVue.dirtyTimers.push({timer: setTimeout(thatVue.saveWO, debounceMS, qguid, reFetch), qguid: qguid});
           //note:  timeout of 3000 must be longer than debounce of 1000 in textarea       
         }    
       },
