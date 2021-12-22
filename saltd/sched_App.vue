@@ -318,7 +318,7 @@
         // Needed for textarea autosave:  lets us debounce saving, while still triggering save on KeyUp
         let thatVue = this;
 
-        if (!debounceMS) {
+        if (!debounceMS && debounceMS !== 0) {
           //default to 3 seconds
           debounceMS = 3000;
         }
