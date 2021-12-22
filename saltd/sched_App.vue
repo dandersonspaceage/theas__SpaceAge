@@ -495,6 +495,10 @@
             // we loop, to save all qguids in the queue
 
             let thisWO = thatVue.data_WOs.find((el) => el.qguid === qguid)
+            
+            if (thisWO) {
+              thatVue.$forceUpdate();
+            }
 
             thatVue.incBusy();     
 
