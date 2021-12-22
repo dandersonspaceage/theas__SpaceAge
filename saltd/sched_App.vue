@@ -106,7 +106,7 @@
                           <b-form-group label="Planned Press"
                                         :label-for="'planpress' + [[ wo.qguid ]]">
                             <b-form-select :id="'planpress' + [[ wo.qguid ]]"
-                                          v-model="wo.PlannedPress" :options="pressCodes" @change="onChangePlan(wo.qguid, $event)"
+                                          v-model="wo.PlannedPress" :options="pressCodes" @change="setDirty(wo.qguid, 0)"
                                           size="sm"></b-form-select>
                           </b-form-group>
                         </b-col>
@@ -127,7 +127,7 @@
                                   <b-form-datepicker :id="'dp' + [[ wo.qguid ]]"
                                                     :date-format-options="{year:undefined, month: '2-digit', day: '2-digit', weekday: 'short' }"
                                                     v-model="wo.CommitDate"
-                                                    :min="today" @input="onChangePlan(wo.qguid, $event)"
+                                                    :min="today" @input="setDirty(wo.qguid, 0)"
                                                     size="sm" :dark="true" locale="en">
                                   </b-form-datepicker>
 
@@ -313,15 +313,20 @@
         }
       },      
 
-      setDirty: function(qguid) {
+      setDirty: function(qguid, debounceMS) {
         // Enqueues a speific record (via qguid) for saving.
         // Needed for textarea autosave:  lets us debounce saving, while still triggering save on KeyUp
         let thatVue = this;
 
+        if (!debounceMS) {
+          //default to 3 seconds
+          debounceMS = 3000;
+        }
+
         let thisDirty = thatVue.dirtyQGUIDs.find((el) => el === qguid);
         if (!thisDirty) {
           thatVue.dirtyQGUIDs.push(qguid);
-          thatVue.dirtyTimers.push({timer: setTimeout(thatVue.saveWO, 3000, qguid), qguid: qguid});
+          thatVue.dirtyTimers.push({timer: setTimeout(thatVue.saveWO, debounceMS, qguid), qguid: qguid});
           //note:  timeout of 3000 must be longer than debounce of 1000 in textarea       
         }    
       },
