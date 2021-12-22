@@ -484,7 +484,7 @@
               data: {WO: thisWO}, //note: passes to @FormParams
               qguid: qguid,
 
-              onResponse: function (rd, response) {
+              onResponse: function (rd, response, qguid) {
                   // rd contains the response data split into an object (of name/value pairs)
                   // (might have been returned as either a string of URL-encoded name/value
                   // pairs, or as a JSON strong)
