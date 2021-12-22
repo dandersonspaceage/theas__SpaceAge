@@ -552,13 +552,15 @@
           if (newIndex == thatVue.data_WOs.length - 1) {
             //moved to end of list
             thatVue.data_WOs[newIndex - 1].NextQguid =  thatVue.data_WOs[newIndex].qguid;
-            thatVue.setDirty(thatVue.data_WOs[newIndex - 1].qguid);           
+            thatVue.setDirty(thatVue.data_WOs[newIndex - 1].qguid, 0);           
           }                    
           else {
             thatVue.data_WOs[newIndex].NextQguid =  thatVue.data_WOs[newIndex + 1].qguid;
-            thatVue.setDirty(thatVue.data_WOs[newIndex].qguid);          
+            thatVue.setDirty(thatVue.data_WOs[newIndex].qguid, 0);          
           }
         }   
+
+        thatVue.fetchWOs();
       }     
     },
   };
