@@ -333,8 +333,8 @@
         let thisDirty = thatVue.dirtyQGUIDs.find((el) => el === qguid);
         if (!thisDirty) {
           thatVue.dirtyQGUIDs.push(qguid);
-          thatVue.dirtyTimers.push({timer: setTimeout(thatVue.saveWO, debounceMS, qguid, reFetch), qguid: qguid});
-          //note:  timeout of 3000 must be longer than debounce of 1000 in textarea       
+          thatVue.dirtyTimers.push({timer: setTimeout(thatVue.saveWO, debounceMS, qguid, reFetch, event), qguid: qguid});
+          //note:  timeout of 3000ms must be longer than debounce of 500ms in textarea       
         }    
       },
 
@@ -470,7 +470,7 @@
           thatVue.setDirty(qguid);                         
       },
 
-      saveWO: function (qguid, reFetch) {
+      saveWO: function (qguid, reFetch, event) {
           // save reference to Vue object that can be used in async callbacks
           var thatVue = this;     
           
@@ -487,7 +487,7 @@
             }            
           }
           else {
-            // qguid not specified.  See if there is a qguid in queue awaiting saving.
+            // qguid not specified by caller.  See if there is a qguid in queue awaiting saving.
             qguid = thatVue.dirtyQGUIDs.pop()
           }
 
@@ -544,6 +544,12 @@
             });
 
             qguid = thatVue.dirtyQGUIDs.pop();
+
+            //if (event) {
+              // Since event was keyup, this was for an autosave.  In the case of boostrapvue b-textarea
+              // (and possibly other controls), a debounce is used.  This means that there may be additional
+              // keystrokes that came in after the data in the model was updated by the control.
+            //}
           
           }
       },
