@@ -22,7 +22,7 @@
               </b-col>              
             </b-row>
 
-            <h6>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>
+            <h6>[[ curWOList ]] (<span v-if="busyCount > 0">Loading</span><span v-if="busyCount <= 0">[[ data_WOs.length ]]</span><span>orders</span>)</h6>
               <div class="fastscroll" style="height:75vh;">
 
                 <draggable v-model="data_WOs" group="wo" handle=".dragHandle" :options="{disabled: disableDraggable}" @start="drag=true" @end="drag=false" @change="onDropWO">
@@ -271,14 +271,6 @@
       // perform the initial fetch of data
       this.decBusy();
     },    
-
-
-    computed: {
-      busy : function () {
-        return this.busyCount > 0;
-      }, 
-
-    },
 
     methods: {
       fullscreen: function () {
