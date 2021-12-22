@@ -162,7 +162,7 @@
                         <b-col>
                           <b-form-group label="Notes" :label-for="'notes' + [[wo.qguid]]">
                             <b-form-textarea :id="'notes' + [[wo.qguid]]" debounce="1000"
-                                            @input="onChangePlan(wo.qguid)" @keyup="setDirty(wo.qguid)"
+                                            @keyup="setDirty(wo.qguid, 3000, false, $event)"
                                             v-model="wo.Notes" rows="3" max-rows="3">
                             </b-form-textarea>
                           </b-form-group>
@@ -316,7 +316,7 @@
         thatVue.disableDraggable = thatVue.busyCount > 0;
       },      
 
-      setDirty: function(qguid, debounceMS, reFetch) {
+      setDirty: function(qguid, debounceMS, reFetch, event) {
         // Enqueues a speific record (via qguid) for saving.
         // Needed for textarea autosave:  lets us debounce saving, while still triggering save on KeyUp
         let thatVue = this;
@@ -495,7 +495,7 @@
             // we loop, to save all qguids in the queue
 
             let thisWO = thatVue.data_WOs.find((el) => el.qguid === qguid)
-            
+
             if (thisWO) {
               thatVue.$forceUpdate();
             }
