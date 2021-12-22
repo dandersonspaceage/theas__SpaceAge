@@ -16,10 +16,7 @@
                                 size="sm"></b-form-select>
                 </b-form-group>
               </b-col>
-
-              <b-col>
-                <b-button @click="switchWOList()">Save</b-button>
-              </b-col>              
+           
             </b-row>
 
             <h6>[[ curWOList ]] (<span v-if="isBusy()">Loading</span><span v-if="!isBusy()">[[ data_WOs.length ]]</span><span>orders</span>)</h6>
@@ -545,10 +542,32 @@
 
             qguid = thatVue.dirtyQGUIDs.pop();
 
-            //if (event) {
+            //if (event.type == 'keyup') {
               // Since event was keyup, this was for an autosave.  In the case of boostrapvue b-textarea
               // (and possibly other controls), a debounce is used.  This means that there may be additional
               // keystrokes that came in after the data in the model was updated by the control.
+
+              // We are now some time after the event was fired (like 3000ms). But during that interval,
+              // there could have been additional characters added...with no new "dirty" timer set (because
+              // our timer was already set).
+
+              // Now that we have popped the qguid, any future keystrokes will push another "dirty" timer:
+              // that's good.
+
+              // But suppose there are no more keystrokes, and the last keystroke came in while our
+              // "dirty" timer was in queue, and just before that timer expired.  It is possible that the
+              // textarea value wasn't yet updated with the characters from the final keystroke(s).  This
+              // would mean that there will be no subsequent event triggered, and those characters would
+              // never get saved.
+
+              // So what we can do is add $nextTick(() => {...}) to do another update.
+
+              // But we don't really want to do that every time we handle a keyup event, as that would
+              // effectively process each keyup event TWICE.
+
+
+
+              
             //}
           
           }
