@@ -362,7 +362,7 @@
         //multiple WO's could be expanded)
       },     
 
-      fetchWOs: function () {
+      fetchWOs: function (qguid, reFetch) {
         // save reference to Vue object
         let thatVue = this;
 
@@ -373,8 +373,10 @@
           asyncCmd: thatVue.asyncCmd_WOs,
           lastFetchDate: thatVue.lastFetch_WOs,
           data: {listName: thatVue.curWOList}, //note: passes to @FormParams
+          qguid: qguid,
+          reFetch: reFetch,
 
-          onResponse: function (rd, response) {
+          onResponse: function (rd, response, config) {
             // rd contains the response data split into an object (of name/value pairs)
             // (might have been returned as either a string of URL-encoded name/value
             // pairs, or as a JSON strong)
@@ -398,7 +400,9 @@
                 thisData = thisObj["JSONData"];
                 thisFetchDate = thisObj["FetchDate"];
 
-                thatVue.data_WOs.length = 0; //clear out WO                
+                if (config.reFetch) {
+                  thatVue.data_WOs.length = 0; //clear out WO      
+                }          
 
                 if (thisData) {
                   thatVue.data_WOs = thatVue.$th.merge(
