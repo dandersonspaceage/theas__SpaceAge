@@ -158,7 +158,7 @@
                       <b-row>
                         <b-col>
                           <b-form-group label="Notes" :label-for="'notes' + [[wo.qguid]]">
-                            <b-form-textarea :id="'notes' + [[wo.qguid]]" debounce="500"
+                            <b-form-textarea :id="'notes' + [[wo.qguid]]" debounce="300"
                                             @keyup="setDirty(wo.qguid, 3000, false, $event)"
                                             v-model="wo.Notes" rows="3" max-rows="3">
                             </b-form-textarea>
