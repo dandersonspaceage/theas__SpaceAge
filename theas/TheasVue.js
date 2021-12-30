@@ -921,15 +921,15 @@ Theas.prototype.haveError = function(showModal) {
       lastErr.msgFriendly = '';
       lastErr.showTech = false;
 
-      if (lastErr.msgParts.length > 1 & lastErr.msgParts[2]) {             
-        lastErr.msgFriendly = lastErr.msgParts[2];     
+      if (lastErr.msgParts.length > 1 & lastErr.msgParts[1].lenth > 0) {             
+        lastErr.msgFriendly = lastErr.msgParts[1];     
       }
 
-      if (lastErr.msgParts.length > 2 & lastErr.msgParts[3]) { 
+      if (lastErr.msgParts.length > 2 & lastErr.msgParts[2] === 1) { 
         lastErr.showTech = true;                           
       }        
 
-      if (lastErr.msgParts.length > 3) { 
+      if (lastErr.msgParts.length > 3 & lastErr.msgParts[3].length > 0) { 
         lastErr.msgTitle = lastErr.msgParts[3];                           
       }
 
