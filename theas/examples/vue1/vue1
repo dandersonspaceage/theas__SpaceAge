@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!--meta data...optional-->
+    <meta name="description" content="Theas Sample Page">
+    <meta name="keywords" content="Theas,OpsStream,UI,Sample">
+    <meta name="author" content="github.com/davidrueter/theas">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+        <!--
+         https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+         If content is set to yes, the web application runs in full-screen mode; otherwise, it does not. The default behavior is to use Safari to display web content.
+         You can determine whether a webpage is displayed in full-screen mode using the window.navigator.standalone read-only Boolean JavaScript property.        
+        -->
+    <meta name="apple-mobile-web-app-title" content="TestJQ1">
+    <meta name="application-name" content="TestJQ1">    
+
+    <!--favicon resources.  Build with https://favicon.io or other or create by hand.
+    More Info: 
+    https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs
+    See https://www.emergeinteractive.com/insights/detail/The-Essentials-of-FavIcons/
+    https://medium.com/dev-channel/how-to-add-a-web-app-manifest-and-mobile-proof-your-site-450e6e485638
+    -->    
+    <link rel="icon" href="/favicon.ico" sizes="any"><!-- 32?32 -->
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180?180 -->
+    <link rel="manifest" href="/manifest.webmanifest">     
+
+    <!--https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name/theme-color-->
+    <meta name="theme-color" content="#ffffff">
+
+    <link type="text/css" rel="stylesheet" href="{{ '/cdn/bootstrap4/css/bootstrap.css'|theasResource }}">   
+    <link type="text/css" rel="stylesheet" href="{{ '/cdn/bootstrap-vue/bootstrap-vue.css'|theasResource }}">
+    <link type="text/css" rel="stylesheet" href="{{ '/cdn/font-awesome/css/all.css'|theasResource }}">
+
+
+    <title>Example: Vue1</title>
+
+    <!--Static global styles-->
+    <style>
+      .fullheight {height: 100%}
+      .fastscroll {overflow-y:scroll; -webkit-overflow-scrolling: touch;}
+      p {font-weight: bold; color: green; }
+
+      
+      .collapsed > .when-opened,
+      .not-collapsed > .when-closed {
+        display: none;
+      }
+
+    </style>
+
+    <!--Global scripts-->
+    <script nomodule>
+        document.getElementById("thapp").innerHTML = "This application will not work with your browser because your browser doesn't support JavaScript modules.";
+    </script>
+
+    <script src="{{ '/cdn/axios/axios.min.js'|theasResource }}"></script>
+    <script src="{{ '/cdn/hammerjs/hammer.min.js'|theasResource }}"></script>
+    <script src="{{ '/cdn/moment/moment.js'|theasResource }}"></script>
+    <script src="{{ '/cdn/screenfull/screenfull.js'|theasResource }}"></script>
+
+    <script src="{{ '/cdn/vuejs/vue.js'|theasResource }}"></script>
+
+    <script src="{{ '/cdn/popper/popper.min.js'|theasResource }}"></script>
+    <script src="{{ '/cdn/portal-vue/portal-vue.umd.min.js'|theasResource }}"></script>
+    <script src="{{ '/cdn/bootstrap-vue/bootstrap-vue.js'|theasResource }}"></script>
+    <script src="{{ '/theas/TheasVue.js'|theasResource }}"></script>
+
+    <script  type="module" src="{{ '/theas/examples/vue1/vue1.js'|theasResource }}"></script>
+
+</head>
+
+<body style="height:85vh">
+  <script>
+    document.body.style.cursor = 'progress';      
+  </script>  
+
+    <!--This form is used internally by Theas for session tracking et al.  It must have id="theasForm"-->
+    <form method="post" class="form-horizontal" id="theasForm">
+        {{ "__th"|theasXSRF }}
+        {{ "__th"|theasSessionToken(vuejs=True) }}
+    </form>
+
+    <main class="fullheight">
+        <!--Any static content you want-->
+        <a href="javascript:if (screenfull.isEnabled) { screenfull.request(); }">
+
+        <img src="/theas/resources/TheasLogo_wTag.jpg"></img>
+
+        </a>
+
+        <!--Optionally, a div with id="thapp" wiil be replaced by Vue-rendered content-->
+        <div id="thapp">This whole div is replaced by Vue-rendered content</div>
+    </main>
+  
+</body>
+</html>
