@@ -259,11 +259,21 @@
       thatVue.theasParams = thatVue.$th.theasParams;
       thatVue.theasLastError = thatVue.$th.lastError;
 
+      /* placeholder / example of how you can ovrride $th.thModal with any object
+      that exposes a showMessage() method.
+
+      $th.thModal is used to display error messages.
+      
+      The default is that $th.thModal will use a BootstrapVue modal message box. 
+      If you choose not to use BootstrapVue the default will fall back to an alert.
+      But you are free to define as you see fit.
+
       thatVue.$th.thModal = {
         showMessage: function(msg) {
-          alert('override: ' + msg);
+          alert(msg);
         }
       }
+      */
 
       // perform the initial fetch of data
       this.fetchData(true);
