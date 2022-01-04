@@ -35,7 +35,9 @@ function Theas(vue) {
 
 
 Theas.prototype.setVue = function (vue){
-  this.thatVue = vue; 
+  let thatTheas = this;
+
+  thatTheas.thatVue = vue; 
 
   // Define mixin for progroamatic message box to display error messages.
 
@@ -46,14 +48,14 @@ Theas.prototype.setVue = function (vue){
 
   var thModal = {
     methods: {
-      showMessage: function (msg) {
+      showMessage: function (msg, title) {
         console.log(msg);
 
         if (vue.$bvModal) {
           //use bootstrap-vue modal if present
-          
+
           let options = {
-            title: 'Confirmation',
+            title: title,
             size: 'sm',
             buttonSize: 'sm',
             okVariant: 'primary',
@@ -69,6 +71,12 @@ Theas.prototype.setVue = function (vue){
           alert(msg);
         }
 
+      },
+
+      showError: function () {
+        if (thatTheas.lastError.msg) {
+          this.showMessage(thatTheas.lastError.msg, thatTheas.msgTitle);
+        }    
       }
     }
   };
@@ -960,25 +968,12 @@ Theas.prototype.getCurrentLocation = function () {
    }
 };
 
-Theas.prototype.getModal = function () {
-   // save reference to Theas object
-   let thatTheas = this;
-
-   return thatTheas.thatVue.$refs["thModal"];
-};
-
-Theas.prototype.showModal =  function(msg, title, onClose, goBackOnClose) {
-   let $thMsgDlg = this.getModal(msg, title);
-
-   $thMsgDlg.modal(show=true);
-
-};
 
 Theas.prototype.raiseError = function (errMsg) {
   let thatTheas = this;
 
   thatTheas.parseError(errMsg);
-  thatTheas.thatVue.$bvModal.show('thModal');  
+  thatTheas.thModal.showError;
 };
 
 Theas.prototype.parseError = function(msg) {
@@ -1025,20 +1020,20 @@ Theas.prototype.parseError = function(msg) {
 }
 
 Theas.prototype.haveError = function(showModal) {
-// save reference to Theas object
-let thatTheas = this;
+  // save reference to Theas object
+  let thatTheas = this;
 
-let result = false;
+  let result = false;
 
-thatTheas.parseError();
+  thatTheas.parseError();
 
-if (thatTheas.theasParams['th$ErrorMessage']) {
-  result = true;
-  
-  if (showModal) {
-    thatTheas.thatVue.$bvModal.show('thModal');        
-  }          
-}
+  if (thatTheas.lastError.msg) {
+    result = true;
+    
+    if (showModal) {
+      thatTheas.thModal.showError;      
+    }          
+  }
 
-return result;
+  return result;
 };
