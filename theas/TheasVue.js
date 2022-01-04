@@ -1013,10 +1013,10 @@ Theas.prototype.parseError = function(msg) {
 
     } 
 
-    if (lastError.msg) {
+    if (thatTheas.lastError.msg) {
       result = true;
 
-       thatTheas.thModal.showError;            
+      thatTheas.thModal.showError;            
     }
   }
 
