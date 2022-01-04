@@ -1,4 +1,26 @@
-export default {
+<template>
+      <b-modal ref="thModal"
+                id="thModal"
+                :title="modal_Title"
+                centered
+                hide-footer
+                v-model="haveError"
+                @hide="onthModalHide"                     
+                @hidden="onModalHide">
+
+        <template #modal-title>
+          [[ theasLastError.msgTitle ]]
+        </template>
+        <div class="d-block text-center">
+          <h3>[[ theasLastError.msgFriendly ]]</h3>
+          <h5>[[ theasLastError.msgTech ]]</h5>        
+        </div>
+      </b-modal>
+</template>
+
+
+<script>
+  export default {
     delimiters: ["[[", "]]"],
 
     props: {
@@ -14,43 +36,6 @@ export default {
         }
     },
 
-    template: `
-            <b-modal ref="thModal"
-                     :title="modal_Title"
-                     centered
-                     v-model="haveError"
-                     @hidden="onModalHide">
-
-                <div>
-                    <p class="text-center" v-html="modal_Body">
-                    </p>
-                </div>
-
-                <div v-if="modal_Tech != ''">
-                    <b-collapse id="collapseTechInfo">
-                        <b-card class="text-center font-italic " v-html="modal_Tech">                  
-                        </b-card>                    
-                    </b-collapse>
-                </div>
-
-               <div slot="modal-footer" class="w-100">
-                 <!--
-                 <b-btn size="sm" variant="secondary" @click="onClickLogout">
-                   Logout
-                 </b-btn>
-                 -->
-                 
-                 <b-btn size="sm" variant="primary" @click="onClickCloseModal">
-                   OK
-                 </b-btn>
-                 
-                 <b-btn size="sm" variant="info" v-b-toggle.collapseTechInfo>
-                   More Info
-                 </b-btn>                 
-               </div>
-
-            </b-modal>
-  `,
     data() {
         let thisData = {
             //message: 'Oh hai from the component'
@@ -176,3 +161,4 @@ export default {
 
 
 };
+</script>
