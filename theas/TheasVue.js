@@ -1016,7 +1016,7 @@ Theas.prototype.parseError = function(msg) {
     if (thatTheas.lastError.msg) {
       result = true;
 
-      thatTheas.thModal.showError;            
+      thatTheas.thModal.showError();            
     }
   }
 
