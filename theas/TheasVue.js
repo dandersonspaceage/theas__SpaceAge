@@ -75,11 +75,16 @@ Theas.prototype.setVue = function (vue){
 
       showError: function () {
         if (thatTheas.lastError.msg) {
-          this.showMessage(
-            thatTheas.lastError.msgFriendly
-              ? thatTheas.lastError.msgFriendly + '<br /><br /><i>' + thatTheas.lastError.msgTech + '</i>'
-              : thatTheas.lastError.msgTech,
-              thatTheas.lastError.msgTitle);
+
+          let msgnodes = [];
+
+          if (thatTheas.lastError.msgFriendly) {
+            msgnodes.push(createElement('p', {}, msgFriendly));
+          }
+
+          msgnodes.push(createElement('i', {}, msgTech));
+
+          this.showMessage(msgnodes, thatTheas.lastError.msgTitle);
         }    
       }
     }
