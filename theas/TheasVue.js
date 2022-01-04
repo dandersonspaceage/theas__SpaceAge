@@ -852,7 +852,11 @@ Theas.prototype.submitForm = function (v, config) {
            }
 
            if (goToURL) {
-               window.location = goToURL;
+             if (!goToURL.startsWith('/')) {
+              goToURL = '/' + goToURL;
+             }
+
+             window.location = goToURL;             
            }           
 
        })
