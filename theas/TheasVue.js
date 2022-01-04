@@ -1012,7 +1012,16 @@ Theas.prototype.parseError = function(msg) {
       }
 
     } 
+
+    if (lastError.msg) {
+      result = true;
+
+       thatTheas.thModal.showError;            
+    }
   }
+
+  return result;
+  
 }
 
 Theas.prototype.haveError = function(showModal) {
