@@ -193,11 +193,7 @@ Theas.prototype.updateAllTheasParams = function (nv) {
           }
       }
 
-      let thisErr = thatTheas.theasParams['th$ErrorMessage'];
-      if (thisErr) {
-        thatTheas.raiseError(thisErr);
-      }      
-
+      thatTheas.parseError();   
     }
 
     /*
