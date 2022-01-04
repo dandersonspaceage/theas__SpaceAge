@@ -267,6 +267,8 @@
     mounted: function () {
       // perform the initial fetch of data
       this.decBusy();
+
+      this.$th.$thModal.showMessage('abc');
     },    
 
     methods: {

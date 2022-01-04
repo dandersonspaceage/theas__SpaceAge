@@ -36,6 +36,34 @@ function Theas(vue) {
 
 Theas.prototype.setVue = function (vue){
   this.thatVue = vue; 
+
+  // define a mixin object
+  var thModal = {
+    methods: {
+      showMessage: function (msg) {
+        console.log(msg);
+
+        let options = {
+          title: 'Confirmation',
+          size: 'sm',
+          buttonSize: 'sm',
+          okVariant: 'success',
+          headerClass: 'p-2 border-bottom-0',
+          footerClass: 'p-2 border-top-0',
+          centered: true
+        }
+
+        vue.$bvModal.msgBoxOk(msg, options);
+      }
+    }
+  };
+
+  var THModal = Vue.extend({
+    mixins: [thModal]
+  })
+
+  this.$thModal = new THModal();
+
 };
 
 
