@@ -75,7 +75,11 @@ Theas.prototype.setVue = function (vue){
 
       showError: function () {
         if (thatTheas.lastError.msg) {
-          this.showMessage(thatTheas.lastError.msgFriendly ? thatTheas.lastError.msgFriendly : thatTheas.lastError.msgTech, thatTheas.lastError.msgTitle);
+          this.showMessage(
+            thatTheas.lastError.msgFriendly
+              ? thatTheas.lastError.msgFriendly + '<br /><br /><i>' + thatTheas.lastError.msgTech + '</i>'
+              : thatTheas.lastError.msgTech,
+              thatTheas.lastError.msgTitle);
         }    
       }
     }
