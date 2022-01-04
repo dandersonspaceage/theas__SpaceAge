@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
     <!--meta data...optional-->
-    <meta name="description" content="Theas Sample Page">
-    <meta name="keywords" content="Theas,OpsStream,UI,Sample">
+    <meta name="description" content="SpaceAge Synthetics Login">
+    <meta name="keywords" content="Theas,OpsStream,UI,Spaceage">
     <meta name="author" content="github.com/davidrueter/theas">
     <meta name="apple-mobile-web-app-capable" content="yes">
         <!--
@@ -15,8 +15,8 @@
          If content is set to yes, the web application runs in full-screen mode; otherwise, it does not. The default behavior is to use Safari to display web content.
          You can determine whether a webpage is displayed in full-screen mode using the window.navigator.standalone read-only Boolean JavaScript property.        
         -->
-    <meta name="apple-mobile-web-app-title" content="TestJQ1">
-    <meta name="application-name" content="TestJQ1">    
+    <meta name="apple-mobile-web-app-title" content="SpaceAge Synthetics Login">
+    <meta name="application-name" content="SpaceAge Synthetics Login">    
 
     <!--favicon resources.  Build with https://favicon.io or other or create by hand.
     More Info: 
@@ -37,7 +37,7 @@
     <link type="text/css" rel="stylesheet" href="{{ '/cdn/font-awesome/css/all.css'|theasResource }}">
 
 
-    <title>Arcadia Pick</title>
+    <title>SpaceAge Synthetics Login</title>
 
     <!--Static global styles-->
     <style>
