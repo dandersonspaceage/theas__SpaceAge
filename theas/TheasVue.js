@@ -79,10 +79,10 @@ Theas.prototype.setVue = function (vue){
           let msgnodes = [];
 
           if (thatTheas.lastError.msgFriendly) {
-            msgnodes.push(thatTheas.thatVue.createElement('p', {}, msgFriendly));
+            msgnodes.push(thatTheas.thatVue.createElement('p', {}, thatTheas.lastError.msgFriendly));
           }
 
-          msgnodes.push(thatTheas.thatVue.createElement('i', {}, msgTech));
+          msgnodes.push(thatTheas.thatVue.createElement('i', {}, thatTheas.lastError.msgTech));
 
           this.showMessage(msgnodes, thatTheas.lastError.msgTitle);
         }    
