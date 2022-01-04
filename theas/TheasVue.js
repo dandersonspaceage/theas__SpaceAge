@@ -77,14 +77,20 @@ Theas.prototype.setVue = function (vue){
         if (thatTheas.lastError.msg) {
 
           let msgnodes = [];
+          let msg = ''
 
           if (thatTheas.lastError.msgFriendly) {
-            msgnodes.push(Vue.createElement('p', {}, thatTheas.lastError.msgFriendly));
+            msg = thatTheas.lastError.msgFriendly;
+            //msgnodes.push(Vue.createElement('p', {}, thatTheas.lastError.msgFriendly));
+          }
+          else {
+            thatTheas.lastError.msgTech;
           }
 
-          msgnodes.push(Vue.createElement('i', {}, thatTheas.lastError.msgTech));
+         // msgnodes.push(Vue.createElement('i', {}, thatTheas.lastError.msgTech));
 
-          this.showMessage(msgnodes, thatTheas.lastError.msgTitle);
+          //this.showMessage(msgnodes, thatTheas.lastError.msgTitle);
+          this.showMessage(msg, thatTheas.lastError.msgTitle);
         }    
       }
     }
