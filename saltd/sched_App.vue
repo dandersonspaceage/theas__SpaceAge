@@ -259,6 +259,12 @@
       thatVue.theasParams = thatVue.$th.theasParams;
       thatVue.theasLastError = thatVue.$th.lastError;
 
+      thatVue.$th.thModal = {
+        showMessage: function(msg) {
+          alert('override: ' + msg);
+        }
+      }
+
       // perform the initial fetch of data
       this.fetchData(true);
     },
@@ -268,7 +274,7 @@
       // perform the initial fetch of data
       this.decBusy();
 
-      this.$th.$thModal.showMessage('abc');
+      this.$th.thModal.showMessage('abc');
     },    
 
     methods: {

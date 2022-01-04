@@ -37,32 +37,47 @@ function Theas(vue) {
 Theas.prototype.setVue = function (vue){
   this.thatVue = vue; 
 
-  // define a mixin object
+  // Define mixin for progroamatic message box to display error messages.
+
+  // Currently this assumes that $bvModal is present / was injected by BootstrapVue
+  // see:  https://bootstrap-vue.org/docs/components/modal#modal-message-boxes
+
+  // But this.thModal can be set to any object that has a showMessage() method
+
   var thModal = {
     methods: {
       showMessage: function (msg) {
         console.log(msg);
 
-        let options = {
-          title: 'Confirmation',
-          size: 'sm',
-          buttonSize: 'sm',
-          okVariant: 'success',
-          headerClass: 'p-2 border-bottom-0',
-          footerClass: 'p-2 border-top-0',
-          centered: true
+        if (vue.$bvModal) {
+          //use bootstrap-vue modal if present
+          
+          let options = {
+            title: 'Confirmation',
+            size: 'sm',
+            buttonSize: 'sm',
+            okVariant: 'primary',
+            headerClass: 'p-2 border-bottom-0',
+            footerClass: 'p-2 border-top-0',
+            centered: true
+          }
+  
+          vue.$bvModal.msgBoxOk(msg, options);          
+        }
+        else {
+          // fall back to a browser alert
+          alert(msg);
         }
 
-        vue.$bvModal.msgBoxOk(msg, options);
       }
     }
   };
 
   var THModal = Vue.extend({
     mixins: [thModal]
-  })
+  });
 
-  this.$thModal = new THModal();
+  this.thModal = new THModal();
 
 };
 
