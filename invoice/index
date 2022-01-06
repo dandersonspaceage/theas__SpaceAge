@@ -37,7 +37,7 @@
     <link type="text/css" rel="stylesheet" href="{{ '/cdn/font-awesome/css/all.css'|theasResource }}">
 
 
-    <title>Example: Vue1</title>
+    <title>SpaceAge Synthetics Invoice</title>
 
     <!--Static global styles-->
     <style>
@@ -69,7 +69,7 @@
     <script src="{{ '/cdn/bootstrap-vue/bootstrap-vue.js'|theasResource }}"></script>
     <script src="{{ '/theas/TheasVue.js'|theasResource }}"></script>
 
-    <script  type="module" src="{{ '/theas/examples/vue1/vue1.js'|theasResource }}"></script>
+    <script  type="module" src="{{ 'invoice/invoice.js'|theasResource }}"></script>
 
 </head>
 

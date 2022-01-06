@@ -1,4 +1,4 @@
-import vueNewPage1 from "{{ '/theas/examples/vue1/vue1_App.vue'|theasResource }}"
+import vueNewPage1 from "{{ '/invoice/invoice_App.vue'|theasResource }}"
 
     Vue.config.productionTip = false
     Vue.use(BootstrapVue);

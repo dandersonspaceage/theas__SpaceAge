@@ -1,7 +1,7 @@
 <template>
   <div :style="{ cursor: curCursor}">
 
-    <b-container id="Vue1_Appvue">
+    <b-container id="SpaceAgeInvoice_Appvue">
 
       <b-row no-gutters fluid>
 
@@ -101,8 +101,8 @@
 
         lastFetch_RS1: null,
 
-        asyncResource: 'theas/examples/vue1/vue1_App.vue',
-        asyncCmd: 'fetchVue1',
+        asyncResource: 'invoice/invoice_App.vue',
+        asyncCmd: 'fetchInvoice',
 
         curRec: {}
       };
