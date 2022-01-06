@@ -145,10 +145,7 @@ Theas.prototype.updateAllTheasParams = function (nv) {
           }
       }
 
-      let thisErr = thatTheas.theasParams['th$ErrorMessage'];
-      if (thisErr) {
-        thatTheas.raiseError(thisErr);
-      }      
+      let thisErr = thatTheas.theasParams['th$ErrorMessage'];   
 
     }
 
@@ -818,49 +815,29 @@ Theas.prototype.submitForm = function (v, config) {
 
    axios(axiosConfig)
        .then(function (response) {
-           //handle success
-           thatTheas.updateAllTheasParams(thatTheas.splitToNV(response.data))
+          //handle success
+          thatTheas.updateAllTheasParams(thatTheas.splitToNV(response.data))
 
-           vueObj.submitted = false;
+          if (thisErr) {
+            thatTheas.raiseError(thisErr);
+          }             
 
-/*
-           let params;
-           let nameValue;
-           let thisName;
-           let thisValue;
+          vueObj.submitted = false;
 
-           let goToURL = '';
 
-           if (response != undefined) {
-               params = response.data.split('&');
-               for (let i = 0; i < params.length; i++) {
-                   nameValue = params[i].split('=');
+          let goToURL = thatTheas.theasParams['th$NextPage'];
 
-                   thisName = nameValue[0];
-                   thisValue = nameValue[1];
+          if (!goToURL && config.onSuccessURL) {
+              goToURL = config.onSuccessURL
+          }
 
-                   if (thisName == 'theas:th:NextPage') {
-                       // navigate to specified page
-                       goToURL = thisValue;
-                   }
-               }
+          if (goToURL) {
+            if (!goToURL.startsWith('/')) {
+            goToURL = '/' + goToURL;
+            }
 
-           }
-*/           
-
-           let goToURL = thatTheas.theasParams['th$NextPage'];
-
-           if (!goToURL && config.onSuccessURL) {
-               goToURL = config.onSuccessURL
-           }
-
-           if (goToURL) {
-             if (!goToURL.startsWith('/')) {
-              goToURL = '/' + goToURL;
-             }
-
-             window.location = goToURL;             
-           }           
+            window.location = goToURL;             
+          }           
 
        })
        .catch(function (response) {
