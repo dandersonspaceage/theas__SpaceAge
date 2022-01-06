@@ -256,47 +256,46 @@
             thisData = [];
             thisFetchDate = null;
 
-           if (!thatVue.$th.haveError(true)) {
+            //  RS1
+            if (rd["RS1"]) {
+              thisObj = JSON.parse(rd["RS1"])[0];
+              thisData = thisObj["JSONData"];
+              thisFetchDate = thisObj["FetchDate"];
 
-              //  RS1
-              if (rd["RS1"]) {
-                thisObj = JSON.parse(rd["RS1"])[0];
-                thisData = thisObj["JSONData"];
-                thisFetchDate = thisObj["FetchDate"];
+              if (config.reFetch) {
+                thatVue.data_RS1.length = 0; //clear out RS1      
+              }          
 
-                if (config.reFetch) {
-                  thatVue.data_RS1.length = 0; //clear out RS1      
-                }          
-
-                if (thisData) {
-                  thatVue.data_RS1 = thatVue.$th.merge(
-                          // string (optional): key field name with unique values to merge on
-                          "qguid",
-                          // string (optional): key value to exclude from merge (i.e. currently-displayed rows)
-                          //'someIDValue'
-                          thatVue.data_RS1,
-                          thisData
-                  );
-                }
-                thatVue.data_RS1 = thatVue.$th.sortArray(
+              if (thisData) {
+                thatVue.data_RS1 = thatVue.$th.merge(
+                        // string (optional): key field name with unique values to merge on
+                        "qguid",
+                        // string (optional): key value to exclude from merge (i.e. currently-displayed rows)
+                        //'someIDValue'
                         thatVue.data_RS1,
-                        "Seq",
-                        false //false=ascending, true=descending
+                        thisData
                 );
+              }
+              thatVue.data_RS1 = thatVue.$th.sortArray(
+                      thatVue.data_RS1,
+                      "Seq",
+                      false //false=ascending, true=descending
+              );
 
-                if (thatVue.lastFetch_RS1) {
-                  thatVue.lastFetch_RS1 = thisFetchDate;
-                } else {
-                  thatVue.lastFetch_RS1 = "1/1/1900";
-                }
+              if (thatVue.lastFetch_RS1) {
+                thatVue.lastFetch_RS1 = thisFetchDate;
+              } else {
+                thatVue.lastFetch_RS1 = "1/1/1900";
+              }
 
-                if (thatVue && thatVue.data_ThisRec && thatVue.data_thisrec.qguid) {
-                  thatVue.data_ThisRec = thatVue.data_RS1.find((el) => el.qguid === thatVue.data_thisrec.qguid);                             
-                }
-
+              if (thatVue && thatVue.data_ThisRec && thatVue.data_thisrec.qguid) {
+                thatVue.data_ThisRec = thatVue.data_RS1.find((el) => el.qguid === thatVue.data_thisrec.qguid);                             
               }
 
             }
+
+            thatVue.$th.haveError(true)
+            
             thatVue.decBusy();
           },
         });
