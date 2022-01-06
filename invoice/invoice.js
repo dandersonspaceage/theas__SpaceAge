@@ -1,4 +1,4 @@
-import vueNewPage1 from "{{ '/invoice/invoice_App.vue'|theasResource(relative=True)}}"
+import vueNewPage1 from "{{ './invoice_App.vue'|theasResource(relative=True)}}"
 
 
     Vue.config.productionTip = false
