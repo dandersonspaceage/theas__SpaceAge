@@ -816,11 +816,7 @@ Theas.prototype.submitForm = function (v, config) {
    axios(axiosConfig)
        .then(function (response) {
           //handle success
-          thatTheas.updateAllTheasParams(thatTheas.splitToNV(response.data))
-
-          if (thisErr) {
-            thatTheas.raiseError(thisErr);
-          }             
+          thatTheas.updateAllTheasParams(thatTheas.splitToNV(response.data))        
 
           vueObj.submitted = false;
 
