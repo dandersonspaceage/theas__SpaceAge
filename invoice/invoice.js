@@ -1,4 +1,5 @@
-import vueNewPage1 from "{{ '/invoice/invoice_App.vue'|theasResource }}"
+import vueNewPage1 from "{{ './invoice/invoice_App.vue'|theasResource(relative=True)}}"
+
 
     Vue.config.productionTip = false
     Vue.use(BootstrapVue);
@@ -51,6 +52,7 @@ import vueNewPage1 from "{{ '/invoice/invoice_App.vue'|theasResource }}"
 
     let thisVue = new Vue({
         delimiters: ["[[", "]]"],
+
         render: h => h(vueNewPage1),
     });
 

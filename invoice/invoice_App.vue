@@ -1,13 +1,14 @@
 <template>
   <div :style="{ cursor: curCursor}">
 
-    <b-container id="SpaceAgeInvoice_Appvue">
+    <b-container id="Vue1_Appvue">
 
       <b-row no-gutters fluid>
-
         <b-col>     
             <h6><span v-if="isBusy()">Loading</span><span v-if="!isBusy()">[[ data_RS1.length ]]</span><span>orders</span></h6>
               <div class="fastscroll" style="height:75vh;">
+
+                  <h1>TestParam1: [[ theasParams.TestParam1 ]]</h1>
 
                   <b-card v-for="rec in data_RS1" :key="rec.qguid">
 
@@ -58,7 +59,7 @@
 
       </b-row>
 
-    </b-container>
+    <b-container>
 
     <b-modal id="thModal" ref="thModal" @hide="onthModalHide" hide-footer>
       <template #modal-title>
@@ -102,7 +103,7 @@
         lastFetch_RS1: null,
 
         asyncResource: 'invoice/invoice_App.vue',
-        asyncCmd: 'fetchInvoice',
+        asyncCmd: 'fetchVue1',
 
         curRec: {}
       };
@@ -140,8 +141,18 @@
 
     methods: {
       fullscreen: function () {
-        if (screenfull.isEnabled) {
-          screenfull.request();
+
+        /* Get the documentElement (<html>) to display the page in fullscreen */
+        let elem = document.documentElement;
+
+        /* View in fullscreen */
+
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) { /* Safari */
+          elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE11 */
+          elem.msRequestFullscreen();
         }
       }, 
 

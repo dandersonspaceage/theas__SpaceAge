@@ -15,8 +15,8 @@
          If content is set to yes, the web application runs in full-screen mode; otherwise, it does not. The default behavior is to use Safari to display web content.
          You can determine whether a webpage is displayed in full-screen mode using the window.navigator.standalone read-only Boolean JavaScript property.        
         -->
-    <meta name="apple-mobile-web-app-title" content="TestJQ1">
-    <meta name="application-name" content="TestJQ1">    
+    <meta name="apple-mobile-web-app-title" content="SpaceAge Synthetics Invoice">
+    <meta name="application-name" content="SpaceAge Synthetics Invoice"> 
 
     <!--favicon resources.  Build with https://favicon.io or other or create by hand.
     More Info: 
@@ -27,7 +27,7 @@
     <link rel="icon" href="/favicon.ico" sizes="any"><!-- 32?32 -->
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180?180 -->
-    <link rel="manifest" href="/manifest.webmanifest">     
+    <link rel="manifest" href="/manifest.webmanifest">    
 
     <!--https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name/theme-color-->
     <meta name="theme-color" content="#ffffff">
@@ -61,7 +61,7 @@
     <script src="{{ '/cdn/axios/axios.min.js'|theasResource }}"></script>
     <script src="{{ '/cdn/hammerjs/hammer.min.js'|theasResource }}"></script>
     <script src="{{ '/cdn/moment/moment.js'|theasResource }}"></script>
-  
+   
     <script src="{{ '/cdn/vuejs/vue.js'|theasResource }}"></script>
 
     <script src="{{ '/cdn/popper/popper.min.js'|theasResource }}"></script>
@@ -69,7 +69,7 @@
     <script src="{{ '/cdn/bootstrap-vue/bootstrap-vue.js'|theasResource }}"></script>
     <script src="{{ '/theas/TheasVue.js'|theasResource }}"></script>
 
-    <script  type="module" src="{{ 'invoice/invoice.js'|theasResource }}"></script>
+    <script  type="module" src="{{ '/invoice/invoice.js'|theasResource }}"></script>
 
 </head>
 
