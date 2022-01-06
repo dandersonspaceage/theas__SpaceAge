@@ -58,7 +58,7 @@
 
       </b-row>
 
-    <b-container>
+    </b-container>
 
     <b-modal id="thModal" ref="thModal" @hide="onthModalHide" hide-footer>
       <template #modal-title>
