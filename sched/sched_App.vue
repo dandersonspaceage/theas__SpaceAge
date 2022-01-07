@@ -226,7 +226,7 @@
 
         lastFetch_WOs: null,
 
-        asyncResource_WOs: 'saltd/sched_App.vue',
+        asyncResource_WOs: 'sched/sched_App.vue',
         asyncCmd_WOs: 'fetchWOs',
 
         pressCodes: ['N', 'NW', 'S', 'W'],
