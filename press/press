@@ -97,7 +97,7 @@
         <!--Any static content you want-->
         <a href="javascript:if (screenfull.isEnabled) { screenfull.request(); }">
 
-        <img src="/salted/SpaceAgeLogo.png"></img>
+        <img src="/resources/SpaceAgeLogo.png"></img>
 
         </a>
 
