@@ -53,6 +53,8 @@
                       <b-col>
                         <h6>Foam: [[ wo.FoamSystem ]] </h6>
                       </b-col>
+                      <b-col>
+                      </b-col>
                     </b-row>
 
                     <b-row>
