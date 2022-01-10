@@ -50,6 +50,9 @@
                       <b-col>
                         <h6>Item: [[ wo.ItemNumber ]]</h6>
                       </b-col>
+                      <b-col>
+                        <h6>Foam: [[ wo.FoamSystem ]] </h6>
+                      </b-col>
                     </b-row>
 
                     <b-row>
