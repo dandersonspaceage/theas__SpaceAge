@@ -79,7 +79,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.20.0/vuedraggable.umd.min.js"></script>
 
 
-    <script  type="module" src="{{ '/press.js'|theasResource }}"></script>
+    <script  type="module" src="{{ '/press/press.js'|theasResource }}"></script>
 
 </head>
 <body style="height:85vh; width:100%">
