@@ -1,4 +1,4 @@
-import vueNewPage1 from "{{ '/press_App.vue'|theasResource }}"
+import vueNewPage1 from "{{ '/press/press_App.vue'|theasResource }}"
 
     Vue.config.productionTip = false
     Vue.use(BootstrapVue);
