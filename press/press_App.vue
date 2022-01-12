@@ -33,14 +33,13 @@
                     <th>Length OffPress</th>
 
                     <th>Foam</th>
-                    <th>Glass</th>                    
+                    <th>Glass Series</th>                    
                     <th>Finish</th>
                     <th>Qty</th>
                     <th>Qty Shot</th>
                     <th>Shim Layup</th>
                     <th>Mold Glass Layers</th>
                     <th>Ship Date</th>
-                    <th>Glass</th>
                     <th>Weight OffPress</th>
                     <th>Weight Finished</th>
 
@@ -65,7 +64,6 @@
                     <td>[[ wo.ShimLayup ]]</td>
                     <td>[[ wo.MoldGlassLayers ]]</td>
                     <td>[[ wo.EstShipDate ]]</td>
-                    <td>[[ wo.Glass ]]</td>
                     <td>[[ wo.Weight_OffPress ]]</td>                                                                                                                                                         
                     <td>[[ wo.Weight_Finished ]]</td>             
                            
