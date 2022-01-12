@@ -33,6 +33,7 @@
                     <th>Length OffPress</th>
 
                     <th>Foam</th>
+                    <th>Glass</th>                    
                     <th>Finish</th>
                     <th>Qty</th>
                     <th>Qty Shot</th>
@@ -57,6 +58,7 @@
                     <td>[[ wo.DimLength_OffPress ]]</td>
                     
                     <td>[[ wo.FoamSystem ]] </td>
+                    <td>[[ wo.GlassSeries ]] </td>                    
                     <td>[[ wo.SurfaceFinish ]]</td>
                     <td>[[ wo.Quantity ]]</td>
                     <td>[[ wo.CurrentShotCount ]]</td>
