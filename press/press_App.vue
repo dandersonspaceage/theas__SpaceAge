@@ -25,6 +25,8 @@
             <thead>
                 <tr>
                     <th>Batch</th>
+                    <th>SO</th>
+                    
                     <th>Qty</th>
                     <th>Qty Shot</th>
                     <th>Commit Date</th>                    
@@ -53,6 +55,7 @@
             <tbody>
                 <tr v-for="wo in data_WOs" :key="wo.qguid">
                     <td>[[ wo.BatchNumber ]]</td>
+                    <td>[[ wo.LinkedSONumber ]]</td>
 
                     <td>[[ wo.Quantity ]]</td>
                     <td>[[ wo.CurrentShotCount ]]</td>
