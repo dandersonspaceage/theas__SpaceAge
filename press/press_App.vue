@@ -63,7 +63,7 @@
                     <td>[[wo.MoldGlassLayers]]</td>
                     <td>[[wo.EstShipDate]]</td>
                     <td>[[wo.Glass]]</td>
-                    <td>i[wo.Weight_OffPress</td>                                                                                                                                                         
+                    <td>[wo.Weight_OffPress]]</td>                                                                                                                                                         
                     <td>[[wo.Weight_Finished]]</td>             
                            
                     <td>[[wo.Foam]]</td>
