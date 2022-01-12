@@ -29,10 +29,11 @@
                 <tr>
                     <th>Batch</th>
                     <th>Customer</th>  
-                    <th>Thick</th>
-                    <th>Overall Thick</th>                    
-                    <th>W</th>
-                    <th>L</th>
+
+                    <th>Thickness OffPress</th>               
+                    <th>Width OffPress</th>
+                    <th>Length OffPress</th>
+
                     <th>Series</th>
                     <th>Fascoat</th>
                     <th>Qty</th>
@@ -41,9 +42,9 @@
                     <th>Mold Glass Layers</th>
                     <th>Ship Date</th>
                     <th>Glass</th>
-                    <th>Total Weight</th>
-                    <th>Total Weight Sanded</th>
-                    <th>Grams per Board</th>
+                    <th>Weight OffPress</th>
+                    <th>Weight Finished</th>
+
                     <th>Foam</th>
                     <th>Notes</th>
                 </tr>
@@ -51,11 +52,12 @@
             <tbody>
                 <tr v-for="wo in data_WOs" :key="wo.qguid">
                     <td>[[wo.BatchNumber]]</td>
-                    <td>[[wo.CustomerName]]</td>
-                    <td>[[wo.DimThickSanded]]</td>
-                    <td>[[wo.DimThick]]</td>
-                    <td>[[wo.DimWidth]]</td>
-                    <td>[[wo.DimLength]]</td>
+                    <td>[[wo.CustomerName]]</td>          
+
+                    <td>[[wo.DimThickness_OffPress]]</td>
+                    <td>[[wo.DimWidth_OffPress]]</td>
+                    <td>[[wo.DimLength_OffPress]]</td>
+                    
                     <td>[[wo.Series]]</td>
                     <td>[[wo.Fascoat]]</td>
                     <td>[[wo.Quantity]]</td>
@@ -64,9 +66,9 @@
                     <td>[[wo.MoldGlassLayers]]</td>
                     <td>[[wo.EstShipDate]]</td>
                     <td>[[wo.Glass]]</td>
-                    <td>[[wo.BoardWeight]]</td>
-                    <td>[[wo.BoardWeightSanded]]</td>
-                    <td>[[wo.BoardWeightGrams]]</td>                                                                                                                                                          
+                    <td>i[wo.Weight_OffPress</td>                                                                                                                                                         
+                    <td>[[wo.Weight_Finished]]</td>             
+                           
                     <td>[[wo.Foam]]</td>
                     <td>[[wo.Notes]]</td>                           
                 </tr>
