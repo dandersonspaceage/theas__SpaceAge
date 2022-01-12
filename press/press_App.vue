@@ -10,11 +10,8 @@
                         size="sm"></b-form-select>
         </b-form-group>
       </b-col>
-
-      <b-col>
-        <b-button @click="switchWOList()">Save</b-button>
-      </b-col>
-    </b-row>
+    
+    </b-row>    
 
     <b-row>
       <b-col>
@@ -241,7 +238,7 @@
         //multiple WO's could be expanded)
       },     
 
-      fetchWOs: function () {
+      fetchWOs: function (qguid, reFetch) {
         // save reference to Vue object
         let thatVue = this;
 
@@ -252,8 +249,10 @@
           asyncCmd: thatVue.asyncCmd_WOs,
           lastFetchDate: thatVue.lastFetch_WOs,
           data: {listName: thatVue.curWOList}, //note: passes to @FormParams
+          qguid: qguid,
+          reFetch: reFetch,
 
-          onResponse: function (rd, response) {
+          onResponse: function (rd, response, config) {
             // rd contains the response data split into an object (of name/value pairs)
             // (might have been returned as either a string of URL-encoded name/value
             // pairs, or as a JSON strong)
@@ -269,41 +268,44 @@
             thisData = [];
             thisFetchDate = null;
 
-           if (thatVue.$th.haveError(true)) {
-             let noop;
-           }
+           if (!thatVue.$th.haveError(true)) {
 
-            //  WOs
-            if (rd["WOs"]) {
-              thisObj = JSON.parse(rd["WOs"])[0];
-              thisData = thisObj["JSONData"];
-              thisFetchDate = thisObj["FetchDate"];
+              //  WOs
+              if (rd["WOs"]) {
+                thisObj = JSON.parse(rd["WOs"])[0];
+                thisData = thisObj["JSONData"];
+                thisFetchDate = thisObj["FetchDate"];
 
-              if (thisData) {
+                if (config.reFetch) {
+                  thatVue.data_WOs.length = 0; //clear out WO      
+                }          
 
-                thatVue.data_WOs = thatVue.$th.merge(
-                        // string (optional): key field name with unique values to merge on
-                        "qguid",
-                        // string (optional): key value to exclude from merge (i.e. currently-displayed rows)
-                        //'someIDValue'
+                if (thisData) {
+                  thatVue.data_WOs = thatVue.$th.merge(
+                          // string (optional): key field name with unique values to merge on
+                          "qguid",
+                          // string (optional): key value to exclude from merge (i.e. currently-displayed rows)
+                          //'someIDValue'
+                          thatVue.data_WOs,
+                          thisData
+                  );
+                }
+                thatVue.data_WOs = thatVue.$th.sortArray(
                         thatVue.data_WOs,
-                        thisData
+                        "Seq",
+                        false //false=ascending, true=descending
                 );
-              }
-              thatVue.data_WOs = thatVue.$th.sortArray(
-                      thatVue.data_WOs,
-                      "Seq",
-                      false //false=ascending, true=descending
-              );
 
-              if (thatVue.lastFetch_WOs) {
-                thatVue.lastFetch_WOs = thisFetchDate;
-              } else {
-                thatVue.lastFetch_WOs = "1/1/1900";
-              }
+                if (thatVue.lastFetch_WOs) {
+                  thatVue.lastFetch_WOs = thisFetchDate;
+                } else {
+                  thatVue.lastFetch_WOs = "1/1/1900";
+                }
 
-              if (thatVue && thatVue.data_thisWO && thatVue.data_thisWO.qguid) {
-                thatVue.data_ThisWO = thatVue.data_WOs.find((el) => el.qguid === thatVue.data_thisWO.qguid);                             
+                if (thatVue && thatVue.data_thisWO && thatVue.data_thisWO.qguid) {
+                  thatVue.data_ThisWO = thatVue.data_WOs.find((el) => el.qguid === thatVue.data_thisWO.qguid);                             
+                }
+
               }
 
             }
