@@ -33,7 +33,7 @@
                     <th>Length OffPress</th>
 
                     <th>Series</th>
-                    <th>Fascoat</th>
+                    <th>Finish</th>
                     <th>Qty</th>
                     <th>Qty Shot</th>
                     <th>Shim Layup</th>
@@ -57,8 +57,8 @@
                     <td>[[wo.DimWidth_OffPress]]</td>
                     <td>[[wo.DimLength_OffPress]]</td>
                     
-                    <td>[[wo.Series]]</td>
-                    <td>[[wo.Fascoat]]</td>
+                    <td>[[wo.Foam]]</td>
+                    <td>[[wo.SurfaceFinish]]</td>
                     <td>[[wo.Quantity]]</td>
                     <td>[[wo.CurrentShotCount]]</td>
                     <td>[[wo.ShimLayup]]</td>
