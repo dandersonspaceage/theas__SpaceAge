@@ -118,7 +118,7 @@
 
         lastFetch_WOs: null,
 
-        asyncResource_WOs: '/press/press_App.vue',
+        asyncResource_WOs: 'sched/sched_App.vue',
         asyncCmd_WOs: 'fetchWOs',
 
         pressCodes: ['N', 'NW', 'S', 'W'],
