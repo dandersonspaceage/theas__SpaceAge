@@ -32,7 +32,7 @@
                     <th>Width OffPress</th>
                     <th>Length OffPress</th>
 
-                    <th>Series</th>
+                    <th>Foam</th>
                     <th>Finish</th>
                     <th>Qty</th>
                     <th>Qty Shot</th>
@@ -43,33 +43,31 @@
                     <th>Weight OffPress</th>
                     <th>Weight Finished</th>
 
-                    <th>Foam</th>
                     <th>Notes</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="wo in data_WOs" :key="wo.qguid">
-                    <td>[[wo.BatchNumber]]</td>
-                    <td>[[wo.WONumber]]</td>                    
-                    <td>[[wo.CustomerName]]</td>          
+                    <td>[[ wo.BatchNumber ]]</td>
+                    <td>[[ wo.WONumber ]]</td>                    
+                    <td>[[ wo.CustomerName ]]</td>          
 
-                    <td>[[wo.DimThickness_OffPress]]</td>
-                    <td>[[wo.DimWidth_OffPress]]</td>
-                    <td>[[wo.DimLength_OffPress]]</td>
+                    <td>[[ wo.DimThickness_OffPress ]]</td>
+                    <td>[[ wo.DimWidth_OffPress ]]</td>
+                    <td>[[ wo.DimLength_OffPress ]]</td>
                     
-                    <td>[[wo.Foam]]</td>
-                    <td>[[wo.SurfaceFinish]]</td>
-                    <td>[[wo.Quantity]]</td>
-                    <td>[[wo.CurrentShotCount]]</td>
-                    <td>[[wo.ShimLayup]]</td>
-                    <td>[[wo.MoldGlassLayers]]</td>
-                    <td>[[wo.EstShipDate]]</td>
-                    <td>[[wo.Glass]]</td>
-                    <td>[[wo.Weight_OffPress]]</td>                                                                                                                                                         
-                    <td>[[wo.Weight_Finished]]</td>             
+                    <td>[[ wo.FoamSystem ]] </td>
+                    <td>[[ wo.SurfaceFinish ]]</td>
+                    <td>[[ wo.Quantity ]]</td>
+                    <td>[[ wo.CurrentShotCount ]]</td>
+                    <td>[[ wo.ShimLayup ]]</td>
+                    <td>[[ wo.MoldGlassLayers ]]</td>
+                    <td>[[ wo.EstShipDate ]]</td>
+                    <td>[[ wo.Glass ]]</td>
+                    <td>[[ wo.Weight_OffPress ]]</td>                                                                                                                                                         
+                    <td>[[ wo.Weight_Finished ]]</td>             
                            
-                    <td>[[wo.Foam]]</td>
-                    <td>[[wo.Notes]]</td>                           
+                    <td>[[ wo.Notes ]]</td>                           
                 </tr>
             </tbody>
           </table>
