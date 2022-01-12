@@ -56,7 +56,7 @@
 
                     <td>[[ wo.Quantity ]]</td>
                     <td>[[ wo.CurrentShotCount ]]</td>
-                    <td>[[ formatDate(wo.CommitDate, 'mm/dd') ]]</td>                    
+                    <td>[[ formatDate(wo.CommitDate, 'MM/DD') ]]</td>                    
 
                     <td>[[ wo.ItemNumber ]]</td>
                     <td>[[ wo.WONumber ]]</td>                    
