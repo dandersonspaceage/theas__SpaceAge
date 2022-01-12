@@ -25,6 +25,9 @@
             <thead>
                 <tr>
                     <th>Batch</th>
+                    <th>Qty</th>
+                    <th>Qty Shot</th>
+
                     <th>WO</th> 
                     <th>Item</th>                   
                     <th>Customer</th>  
@@ -36,8 +39,7 @@
                     <th>Foam</th>
                     <th>Glass Series</th>                    
                     <th>Finish</th>
-                    <th>Qty</th>
-                    <th>Qty Shot</th>
+
                     <th>Shim Layup</th>
                     <th>Mold Glass Layers</th>
                     <th>Ship Date</th>
@@ -50,6 +52,10 @@
             <tbody>
                 <tr v-for="wo in data_WOs" :key="wo.qguid">
                     <td>[[ wo.BatchNumber ]]</td>
+
+                    <td>[[ wo.Quantity ]]</td>
+                    <td>[[ wo.CurrentShotCount ]]</td>
+                    
                     <td>[[ wo.ItemNumber ]]</td>
                     <td>[[ wo.WONumber ]]</td>                    
                     <td>[[ wo.CustomerName ]]</td>          
@@ -61,8 +67,7 @@
                     <td>[[ wo.FoamSystem ]] </td>
                     <td>[[ wo.GlassSeries ]] </td>                    
                     <td>[[ wo.SurfaceFinish ]]</td>
-                    <td>[[ wo.Quantity ]]</td>
-                    <td>[[ wo.CurrentShotCount ]]</td>
+
                     <td>[[ wo.ShimLayup ]]</td>
                     <td>[[ wo.MoldGlassLayers ]]</td>
                     <td>[[ wo.EstShipDate ]]</td>
