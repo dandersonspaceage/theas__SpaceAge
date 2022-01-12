@@ -25,6 +25,7 @@
             <thead>
                 <tr>
                     <th>Batch</th>
+                    <th>WO</th>                    
                     <th>Customer</th>  
 
                     <th>Thickness OffPress</th>               
@@ -49,6 +50,7 @@
             <tbody>
                 <tr v-for="wo in data_WOs" :key="wo.qguid">
                     <td>[[wo.BatchNumber]]</td>
+                    <td>[[wo.WONumber]]</td>                    
                     <td>[[wo.CustomerName]]</td>          
 
                     <td>[[wo.DimThickness_OffPress]]</td>
