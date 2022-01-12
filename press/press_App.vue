@@ -27,6 +27,7 @@
                     <th>Batch</th>
                     <th>Qty</th>
                     <th>Qty Shot</th>
+                    <th>Commit Date</th>                    
 
                     <th>WO</th> 
                     <th>Item</th>                   
@@ -42,7 +43,7 @@
 
                     <th>Shim Layup</th>
                     <th>Mold Glass Layers</th>
-                    <th>Ship Date</th>
+
                     <th>Shot Weight</th>
                     <th>Foam Grams</th>
 
@@ -55,7 +56,8 @@
 
                     <td>[[ wo.Quantity ]]</td>
                     <td>[[ wo.CurrentShotCount ]]</td>
-                    
+                    <td>[[ wo.EstShipDate ]]</td>                    
+
                     <td>[[ wo.ItemNumber ]]</td>
                     <td>[[ wo.WONumber ]]</td>                    
                     <td>[[ wo.CustomerName ]]</td>          
@@ -70,7 +72,6 @@
 
                     <td>[[ wo.ShimLayup ]]</td>
                     <td>[[ wo.MoldGlassLayers ]]</td>
-                    <td>[[ wo.EstShipDate ]]</td>
                     <td>[[ wo.Weight_OffPress ]]</td>                                                                                                                                                         
                     <td>[[ wo.Weight_Foam ]]</td>             
                            
