@@ -735,7 +735,8 @@
             thatVue.data_WOs.filter(wo => (
               (wo.WONumber && wo.WONumber.indexOf(this.searchTarget) >= 0) || 
               (wo.LinkedSONumber && wo.LinkedSONumber.indexOf(this.searchTarget) >= 0) ||
-              (wo.ItemNumber && wo.ItemNumber.indexOf(this.searchTarget) >= 0)
+              (wo.ItemNumber && wo.ItemNumber.indexOf(this.searchTarget) >= 0) ||
+              (wo.CustomerName && wo.CustomerName.indexOf(this.searchTarget) >= 0)
             ));    
         }
         else {
