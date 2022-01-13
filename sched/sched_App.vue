@@ -299,7 +299,7 @@
 
     computed: {
       filteredWOs: function () {
-        return this.data_WOs.filter(wo => (!this.searchTarget || (wo.WONumber.indexOf(searchTarget) || wo.SONumber.indexOf(searchTarget))));
+        return this.data_WOs.filter(wo => (!this.searchTarget || (wo.WONumber.indexOf(this.searchTarget) || wo.SONumber.indexOf(this.searchTarget))));
       }
     },
 
