@@ -25,154 +25,163 @@
                 <draggable v-model="data_WOs" group="wo" handle=".dragHandle" :disabled"disableDraggable" @start="drag=true" @end="drag=false" @change="onDropWO">
 
                   <b-card v-for="wo in data_WOs" :key="wo.qguid" :class="{ lastToMove: wo.LastToMove }">
-
-                    <b-row>
-
-                        <b-col>
-                          <h6 class="dragHandle" ><span class="badge badge-secondary">[[ wo.Seq ]]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge badge-secondary" @click="doRepeatMove(wo.qguid, $event)">Repeat Move</span></h6> 
-                        </b-col>          
-
-                      <b-col>
-                        <h6>WO: [[ wo.WONumber ]]</h6>
-                      </b-col>
-                      <b-col>
-                        <h6>SO: [[ wo.LinkedSONumber ]]</h6>
-                      </b-col>
-                    </b-row>
-
                     <b-row>
                       <b-col>
-                        <h6>[[ wo.CustomerName ]]</h6>
+
+                        <b-row>
+
+                          <b-col>
+                            <h6 class="dragHandle" ><span class="badge badge-secondary">[[ wo.Seq ]]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge badge-secondary" @click="doRepeatMove(wo.qguid, $event)">Repeat Move</span></h6> 
+                          </b-col>          
+
+                          <b-col>
+                            <h6>WO: [[ wo.WONumber ]]</h6>
+                          </b-col>
+                          <b-col>
+                            <h6>SO: [[ wo.LinkedSONumber ]]</h6>
+                          </b-col>
+                        
+                        </b-row>
+
+                        <b-row>
+                          <b-col>
+                            <h6>[[ wo.CustomerName ]]</h6>
+                          </b-col>
+                        </b-row>
+
+                        <b-row>
+                          <b-col>
+                            <h6>Item: [[ wo.ItemNumber ]]</h6>
+                          </b-col>
+                          <b-col>
+                            <h6>Foam: [[ wo.FoamSystem ]] </h6>
+                          </b-col>
+                          <b-col>
+                          </b-col>
+                        </b-row>
+
+                        <b-row>
+                          <b-col>
+                            <h6>Qty: [[ wo.Quantity ]]<span class='bg-warning' v-if="wo.CurrentShotCount">Qty Remaining:
+                              [[ wo.QtyRemaining ]]</span></h6>
+                          </b-col>
+
+                          <b-col>
+                            <h6>Boards in front: [[ wo.BoardsInFront ]]</h6>
+                          </b-col>
+
+                          <b-col>
+                            <h6>Press Hours in front: [[ wo.PressTimeInFrontStr ]]</h6>
+                          </b-col>                      
+
+                        </b-row>
+
+
+                        <b-row>
+                          <b-col>
+                            <b-btn v-b-toggle="'collapse' + wo.qguid" @click="toggleWODetail(wo.qguid, $event)">
+                              <span class="when-opened">
+                                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                              </span>
+                              <span class="when-closed">       
+                                <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                                  [[ formatDate(wo.RequestDate, 'ddd MM/DD') ]]   
+                                </span>
+                            </b-btn>
+                          </b-col>
+
+                          <b-col>
+                            <span class='bg-warning' v-if="!wo.CommitDate">No Commit Date</span>
+                          </b-col>
+                        </b-row>
+                    
+
+                        <b-collapse :id="'collapse' + wo.qguid">
+                          <b-row>
+                            <b-col>
+                              <p>[[ wo.ItemDescription ]]</p>
+                            </b-col>
+                          </b-row>
+
+                          <b-row>
+                            <b-col>
+                              Sugg. Press: <b>[[ wo.SuggestedPress ]]</b>
+                            </b-col>
+                            <b-col>
+                              <b-form-group label="Planned Press"
+                                            :label-for="'planpress' + [[ wo.qguid ]]">
+                                <b-form-select :id="'planpress' + [[ wo.qguid ]]"
+                                              v-model="wo.PlannedPress" :options="pressCodes" @change="setDirty(wo.qguid, 0, true)"
+                                              size="sm"></b-form-select>
+                              </b-form-group>
+                            </b-col>
+                          </b-row>
+
+                          <b-row>
+                            <b-col>
+                              <b-table-simple class="table-borderless table-sm">
+                                <b-tbody>
+
+
+                                  <b-tr>
+                                    <b-td>
+                                      Commit Date
+                                    </b-td>
+                                    <b-td>
+
+                                      <b-form-datepicker :id="'dp' + [[ wo.qguid ]]"
+                                                        :date-format-options="{year:undefined, month: '2-digit', day: '2-digit', weekday: 'short' }"
+                                                        v-model="wo.CommitDate"
+                                                        :min="today" @input="setDirty(wo.qguid, 0)"
+                                                        size="sm" :dark="true" locale="en">
+                                      </b-form-datepicker>
+
+                                    </b-td>
+                                  </b-tr>
+
+                                  <b-tr>
+                                    <b-td>
+                                      Calc. Press ETA Date
+                                    </b-td>
+                                    <b-td>
+                                      [[ formatDate(wo.CalcPressETA, 'ddd MM/DD') ]]
+                                    </b-td>
+                                  </b-tr>
+
+
+                                  <b-tr>
+                                    <b-td>
+                                      Request Date
+                                    </b-td>
+                                    <b-td>
+                                      [[ formatDate(wo.RequestDate, 'ddd MM/DD') ]]
+                                    </b-td>
+                                  </b-tr>
+
+                                </b-tbody>
+                              </b-table-simple>
+                            </b-col>
+                          </b-row>
+
+                          <b-row>
+                            <b-col>
+                              <b-form-group label="Notes" :label-for="'notes' + [[wo.qguid]]">
+                                <b-form-textarea :id="'notes' + [[wo.qguid]]" debounce="300"
+                                                @keyup="setDirty(wo.qguid, 3000, false, $event)"
+                                                v-model="wo.Notes" rows="3" max-rows="3">
+                                </b-form-textarea>
+                              </b-form-group>
+                            </b-col>
+                          </b-row>
+
+                        </b-collapse>
+                        
                       </b-col>
+
+                    <b-col>
+                      <div @click="ClickBookmark(wo.qguid, $event)" :class="{ bookmark0: !wo.BookmarkCode, bookmark1: ('1'==wo.BookmarkCode), bookmark2: ('2'==wo.BookmarkCode) }"></div>
+                    </b-col>
                     </b-row>
-
-                    <b-row>
-                      <b-col>
-                        <h6>Item: [[ wo.ItemNumber ]]</h6>
-                      </b-col>
-                      <b-col>
-                        <h6>Foam: [[ wo.FoamSystem ]] </h6>
-                      </b-col>
-                      <b-col>
-                      </b-col>
-                    </b-row>
-
-                    <b-row>
-                      <b-col>
-                        <h6>Qty: [[ wo.Quantity ]]<span class='bg-warning' v-if="wo.CurrentShotCount">Qty Remaining:
-                          [[ wo.QtyRemaining ]]</span></h6>
-                      </b-col>
-
-                      <b-col>
-                        <h6>Boards in front: [[ wo.BoardsInFront ]]</h6>
-                      </b-col>
-
-                      <b-col>
-                        <h6>Press Hours in front: [[ wo.PressTimeInFrontStr ]]</h6>
-                      </b-col>                      
-
-                    </b-row>
-
-
-                    <b-row>
-                      <b-col>
-                        <b-btn v-b-toggle="'collapse' + wo.qguid" @click="toggleWODetail(wo.qguid, $event)">
-                          <span class="when-opened">
-                            <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                          </span>
-                          <span class="when-closed">       
-                            <i class="fa fa-chevron-up" aria-hidden="true"></i>
-                              [[ formatDate(wo.RequestDate, 'ddd MM/DD') ]]   
-                            </span>
-                        </b-btn>
-                      </b-col>
-
-                      <b-col>
-                        <span class='bg-warning' v-if="!wo.CommitDate">No Commit Date</span>
-                      </b-col>
-                    </b-row>
-                
-
-                    <b-collapse :id="'collapse' + wo.qguid">
-                      <b-row>
-                        <b-col>
-                          <p>[[ wo.ItemDescription ]]</p>
-                        </b-col>
-                      </b-row>
-
-                      <b-row>
-                        <b-col>
-                          Sugg. Press: <b>[[ wo.SuggestedPress ]]</b>
-                        </b-col>
-                        <b-col>
-                          <b-form-group label="Planned Press"
-                                        :label-for="'planpress' + [[ wo.qguid ]]">
-                            <b-form-select :id="'planpress' + [[ wo.qguid ]]"
-                                          v-model="wo.PlannedPress" :options="pressCodes" @change="setDirty(wo.qguid, 0, true)"
-                                          size="sm"></b-form-select>
-                          </b-form-group>
-                        </b-col>
-                      </b-row>
-
-                      <b-row>
-                        <b-col>
-                          <b-table-simple class="table-borderless table-sm">
-                            <b-tbody>
-
-
-                              <b-tr>
-                                <b-td>
-                                  Commit Date
-                                </b-td>
-                                <b-td>
-
-                                  <b-form-datepicker :id="'dp' + [[ wo.qguid ]]"
-                                                    :date-format-options="{year:undefined, month: '2-digit', day: '2-digit', weekday: 'short' }"
-                                                    v-model="wo.CommitDate"
-                                                    :min="today" @input="setDirty(wo.qguid, 0)"
-                                                    size="sm" :dark="true" locale="en">
-                                  </b-form-datepicker>
-
-                                </b-td>
-                              </b-tr>
-
-                              <b-tr>
-                                <b-td>
-                                  Calc. Press ETA Date
-                                </b-td>
-                                <b-td>
-                                  [[ formatDate(wo.CalcPressETA, 'ddd MM/DD') ]]
-                                </b-td>
-                              </b-tr>
-
-
-                              <b-tr>
-                                <b-td>
-                                  Request Date
-                                </b-td>
-                                <b-td>
-                                  [[ formatDate(wo.RequestDate, 'ddd MM/DD') ]]
-                                </b-td>
-                              </b-tr>
-
-                            </b-tbody>
-                          </b-table-simple>
-                        </b-col>
-                      </b-row>
-
-                      <b-row>
-                        <b-col>
-                          <b-form-group label="Notes" :label-for="'notes' + [[wo.qguid]]">
-                            <b-form-textarea :id="'notes' + [[wo.qguid]]" debounce="300"
-                                            @keyup="setDirty(wo.qguid, 3000, false, $event)"
-                                            v-model="wo.Notes" rows="3" max-rows="3">
-                            </b-form-textarea>
-                          </b-form-group>
-                        </b-col>
-                      </b-row>
-
-                    </b-collapse>
-
                   </b-card>
 
                 </draggable>                   
@@ -644,6 +653,28 @@
           thatVue.setDirty(qguid, 0, true, evt);
         }
 
+      },
+
+      clickBookmark: function(qguid, evt) {
+        let thatVue = this;
+
+        wo = thatVue.data_WOs.find((el) => el.qguid === qguid);        
+
+        if (wo) {
+
+          if (typeof wo.BookmarkCode == 'number') {
+            wo.BoomkarkCode = wo.BookmarkCode + 1;
+            if (woBookmarkCode > 2) {
+              wo.Boomkarkcode = ""
+            }
+          }
+          else {
+            wo.BookmarkCode = '1';
+          }
+
+          thatVue.setDirty(wo.qguid, 0, true, evt);
+        }
+
       }
     },
   };
@@ -666,4 +697,19 @@
   .lastToMove {
     background-color: chocolate;
   }
+
+  .bookmark0 {
+    width: 20px;
+    background-color: lightgray;
+  }
+
+  .bookmark1 {
+    width: 20px;
+    background-color:turquoise;
+  }  
+
+  .bookmark2 {
+    width: 20px;
+    background-color:yellowgreen;
+  }  
 </style>
