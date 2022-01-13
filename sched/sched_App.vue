@@ -662,14 +662,18 @@
 
         if (wo) {
 
-          if (typeof wo.BookmarkCode == 'number') {
-            wo.BoomkarkCode = wo.BookmarkCode + 1;
-            if (woBookmarkCode > 2) {
-              wo.Boomkarkcode = ""
-            }
-          }
-          else {
-            wo.BookmarkCode = '1';
+          switch (wo.BookmarkCode) {
+            case '1':
+              wo.Boomkarkcode = '2'
+              break;
+            case '2':
+              wo.BookmarkCode = '3';
+              break;
+            case '3':
+              wo.BookmarkCode = ''
+              break;     
+            default:
+                wo.BookmarkCode = '1';  
           }
 
           thatVue.setDirty(wo.qguid, 0, true, evt);
