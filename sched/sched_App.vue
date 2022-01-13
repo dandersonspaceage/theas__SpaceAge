@@ -717,9 +717,8 @@
         let thatVue = this;
 
         if (evt && (evt.key == 'Enter' ||evt.key == 'Backspace' || thatVue.searchTarget == '' )) {
-          Vue.nextTick(function () {
-            thatVue.onSearchChange();
-          });
+           setTimeout(thatVue.onSearchChange, 100);
+          };
         }
       },
 
