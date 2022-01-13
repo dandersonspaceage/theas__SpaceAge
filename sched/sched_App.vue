@@ -731,13 +731,13 @@
         if (thatVue.mouseDownTimer) {
           clearTimeout(thatVue.mouseDownTimer);
           thatVue.mouseDownTimer = null;
-
-          thatVue.ignoreMouseup = true;
         }
       },
 
       clearBookmarks: function() {
         let thatVue = this;
+
+        thatVue.ignoreMouseup = true;
 
         let ar = thatVue.visibleWOs.filter(wo => wo.BookmarkCode && wo.BookmarkCode.length > 0);
 
