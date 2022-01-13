@@ -29,7 +29,7 @@
                     <b-row>
 
                         <b-col>
-                          <h6 class="dragHandle" ><span class="badge badge-secondary">[[ wo.Seq ]]</span></h6> <b-button @click="RepeatMove">Repeat Move</b-button>
+                          <h6 class="dragHandle" ><span class="badge badge-secondary">[[ wo.Seq ]]</span></h6> <b-button @click="doRepeatMove">Repeat Move</b-button>
                         </b-col>          
 
                       <b-col>
