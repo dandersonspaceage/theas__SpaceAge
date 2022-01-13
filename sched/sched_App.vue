@@ -705,7 +705,9 @@
   .bookmark {
     width: 10px;
     height: 100%;
-    border: 1px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
   }
 
   .bookmark1 {
