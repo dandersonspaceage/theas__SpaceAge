@@ -305,7 +305,12 @@
 
     methods: {
       filteredWOs: function(txt) {
-        return this.data_WOs.filter(wo => (!txt || (wo.WONumber.indexOf(txt) >= 0 || wo.SONumber.indexOf(txt) >= 0)));        
+        if (txt) {
+          return this.data_WOs.filter(wo => ((wo.WONumber && wo.WONumber.indexOf(txt) >= 0) || (wo.SONumber && wo.SONumber.indexOf(txt) >= 0)) );        
+        }
+        else {
+          return this.data_WOs;
+        }
       },
 
       fullscreen: function () {
