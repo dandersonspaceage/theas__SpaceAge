@@ -179,7 +179,7 @@
                       </b-col>
 
                     <b-col cols="1">
-                      <div @click="clickBookmark(wo.qguid, $event)" :class="{ bookmark0: !wo.BookmarkCode, bookmark1: ('1'==wo.BookmarkCode), bookmark2: ('2'==wo.BookmarkCode) }">*</div>
+                      <div @click="clickBookmark(wo.qguid, $event)" class="bookmark" :class="{ bookmark1: ('1'==wo.BookmarkCode), bookmark2: ('2'==wo.BookmarkCode), bookmark3: ('3'==wo.BookmarkCode) }">*</div>
                     </b-col>
                     </b-row>
                   </b-card>
@@ -703,20 +703,26 @@
   }
 
   .bookmark0 {
-    width: 20px;
+    width: 10px;
     height: 100%;
-    background-color: lightgray;
+    border: 1px;
   }
 
   .bookmark1 {
-    width: 20px;
+    width: 10px;
     height: 100%;    
     background-color:turquoise;
   }  
 
   .bookmark2 {
-    width: 20px;
+    width: 10px;
     height: 100%;    
     background-color:yellowgreen;
+  }  
+
+ .bookmark3 {
+    width: 10px;
+    height: 100%;    
+    background-color:mediumpurple;
   }  
 </style>
