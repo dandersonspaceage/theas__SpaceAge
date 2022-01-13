@@ -187,7 +187,7 @@
                       </b-col>
 
                     <b-col cols="1">
-                      <div @click="clickBookmark(wo.qguid, $event)" @mousedown="mousedownBookmark" @mouseup="mouseupBookmark" class="bookmark" :class="{ bookmark1: ('1'==wo.BookmarkCode), bookmark2: ('2'==wo.BookmarkCode), bookmark3: ('3'==wo.BookmarkCode) }"></div>
+                      <div @click="clickBookmark(wo.qguid, $event)" @mousedown="mousedownBookmarkk" @mouseup="mouseupBookmark" class="bookmark" :class="{ bookmark1: ('1'==wo.BookmarkCode), bookmark2: ('2'==wo.BookmarkCode), bookmark3: ('3'==wo.BookmarkCode) }"></div>
                     </b-col>
                     </b-row>
                   </b-card>
@@ -713,13 +713,13 @@
 
       },
 
-      mouseDownBookmark: function() {
+      mousedownBookmark: function() {
         let thatVue = this;
 
         thatVue.mouseDownTimer = setTimeout(clearBookmarks(), 3000);
       },
 
-      mouseUpBookmark: function() {
+      mouseupBookmark: function() {
         let thatVue = this;
 
         clearTimeout(thatVue.mouseDownTimer);
