@@ -18,7 +18,7 @@
               </b-col>
 
               <b-col cols="2">
-                  <input v-model="searchTarget" @keydown="onSearchKeyDown" placeholder="search...">
+                  <input v-model="searchTarget" @keyup="onSearchKeyUp" placeholder="search...">
               </b-col>           
             </b-row>
 
@@ -708,7 +708,7 @@
 
       },
 
-      onSearchKeyDown: function(evt) {
+      onSearchKeyUp: function(evt) {
         let thatVue = this;
 
         Vue.nextTick(function () {
