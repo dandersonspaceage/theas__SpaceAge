@@ -710,6 +710,8 @@
       onSearchChange: function(evt) {
         let thatVue = this;
 
+        thatVue.searchTarget = thatVue.searchTarget + evt.key
+
         if (thatVue.searchTarget) {
           thatVue.visibleWOs =
             thatVue.data_WOs.filter(wo => (
