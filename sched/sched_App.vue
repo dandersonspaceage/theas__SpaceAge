@@ -736,7 +736,7 @@
               (wo.WONumber && wo.WONumber.indexOf(this.searchTarget) >= 0) || 
               (wo.LinkedSONumber && wo.LinkedSONumber.indexOf(this.searchTarget) >= 0) ||
               (wo.ItemNumber && wo.ItemNumber.indexOf(this.searchTarget) >= 0) ||
-              (wo.CustomerName && wo.CustomerName.lower().indexOf(this.searchTarget.lower()) >= 0)
+              (wo.CustomerName && wo.CustomerName.toLowerCase().indexOf(this.searchTarget.toLowerCase()) >= 0)
             ));    
         }
         else {
