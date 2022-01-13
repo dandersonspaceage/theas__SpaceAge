@@ -691,7 +691,7 @@
       clickBookmark: function(qguid, evt) {
         let thatVue = this;
 
-        if thatVue.ignoreMouseup return;
+        if (thatVue.ignoreMouseup) return;
 
 
         let wo = thatVue.data_WOs.find((el) => el.qguid === qguid);        
