@@ -713,29 +713,14 @@
 
       },
 
-      onPageKeyUp: function(evt) {
-        let thatVue = this;
-
-        if (evt) {
-          if (evt.key = 'Backspace') {
-            if (thatVue.searchTarget.length > 0) {
-              thatVue.sarchTarget = thatVue.searchTarget.left(thatVue.searchTarget.length - 1);
-            }
-          }
-          else {
-            thatVue.searchTarget = thatVue.searchTarget + evt.key;
-          }
-        }
-
-      },
-
-
       onSearchKeyUp: function(evt) {
         let thatVue = this;
 
-        Vue.nextTick(function () {
-          thatVue.onSearchChange();
-        });
+        if (evt & evt.key=="Enter") {
+          Vue.nextTick(function () {
+            thatVue.onSearchChange();
+          });
+        }
       },
 
       onSearchChange: function(evt) {
