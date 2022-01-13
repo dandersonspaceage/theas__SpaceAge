@@ -18,7 +18,12 @@
               </b-col>
 
               <b-col cols="2">
-                  <input v-model="searchTarget" @keyup="onSearchKeyUp" placeholder="search...">
+                <b-form-group label="Search"
+                              :label-for="'search'">
+                  <b-input :id="'search'"
+                                v-model="searchTarget" @keyup="onSearchKeyUp" placeholder="search...">
+                                size="sm"></b-input>
+                </b-form-group>
               </b-col>           
             </b-row>
 
