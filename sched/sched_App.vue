@@ -716,9 +716,14 @@
       onSearchKeyUp: function(evt) {
         let thatVue = this;
 
-        if (evt && (evt.key == 'Enter' ||evt.key == 'Backspace' || thatVue.searchTarget == '' )) {
-           setTimeout(thatVue.onSearchChange, 100);
-        };     
+        if (evt && (evt.key=="Enter" ||evt.key == 'Backspace'|| thatVue.searchTarget == "" )) {
+          Vue.nextTick(function () {
+            thatVue.onSearchChange();
+          });
+        }
+        else {
+          setTimeout(thatVue.onSearchChange, 100);
+        }
       },
 
       onSearchChange: function(evt) {
@@ -741,7 +746,7 @@
           thatVue.visibleWOs = thatVue.data_WOs;
         }
       }
-    }
+    },
   };
 </script>
 
