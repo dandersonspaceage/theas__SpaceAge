@@ -16,15 +16,18 @@
                                 size="sm"></b-form-select>
                 </b-form-group>
               </b-col>
-           
+
+              <b-col>
+                  <b-form-input @model="searchTarget" placeholder="search...">
+              </b-col>           
             </b-row>
 
             <h6>[[ curWOList ]] (<span v-if="isBusy()">Loading</span><span v-if="!isBusy()">[[ data_WOs.length ]]</span><span>orders</span>)</h6>
               <div class="fastscroll" style="height:75vh;">
 
-                <draggable v-model="data_WOs" group="wo" handle=".dragHandle" :disabled"disableDraggable" @start="drag=true" @end="drag=false" @change="onDropWO">
+                <draggable v-model="filteredWOs" group="wo" handle=".dragHandle" :disabled"disableDraggable" @start="drag=true" @end="drag=false" @change="onDropWO">
 
-                  <b-card v-for="wo in data_WOs" :key="wo.qguid" :class="{ lastToMove: wo.LastToMove }">
+                  <b-card v-for="wo in filteredWOs" :key="wo.qguid" :class="{ lastToMove: wo.LastToMove }">
                     <b-row>
                       <b-col>
 
@@ -291,6 +294,12 @@
 
       // perform the initial fetch of data
       this.fetchData(true);
+    },
+
+    computed: {
+      filteredWOs: function () {
+        return this.data_WOs.filter(wo => (!this.searchTarget || (wo.WONumber.indexOf(searchTarget) || wo.SONumber.indexOf(searchTarget)))
+      }
     },
 
     // method executed when the Vue object is mounted / done rendering
@@ -678,6 +687,12 @@
 
           thatVue.setDirty(wo.qguid, 0, false, evt);
         }
+
+      },
+
+      onSearchChange: function(txt) {
+
+
 
       }
     },
