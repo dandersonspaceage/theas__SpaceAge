@@ -297,12 +297,6 @@
       this.fetchData(true);
     },
 
-    computed: {
-      xfilteredWOs: function () {
-        return this.data_WOs.filter(wo => (!this.searchTarget || (wo.WONumber.indexOf(this.searchTarget) || wo.SONumber.indexOf(this.searchTarget))));
-      }
-    },
-
     // method executed when the Vue object is mounted / done rendering
     mounted: function () {
       // perform the initial fetch of data
