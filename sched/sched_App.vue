@@ -306,7 +306,7 @@
     methods: {
       filteredWOs: function(txt) {
         if (txt) {
-          return this.data_WOs.filter(wo => ((wo.WONumber && wo.WONumber.indexOf(txt) >= 0) || (wo.SONumber && wo.SONumber.indexOf(txt) >= 0)) );        
+          return this.data_WOs.filter(wo => ((wo.WONumber && wo.WONumber.indexOf(txt) >= 0) || (wo.LinkedSONumber && wo.LinkedSONumber.indexOf(txt) >= 0)) );        
         }
         else {
           return this.data_WOs;
