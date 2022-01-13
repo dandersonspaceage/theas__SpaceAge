@@ -241,7 +241,7 @@
 
         // Dynamic data will be fetched asynchronously
         data_WOs: [],
-        visibleWOs: data_WOs,
+        visibleWOs: [],
 
         lastFetch_WOs: null,
 
@@ -259,6 +259,7 @@
       };
     },
 
+    /*
     computed: {
       filteredWOs : function () {
         if (this.searchTarget) {
@@ -273,6 +274,7 @@
         }
       }
     },
+    */
 
     // method executed when the Vue object is created
     created: function () {
@@ -321,15 +323,6 @@
     },    
 
     methods: {
-      
-      xxfilteredWOs: function(txt) {
-        if (txt) {
-          return this.data_WOs.filter(wo => ((wo.WONumber && wo.WONumber.indexOf(txt) >= 0) || (wo.LinkedSONumber && wo.LinkedSONumber.indexOf(txt) >= 0) || (wo.ItemNumber && wo.ItemNumber.indexOf(txt) >= 0)) );        
-        }
-        else {
-          return this.data_WOs;
-        }
-      },
 
       fullscreen: function () {
         if (screenfull.isEnabled) {
@@ -726,7 +719,7 @@
             ));    
         }
         else {
-          thatVue.visibleWOs = thatVue.data_WOs;
+          thatVue.visibleWOs= thatVue.data_WOs;
         }
       }
     },

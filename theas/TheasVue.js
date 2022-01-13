@@ -140,7 +140,8 @@ Theas.prototype.updateAllTheasParams = function (nv) {
 
               if (k) {
                   k = k.replace(':', '$');
-                  thatTheas.theasParams[k] = nv[n];
+                  //thatTheas.theasParams[k] = nv[n];
+                  thatTheas.thatVue.$set(thatTheas.theasParams, k, nv[n]);
               }
           }
       }
