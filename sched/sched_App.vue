@@ -318,7 +318,9 @@
 
     // method executed when the Vue object is mounted / done rendering
     mounted: function () {
-      // perform the initial fetch of data
+      let thatVue = this;
+
+      thatVue.onSearchChange();
       this.decBusy();
     },    
 
