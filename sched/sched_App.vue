@@ -311,7 +311,7 @@
 
     methods: {
       filteredWOs: function(txt) {
-        return this.data_WOs.filter(wo => (!this.txt || (wo.WONumber.indexOf(this.txt) || wo.SONumber.indexOf(this.txt))));        
+        return this.data_WOs.filter(wo => (!txt || (wo.WONumber.indexOf(txt) || wo.SONumber.indexOf(txt))));        
       },
 
       fullscreen: function () {
