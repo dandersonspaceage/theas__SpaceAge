@@ -722,7 +722,7 @@
 
         thatVue.ignoreMouseup = false;
 
-        thatVue.mouseDownTimer = setTimeout(thatVue.clearBookmarks, 5000);
+        thatVue.mouseDownTimer = setTimeout(thatVue.clearBookmarks, 4000);
       },
 
       mouseupBookmark: function(evt) {
@@ -743,7 +743,7 @@
 
         ar.forEach(function(wo){
           wo.BookmarkCode = '';
-          thatVue.setDirty(wo.qquid, 50, false);
+          thatVue.setDirty(wo.qguid, 50, false);
         });
       },
 
