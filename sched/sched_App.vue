@@ -658,7 +658,7 @@
       clickBookmark: function(qguid, evt) {
         let thatVue = this;
 
-        wo = thatVue.data_WOs.find((el) => el.qguid === qguid);        
+        let wo = thatVue.data_WOs.find((el) => el.qguid === qguid);        
 
         if (wo) {
 
