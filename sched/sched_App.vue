@@ -21,7 +21,7 @@
                 <b-form-group label="Search"
                               :label-for="'search'">
                   <b-input :id="'search'"
-                                v-model="searchTarget" @keyup="onSearchKeyUp:prevent" debounce="100" placeholder="search...">
+                                v-model="searchTarget" @keyup="onSearchKeyUp" debounce="100" placeholder="search...">
                                 size="sm"></b-input>
                 </b-form-group>
               </b-col>           
