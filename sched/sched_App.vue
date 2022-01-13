@@ -179,7 +179,7 @@
                       </b-col>
 
                     <b-col cols="1">
-                      <div @click="clickBookmark(wo.qguid, $event)" class="bookmark" :class="{ bookmark1: ('1'==wo.BookmarkCode), bookmark2: ('2'==wo.BookmarkCode), bookmark3: ('3'==wo.BookmarkCode) }">*</div>
+                      <div @click="clickBookmark(wo.qguid, $event)" class="bookmark" :class="{ bookmark1: ('1'==wo.BookmarkCode), bookmark2: ('2'==wo.BookmarkCode), bookmark3: ('3'==wo.BookmarkCode) }"></div>
                     </b-col>
                     </b-row>
                   </b-card>
@@ -702,7 +702,7 @@
     background-color: chocolate;
   }
 
-  .bookmark0 {
+  .bookmark {
     width: 10px;
     height: 100%;
     border: 1px;
