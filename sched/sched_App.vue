@@ -660,15 +660,15 @@
         
         let newIndex = evt.moved.newIndex;
 
-        if (thatVue.data_WOs.length > 1) {
-          if (newIndex == thatVue.data_WOs.length - 1) {
+        if (thatVue.visibleWOs.length > 1) {
+          if (newIndex == thatVue.visibleWOs.length - 1) {
             //moved to end of list
-            thatVue.data_WOs[newIndex - 1].NextQguid =  thatVue.data_WOs[newIndex].qguid;
-            thatVue.setDirty(thatVue.data_WOs[newIndex - 1].qguid, 0, true);           
+            thatVue.visibleWOs[newIndex - 1].NextQguid =  thatVue.visibleWOs[newIndex].qguid;
+            thatVue.setDirty(thatVue.visibleWOs[newIndex - 1].qguid, 0, true);           
           }                    
           else {
-            thatVue.data_WOs[newIndex].NextQguid =  thatVue.data_WOs[newIndex + 1].qguid;
-            thatVue.setDirty(thatVue.data_WOs[newIndex].qguid, 0, true);          
+            thatVue.visibleWOs[newIndex].NextQguid =  thatVue.visibleWOs[newIndex + 1].qguid;
+            thatVue.setDirty(thatVue.visibleWOs[newIndex].qguid, 0, true);          
           }
         }   
 
