@@ -12,13 +12,13 @@
                 <b-form-group label="Press"
                               :label-for="'ListName'">
                   <b-form-select :id="'listName'"
-                                v-model="curWOList" :options="woListNames" @keydown="switchWOList()"
+                                v-model="curWOList" :options="woListNames" @change="switchWOList()"
                                 size="sm"></b-form-select>
                 </b-form-group>
               </b-col>
 
               <b-col cols="2">
-                  <input v-model="searchTarget" placeholder="search...">
+                  <input v-model="searchTarget" @keydown="onSearchChange" placeholder="search...">
               </b-col>           
             </b-row>
 
