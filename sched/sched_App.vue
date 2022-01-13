@@ -676,7 +676,7 @@
                 wo.BookmarkCode = '1';  
           }
 
-          thatVue.setDirty(wo.qguid, 0, true, evt);
+          thatVue.setDirty(wo.qguid, 0, false, evt);
         }
 
       }
