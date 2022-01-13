@@ -1,5 +1,5 @@
 <template>
-  <div :style="{ cursor: curCursor}">
+  <div :style="{ cursor: curCursor}" @keyup="onPageKeyUp">
 
     <b-container id="NewPage1_Appvue">
 
@@ -707,6 +707,23 @@
         }
 
       },
+
+      onPageKeyUp: function(evt) {
+        let thatVue = this;
+
+        if (evt) {
+          if (evt.key = 'Backspace') {
+            if (thatVue.searchTarget.length > 0) {
+              thatVue.sarchTarget = thatVue.searchTarget.left(thatVue.searchTarget.length - 1);
+            }
+          }
+          else {
+            thatVue.searchTarget = thatVue.searchTarget + evt.key;
+          }
+        }
+
+      },
+
 
       onSearchKeyUp: function(evt) {
         let thatVue = this;
