@@ -716,7 +716,7 @@
       mousedownBookmark: function() {
         let thatVue = this;
 
-        thatVue.mouseDownTimer = setTimeout(clearBookmarks(), 3000);
+        thatVue.mouseDownTimer = setTimeout(thatVue.clearBookmarks(), 3000);
       },
 
       mouseupBookmark: function() {
