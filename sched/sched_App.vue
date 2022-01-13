@@ -234,6 +234,7 @@
         dirtyTimers: [], // timers for pending saves of qugids
 
         overlayVisible: false,
+        searchTarget: '',
 
         drag: null,
         disableDraggable: false,
