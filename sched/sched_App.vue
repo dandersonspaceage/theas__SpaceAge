@@ -29,7 +29,7 @@
                     <b-row>
 
                         <b-col>
-                          <h6 class="dragHandle" ><span class="badge badge-secondary">[[ wo.Seq ]]</span></h6> <b-button @click="doRepeatMove">Repeat Move</b-button>
+                          <h6 class="dragHandle" ><span class="badge badge-secondary">[[ wo.Seq ]]</span></h6> <b-button @click="doRepeatMove(wo.qguid, $event)">Repeat Move</b-button>
                         </b-col>          
 
                       <b-col>
@@ -637,9 +637,13 @@
         let thatVue = this;
 
         thatVue.data_ThisWO = thatVue.data_WOs.find((el) => el.qguid === qguid);
-        thatVue.data_ThisWO['RepeatMove'] = 1;
 
-        thatVue.setDirty(qguid, 0, true, evt);
+        if (thatVue.data_ThisWO) {
+          thatVue.data_ThisWO['RepeatMove'] = 1;
+
+          thatVue.setDirty(qguid, 0, true, evt);
+        }
+
       }
     },
   };
