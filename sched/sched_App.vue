@@ -18,7 +18,7 @@
               </b-col>
 
               <b-col cols="2">
-                  <b-input v-model="searchTarget" @keydown="onSearchKeyDown" placeholder="search...">
+                  <input v-model="searchTarget" @keydown="onSearchKeyDown" placeholder="search...">
               </b-col>           
             </b-row>
 
