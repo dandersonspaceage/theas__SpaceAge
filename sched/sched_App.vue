@@ -24,7 +24,7 @@
 
                 <draggable v-model="data_WOs" group="wo" handle=".dragHandle" :disabled"disableDraggable" @start="drag=true" @end="drag=false" @change="onDropWO">
 
-                  <b-card v-for="wo in data_WOs" :key="wo.qguid">
+                  <b-card v-for="wo in data_WOs" :key="wo.qguid" :class="{ lastToMove: wo.LastToMove }">
 
                     <b-row>
 
@@ -661,5 +661,9 @@
   .fastscroll {
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
+  }
+
+  .lastToMove {
+    background-color: chocolate;
   }
 </style>
