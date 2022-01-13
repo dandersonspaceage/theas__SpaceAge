@@ -718,8 +718,7 @@
 
         if (evt && (evt.key == 'Enter' ||evt.key == 'Backspace' || thatVue.searchTarget == '' )) {
            setTimeout(thatVue.onSearchChange, 100);
-          };
-        }
+        };     
       },
 
       onSearchChange: function(evt) {
@@ -742,7 +741,7 @@
           thatVue.visibleWOs = thatVue.data_WOs;
         }
       }
-    },
+    }
   };
 </script>
 
