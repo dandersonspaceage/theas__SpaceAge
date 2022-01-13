@@ -725,7 +725,7 @@
         clearTimeout(thatVue.mouseDownTimer);
       },
 
-      clarBookmarks: function() {
+      clearBookmarks: function() {
         let thatVue = this;
 
         let ar = thatVue.visibleWOs.filter(wo => wo.BookmarkCode && wo.BookmarkCode.length > 0);
