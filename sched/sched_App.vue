@@ -18,7 +18,7 @@
               </b-col>
 
               <b-col cols="2">
-                  <b-form-input size="sm" v-model="searchTarget" @change="onSearchChange" placeholder="search...">
+                  <input size="sm" :value ="searchTarget" @change="onSearchChange" placeholder="search...">
               </b-col>           
             </b-row>
 
@@ -721,7 +721,7 @@
             ));    
         }
         else {
-          thatVue.visibleWOs= thatVue.data_WOs;
+          thatVue.visibleWOs = thatVue.data_WOs;
         }
       }
     },
