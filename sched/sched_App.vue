@@ -187,7 +187,7 @@
                       </b-col>
 
                     <b-col cols="1">
-                      <div @click="clickBookmark(wo.qguid, $event)" class="bookmark" :class="{ bookmark1: ('1'==wo.BookmarkCode), bookmark2: ('2'==wo.BookmarkCode), bookmark3: ('3'==wo.BookmarkCode) }"></div>
+                      <div @click="clickBookmark(wo.qguid, $event)" @mousedown="mousedownBookmark" @mouseup="mouseupBookmark" class="bookmark" :class="{ bookmark1: ('1'==wo.BookmarkCode), bookmark2: ('2'==wo.BookmarkCode), bookmark3: ('3'==wo.BookmarkCode) }"></div>
                     </b-col>
                     </b-row>
                   </b-card>
@@ -711,6 +711,29 @@
           thatVue.setDirty(wo.qguid, 0, false, evt);
         }
 
+      },
+
+      mouseDownBookmark: function() {
+        let thatVue = this;
+
+        thatVue.mouseDownTimer = setTimeout(clearBookmarks(), 3000);
+      },
+
+      mouseUpBookmark: function() {
+        let thatVue = this;
+
+        clearTimeout(thatVue.mouseDownTimer);
+      },
+
+      clarBookmarks: function() {
+        let thatVue = this;
+
+        let ar = thatVue.visibleWOs.filter(wo => wo.BookmarkCode && wo.BookmarkCode.length > 0);
+
+        ar.forEach(function(wo){
+          wo.BookmarkCode = '';
+          thatVue.setDirty(wo.q, 50, false);
+        });
       },
 
       onSearchKeyUp: function(evt) {
