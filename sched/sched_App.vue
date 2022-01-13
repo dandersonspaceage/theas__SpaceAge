@@ -18,7 +18,7 @@
               </b-col>
 
               <b-col cols="2">
-                  <input size="sm" v-model="searchTarget" @change="onSearchChange" placeholder="search...">
+                  <input v-model="searchTarget" placeholder="search...">
               </b-col>           
             </b-row>
 
