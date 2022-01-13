@@ -716,7 +716,7 @@
       onSearchKeyUp: function(evt) {
         let thatVue = this;
 
-        if (evt && evt.key=="Enter") {
+        if (evt && (evt.key=="Enter" || thatVue.searchTarget == "" ) {
           Vue.nextTick(function () {
             thatVue.onSearchChange();
           });
