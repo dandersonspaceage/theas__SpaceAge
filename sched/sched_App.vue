@@ -716,13 +716,15 @@
       mousedownBookmark: function() {
         let thatVue = this;
 
-        thatVue.mouseDownTimer = setTimeout(thatVue.clearBookmarks(), 3000);
+        thatVue.mouseDownTimer = setTimeout(thatVue.clearBookmarks(), 5000);
       },
 
-      mouseupBookmark: function() {
+      mouseupBookmark: function(evt) {
         let thatVue = this;
 
         clearTimeout(thatVue.mouseDownTimer);
+
+        evt.cancel();
       },
 
       clearBookmarks: function() {
