@@ -260,7 +260,11 @@
     computed: {
       filteredWOs : function () {
         if (this.searchTarget) {
-          return this.data_WOs.filter(wo => ((wo.WONumber && wo.WONumber.indexOf(this.searchTarget)) >= 0) || (wo.LinkedSONumber && wo.LinkedSONumber.indexOf(this.searchTarget)) >= 0) || (wo.ItemNumber && wo.ItemNumber.indexOf(this.searchTarget)) >= 0)) );        
+          return this.data_WOs.filter(wo => (
+              (wo.WONumber && wo.WONumber.indexOf(this.searchTarget) >= 0) || 
+              (wo.LinkedSONumber && wo.LinkedSONumber.indexOf(this.searchTarget) >= 0) ||
+              (wo.ItemNumber && wo.ItemNumber.indexOf(this.searchTarget) >= 0)
+          ));              
         }
         else {
           return this.data_WOs;
