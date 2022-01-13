@@ -707,7 +707,7 @@
 
       },
 
-      onSearchChange: function() {
+      onSearchChange: function(evt) {
         let thatVue = this;
 
         if (thatVue.searchTarget) {
