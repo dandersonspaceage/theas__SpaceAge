@@ -8,7 +8,7 @@
         <b-col>     
 
             <b-row>
-              <b-col cols="7">
+              <b-col cols="4">
                 <b-form-group label="Press"
                               :label-for="'ListName'">
                   <b-form-select :id="'listName'"
@@ -17,14 +17,21 @@
                 </b-form-group>
               </b-col>
 
-              <b-col cols="2">
+              <b-col cols="4">
                 <b-form-group label="Search"
                               :label-for="'search'">
                   <b-input :id="'search'"
                                 v-model="searchTarget" @keyup="onSearchKeyUp" debounce="100" placeholder="search...">
                                 size="sm"></b-input>
-                </b-form-group>
-              </b-col>           
+                </b-form-group>                
+              </b-col>         
+
+              <b-col cols="4">
+                <b-textarea id="soSeqText" debounce="300"
+                      v-model="soSeqList" rows="5" max-rows="5">
+                </b-textarea>
+                <b-button @click="applySOSeq">Apply Seq.</b-button>
+              </b-col>  
             </b-row>
 
             <h6>[[ curWOList ]] (<span v-if="isBusy()">Loading</span><span v-if="!isBusy()">[[ visibleWOs.length ]]</span><span>orders</span>)</h6>
@@ -248,6 +255,8 @@
         // Dynamic data will be fetched asynchronously
         data_WOs: [],
         visibleWOs: [],
+
+        soSeqText: '',
 
         lastFetch_WOs: null,
 
@@ -779,6 +788,10 @@
         else {
           thatVue.visibleWOs = thatVue.data_WOs;
         }
+      },
+
+      applySOSeq: function() {
+        alert('ready to apply');
       }
     },
   };
