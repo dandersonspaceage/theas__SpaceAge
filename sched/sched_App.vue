@@ -243,6 +243,7 @@
 
         drag: null,
         disableDraggable: false,
+        ignoreMouseup: false,
 
         // Dynamic data will be fetched asynchronously
         data_WOs: [],
@@ -690,6 +691,9 @@
       clickBookmark: function(qguid, evt) {
         let thatVue = this;
 
+        if thatVue.ignoreMouseup return;
+
+
         let wo = thatVue.data_WOs.find((el) => el.qguid === qguid);        
 
         if (wo) {
@@ -716,13 +720,20 @@
       mousedownBookmark: function() {
         let thatVue = this;
 
+        thatVue.ignoreMouseup = false;
+
         thatVue.mouseDownTimer = setTimeout(thatVue.clearBookmarks(), 5000);
       },
 
       mouseupBookmark: function(evt) {
         let thatVue = this;
 
-        clearTimeout(thatVue.mouseDownTimer);
+        if (thatVue.mouseDownTimer) {
+          clearTimeout(thatVue.mouseDownTimer);
+          thatVue.mouseDownTimer = null;
+
+          thatVue.ignoreMouseup = true;
+        }
       },
 
       clearBookmarks: function() {
