@@ -8,7 +8,7 @@
         <b-col>     
 
             <b-row>
-              <b-col>
+              <b-col cols="7">
                 <b-form-group label="Press"
                               :label-for="'ListName'">
                   <b-form-select :id="'listName'"
@@ -17,8 +17,8 @@
                 </b-form-group>
               </b-col>
 
-              <b-col>
-                  <b-form-input @model="searchTarget" placeholder="search...">
+              <b-col cols="2">
+                  <b-form-input size="sm" v-model="searchTarget" placeholder="search...">
               </b-col>           
             </b-row>
 
