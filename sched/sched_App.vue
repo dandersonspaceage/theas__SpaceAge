@@ -1,7 +1,7 @@
 <template>
   <div :style="{ cursor: curCursor}">
 
-    <b-container id="NewPage1_Appvue" @keyup="onPageKeyUp">
+    <b-container id="NewPage1_Appvue">
 
       <b-row no-gutters fluid>
 
@@ -21,7 +21,7 @@
                 <b-form-group label="Search"
                               :label-for="'search'">
                   <b-input :id="'search'"
-                                v-model="searchTarget" @keyup="onSearchKeyUp:prevent" placeholder="search...">
+                                v-model="searchTarget" @keyup="onSearchKeyUp:prevent" debounce="100" placeholder="search...">
                                 size="sm"></b-input>
                 </b-form-group>
               </b-col>           
