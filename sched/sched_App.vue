@@ -664,7 +664,7 @@
 
           switch (wo.BookmarkCode) {
             case '1':
-              wo.BoomkarkCode = '2'
+              wo.BookmarkCode = '2'
               break;
             case '2':
               wo.BookmarkCode = '3';
