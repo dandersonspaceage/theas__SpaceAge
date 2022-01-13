@@ -25,9 +25,9 @@
             <h6>[[ curWOList ]] (<span v-if="isBusy()">Loading</span><span v-if="!isBusy()">[[ data_WOs.length ]]</span><span>orders</span>)</h6>
               <div class="fastscroll" style="height:75vh;">
 
-                <draggable v-model="filteredWOs" group="wo" handle=".dragHandle" :disabled"disableDraggable" @start="drag=true" @end="drag=false" @change="onDropWO">
+                <draggable v-model="filteredWOs(searchTarget)" group="wo" handle=".dragHandle" :disabled"disableDraggable" @start="drag=true" @end="drag=false" @change="onDropWO">
 
-                  <b-card v-for="wo in filteredWOs" :key="wo.qguid" :class="{ lastToMove: wo.LastToMove }">
+                  <b-card v-for="wo in filteredWOs(searchTarget)" :key="wo.qguid" :class="{ lastToMove: wo.LastToMove }">
                     <b-row>
                       <b-col>
 
@@ -298,7 +298,7 @@
     },
 
     computed: {
-      filteredWOs: function () {
+      xfilteredWOs: function () {
         return this.data_WOs.filter(wo => (!this.searchTarget || (wo.WONumber.indexOf(this.searchTarget) || wo.SONumber.indexOf(this.searchTarget))));
       }
     },
@@ -310,6 +310,10 @@
     },    
 
     methods: {
+      filteredWOs: function(txt) {
+        return this.data_WOs.filter(wo => (!this.txt || (wo.WONumber.indexOf(this.txt) || wo.SONumber.indexOf(this.txt))));        
+      },
+
       fullscreen: function () {
         if (screenfull.isEnabled) {
           screenfull.request();
