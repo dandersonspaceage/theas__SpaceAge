@@ -29,7 +29,7 @@
                     <b-row>
 
                         <b-col>
-                          <h6 class="dragHandle" ><span class="badge badge-secondary">[[ wo.Seq ]]</span></h6>
+                          <h6 class="dragHandle" ><span class="badge badge-secondary">[[ wo.Seq ]]</span></h6> <b-button @click="RepeatMove">Repeat Move</b-button>
                         </b-col>          
 
                       <b-col>
@@ -631,7 +631,16 @@
           }
         }   
 
-      }     
+      },
+
+      doRepeatMove: function (qguid, evt) {
+        let thatVue = this;
+
+        thatVue.data_ThisWO = thatVue.data_WOs.find((el) => el.qguid === qguid);
+        thatVue.data_ThisWO['RepeatMove'] = 1;
+
+        thatVue.setDirty(qguid, 0, true, evt);
+      }
     },
   };
 </script>
