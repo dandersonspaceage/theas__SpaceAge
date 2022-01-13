@@ -18,7 +18,7 @@
               </b-col>
 
               <b-col cols="2">
-                  <b-input @keydown="onSearchChange" placeholder="search...">
+                  <b-input v-model="searchTarget" @keydown="onSearchKeyDown" placeholder="search...">
               </b-col>           
             </b-row>
 
@@ -706,6 +706,14 @@
           thatVue.setDirty(wo.qguid, 0, false, evt);
         }
 
+      },
+
+      onSearchKeyDown: function(evt) {
+        let thatVue = this;
+
+        Vue.nextTick(function () {
+          thatVue.onSearchChange();
+        });
       },
 
       onSearchChange: function(evt) {
