@@ -700,16 +700,19 @@
 
   .bookmark0 {
     width: 20px;
+    height: 100%;
     background-color: lightgray;
   }
 
   .bookmark1 {
     width: 20px;
+    height: 100%;    
     background-color:turquoise;
   }  
 
   .bookmark2 {
     width: 20px;
+    height: 100%;    
     background-color:yellowgreen;
   }  
 </style>
