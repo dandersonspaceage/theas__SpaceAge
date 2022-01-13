@@ -707,10 +707,8 @@
 
       },
 
-      onSearchChange: function(txt) {
+      onSearchChange: function() {
         let thatVue = this;
-
-        thatVue.searchTarget = txt;
 
         if (thatVue.searchTarget) {
           thatVue.visibleWOs =
