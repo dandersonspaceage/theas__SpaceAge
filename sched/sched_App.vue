@@ -716,7 +716,7 @@
       onSearchKeyUp: function(evt) {
         let thatVue = this;
 
-        if (evt && (evt.key=="Enter" || thatVue.searchTarget == "" ) {
+        if (evt && (evt.key=="Enter" || thatVue.searchTarget == "" )) {
           Vue.nextTick(function () {
             thatVue.onSearchChange();
           });
@@ -736,7 +736,7 @@
               (wo.WONumber && wo.WONumber.indexOf(this.searchTarget) >= 0) || 
               (wo.LinkedSONumber && wo.LinkedSONumber.indexOf(this.searchTarget) >= 0) ||
               (wo.ItemNumber && wo.ItemNumber.indexOf(this.searchTarget) >= 0) ||
-              (wo.CustomerName && wo.CustomerName.indexOf(this.searchTarget) >= 0)
+              (wo.CustomerName && wo.CustomerName.lower().indexOf(this.searchTarget.lower()) >= 0)
             ));    
         }
         else {
