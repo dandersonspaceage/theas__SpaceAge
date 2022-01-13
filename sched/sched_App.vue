@@ -31,7 +31,7 @@
                         <b-row>
 
                           <b-col>
-                            <h6 class="dragHandle" ><span class="badge badge-secondary">[[ wo.Seq ]]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge badge-secondary" @click="doRepeatMove(wo.qguid, $event)">Repeat Move</span></h6> 
+                            <h6 class="dragHandle" ><span class="badge badge-secondary">[[ wo.Seq ]]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge badge-secondary" v-if="!wo.LastToMove" @click="doRepeatMove(wo.qguid, $event)">Repeat Move</span></h6> 
                           </b-col>          
 
                           <b-col>
