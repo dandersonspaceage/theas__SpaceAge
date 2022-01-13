@@ -178,8 +178,8 @@
                         
                       </b-col>
 
-                    <b-col>
-                      <div @click="ClickBookmark(wo.qguid, $event)" :class="{ bookmark0: !wo.BookmarkCode, bookmark1: ('1'==wo.BookmarkCode), bookmark2: ('2'==wo.BookmarkCode) }"></div>
+                    <b-col cols="1">
+                      <div @click="ClickBookmark(wo.qguid, $event)" :class="{ bookmark0: !wo.BookmarkCode, bookmark1: ('1'==wo.BookmarkCode), bookmark2: ('2'==wo.BookmarkCode) }">*</div>
                     </b-col>
                     </b-row>
                   </b-card>
