@@ -25,9 +25,9 @@
             <h6>[[ curWOList ]] (<span v-if="isBusy()">Loading</span><span v-if="!isBusy()">[[ data_WOs.length ]]</span><span>orders</span>)</h6>
               <div class="fastscroll" style="height:75vh;">
 
-                <draggable v-model="filteredWOs(searchTarget)" group="wo" handle=".dragHandle" :disabled"disableDraggable" @start="drag=true" @end="drag=false" @change="onDropWO">
+                <draggable v-model="filteredWOs" group="wo" handle=".dragHandle" :disabled"disableDraggable" @start="drag=true" @end="drag=false" @change="onDropWO">
 
-                  <b-card v-for="wo in filteredWOs(searchTarget)" :key="wo.qguid" :class="{ lastToMove: wo.LastToMove }">
+                  <b-card v-for="wo in filteredWOs" :key="wo.qguid" :class="{ lastToMove: wo.LastToMove }">
                     <b-row>
                       <b-col>
 
@@ -257,6 +257,17 @@
       };
     },
 
+    computed: {
+      filteredWOs : function () {
+        if (this.searchTarget) {
+          return this.data_WOs.filter(wo => ((wo.WONumber && wo.WONumber.indexOf(this.searchTarget)) >= 0) || (wo.LinkedSONumber && wo.LinkedSONumber.indexOf(this.searchTarget)) >= 0) || (wo.ItemNumber && wo.ItemNumber.indexOf(this.searchTarget)) >= 0)) );        
+        }
+        else {
+          return this.data_WOs;
+        }
+      }
+    },
+
     // method executed when the Vue object is created
     created: function () {
       let thatVue = this;
@@ -304,7 +315,7 @@
     },    
 
     methods: {
-      filteredWOs: function(txt) {
+      xxfilteredWOs: function(txt) {
         if (txt) {
           return this.data_WOs.filter(wo => ((wo.WONumber && wo.WONumber.indexOf(txt) >= 0) || (wo.LinkedSONumber && wo.LinkedSONumber.indexOf(txt) >= 0) || (wo.ItemNumber && wo.ItemNumber.indexOf(txt) >= 0)) );        
         }
