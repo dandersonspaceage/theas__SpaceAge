@@ -810,7 +810,7 @@
           asyncCmd: 'applySeq',
           data: {
             listName: thatVue.curWOList,
-            applySOSeq: thatVue.soSeqText
+            applySeqSOs: thatVue.soSeqText
           }, //note: passes to @FormParam
 
           onResponse: function (rd, response, config) {
