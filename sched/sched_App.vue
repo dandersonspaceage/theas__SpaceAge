@@ -812,7 +812,7 @@
             listName: thatVue.curWOList,
             applySOSeq: thatVue.soSeqText
           }, //note: passes to @FormParams
-          qguid: null,
+          qguid: thatVue.qguid,
           reFetch: true,
 
           onResponse: function (rd, response, config) {
@@ -825,7 +825,7 @@
 
               if (!thatVue.$th.haveError(true)) {
 
-                let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === qguid)
+                let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === config.qguid)
                 if (thisIndex >= 0) {
                   thatVue.data_ThisWO = thatVue.data_WOs[thisIndex];
 
