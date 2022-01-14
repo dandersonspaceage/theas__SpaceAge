@@ -46,7 +46,7 @@
                         <b-row>
 
                           <b-col>
-                            <h6 class="dragHandle" ><span class="badge badge-secondary">[[ wo.Seq ]]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge badge-secondary" v-if="!wo.LastToMove" @click="doRepeatMove(wo.qguid, $event)">Move Next</span></h6> 
+                            <h6 class="dragHandle" ><span class="badge badge-secondary">[[ wo.Seq ]]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge badge-secondary" v-if="!wo.LastToMove" @click="doRepeatMove(wo.qguid, $event)">Move Next</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge badge-secondary" @click="doMoveLast(wo.qguid, $event)">Move Last</span></h6> 
                           </b-col>          
 
                           <b-col>
@@ -694,8 +694,19 @@
 
           thatVue.setDirty(qguid, 0, true, evt);
         }
-
       },
+      
+      doMoveLast: function (qguid, evt) {
+        let thatVue = this;
+
+        thatVue.data_ThisWO = thatVue.data_WOs.find((el) => el.qguid === qguid);
+
+        if (thatVue.data_ThisWO) {
+          thatVue.data_ThisWO['MoveLast'] = 1;
+
+          thatVue.setDirty(qguid, 0, true, evt);
+        }
+      },      
 
       clickBookmark: function(qguid, evt) {
         let thatVue = this;
