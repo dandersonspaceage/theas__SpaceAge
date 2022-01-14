@@ -811,9 +811,7 @@
           data: {
             listName: thatVue.curWOList,
             applySOSeq: thatVue.soSeqText
-          }, //note: passes to @FormParams
-          qguid: thatVue.qguid,
-          reFetch: true,
+          }, //note: passes to @FormParam
 
           onResponse: function (rd, response, config) {
               // rd contains the response data split into an object (of name/value pairs)
@@ -824,24 +822,7 @@
               // the raw data that was received.              
 
               if (!thatVue.$th.haveError(true)) {
-
-                let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === config.qguid)
-                if (thisIndex >= 0) {
-                  thatVue.data_ThisWO = thatVue.data_WOs[thisIndex];
-
-                  if
-                    (
-                      (thatVue.curWOList == 'Unscheduled' && thatVue.data_ThisWO.PlannedPress) ||
-                      (thatVue.curWOList != 'Unscheduled' && thatVue.curWOList != thatVue.data_ThisWO.PlannedPress)
-                    ){
-                      thatVue.$delete(thatVue.data_WOs, thisIndex);
-                      thatVue.data_ThisWO = {};                    
-                    }
-                }
-
-                if (config && config.reFetch) {
-                  thatVue.fetchWOs(config.qguid, config.reFetch);
-                }                    
+                thatVue.fetchWOs();              
               }
               
               thatVue.decBusy();                    
