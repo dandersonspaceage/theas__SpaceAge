@@ -28,7 +28,7 @@
 
               <b-col cols="4">
                 <b-textarea id="soSeqText" debounce="300"
-                      v-model="soSeqList" rows="5" max-rows="5">
+                      v-model="soSeqText" rows="5" max-rows="5">
                 </b-textarea>
                 <b-button @click="applySOSeq">Apply Seq.</b-button>
               </b-col>  
@@ -802,7 +802,53 @@
       },
 
       applySOSeq: function() {
-        alert('ready to apply');
+
+        let thatVue = this;
+
+        thatVue.$th.sendAsync({
+          url: "/async/" + thatVue.asyncResource_WOs,
+          asyncCmd: 'applySeq',
+          data: {
+            listName: thatVue.curWOList,
+            applySOSeq: thatVue.soSeqText
+          }, //note: passes to @FormParams
+          qguid: null,
+          reFetch: true,
+
+          onResponse: function (rd, response, config) {
+              // rd contains the response data split into an object (of name/value pairs)
+              // (might have been returned as either a string of URL-encoded name/value
+              // pairs, or as a JSON strong)
+
+              // response contains the complete response object, in which .data contains
+              // the raw data that was received.              
+
+              if (!thatVue.$th.haveError(true)) {
+
+                let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === qguid)
+                if (thisIndex >= 0) {
+                  thatVue.data_ThisWO = thatVue.data_WOs[thisIndex];
+
+                  if
+                    (
+                      (thatVue.curWOList == 'Unscheduled' && thatVue.data_ThisWO.PlannedPress) ||
+                      (thatVue.curWOList != 'Unscheduled' && thatVue.curWOList != thatVue.data_ThisWO.PlannedPress)
+                    ){
+                      thatVue.$delete(thatVue.data_WOs, thisIndex);
+                      thatVue.data_ThisWO = {};                    
+                    }
+                }
+
+                if (config && config.reFetch) {
+                  thatVue.fetchWOs(config.qguid, config.reFetch);
+                }                    
+              }
+              
+              thatVue.decBusy();                    
+            }
+        });
+
+
       }
     },
   };
