@@ -193,17 +193,17 @@
                         
                       </b-col>
 
-                    <b-col cols="1">
+                    <b-col cols="1" style="height:100%">
 
                       <b-row>
-                        <div style="height:100%">
-                          <b-col>
+   
+                          <b-col style="height:100%">
                             <b-checkbox :checked="wo.ReleasedToPress"></b-checkbox>
                           </b-col>
-                          <b-col>
+                          <b-col style="height:100%">
                             <div @click="clickBookmark(wo.qguid, $event)" @mousedown="mousedownBookmark" @mouseup.stop.prevent="mouseupBookmark" class="bookmark" :class="{ bookmark1: ('1'==wo.BookmarkCode), bookmark2: ('2'==wo.BookmarkCode), bookmark3: ('3'==wo.BookmarkCode) }"></div>                          
                           </b-col>                                         
-                        </div>
+
                       <b-row>
 
                     </b-col>
