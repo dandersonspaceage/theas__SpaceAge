@@ -50,7 +50,7 @@
                           </b-col>          
 
                           <b-col>
-                            <h6>WO: [[ wo.WONumber ]]</h6>
+                            <h6>WO: [[ wo.WONumber ]]</h6> <b-checkbox :checked="wo.ReleasedToPress"></b-checkbox>
                           </b-col>
                           <b-col>
                             <h6>SO: [[ wo.LinkedSONumber ]]</h6>
