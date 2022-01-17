@@ -193,7 +193,7 @@
                         
                       </b-col>
 
-                      <b-col cols="1" style="height:100%">
+                      <b-col cols="1">
                               
                         <div @click="clickBookmark(wo.qguid, $event)" @mousedown="mousedownBookmark" @mouseup.stop.prevent="mouseupBookmark" class="bookmark" :class="{ bookmark1: ('1'==wo.BookmarkCode), bookmark2: ('2'==wo.BookmarkCode), bookmark3: ('3'==wo.BookmarkCode) }"></div>                          
 
