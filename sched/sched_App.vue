@@ -195,9 +195,9 @@
 
                     <b-col cols="1" style="height:100%">
 
-                      <b-row>
+                      <b-row style="height:100%">
    
-                          <b-col style="height:100%">
+                          <b-col>
                             <b-checkbox :checked="wo.ReleasedToPress"></b-checkbox>
                           </b-col>
                           <b-col style="height:100%">
