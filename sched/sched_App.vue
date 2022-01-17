@@ -46,7 +46,7 @@
                         <b-row>
 
                           <b-col>
-                            <h6 class="dragHandle" ><span class="badge badge-secondary">[[ wo.Seq ]]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge badge-secondary" v-if="!wo.LastToMove" @click="doRepeatMove(wo.qguid, $event)">Repeat Move</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge badge-secondary" @click="doMoveLast(wo.qguid, $event)">Move Last</span></h6> 
+                            <h6 class="dragHandle" ><span class="badge badge-secondary">[[ wo.Seq ]]</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge badge-secondary" v-if="!wo.LastToMove" @click="doRepeatMove(wo.qguid, $event)">Repeat Move</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge badge-secondary" @click="doMoveLast(wo.qguid, $event)">Move Last</span>&nbsp;&nbsp;&nbsp;&nbsp;<b-checkbox v-model="wo.ReleasedToPress"></b-checkbox></h6> 
                           </b-col>          
 
                           <b-col>
@@ -196,7 +196,7 @@
                       <b-col cols="1">
 
                         <div @click="clickBookmark(wo.qguid, $event)" @mousedown="mousedownBookmark" @mouseup.stop.prevent="mouseupBookmark" class="bookmark" :class="{ bookmark1: ('1'==wo.BookmarkCode), bookmark2: ('2'==wo.BookmarkCode), bookmark3: ('3'==wo.BookmarkCode) }"></div>                                                                                   
-                        
+
                       </b-col>
                     </b-row>
                   </b-card>
