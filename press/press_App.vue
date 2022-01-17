@@ -87,18 +87,6 @@
       </b-col>
     </b-row>
 
-    <b-row>
-      <b-col>
-                <b-form-group label="Search"
-                              :label-for="'search'">
-                  <b-input :id="'search'"
-                                v-model="searchTarget" @keyup="onSearchKeyUp" debounce="100" placeholder="search...">
-                                size="sm"></b-input>
-                </b-form-group>   
-
-      </b-col>
-    </b-row>
-
     <b-modal id="thModal" ref="thModal" @hide="onthModalHide" hide-footer>
       <template #modal-title>
         [[ theasLastError.msgTitle ]]
