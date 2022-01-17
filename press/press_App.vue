@@ -95,7 +95,7 @@
                                 v-model="searchTarget" @keyup="onSearchKeyUp" debounce="100" placeholder="search...">
                                 size="sm"></b-input>
                 </b-form-group>   
-                        
+
       </b-col>
     </b-row>
 
@@ -140,7 +140,7 @@
         lastFetch_WOs: null,
 
         asyncResource_WOs: 'sched/sched_App.vue',
-        asyncCmd_WOs: 'fetchWOs',
+        asyncCmd_WOs: 'fetchWOsForPress',
 
         pressCodes: ['N', 'NW', 'S', 'W'],
 
