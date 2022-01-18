@@ -20,7 +20,7 @@
 
         <div class="fastscroll" style="height:75vh;">
 
-          <Vue-Tabulator v-model="dados" :options="options" />
+          <Vue-Tabulator v-model="data_WOs" :options="options" />
 
 
           <table class="table table-condensed table-striped" style="width:100%">
@@ -111,18 +111,30 @@
     data() {
       return {
 
-            dados: [{
-                name: 'Teste',
-                age: 13
-            }],
             options: {
-                columns: [{
-                    title: 'Name',
-                    field: 'name',
-                    sorter: 'string',
-                    width: 200,
-                    editor: true,
-                }, ],
+                columns: [
+                  
+{title: 'Batch', field: 'BatchNumber', sorter: 'string', width: 150, editor: false},
+{title: 'SO', field: 'LinkedSONumber', sorter: 'string', width: 150, editor: false},
+{title: 'Qty', field: 'Quantity', sorter: 'string', width: 150, editor: false},
+{title: 'QtyShot', field: 'CurrentShotCount', sorter: 'string', width: 150, editor: false},
+{title: 'CommitDate', field: 'CommitDate', sorter: 'string', width: 150, editor: false},
+{title: 'WO', field: 'ItemNumber', sorter: 'string', width: 150, editor: false},
+{title: 'Item', field: 'WONumber', sorter: 'string', width: 150, editor: false},
+{title: 'Customer', field: 'CustomerName', sorter: 'string', width: 150, editor: false},
+{title: 'ThicknessOffPress', field: 'DimThickness_OffPress', sorter: 'string', width: 150, editor: false},
+{title: 'WidthOffPress', field: 'DimWidth_OffPress', sorter: 'string', width: 150, editor: false},
+{title: 'LengthOffPress', field: 'DimLength_OffPress', sorter: 'string', width: 150, editor: false},
+{title: 'Foam', field: 'FoamSystem', sorter: 'string', width: 150, editor: false},
+{title: 'GlassSeries', field: 'GlassSeries', sorter: 'string', width: 150, editor: false},
+{title: 'Finish', field: 'SurfaceFinish', sorter: 'string', width: 150, editor: false},
+{title: 'ShimLayup', field: 'ShimLayup', sorter: 'string', width: 150, editor: false},
+{title: 'MoldGlassLayers', field: 'MoldGlassLayers', sorter: 'string', width: 150, editor: false},
+{title: 'ShotWeight', field: 'Weight_OffPress', sorter: 'string', width: 150, editor: false},
+{title: 'FoamGrams', field: 'Weight_Foam', sorter: 'string', width: 150, editor: false},
+{title: 'Notes', field: 'Notes', sorter: 'string', width: 150, editor: false}                                 
+                
+                ],
             },
 
         theasParams: {},
@@ -176,7 +188,7 @@
       //In the future it would be nice if $th took care of making sure that new theasParams
       //were reactive.
       thatVue.theasParams = thatVue.$th.theasParams;
-      thatVue.theasLastError = thatVue.$th.lastError;
+      thatVue.theasLastError = thatVue.$th.lastError;  
 
       // perform the initial fetch of data
       this.fetchData(true);
