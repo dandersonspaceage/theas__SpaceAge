@@ -114,29 +114,7 @@
       return {
 
             options: {
-                columns: [
-                  
-{title: 'Batch', field: 'BatchNumber'},
-{title: 'SO', field: 'LinkedSONumber'},
-{title: 'Qty', field: 'Quantity'},
-{title: 'QtyShot', field: 'CurrentShotCount'},
-{title: 'CommitDate', field: 'CommitDate', mutator: 'fmtDate3'},
-{title: 'WO', field: 'ItemNumber'},
-{title: 'Item', field: 'WONumber'},
-{title: 'Customer', field: 'CustomerName'},
-{title: 'ThicknessOffPress', field: 'DimThickness_OffPress'},
-{title: 'WidthOffPress', field: 'DimWidth_OffPress'},
-{title: 'LengthOffPress', field: 'DimLength_OffPress'},
-{title: 'Foam', field: 'FoamSystem'},
-{title: 'GlassSeries', field: 'GlassSeries'},
-{title: 'Finish', field: 'SurfaceFinish'},
-{title: 'ShimLayup', field: 'ShimLayup'},
-{title: 'MoldGlassLayers', field: 'MoldGlassLayers'},
-{title: 'ShotWeight', field: 'Weight_OffPress'},
-{title: 'FoamGrams', field: 'Weight_Foam'},
-{title: 'Notes', field: 'Notes'}                                 
-                
-                ],
+                columns: []
             },
 
         theasParams: {},
@@ -196,19 +174,40 @@
       this.fetchData(true);
     },
 
-    // method executed before the Vue object is mounted
-    beforeMount: function () {
+    // method executed when the Vue object is mounted / done rendering
+    mounted: function () {
 
       const tabulatorInstance = this.$refs.tabulator.getInstance();
       tabulatorInstance.extendModule("mutator", "mutators", {
           fmtDate3:function(value, data, type, mutatorParams){
               return formatDate(value, "MM/DD");
           },
-      });       
-    },      
+      });  
 
-    // method executed when the Vue object is mounted / done rendering
-    mounted: function () {
+      self.options.columns =  [
+                  
+{title: 'Batch', field: 'BatchNumber'},
+{title: 'SO', field: 'LinkedSONumber'},
+{title: 'Qty', field: 'Quantity'},
+{title: 'QtyShot', field: 'CurrentShotCount'},
+{title: 'CommitDate', field: 'CommitDate', mutator: 'fmtDate3'},
+{title: 'WO', field: 'ItemNumber'},
+{title: 'Item', field: 'WONumber'},
+{title: 'Customer', field: 'CustomerName'},
+{title: 'ThicknessOffPress', field: 'DimThickness_OffPress'},
+{title: 'WidthOffPress', field: 'DimWidth_OffPress'},
+{title: 'LengthOffPress', field: 'DimLength_OffPress'},
+{title: 'Foam', field: 'FoamSystem'},
+{title: 'GlassSeries', field: 'GlassSeries'},
+{title: 'Finish', field: 'SurfaceFinish'},
+{title: 'ShimLayup', field: 'ShimLayup'},
+{title: 'MoldGlassLayers', field: 'MoldGlassLayers'},
+{title: 'ShotWeight', field: 'Weight_OffPress'},
+{title: 'FoamGrams', field: 'Weight_Foam'},
+{title: 'Notes', field: 'Notes'}                                 
+                
+                ]
+
 
       // perform the initial fetch of data
       this.decBusy();
