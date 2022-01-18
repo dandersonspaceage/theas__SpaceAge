@@ -120,7 +120,7 @@
 {title: 'SO', field: 'LinkedSONumber'},
 {title: 'Qty', field: 'Quantity'},
 {title: 'QtyShot', field: 'CurrentShotCount'},
-{title: 'CommitDate', field: 'CommitDate', formatter: function(cell, formatterParams, onRendered){return moment(value).format(formatterParams.formatStr);}, formatterParams: {formatStr: "MM/DD"}},
+{title: 'CommitDate', field: 'CommitDate', formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);}, formatterParams: {formatStr: "MM/DD"}},
 {title: 'WO', field: 'ItemNumber'},
 {title: 'Item', field: 'WONumber'},
 {title: 'Customer', field: 'CustomerName'},
