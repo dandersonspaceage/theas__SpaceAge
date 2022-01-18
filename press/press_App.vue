@@ -20,7 +20,10 @@
 
         <div class="fastscroll" style="height:75vh;">
 
-          <table class="table table-condensed text-xsmall table-striped" style="width:100%">
+          <Vue-Tabulator v-model="dados" :options="options" />
+
+
+          <table class="table table-condensed table-striped" style="width:100%">
 
             <thead>
                 <tr>
@@ -107,6 +110,21 @@
 
     data() {
       return {
+
+            dados: [{
+                name: 'Teste',
+                age: 13
+            }],
+            options: {
+                columns: [{
+                    title: 'Name',
+                    field: 'name',
+                    sorter: 'string',
+                    width: 200,
+                    editor: true,
+                }, ],
+            },
+
         theasParams: {},
         theasLastError: {},
                 
