@@ -196,8 +196,8 @@
       this.fetchData(true);
     },
 
-    // method executed when the Vue object is mounted / done rendering
-    mounted: function () {
+    // method executed before the Vue object is mounted
+    beforeMount: function () {
 
       const tabulatorInstance = this.$refs.tabulator.getInstance();
       tabulatorInstance.extendModule("mutator", "mutators", {
@@ -205,6 +205,10 @@
               return formatDate(value, "MM/DD");
           },
       });       
+    },      
+
+    // method executed when the Vue object is mounted / done rendering
+    mounted: function () {
 
       // perform the initial fetch of data
       this.decBusy();
