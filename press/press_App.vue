@@ -192,20 +192,20 @@
       thatVue.theasParams = thatVue.$th.theasParams;
       thatVue.theasLastError = thatVue.$th.lastError;  
 
-
-      const tabulatorInstance = this.$refs.tabulator.getInstance();
-      tabulatorInstance.extendModule("mutator", "mutators", {
-          fmtDate3:function(value, data, type, mutatorParams){
-              return formatDate(value, "MM/DD");
-          },
-      }); 
-
       // perform the initial fetch of data
       this.fetchData(true);
     },
 
     // method executed when the Vue object is mounted / done rendering
     mounted: function () {
+
+      const tabulatorInstance = this.$refs.tabulator.getInstance();
+      tabulatorInstance.extendModule("mutator", "mutators", {
+          fmtDate3:function(value, data, type, mutatorParams){
+              return formatDate(value, "MM/DD");
+          },
+      });       
+
       // perform the initial fetch of data
       this.decBusy();
     },    
