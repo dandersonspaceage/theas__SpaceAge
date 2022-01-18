@@ -118,7 +118,7 @@
 {title: 'SO', field: 'LinkedSONumber'},
 {title: 'Qty', field: 'Quantity'},
 {title: 'QtyShot', field: 'CurrentShotCount'},
-{title: 'CommitDate', field: 'formatDate(wo.CommitDate, "MM/DD")'},
+{title: 'CommitDate', field: 'formatDate(CommitDate, "MM/DD")'},
 {title: 'WO', field: 'ItemNumber'},
 {title: 'Item', field: 'WONumber'},
 {title: 'Customer', field: 'CustomerName'},
