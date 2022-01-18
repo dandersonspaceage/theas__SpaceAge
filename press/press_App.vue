@@ -20,7 +20,7 @@
 
         <div class="fastscroll" style="height:75vh;">
 
-          <table class="table w-auto text-xsmall table-striped" style="width:100%">
+          <table class="table table-condensed text-xsmall table-striped" style="width:100%">
 
             <thead>
                 <tr>
