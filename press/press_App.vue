@@ -107,7 +107,7 @@
 <script>
 
   export default {
-    delimiters: ["[[", "]]"]
+    delimiters: ["[[", "]]"],
 
 
     data() {
