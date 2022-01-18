@@ -105,7 +105,6 @@
 </template>
 
 <script>
-var xyz = function (value, data, type, params, component) {return formatDate(value, "MM/DD");}
 
   export default {
     delimiters: ["[[", "]]"],
@@ -149,6 +148,8 @@ var xyz = function (value, data, type, params, component) {return formatDate(val
                 
                 ],
             },
+
+        xyz: function (value, data, type, params, component) {return formatDate(value, "MM/DD");},            
 
         theasParams: {},
         theasLastError: {},
