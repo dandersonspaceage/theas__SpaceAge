@@ -20,7 +20,7 @@
 
         <div class="fastscroll" style="height:75vh;">
 
-          <Vue-Tabulator v-model="data_WOs" :options="options" />
+          <Vue-Tabulator ref="tabulator" v-model="data_WOs" :options="options" />
 
 
           <table class="table table-condensed table-striped" style="width:100%">
@@ -107,17 +107,7 @@
 <script>
 
   export default {
-    delimiters: ["[[", "]]"],
-
-      fmtDate2: function(value, data, type, params, component){
-        //value - original value of the cell
-        //data - the data for the row
-        //type - the type of mutation occurring  (data|edit)
-        //params - the mutatorParams object from the column definition
-        //component - when the "type" argument is "edit", this contains the cell component for the edited cell, otherwise it is the column component for the column
-
-        return formatDate(value, "MM/DD"); //return the new value for the cell data.
-      },
+    delimiters: ["[[", "]]"]
 
 
     data() {
@@ -130,7 +120,7 @@
 {title: 'SO', field: 'LinkedSONumber'},
 {title: 'Qty', field: 'Quantity'},
 {title: 'QtyShot', field: 'CurrentShotCount'},
-{title: 'CommitDate', field: 'CommitDate', mutator: 'pig'},
+{title: 'CommitDate', field: 'CommitDate', mutator: 'fmtDate3'},
 {title: 'WO', field: 'ItemNumber'},
 {title: 'Item', field: 'WONumber'},
 {title: 'Customer', field: 'CustomerName'},
@@ -148,8 +138,6 @@
                 
                 ],
             },
-
-        xyz: function (value, data, type, params, component) {return formatDate(value, "MM/DD");},            
 
         theasParams: {},
         theasLastError: {},
@@ -203,6 +191,14 @@
       //were reactive.
       thatVue.theasParams = thatVue.$th.theasParams;
       thatVue.theasLastError = thatVue.$th.lastError;  
+
+
+      const tabulatorInstance = this.$refs.tabulator.getInstance();
+      tabulatorInstance.extendModule("mutator", "mutators", {
+          fmtDate3:function(value, data, type, mutatorParams){
+              return formatDate(value, "MM/DD");
+          },
+      }); 
 
       // perform the initial fetch of data
       this.fetchData(true);
