@@ -130,7 +130,7 @@
 {title: 'SO', field: 'LinkedSONumber'},
 {title: 'Qty', field: 'Quantity'},
 {title: 'QtyShot', field: 'CurrentShotCount'},
-{title: 'CommitDate', field: 'CommitDate', mutator: 'xyz'},
+{title: 'CommitDate', field: 'CommitDate', mutator: 'pig'},
 {title: 'WO', field: 'ItemNumber'},
 {title: 'Item', field: 'WONumber'},
 {title: 'Customer', field: 'CustomerName'},
