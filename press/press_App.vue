@@ -20,7 +20,7 @@
 
         <div class="fastscroll" style="height:75vh;">
 
-          <Vue-Tabulator ref="tabulator" v-model="data_WOs" :options="options" />
+          <Vue-Tabulator ref="tabulator" v-model="data_WOs" :options="tab1Options" />
 
 
           <table class="table table-condensed table-striped" style="width:100%">
@@ -113,7 +113,7 @@
     data() {
       return {
 
-            options: {
+            tab1Options: {
                 columns: [
                   
 {title: 'Batch', field: 'BatchNumber'},
