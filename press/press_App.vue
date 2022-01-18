@@ -120,7 +120,7 @@
 {title: 'SO', field: 'LinkedSONumber'},
 {title: 'Qty', field: 'Quantity'},
 {title: 'QtyShot', field: 'CurrentShotCount'},
-{title: 'CommitDate', field: 'CommitDate', formatter: function(cell, formatterParams, onRendered){return formatDate(value, "MM/DD");}, formatterParams :{}},
+{title: 'CommitDate', field: 'CommitDate', formatter: function(cell, formatterParams, onRendered){return moment(value).format(formatterParams.formatStr);}, formatterParams: {formatStr: "MM/DD"}},
 {title: 'WO', field: 'ItemNumber'},
 {title: 'Item', field: 'WONumber'},
 {title: 'Customer', field: 'CustomerName'},
@@ -199,12 +199,7 @@
     // method executed when the Vue object is mounted / done rendering
     mounted: function () {
 
-      const tabulatorInstance = this.$refs.tabulator.getInstance();
-      tabulatorInstance.extendModule("mutator", "mutators", {
-          fmtDate3:function(value, data, type, mutatorParams){
-              return formatDate(value, "MM/DD");
-          },
-      });  
+      //const tabulatorInstance = this.$refs.tabulator.getInstance();
 
       // perform the initial fetch of data
       this.decBusy();
@@ -219,17 +214,6 @@
     },
 
     methods: {
-      fmtDate: function(value, data, type, params, component){
-        //value - original value of the cell
-        //data - the data for the row
-        //type - the type of mutation occurring  (data|edit)
-        //params - the mutatorParams object from the column definition
-        //component - when the "type" argument is "edit", this contains the cell component for the edited cell, otherwise it is the column component for the column
-
-        return formatDate(value, "MM/DD"); //return the new value for the cell data.
-      },
-
-
 
       fullscreen: function () {
         if (screenfull.isEnabled) {
