@@ -1,11 +1,5 @@
 import vueNewPage1 from "{{ '/press/press_App.vue'|theasResource }}"
 
-    Tabulator.extendModule('mutator', 'mutators', {
-      pig :function(value, data, type, mutatorParams){
-          return value + 'y';
-      },
-    });
-
     Vue.config.productionTip = false
     Vue.use(BootstrapVue);
 
