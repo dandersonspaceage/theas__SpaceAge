@@ -114,7 +114,29 @@
       return {
 
             options: {
-                columns: []
+                columns: [
+                  
+{title: 'Batch', field: 'BatchNumber'},
+{title: 'SO', field: 'LinkedSONumber'},
+{title: 'Qty', field: 'Quantity'},
+{title: 'QtyShot', field: 'CurrentShotCount'},
+{title: 'CommitDate', field: 'CommitDate', mutator: 'fmtDate3', mutatorParams:{}},
+{title: 'WO', field: 'ItemNumber'},
+{title: 'Item', field: 'WONumber'},
+{title: 'Customer', field: 'CustomerName'},
+{title: 'ThicknessOffPress', field: 'DimThickness_OffPress'},
+{title: 'WidthOffPress', field: 'DimWidth_OffPress'},
+{title: 'LengthOffPress', field: 'DimLength_OffPress'},
+{title: 'Foam', field: 'FoamSystem'},
+{title: 'GlassSeries', field: 'GlassSeries'},
+{title: 'Finish', field: 'SurfaceFinish'},
+{title: 'ShimLayup', field: 'ShimLayup'},
+{title: 'MoldGlassLayers', field: 'MoldGlassLayers'},
+{title: 'ShotWeight', field: 'Weight_OffPress'},
+{title: 'FoamGrams', field: 'Weight_Foam'},
+{title: 'Notes', field: 'Notes'}                                 
+                
+                ],
             },
 
         theasParams: {},
@@ -183,31 +205,6 @@
               return formatDate(value, "MM/DD");
           },
       });  
-
-      self.options.columns =  [
-                  
-{title: 'Batch', field: 'BatchNumber'},
-{title: 'SO', field: 'LinkedSONumber'},
-{title: 'Qty', field: 'Quantity'},
-{title: 'QtyShot', field: 'CurrentShotCount'},
-{title: 'CommitDate', field: 'CommitDate', mutator: 'fmtDate3'},
-{title: 'WO', field: 'ItemNumber'},
-{title: 'Item', field: 'WONumber'},
-{title: 'Customer', field: 'CustomerName'},
-{title: 'ThicknessOffPress', field: 'DimThickness_OffPress'},
-{title: 'WidthOffPress', field: 'DimWidth_OffPress'},
-{title: 'LengthOffPress', field: 'DimLength_OffPress'},
-{title: 'Foam', field: 'FoamSystem'},
-{title: 'GlassSeries', field: 'GlassSeries'},
-{title: 'Finish', field: 'SurfaceFinish'},
-{title: 'ShimLayup', field: 'ShimLayup'},
-{title: 'MoldGlassLayers', field: 'MoldGlassLayers'},
-{title: 'ShotWeight', field: 'Weight_OffPress'},
-{title: 'FoamGrams', field: 'Weight_Foam'},
-{title: 'Notes', field: 'Notes'}                                 
-                
-                ]
-
 
       // perform the initial fetch of data
       this.decBusy();
