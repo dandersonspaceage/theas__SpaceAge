@@ -31,7 +31,7 @@
     <b-row style="height: 20%">
       <div style="width: 100%; background-color: #BDB76B">
         <b-col cols="12">
-          Hello
+          <b-button>Completed Board</b-button>
         </b-col>
       </div>
     </b-row>
