@@ -18,7 +18,7 @@
     
     </b-row>    
 
-  <div class="ml-3 mr-3" style="height:85%" :style="{cursor: curCursor}">
+  <div class="ml-3" style="height:85%" :style="{cursor: curCursor}">
 
     <b-row style="height: 80%">
       <b-col>
