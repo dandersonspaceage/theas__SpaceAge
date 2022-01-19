@@ -476,4 +476,6 @@
   .noscroll {
     overflow-y: hidden;
   }  
+
+  .tabulator { font-size: .9em; }
 </style>
