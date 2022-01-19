@@ -50,7 +50,7 @@
       return {
 
             tab1Options: {
-              layout:"fitColumns",
+              responsiveLayout:true, // enable responsive layouts
 
               columns: [
                 {title: 'WO', field: 'WONumber', responsive:0},                  
