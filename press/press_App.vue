@@ -1,5 +1,5 @@
 <template>
-  <div class="ml-3 mr-3" style="height: 100%" :style="{cursor: curCursor}">
+  <div class="ml-3 mr-3" style="height: 80vh" :style="{cursor: curCursor}">
 
     <b-row>
       <b-col>
