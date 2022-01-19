@@ -56,7 +56,7 @@
               //virtualDOM: "true",
 
               columns: [
-                {title: 'WO', field: 'WONumber', responsive: 0},                  
+                {title: 'WO', field: 'WONumber', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                  
                 {title: 'SO', field: 'LinkedSONumber', responsive: 0},
                 {title: 'Qty', field: 'Quantity', responsive: 0},
                 {title: 'QtyShot', field: 'CurrentShotCount', responsive: 0},
@@ -73,7 +73,8 @@
                 {title: 'MoldGlassLayers', field: 'MoldGlassLayers'},
                 {title: 'ShotWeight', field: 'Weight_OffPress'},
                 {title: 'FoamGrams', field: 'Weight_Foam'},
-                {title: 'Notes', field: 'Notes', responsive: 0, widthGrow:5}                                                 
+                {title: 'Notes', field: 'Notes', responsive: 0},
+                                                                 
               ],
             },
 
