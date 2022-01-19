@@ -30,8 +30,8 @@
     <b-row style="height:20%; background-color: #BDB76B">
 
         <b-col cols="7">
-          <h5>Working on: xxxx  5 of 28</h5>
-          <b-button size="lg" variant="success">Completed Board</b-button>
+          <h6>Working on: xxxx  5 of 28</h6>
+          <b-button  variant="success">Completed Board</b-button>
         </b-col>
 
         <b-col>
