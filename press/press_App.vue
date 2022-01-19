@@ -1,22 +1,22 @@
 <template>
 <div style="height:100%" class="mr-3">
-    <b-row style="height: 15%">
-      <b-col>
-        <img src="/resources/SpaceAgeLogo.png">
-      </b-col>
+  <b-row style="height: 15%">
+    <b-col>
+      <img src="/resources/SpaceAgeLogo.png">
+    </b-col>
 
-      <b-col>
-        <b-form-group label="Press"
-                      :label-for="'ListName'">
-          <b-form-select :id="'listName'"
-                        v-model="curWOList" :options="woListNames" @change="switchWOList()"
-                        size="sm"></b-form-select>
-        </b-form-group>
+    <b-col>
+      <b-form-group label="Press"
+                    :label-for="'ListName'">
+        <b-form-select :id="'listName'"
+                      v-model="curWOList" :options="woListNames" @change="switchWOList()"
+                      size="sm"></b-form-select>
+      </b-form-group>
 
-          <h6>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>        
-      </b-col>
-    
-    </b-row>    
+        <h6>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>        
+    </b-col>
+  
+  </b-row>    
 
   <div class="ml-3" style="height:85%" :style="{cursor: curCursor}">
 
@@ -27,10 +27,9 @@
     </b-row>
 
 
-
     <b-row style="height:15%; background-color: #BDB76B">
 
-        <b-col cols="6">
+        <b-col cols="7">
           <h5>Working on: xxxx  5 of 28</h5>
           <b-button size="lg" variant="success">Completed Board</b-button>
         </b-col>
@@ -39,21 +38,19 @@
           Another col
         </b-col>
 
-
-
     </b-row>
-
-    <b-modal id="thModal" ref="thModal" @hide="onthModalHide" hide-footer>
-      <template #modal-title>
-        [[ theasLastError.msgTitle ]]
-      </template>
-      <div class="d-block text-center">
-        <h3>[[ theasLastError.msgFriendly ]]</h3>
-        <h5>[[ theasLastError.msgTech ]]</h5>        
-      </div>
-    </b-modal>
-
   </div>
+
+
+  <b-modal id="thModal" ref="thModal" @hide="onthModalHide" hide-footer>
+    <template #modal-title>
+      [[ theasLastError.msgTitle ]]
+    </template>
+    <div class="d-block text-center">
+      <h3>[[ theasLastError.msgFriendly ]]</h3>
+      <h5>[[ theasLastError.msgTech ]]</h5>        
+    </div>
+  </b-modal>
 
 </div>
 </template>
