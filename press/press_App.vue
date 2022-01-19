@@ -1,7 +1,7 @@
 <template>
   <div class="ml-3 mr-3" style="height:100%" :style="{cursor: curCursor}">
 
-    <b-row style="height: 20%">
+    <b-row style="height: 15%">
       <b-col>
         <b-form-group label="Press"
                       :label-for="'ListName'">
@@ -16,7 +16,7 @@
     </b-row>    
 
 
-    <b-row>
+    <b-row style="height: 65%" class="noscroll">
       <b-col>
           <Vue-Tabulator ref="tabulator" class="table-striped table-sm" v-model="data_WOs" :options="tab1Options" />
       </b-col>
