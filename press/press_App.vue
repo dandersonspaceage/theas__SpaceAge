@@ -20,7 +20,7 @@
 
   <div class="ml-3 mr-3" style="height:85%" :style="{cursor: curCursor}">
 
-    <b-row style="height: 65%">
+    <b-row style="height: 80%">
       <b-col>
           <Vue-Tabulator ref="tabulator" class="table-striped table-sm" v-model="data_WOs" :options="tab1Options" />
       </b-col>
