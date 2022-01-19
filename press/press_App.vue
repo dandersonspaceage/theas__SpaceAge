@@ -22,7 +22,7 @@
 
           <Vue-Tabulator ref="tabulator" class="table-striped table-sm" v-model="data_WOs" :options="tab1Options" />
 
-          <divv style="height: 200px">
+          <div style="height: 200px">
             <b-row>
               <b-col>
                   <b-button>Board Completed</b-button>           
