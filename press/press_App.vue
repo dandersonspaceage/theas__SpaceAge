@@ -28,9 +28,11 @@
 
 
     <b-row>
+      <div style="height: 30vh; background-color: blue">
       <b-col>
         Hello
       </b-col>
+      </div>
     </b-row>
 
     <b-modal id="thModal" ref="thModal" @hide="onthModalHide" hide-footer>
