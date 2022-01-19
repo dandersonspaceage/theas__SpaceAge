@@ -19,7 +19,7 @@
 
         <h6>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>
 
-        <div class="noscroll">
+        <div style="height: 100%" class="noscroll">
 
           <Vue-Tabulator ref="tabulator" class="table-striped table-sm" v-model="data_WOs" :options="tab1Options" />
 
