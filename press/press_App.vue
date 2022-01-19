@@ -28,8 +28,7 @@
 
 
 
-    <b-row style="height: 20%">
-      <div style="background-color: #BDB76B">
+    <b-row style="height: 20%; background-color: #BDB76B">
 
         <b-col>
           <h5>Working on: xxxx</h5>
@@ -42,8 +41,7 @@
         <b-col>
           <b-button>Completed Board</b-button>
         </b-col>
-
-      </div>
+        
     </b-row>
 
     <b-modal id="thModal" ref="thModal" @hide="onthModalHide" hide-footer>
