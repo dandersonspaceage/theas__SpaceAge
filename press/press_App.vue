@@ -9,6 +9,8 @@
                         v-model="curWOList" :options="woListNames" @change="switchWOList()"
                         size="sm"></b-form-select>
         </b-form-group>
+
+          <h6>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>        
       </b-col>
     
     </b-row>    
@@ -16,8 +18,6 @@
 
     <b-row style="height: 60%">
       <b-col>
-
-        <h6>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>
 
         <div style="height: 100%" class="noscroll">
 
