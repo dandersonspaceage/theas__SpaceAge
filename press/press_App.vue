@@ -28,11 +28,9 @@
 
 
     <b-row>
-      <div style="height: 30vh; width: 100%; background-color: blue">
+      <div style="height: 30vh; width: 100%; background-color: #BDB76B">
       <b-col cols="12">
-        <div style="width: 100%">
         Hello
-        </div>
       </b-col>
       </div>
     </b-row>
