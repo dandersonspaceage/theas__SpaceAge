@@ -29,8 +29,8 @@
 
 
     <b-row style="height: 20%">
-      <div style="width: 100%; background-color: #BDB76B">
-        <div>
+      <div style="background-color: #BDB76B">
+
         <b-col>
           <h5>Working on: xxxx</h5>
         </b-col>
@@ -42,7 +42,7 @@
         <b-col>
           <b-button>Completed Board</b-button>
         </b-col>
-        </div>
+
       </div>
     </b-row>
 
