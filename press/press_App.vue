@@ -31,17 +31,16 @@
     <b-row style="height: 20%; background-color: #BDB76B">
 
         <b-col>
-          <h5>Working on: xxxx</h5>
+          <h5>Working on: xxxx  5 of 28</h5>
+          <b-button>Completed Board</b-button>
         </b-col>
 
-        <b-col>
+        <b-col cols="10">
           Another col
         </b-col>
 
-        <b-col>
-          <b-button>Completed Board</b-button>
-        </b-col>
-        
+
+
     </b-row>
 
     <b-modal id="thModal" ref="thModal" @hide="onthModalHide" hide-footer>
