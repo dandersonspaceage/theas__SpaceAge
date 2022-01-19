@@ -1,6 +1,4 @@
 <template>
-  <div class="ml-3 mr-3" style="height:100%" :style="{cursor: curCursor}">
-
     <b-row style="height: 15%">
       <b-col>
         <img src="/resources/SpaceAgeLogo.png">
@@ -19,6 +17,7 @@
     
     </b-row>    
 
+  <div class="ml-3 mr-3" style="height:85%" :style="{cursor: curCursor}">
 
     <b-row style="height: 65%">
       <b-col>
