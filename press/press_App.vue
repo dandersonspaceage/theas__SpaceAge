@@ -50,8 +50,9 @@
       return {
 
             tab1Options: {
-              responsiveLayout:"collapse", // enable responsive layouts
-              height:"100%",
+              responsiveLayout: 'collapse', // enable responsive layouts
+              height: '100%',
+              layout: 'fitDataFill',
               //virtualDOM: "true",
 
               columns: [
