@@ -18,7 +18,7 @@
 
         <h6>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>
 
-        <div class="fastscroll" style="height:75vh;">
+        <div class="noscroll" style="height:75vh;">
 
           <Vue-Tabulator ref="tabulator" v-model="data_WOs" :options="tab1Options" />
 
@@ -444,4 +444,8 @@
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
   }
+  
+  .noscroll {
+    overflow-y: none;
+  }  
 </style>
