@@ -77,7 +77,7 @@
               columns: [
                 {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
                 {title: 'WO', field: 'WONumber', responsive: 0},                  
-                {title: 'SO', field: 'LinkedSONumber', responsive: 0},
+                {title: 'SO', field: 'LinkedSONumber', responsive: 3},
                 {title: 'Qty', field: 'Quantity', responsive: 0},
                 {title: 'QtyShot', field: 'CurrentShotCount', responsive: 0},
                 {title: 'CommitDate', field: 'CommitDate', formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);}, formatterParams: {formatStr: "MM/DD"}},
