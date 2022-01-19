@@ -1,7 +1,7 @@
 <template>
   <div class="ml-3 mr-3" style="height:100%" :style="{cursor: curCursor}">
 
-    <b-row style="height: 10%">
+    <b-row style="height: 20%">
       <b-col>
         <b-form-group label="Press"
                       :label-for="'ListName'">
@@ -29,7 +29,7 @@
 
 
 
-    <b-row style="height: 30%">
+    <b-row style="height: 20%">
       <div style="width: 100%; background-color: #BDB76B">
         <b-col cols="12">
           Hello
@@ -62,7 +62,7 @@
 
             tab1Options: {
               responsiveLayout: 'collapse', // enable responsive layouts
-              height: '59%',
+              height: '100WIP%',
               layout: 'fitDataFill',
               //virtualDOM: "true",
               responsiveLayoutCollapseStartOpen: false,
