@@ -56,7 +56,7 @@
               //virtualDOM: "true",
 
               columns: [
-                {title: '', responsive: 0, formatter:"responsiveCollapseStartClosed", headerSort:false},                   
+                {title: '', responsive: 0, formatter:"responsiveCollapseStartOpen", headerSort:false},                   
                 {title: 'WO', field: 'WONumber', responsive: 0},                  
                 {title: 'SO', field: 'LinkedSONumber', responsive: 0},
                 {title: 'Qty', field: 'Quantity', responsive: 0},
