@@ -28,7 +28,7 @@
 
 
 
-    <b-row style="height: 20%; background-color: #BDB76B">
+    <b-row style="background-color: #BDB76B">
 
         <b-col cols="6">
           <h3>Working on: xxxx  5 of 28</h3>
