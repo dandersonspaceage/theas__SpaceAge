@@ -105,8 +105,8 @@
 
         pressCodes: ['N', 'NW', 'S', 'W'],
 
-        woListNames: ['Unscheduled', 'N', 'NW', 'S', 'W'],
-        curWOList: 'Unscheduled',
+        woListNames: ['N', 'NW', 'S', 'W'],
+        curWOList: 'N',
 
         data_ThisWO: {},
         thisWO_CommitDate: null, // object for datepicker
