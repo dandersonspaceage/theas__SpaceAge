@@ -18,27 +18,27 @@
 
         <h6>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>
 
-        <div class="noscroll" style="height: 80vh;">
+        <div class="noscroll" style="height: 70vh;">
 
           <Vue-Tabulator ref="tabulator" class="table-striped table-sm" v-model="data_WOs" :options="tab1Options" />
 
-        <div>
-          <b-row>
-            <b-col>
-                <b-button success>Board Completed</b-button>           
-            </b-col>
+          <div>
+            <b-row>
+              <b-col>
+                  <b-button success>Board Completed</b-button>           
+              </b-col>
 
-            <b-col>
-              <b-form-group label="Press"
-                            :label-for="'ListName'">
-                <b-form-select :id="'listName'"
-                              v-model="curWOList" :options="woListNames" @change="switchWOList()"
-                              size="sm"></b-form-select>
-              </b-form-group>                
-            </b-col>
-          </b-row>
+              <b-col>
+                <b-form-group label="Press"
+                              :label-for="'ListName'">
+                  <b-form-select :id="'listName'"
+                                v-model="curWOList" :options="woListNames" @change="switchWOList()"
+                                size="sm"></b-form-select>
+                </b-form-group>                
+              </b-col>
+            </b-row>
 
-        </div>
+          </div>
 
         </div>
       </b-col>
