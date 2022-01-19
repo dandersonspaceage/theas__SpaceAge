@@ -30,12 +30,12 @@
 
     <b-row style="height: 20%; background-color: #BDB76B">
 
-        <b-col cols="3">
+        <b-col cols="4">
           <h3>Working on: xxxx  5 of 28</h3>
           <b-button size="lg" variant="success">Completed Board</b-button>
         </b-col>
 
-        <b-col cols="9">
+        <b-col>
           Another col
         </b-col>
 
