@@ -20,7 +20,7 @@
 
         <div class="noscroll" style="height:75vh;">
 
-          <Vue-Tabulator ref="tabulator" class="table-striped table-condensed" v-model="data_WOs" :options="tab1Options" />
+          <Vue-Tabulator ref="tabulator" class="table-striped table-sm" v-model="data_WOs" :options="tab1Options" />
 
         </div>
       </b-col>
