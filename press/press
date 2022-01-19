@@ -100,15 +100,21 @@
     </form>
 
     <main class="fullheight">
-        <!--Any static content you want-->
-        <a href="javascript:if (screenfull.isEnabled) { screenfull.request(); }">
+        <div style="height: 20vh">
 
-        <img src="/resources/SpaceAgeLogo.png"></img>
+          <!--Any static content you want-->
+          <a href="javascript:if (screenfull.isEnabled) { screenfull.request(); }">
 
-        </a>
+          <img src="/resources/SpaceAgeLogo.png"></img>
 
-        <!--Optionally, a div with id="thapp" wiil be replaced by Vue-rendered content-->
-        <div id="thapp">This whole div is replaced by Vue-rendered content</div>
+          </a>
+
+        </div>
+
+        <div style="height: 80vh">
+          <!--The div with id="thapp" wiil be replaced by Vue-rendered content-->
+          <div id="thapp">This whole div is replaced by Vue-rendered content</div>
+        </div>
     </main>
   
 </body>
