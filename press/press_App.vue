@@ -16,7 +16,7 @@
     </b-row>    
 
 
-    <b-row style="height: 60%">
+    <b-row style="height: 60%" class="noscroll">
       <b-col>
           <Vue-Tabulator ref="tabulator" class="table-striped table-sm" v-model="data_WOs" :options="tab1Options" />
       </b-col>
@@ -59,7 +59,7 @@
               responsiveLayout: 'collapse', // enable responsive layouts
               height: '100%',
               layout: 'fitDataFill',
-              //virtualDOM: "true",
+              virtualDOM: "true",
               responsiveLayoutCollapseStartOpen: false,
 
               columns: [
