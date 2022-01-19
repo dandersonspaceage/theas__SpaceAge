@@ -16,7 +16,7 @@
     </b-row>    
 
 
-    <b-row style="height: 60%" class="noscroll">
+    <b-row style="height: 60%">
       <b-col>
           <Vue-Tabulator ref="tabulator" class="table-striped table-sm" v-model="data_WOs" :options="tab1Options" />
       </b-col>
