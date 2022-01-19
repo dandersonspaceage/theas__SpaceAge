@@ -3,6 +3,10 @@
 
     <b-row style="height: 15%">
       <b-col>
+        <img src="/resources/SpaceAgeLogo.png"></img>
+      </b-col>
+      
+      <b-col>
         <b-form-group label="Press"
                       :label-for="'ListName'">
           <b-form-select :id="'listName'"
