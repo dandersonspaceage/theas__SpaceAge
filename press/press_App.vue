@@ -51,7 +51,7 @@
 
             tab1Options: {
               responsiveLayout:"collapse", // enable responsive layouts
-              virtualDOM: "true",
+              //virtualDOM: "true",
 
               columns: [
                 {title: 'WO', field: 'WONumber', responsive: 0},                  
