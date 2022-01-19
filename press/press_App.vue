@@ -22,27 +22,6 @@
 
           <Vue-Tabulator ref="tabulator" class="table-striped table-sm" v-model="data_WOs" :options="tab1Options" />
 
-          <div style="height: 200px">
-            <b-row>
-              <b-col>
-                  <b-button>Board Completed</b-button>           
-              </b-col>
-
-              <b-col>
-                <b-form-group label="Press"
-                              :label-for="'ListName'">
-
-                  <b-form-select :id="'listName'"
-                                v-model="curWOList" :options="woListNames" @change="switchWOList()"
-                                size="sm">
-                  </b-form-select>
-
-                </b-form-group>                
-              </b-col>
-            </b-row>
-
-          </div>
-
         </div>
       </b-col>
     </b-row>
