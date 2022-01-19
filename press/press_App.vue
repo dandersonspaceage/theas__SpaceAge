@@ -3,9 +3,9 @@
 
     <b-row style="height: 15%">
       <b-col>
-        <img src="/resources/SpaceAgeLogo.png"></img>
+        <img src="/resources/SpaceAgeLogo.png">
       </b-col>
-      
+
       <b-col>
         <b-form-group label="Press"
                       :label-for="'ListName'">
