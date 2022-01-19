@@ -77,22 +77,27 @@
               columns: [
                 {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
                 {title: 'WO', field: 'WONumber', responsive: 0},                  
-                {title: 'SO', field: 'LinkedSONumber', responsive: 3},
                 {title: 'Qty', field: 'Quantity', responsive: 0},
                 {title: 'QtyShot', field: 'CurrentShotCount', responsive: 1},
                 {title: 'CommitDate', field: 'CommitDate', formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);}, formatterParams: {formatStr: "MM/DD"}},
-                {title: 'Item', field: 'ItemNumber'},
-                {title: 'Customer', field: 'CustomerName'},
+              
                 {title: 'ThicknessOffPress', field: 'DimThickness_OffPress'},
                 {title: 'WidthOffPress', field: 'DimWidth_OffPress'},
                 {title: 'LengthOffPress', field: 'DimLength_OffPress'},
+
+                {title: 'ShotWeight', field: 'Weight_OffPress'},
+                {title: 'FoamGrams', field: 'Weight_Foam'},                
+
+                {title: 'Item', field: 'ItemNumber', responsive: 3},
+                {title: 'Customer', field: 'CustomerName', responsive: 3},
+                {title: 'SO', field: 'LinkedSONumber', responsive: 3},                
+                
                 {title: 'Foam', field: 'FoamSystem', responsive: 4},
                 {title: 'GlassSeries', field: 'GlassSeries', responsive: 4},
                 {title: 'Finish', field: 'SurfaceFinish', responsive: 4},
                 {title: 'ShimLayup', field: 'ShimLayup', responsive: 4},
-                {title: 'MoldGlassLayers', field: 'MoldGlassLayers'},
-                {title: 'ShotWeight', field: 'Weight_OffPress'},
-                {title: 'FoamGrams', field: 'Weight_Foam'},
+                {title: 'MoldGlassLayers', field: 'MoldGlassLayers', responsive: 4},
+
                 {title: 'Notes', field: 'Notes', responsive: 0, width:'20%', minWidth: 200},
                                                                  
               ],
