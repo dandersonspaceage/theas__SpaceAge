@@ -54,9 +54,10 @@
               height: '100%',
               layout: 'fitDataFill',
               //virtualDOM: "true",
+              responsiveLayoutCollapseStartOpen: false,
 
               columns: [
-                {title: '', responsive: 0, formatter:"responsiveCollapseStartOpen", headerSort:false},                   
+                {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
                 {title: 'WO', field: 'WONumber', responsive: 0},                  
                 {title: 'SO', field: 'LinkedSONumber', responsive: 0},
                 {title: 'Qty', field: 'Quantity', responsive: 0},
