@@ -42,7 +42,7 @@
 
     <!--Static global styles-->
     <style>
-      .fullheight {height: 100%}
+      .fullheight {height: 100vh}
       .fastscroll {overflow-y:scroll; -webkit-overflow-scrolling: touch;}
       p {font-weight: bold; color: green; }
 
@@ -100,7 +100,7 @@
     </form>
 
     <main class="fullheight">
-        <div style="height: 10vh">
+        <div style="height: 100%">
 
           <!--Any static content you want-->
           <a href="javascript:if (screenfull.isEnabled) { screenfull.request(); }">
