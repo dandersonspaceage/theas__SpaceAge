@@ -25,15 +25,18 @@
           <div>
             <b-row>
               <b-col>
-                  <b-button success>Board Completed</b-button>           
+                  <b-button>Board Completed</b-button>           
               </b-col>
 
               <b-col>
                 <b-form-group label="Press"
                               :label-for="'ListName'">
+
                   <b-form-select :id="'listName'"
                                 v-model="curWOList" :options="woListNames" @change="switchWOList()"
-                                size="sm"></b-form-select>
+                                size="sm">
+                  </b-form-select>
+
                 </b-form-group>                
               </b-col>
             </b-row>
