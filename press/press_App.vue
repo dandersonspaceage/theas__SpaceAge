@@ -1,5 +1,5 @@
 <template>
-<div style="height:100%">
+<div style="height:100%" class="mr-3">
     <b-row style="height: 15%">
       <b-col>
         <img src="/resources/SpaceAgeLogo.png">
