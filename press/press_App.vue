@@ -29,7 +29,7 @@
 
     <b-row>
       <div style="height: 30vh; background-color: blue">
-      <b-col>
+      <b-col cols="12">
         Hello
       </b-col>
       </div>
