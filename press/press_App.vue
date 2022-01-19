@@ -30,7 +30,11 @@
 
     <b-row style="height: 20%">
       <div style="width: 100%; background-color: #BDB76B">
-        <b-col cols="12">
+        <b-col>
+          <h5>Working on: xxxx</h5>
+        </b-col>
+        
+        <b-col>
           <b-button>Completed Board</b-button>
         </b-col>
       </div>
