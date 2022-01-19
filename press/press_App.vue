@@ -29,11 +29,11 @@
 
 
 
-    <b-row>
-      <div style="height: 30%; width: 100%; background-color: #BDB76B">
-      <b-col cols="12">
-        Hello
-      </b-col>
+    <b-row style="height: 30%">
+      <div style="width: 100%; background-color: #BDB76B">
+        <b-col cols="12">
+          Hello
+        </b-col>
       </div>
     </b-row>
 
