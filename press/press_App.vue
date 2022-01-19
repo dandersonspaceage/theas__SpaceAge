@@ -13,8 +13,8 @@
     
     </b-row>    
 
+    <div style="height: 70%">
     <b-row>
-      <div style="height: 70%">
       <b-col>
 
         <h6>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>
@@ -25,8 +25,8 @@
 
         </div>
       </b-col>
-      </div>
     </b-row>
+    </div>
 
 
     <b-row>
