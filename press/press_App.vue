@@ -1,5 +1,5 @@
 <template>
-<div>
+<div style="height:100%">
     <b-row style="height: 15%">
       <b-col>
         <img src="/resources/SpaceAgeLogo.png">
@@ -64,7 +64,7 @@
               responsiveLayout: 'collapse', // enable responsive layouts
               height: '65vh',
               layout: 'fitDataFill',
-              virtualDOM: "true",
+              //virtualDOM: "true",
               responsiveLayoutCollapseStartOpen: false,
 
               columns: [
