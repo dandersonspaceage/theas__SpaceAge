@@ -63,7 +63,7 @@
             tab1Options: {
               responsiveLayout: 'collapse', // enable responsive layouts
               height: '100%',
-              layout: 'fitDataFill',
+              //layout: 'fitDataFill',
               //virtualDOM: "true",
               responsiveLayoutCollapseStartOpen: false,
 
