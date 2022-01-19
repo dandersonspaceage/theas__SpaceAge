@@ -26,6 +26,13 @@
       </b-col>
     </b-row>
 
+
+    <b-row>
+      <b-col>
+        Hello
+      </b-col>
+    </b-row>
+
     <b-modal id="thModal" ref="thModal" @hide="onthModalHide" hide-footer>
       <template #modal-title>
         [[ theasLastError.msgTitle ]]
