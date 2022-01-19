@@ -27,7 +27,7 @@
     </b-row>
 
 
-    <b-row style="height:15%; background-color: #BDB76B">
+    <b-row style="height:20%; background-color: #BDB76B">
 
         <b-col cols="7">
           <h5>Working on: xxxx  5 of 28</h5>
