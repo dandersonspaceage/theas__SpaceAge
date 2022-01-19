@@ -28,7 +28,7 @@
 
 
     <b-row>
-      <div style="height: 30vh; background-color: blue">
+      <div style="height: 30vh; width: 100%; background-color: blue">
       <b-col cols="12">
         <div style="width: 100%">
         Hello
