@@ -91,7 +91,7 @@
                 
                 {title: 'Foam', field: 'FoamSystem', responsive: 4},
                 {title: 'GlassSeries', field: 'GlassSeries', responsive: 4},
-                {title: 'Finish', field: 'SurfaceFinish', responsive: 4},
+                {title: 'Finish', field: 'SurfaceFinish', responsive: 4, minWidth: 150},
                 {title: 'ShimLayup', field: 'ShimLayup', responsive: 4},
                 {title: 'MoldGlassLayers', field: 'MoldGlassLayers', responsive: 4},
 
