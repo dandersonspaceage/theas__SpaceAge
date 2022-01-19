@@ -66,6 +66,7 @@
               layout: 'fitDataFill',
               //virtualDOM: "true",
               responsiveLayoutCollapseStartOpen: false,
+              resizableColumns: false,
 
               columns: [
                 {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
