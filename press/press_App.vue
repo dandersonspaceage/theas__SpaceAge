@@ -72,7 +72,7 @@
                 {title: 'MoldGlassLayers', field: 'MoldGlassLayers'},
                 {title: 'ShotWeight', field: 'Weight_OffPress'},
                 {title: 'FoamGrams', field: 'Weight_Foam'},
-                {title: 'Notes', field: 'Notes', responsive: 0}                                                 
+                {title: 'Notes', field: 'Notes', responsive: 0, widthGrow:5}                                                 
               ],
             },
 
