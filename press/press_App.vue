@@ -1,5 +1,5 @@
 <template>
-<div style="height:100vh" class="mr-3">
+<div class="fullheight mr-3">
   <b-row style="height: 15%">
     <b-col>
       <img src="/resources/SpaceAgeLogo.png">
@@ -472,6 +472,11 @@
 
   .noscroll {
     overflow-y: hidden;
+  }  
+
+  .fullheight {
+    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 100);
   }  
 
   .tabulator { font-size: .9em; }
