@@ -51,6 +51,7 @@
 
             tab1Options: {
               responsiveLayout:"collapse", // enable responsive layouts
+              height:"100%",
               //virtualDOM: "true",
 
               columns: [
