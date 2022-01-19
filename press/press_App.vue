@@ -444,8 +444,8 @@
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
   }
-  
+
   .noscroll {
-    overflow-y: none;
+    overflow-y: hidden;
   }  
 </style>
