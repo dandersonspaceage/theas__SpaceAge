@@ -1,4 +1,5 @@
 <template>
+<div>
     <b-row style="height: 15%">
       <b-col>
         <img src="/resources/SpaceAgeLogo.png">
@@ -47,6 +48,7 @@
 
   </div>
 
+</div>
 </template>
 
 <script>
