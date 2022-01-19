@@ -50,27 +50,27 @@
       return {
 
             tab1Options: {
-              responsiveLayout:true, // enable responsive layouts
+              responsiveLayout:"collapse", // enable responsive layouts
 
               columns: [
-                {title: 'WO', field: 'WONumber', responsive:0},                  
-                {title: 'SO', field: 'LinkedSONumber', responsive:0},
-                {title: 'Qty', field: 'Quantity', responsive:0},
-                {title: 'QtyShot', field: 'CurrentShotCount', responsive:0},
+                {title: 'WO', field: 'WONumber', responsive: 0},                  
+                {title: 'SO', field: 'LinkedSONumber', responsive: 0},
+                {title: 'Qty', field: 'Quantity', responsive: 0},
+                {title: 'QtyShot', field: 'CurrentShotCount', responsive: 0},
                 {title: 'CommitDate', field: 'CommitDate', formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);}, formatterParams: {formatStr: "MM/DD"}},
                 {title: 'Item', field: 'ItemNumber'},
                 {title: 'Customer', field: 'CustomerName'},
                 {title: 'ThicknessOffPress', field: 'DimThickness_OffPress'},
                 {title: 'WidthOffPress', field: 'DimWidth_OffPress'},
                 {title: 'LengthOffPress', field: 'DimLength_OffPress'},
-                {title: 'Foam', field: 'FoamSystem', responsiveLayout:'collapse', responsive:2},
-                {title: 'GlassSeries', field: 'GlassSeries', responsiveLayout:'collapse', responsive:2},
-                {title: 'Finish', field: 'SurfaceFinish', responsiveLayout:'collapse', responsive:2},
-                {title: 'ShimLayup', field: 'ShimLayup', responsiveLayout:'collapse', responsive:2},
+                {title: 'Foam', field: 'FoamSystem', responsive: 2},
+                {title: 'GlassSeries', field: 'GlassSeries', responsive: 2},
+                {title: 'Finish', field: 'SurfaceFinish', responsive: 2},
+                {title: 'ShimLayup', field: 'ShimLayup', responsive: 2},
                 {title: 'MoldGlassLayers', field: 'MoldGlassLayers'},
                 {title: 'ShotWeight', field: 'Weight_OffPress'},
                 {title: 'FoamGrams', field: 'Weight_Foam'},
-                {title: 'Notes', field: 'Notes', responsive:0}                                                 
+                {title: 'Notes', field: 'Notes', responsive: 0}                                                 
               ],
             },
 
