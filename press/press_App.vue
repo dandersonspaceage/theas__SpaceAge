@@ -33,6 +33,10 @@
         <b-col>
           <h5>Working on: xxxx</h5>
         </b-col>
+
+        <b-col>
+          Another col
+        </b-col>
         
         <b-col>
           <b-button>Completed Board</b-button>
