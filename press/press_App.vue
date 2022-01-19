@@ -31,7 +31,7 @@
     <b-row style="height: 20%; background-color: #BDB76B">
 
         <b-col>
-          <h5>Working on: xxxx  5 of 28</h5>
+          <h4>Working on: xxxx  5 of 28</h4>
           <b-button>Completed Board</b-button>
         </b-col>
 
