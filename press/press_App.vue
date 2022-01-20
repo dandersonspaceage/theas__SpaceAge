@@ -68,7 +68,7 @@
     <template #modal-title>
       Some Title
     </template>
-    <div class="d-block text-center">
+    <div class="d-block">
         <b-form-group label="Width"
                     :label-for="'qaWidth'">
         <b-form-input :id="'qaWidth'"
