@@ -103,7 +103,7 @@
                 {title: 'Foam Grams', field: 'Weight_Foam'},                
 
                 {title: 'Item', field: 'ItemNumber', responsive: 3, minWidth: 150},
-                {title: 'Customer', field: 'CustomerName', responsive: 3},
+                {title: 'Customer', field: 'CustomerName', responsive: 3, minWidth: 175},
                 {title: 'SO', field: 'LinkedSONumber', responsive: 3},                
                 
                 {title: 'Foam', field: 'FoamSystem', responsive: 2},
