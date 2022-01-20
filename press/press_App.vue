@@ -79,10 +79,10 @@
 
             tab1Options: {
               responsiveLayout: 'collapse', // enable responsive layouts
-              height: '68vh', //with responsiveCollapse we need to specify an  absolute height
+              height: '68vh', //with responsiveCollapse we need to specify an absolute height
               layout: 'fitDataFill',
               responsiveLayoutCollapseStartOpen: false,
-              resizableColumns: false,
+              resizableColumns: true,
 
               columns: [
                 {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
@@ -108,7 +108,7 @@
                 {title: 'Item', field: 'ItemNumber', responsive: 3, minWidth: 150},
                 {title: 'Customer', field: 'CustomerName', responsive: 3, minWidth: 175},
                 {title: 'SO', field: 'LinkedSONumber', responsive: 3},                
-                
+
                 {title: 'Commit Date', field: 'CommitDate', responsive: 3,
                   formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);},
                   formatterParams: {formatStr: "MM/DD"}
