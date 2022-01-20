@@ -86,7 +86,7 @@
 
               columns: [
                 {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
-                {title: 'WO', field: 'WONumber', responsive: 0},                  
+                {title: 'WO', field: 'WONumber', frozen: true, responsive: 0},                  
                 {title: 'Qty Remain', field: 'QtyRemaining', responsive: 0},
                 {title: 'Qty Needed', field: 'Quantity', responsive: 3},                
                 {title: 'Qty Shot', field: 'CurrentShotCount', responsive: 4},
@@ -117,7 +117,7 @@
                 
                 {title: 'Foam', field: 'FoamSystem', responsive: 2},
                 //{title: 'Finish', field: 'SurfaceFinish', responsive: 4, minWidth: 150},
-                {title: 'ShimLayup', field: 'ShimLayup', responsive: 2},
+                {title: 'Shim Layup', field: 'ShimLayup', responsive: 2},
                 {title: 'Glass Layers', field: 'MoldGlassLayers', responsive: 2},
 
                 {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175}
@@ -505,5 +505,9 @@
   }  
 
   .tabulator { font-size: .8em; }
+
+  .tabulator .tabulator-header .tabulator-col .tabulator-col-content .tabulator-col-title {
+    white-space: pre-wrap;
+  }  
 
 </style>
