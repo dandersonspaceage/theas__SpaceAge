@@ -1,11 +1,11 @@
 <template>
 <div style="height:100vh" class="mr-3">
   <b-row style="height: 15%">
-    <b-col>
+    <b-col cols="1">
       <img src="/resources/SpaceAgeLogo.png">
     </b-col>
 
-    <b-col>
+    <b-col cols=5>
       <b-form-group label="Press"
                     :label-for="'ListName'">
         <b-form-select :id="'listName'"
@@ -14,6 +14,9 @@
       </b-form-group>
 
         <h6>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>        
+    </b-col>
+    <b-col>
+      <b-button>Reload</b-button>
     </b-col>
   
   </b-row>    
