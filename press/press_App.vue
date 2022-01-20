@@ -88,8 +88,8 @@
                 {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
                 {title: 'WO', field: 'WONumber', responsive: 0},                  
                 {title: 'Qty Remain', field: 'QtyRemaining', responsive: 0},
-                {title: 'Qty Needed', field: 'Quantity', responsive: 1},                
-                {title: 'Qty Shot', field: 'CurrentShotCount', responsive: 3},
+                {title: 'Qty Needed', field: 'Quantity', responsive: 3},                
+                {title: 'Qty Shot', field: 'CurrentShotCount', responsive: 4},
                 {title: 'Commit Date', field: 'CommitDate', formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);}, formatterParams: {formatStr: "MM/DD"}},   
                 {title: 'Off Press Date', field: 'DateReqOffPress', formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);}, formatterParams: {formatStr: "dd MM/DD"}},
 
