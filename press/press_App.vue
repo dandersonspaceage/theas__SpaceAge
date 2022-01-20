@@ -506,7 +506,4 @@
 
   .tabulator { font-size: .8em; }
 
-  .tabulator .tabulator-header .tabulator-col .tabulator-col-content .tabulator-col-title {
-      white-space: normal;
-  }  
 </style>
