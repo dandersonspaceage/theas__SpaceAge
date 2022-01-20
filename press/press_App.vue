@@ -71,8 +71,8 @@
     <div class="d-block text-center">
         <b-form-group label="Width"
                     :label-for="'qaWidth'">
-        <b-form-text :id="'qaWidth'"
-                      v-model="data_ThisWO.QAWidth" size="sm"></b-form-text>
+        <b-form-input :id="'qaWidth'"
+                      v-model="data_ThisWO.QAWidth" size="sm"></b-form-input>
       </b-form-group>
 
     </div>
