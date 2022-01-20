@@ -345,8 +345,8 @@
                     thatVue.data_ThisWO = thatVue.data_WOs.find((el) => el.qguid === thatVue.data_thisWO.qguid);                             
                 }
 
-                if (thatVue.thisWO) {
-                  thisWO.StatusColor = "#28a745"
+                if (thatVue.data_ThisWO) {
+                  thatVue.data_ThisWO.StatusColor = "#28a745";
                 }
 
               }
