@@ -106,10 +106,10 @@
                 {title: 'Customer', field: 'CustomerName', responsive: 3},
                 {title: 'SO', field: 'LinkedSONumber', responsive: 3},                
                 
-                {title: 'Foam', field: 'FoamSystem', responsive: 4},
+                {title: 'Foam', field: 'FoamSystem', responsive: 2},
                 //{title: 'Finish', field: 'SurfaceFinish', responsive: 4, minWidth: 150},
-                {title: 'ShimLayup', field: 'ShimLayup', responsive: 4},
-                {title: 'Mold Glass Layers', field: 'MoldGlassLayers', responsive: 4},
+                {title: 'ShimLayup', field: 'ShimLayup', responsive: 2},
+                {title: 'Mold Glass Layers', field: 'MoldGlassLayers', responsive: 32,
 
                 {title: 'Notes', field: 'Notes', responsive: 0, width:'20%', minWidth: 175},
                                                                  
