@@ -64,6 +64,15 @@
     </div>
   </b-modal>
 
+  <b-modal id="WOQualityModal" ref="WOQualityModal" @hide="onHideWOQuality" hide-footer>
+    <template #modal-title>
+      Some Title
+    </template>
+    <div class="d-block text-center">
+      <p>Some data can go here</p>
+    </div>
+  </b-modal>  
+
 </div>
 </template>
 
@@ -212,6 +221,10 @@
           screenfull.request();
         }
       }, 
+
+      onHideWOQuality: function() {
+        let noop;
+      },
 
       onthModalHide: function() {
         let thatVue = this;
@@ -396,6 +409,7 @@
       completeBoard: function(event) {
           var thatVue = this;
 
+          thatVue.$bvModal.show('WOQualityModal');
 
           thatVue.$th.sendAsync({
             url: "/async/" + thatVue.asyncResource_WOs,
