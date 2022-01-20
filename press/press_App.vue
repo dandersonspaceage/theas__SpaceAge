@@ -341,8 +341,8 @@
                   if (thatVue.data_thisWO.qguid) {
                     thatVue.data_ThisWO = thatVue.data_WOs.find((el) => el.qguid === thatVue.data_thisWO.qguid);                             
                   }
-                  elseif (!thatVue.thisWO && data_WOs.length > 0) {
-                  thatVue.thisWO = thatVue.data_WOs[0];
+                  else if ((!thatVue.thisWO) && data_WOs.length > 0) {
+                    thatVue.thisWO = thatVue.data_WOs[0];
                   }
                 }
 
