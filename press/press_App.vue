@@ -111,7 +111,7 @@
                 {title: 'ShimLayup', field: 'ShimLayup', responsive: 2},
                 {title: 'Mold Glass Layers', field: 'MoldGlassLayers', responsive: 2},
 
-                {title: 'Notes', field: 'Notes', responsive: 0, width:'20%', minWidth: 175},
+                {title: 'Notes', field: 'Notes', responsive: 0, width:'20%', minWidth: 175}
                                                                  
               ],
             },
