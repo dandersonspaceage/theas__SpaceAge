@@ -44,7 +44,7 @@
 
         <b-col cols="7">
           <h6>Working on: xxxx  5 of 28</h6>
-          <b-button  variant="success">Completed Board</b-button>
+          <b-button @click="completeBoard" variant="success">Completed Board</b-button>
         </b-col>
 
         <b-col>
@@ -87,6 +87,7 @@
 
               columns: [
                 {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
+                {title: '', field:"StatusColor", formatter:"color"},
                 {title: 'WO', field: 'WONumber', responsive: 0},                  
                 {title: 'Qty Remain', field: 'QtyRemaining', responsive: 0},
                 {title: 'Qty Needed', field: 'Quantity', responsive: 3},                
@@ -340,6 +341,14 @@
                   thatVue.data_ThisWO = thatVue.data_WOs.find((el) => el.qguid === thatVue.data_thisWO.qguid);                             
                 }
 
+                if (!thatVue.thisWO && data_WOs.length > 0) {
+                  thatVue.thisWO = data_WOs[0]
+                }
+
+                if (thatVue.thisWO) {
+                  thisWO.StatusColor = "#28a745"
+                }
+
               }
 
             }
@@ -378,6 +387,45 @@
       onChangePlan: function (qguid, event) {
           let thatVue = this;  
           thatVue.setDirty(qguid);                         
+      },
+
+      completeBoard: function(event) {
+          var thatVue = this;
+
+
+          thatVue.$th.sendAsync({
+            url: "/async/" + thatVue.asyncResource_WOs,
+            asyncCmd: 'completeBoard',
+            data: {WO: thisWO}, //note: passes to @FormParams
+
+            onResponse: function (rd, response) {
+                // rd contains the response data split into an object (of name/value pairs)
+                // (might have been returned as either a string of URL-encoded name/value
+                // pairs, or as a JSON strong)
+
+                // response contains the complete response object, in which .data contains
+                // the raw data that was received.              
+
+                let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === qguid)
+                if (thisIndex >= 0) {
+                  thatVue.data_ThisWO = thatVue.data_WOs[thisIndex];
+
+                  if
+                    (
+                      (thatVue.curWOList == 'Unscheduled' && thatVue.data_ThisWO.PlannedPress) ||
+                      (thatVue.curWOList != 'Unscheduled' && thatVue.curWOList != thatVue.data_ThisWO.PlannedPress)
+                    ){
+                      thatVue.$delete(thatVue.data_WOs, thisIndex);
+                      thatVue.data_ThisWO = {};                    
+                    }
+                }
+
+              }
+          });
+
+ 
+
+
       },
 
       saveWO: function (qguid, event) {
