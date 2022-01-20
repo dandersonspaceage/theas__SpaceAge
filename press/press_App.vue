@@ -97,7 +97,9 @@
                   formatterParams: {formatStr: "dd MM/DD"}
                 },
 
-                {title: 'Thick OP', field: 'DimThickness_Finished'},
+                {title: 'Est Hours Remain', field: 'PressHoursRemain'},
+
+                {title: 'Thick', field: 'DimThickness_Finished'},
                 {title: 'Thick OP', field: 'DimThickness_OffPress'},
                 {title: 'Width OP', field: 'DimWidth_OffPress'},
                 {title: 'Length OP', field: 'DimLength_OffPress'},
