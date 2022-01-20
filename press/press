@@ -91,12 +91,6 @@
 <body style="height:85vh; width:100%">
   <script>
     document.body.style.cursor = 'progress';      
-
-
-    .tabulator .tabulator-header .tabulator-col .tabulator-col-content .tabulator-col-title {
-      white-space: normal;
-    }  
-
   </script>  
 
     <!--This form is used internally by Theas for session tracking et al.  It must have id="theasForm"-->
