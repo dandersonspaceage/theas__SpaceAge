@@ -80,9 +80,9 @@
                 {title: 'Off Press Date', field: 'DateReqOffPress', formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);}, formatterParams: {formatStr: "dd MM/DD"}},
 
 
-                {title: 'Thick Off Press', field: 'DimThickness_OffPress'},
-                {title: 'Widt Off Press', field: 'DimWidth_OffPress'},
-                {title: 'Length Off Press', field: 'DimLength_OffPress'},
+                {title: 'Thick OP', field: 'DimThickness_OffPress'},
+                {title: 'Width OP', field: 'DimWidth_OffPress'},
+                {title: 'Length OP', field: 'DimLength_OffPress'},
 
                 {title: 'Weight OP', field: 'Weight_OffPress'},                
                 {title: 'Weight Sanded', field: 'Weight_Sanded'},
