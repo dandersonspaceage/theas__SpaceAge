@@ -86,7 +86,7 @@
 
               columns: [
                 {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
-                {title: 'WO', field: 'WONumber', frozen: true, responsive: 0},                  
+                {title: 'WO', field: 'WONumber', responsive: 0},                  
                 {title: 'Qty Remain', field: 'QtyRemaining', responsive: 0},
                 {title: 'Qty Needed', field: 'Quantity', responsive: 3},                
                 {title: 'Qty Shot', field: 'CurrentShotCount', responsive: 4},
