@@ -102,6 +102,7 @@
                 {title: 'Width OP', field: 'DimWidth_OffPress'},
                 {title: 'Length OP', field: 'DimLength_OffPress'},
 
+                {title: 'Glass', field: 'GlassSpecs', formatter: 'textarea'},  
                 {title: 'Weight OP', field: 'Weight_OffPress'},                
                 {title: 'Weight Sanded', field: 'Weight_Sanded'},
                 {title: 'Foam Grams', field: 'Weight_Foam'},                
