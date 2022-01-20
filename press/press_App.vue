@@ -90,8 +90,11 @@
                 {title: 'Qty Remain', field: 'QtyRemaining', responsive: 0},
                 {title: 'Qty Needed', field: 'Quantity', responsive: 3},                
                 {title: 'Qty Shot', field: 'CurrentShotCount', responsive: 4},
-                {title: 'Commit Date', field: 'CommitDate', formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);}, formatterParams: {formatStr: "MM/DD"}},   
-                {title: 'Off Press Date', field: 'DateReqOffPress', formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);}, formatterParams: {formatStr: "dd MM/DD"}},
+
+                {title: 'Off Press Date', field: 'DateReqOffPress', 
+                  formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);},
+                  formatterParams: {formatStr: "dd MM/DD"}
+                },
 
 
                 {title: 'Thick OP', field: 'DimThickness_OffPress'},
@@ -105,6 +108,12 @@
                 {title: 'Item', field: 'ItemNumber', responsive: 3, minWidth: 150},
                 {title: 'Customer', field: 'CustomerName', responsive: 3, minWidth: 175},
                 {title: 'SO', field: 'LinkedSONumber', responsive: 3},                
+                
+                {title: 'Commit Date', field: 'CommitDate', responsive: 3,
+                  formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);},
+                  formatterParams: {formatStr: "MM/DD"}
+                },   
+
                 
                 {title: 'Foam', field: 'FoamSystem', responsive: 2},
                 //{title: 'Finish', field: 'SurfaceFinish', responsive: 4, minWidth: 150},
