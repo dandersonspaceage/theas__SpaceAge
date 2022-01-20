@@ -76,14 +76,17 @@
                 {title: 'WO', field: 'WONumber', responsive: 0},                  
                 {title: 'Qty', field: 'Quantity', responsive: 0},
                 {title: 'QtyShot', field: 'CurrentShotCount', responsive: 1},
-                {title: 'CommitDate', field: 'CommitDate', formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);}, formatterParams: {formatStr: "MM/DD"}},
-              
-                {title: 'ThicknessOffPress', field: 'DimThickness_OffPress'},
-                {title: 'WidthOffPress', field: 'DimWidth_OffPress'},
-                {title: 'LengthOffPress', field: 'DimLength_OffPress'},
+                {title: 'Commit Date', field: 'CommitDate', formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);}, formatterParams: {formatStr: "MM/DD"}},   
+                {title: 'Off Press Date', field: 'DateReqOffPress', formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);}, formatterParams: {formatStr: "MM/DD"}},
 
-                {title: 'ShotWeight', field: 'Weight_OffPress'},
-                {title: 'FoamGrams', field: 'Weight_Foam'},                
+
+                {title: 'Thick Off Press', field: 'DimThickness_OffPress'},
+                {title: 'Widt Off Press', field: 'DimWidth_OffPress'},
+                {title: 'Length Off Press', field: 'DimLength_OffPress'},
+
+                {title: 'Weight OP', field: 'Weight_OffPress'},                
+                {title: 'Weight Sanded', field: 'Weight_Sanded'},
+                {title: 'Foam Grams', field: 'Weight_Foam'},                
 
                 {title: 'Item', field: 'ItemNumber', responsive: 3},
                 {title: 'Customer', field: 'CustomerName', responsive: 3},
