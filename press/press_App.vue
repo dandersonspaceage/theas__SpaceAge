@@ -342,7 +342,7 @@
                 }
 
                 if (!thatVue.thisWO && data_WOs.length > 0) {
-                  thatVue.thisWO = data_WOs[0]
+                  thatVue.thisWO = thatVue.data_WOs[0]
                 }
 
                 if (thatVue.thisWO) {
