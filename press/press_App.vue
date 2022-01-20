@@ -77,7 +77,7 @@
                 {title: 'Qty', field: 'Quantity', responsive: 0},
                 {title: 'QtyShot', field: 'CurrentShotCount', responsive: 1},
                 {title: 'Commit Date', field: 'CommitDate', formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);}, formatterParams: {formatStr: "MM/DD"}},   
-                {title: 'Off Press Date', field: 'DateReqOffPress', formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);}, formatterParams: {formatStr: "MM/DD"}},
+                {title: 'Off Press Date', field: 'DateReqOffPress', formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);}, formatterParams: {formatStr: "dd MM/DD"}},
 
 
                 {title: 'Thick Off Press', field: 'DimThickness_OffPress'},
