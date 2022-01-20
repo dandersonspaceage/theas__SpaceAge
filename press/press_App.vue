@@ -121,7 +121,7 @@
                 
                 {title: 'Foam', field: 'FoamSystem', responsive: 2},
                 //{title: 'Finish', field: 'SurfaceFinish', responsive: 4, minWidth: 150},
-                {title: 'Shim Layup', field: 'ShimLayup', responsive: 2, formatter: 'textarea'}},
+                {title: 'Shim Layup', field: 'ShimLayup', responsive: 2, formatter: 'textarea'},
                 {title: 'Glass Layers', field: 'MoldGlassLayers', responsive: 2},
 
                 {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175}
