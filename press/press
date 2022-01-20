@@ -53,7 +53,7 @@
       }
 
       .tabulator .tabulator-header .tabulator-col .tabulator-col-content .tabulator-col-title {
-        white-space: normal !important;
+        white-space: break-spaces;
       }        
 
     </style>
