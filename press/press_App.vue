@@ -104,7 +104,10 @@
                 {title: 'Width OP', field: 'DimWidth_OffPress'},
                 {title: 'Length OP', field: 'DimLength_OffPress'},
 
-                {title: 'Glass', field: 'GlassSpecs', formatter: 'textarea'},  
+                {title: 'Glass', field: 'GlassSpecs', responsive: 2, formatter: 'textarea'},  
+                {title: 'Shim Layup', field: 'ShimLayup', responsive: 2, formatter: 'textarea'},
+                {title: 'Glass Layers', field: 'MoldGlassLayers', responsive: 2},
+
                 {title: 'Weight OP', field: 'Weight_OffPress'},                
                 {title: 'Weight Sanded', field: 'Weight_Sanded'},
                 {title: 'Foam Grams', field: 'Weight_Foam'},                
@@ -121,8 +124,7 @@
                 
                 {title: 'Foam', field: 'FoamSystem', responsive: 2},
                 //{title: 'Finish', field: 'SurfaceFinish', responsive: 4, minWidth: 150},
-                {title: 'Shim Layup', field: 'ShimLayup', responsive: 2, formatter: 'textarea'},
-                {title: 'Glass Layers', field: 'MoldGlassLayers', responsive: 2},
+
 
                 {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175}
                                                                  
