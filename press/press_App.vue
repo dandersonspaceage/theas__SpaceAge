@@ -66,53 +66,78 @@
 
   <b-modal id="WOQualityModal" ref="WOQualityModal" @hide="onHideWOQuality" hide-footer>
     <template #modal-title>
-      Some Title
+      <h4>QA Measurements for WO [[ data_ThisWO.WONumber ]]</h4>
     </template>
+
     <div class="d-block">
-      <b-form-group label="Caliper 1"
-                    :label-for="'qaCaliper1'">
-        <b-form-input :id="'qaCaliper1'"
-                      v-model="data_ThisWO.QACaliper1" size="sm"></b-form-input>
-      </b-form-group>
-
-      <b-form-group label="Caliper 2"
-                    :label-for="'qaCaliper2'">
-        <b-form-input :id="'qaCaliper2'"
-                      v-model="data_ThisWO.QACaliper2" size="sm"></b-form-input>
-      </b-form-group>      
-
-      <b-form-group label="Caliper Front"
-                    :label-for="'qaCaliperFront'">
-        <b-form-input :id="'qaCaliperFront'"
-                      v-model="data_ThisWO.QACaliperFront" size="sm"></b-form-input>
-      </b-form-group>          
-
-      <b-form-group label="Caliper Back"
-                    :label-for="'qaCaliperBack'">
-        <b-form-input :id="'qaCaliperBack'"
-                      v-model="data_ThisWO.QACaliperBack" size="sm"></b-form-input>
-      </b-form-group>          
+      
+      <b-row>      
+        <b-col>          
+          <b-form-group label="Caliper 1"
+                        :label-for="'qaCaliper1'">
+            <b-form-input :id="'qaCaliper1'"
+                          v-model="data_ThisWO.QACaliper1" size="sm"></b-form-input>
+          </b-form-group>
+        </b-col>
 
 
-      <b-form-group label="Actual Weight"
-                    :label-for="'qaActualWeight'">
-        <b-form-input :id="'qaActualWeight'"
-                      v-model="data_ThisWO.QAActualWeight" size="sm"></b-form-input>
-      </b-form-group>
+        <b-col>     
+          <b-form-group label="Caliper 2"
+                        :label-for="'qaCaliper2'">
+            <b-form-input :id="'qaCaliper2'"
+                          v-model="data_ThisWO.QACaliper2" size="sm"></b-form-input>
+          </b-form-group>
+        </b-col>
+      </b-row>
+
+      <b-row>      
+        <b-col>   
+          <b-form-group label="Caliper Front"
+                        :label-for="'qaCaliperFront'">
+            <b-form-input :id="'qaCaliperFront'"
+                          v-model="data_ThisWO.QACaliperFront" size="sm"></b-form-input>
+          </b-form-group>
+        </b-col>
 
 
-      <b-form-group label="Actual Set Time"
-                    :label-for="'qaActualSetTime'">
-        <b-form-input :id="'qaActualSetTIme'"
-                      v-model="data_ThisWO.QAActualSetTime" size="sm"></b-form-input>
-      </b-form-group>              
+        <b-col>                 
+          <b-form-group label="Caliper Back"
+                        :label-for="'qaCaliperBack'">
+            <b-form-input :id="'qaCaliperBack'"
+                          v-model="data_ThisWO.QACaliperBack" size="sm"></b-form-input>
+          </b-form-group>          
+        </b-col>
+      </b-row>
 
-      <b-form-group label="Quality"
-                    :label-for="'qaQuality'">
-        <b-form-select :id="'qaQuality'"
-                      v-model="data_ThisWO.QAActualSetTime" size="sm"></b-form-select>
-      </b-form-group>           
+      <b-row>      
+        <b-col>           
+          <b-form-group label="Actual Weight"
+                        :label-for="'qaActualWeight'">
+            <b-form-input :id="'qaActualWeight'"
+                          v-model="data_ThisWO.QAActualWeight" size="sm"></b-form-input>
+          </b-form-group>
+        </b-col>
 
+
+        <b-col>  
+          <b-form-group label="Actual Set Time"
+                        :label-for="'qaActualSetTime'">
+            <b-form-input :id="'qaActualSetTIme'"
+                          v-model="data_ThisWO.QAActualSetTime" size="sm"></b-form-input>
+          </b-form-group>              
+        </b-col>
+      </b-row>
+
+      <b-row>      
+        <b-col>   
+          <b-form-group label="Quality"
+                        :label-for="'qaQuality'">
+            <b-form-select :id="'qaQuality'"
+                          v-model="data_ThisWO.QAActualSetTime" size="sm"></b-form-select>
+          </b-form-group>           
+        </b-col>
+      </b-row>
+      
     </div>
   </b-modal>  
 
