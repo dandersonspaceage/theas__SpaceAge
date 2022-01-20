@@ -80,8 +80,8 @@
             tab1Options: {
               responsiveLayout: 'collapse', // enable responsive layouts
               height: '68vh', //with responsiveCollapse we need to specify an absolute height
-              //layout: 'fitDataFill',
-              layout: 'fitColumns',
+              layout: 'fitDataFill',
+              //layout: 'fitColumns',
               responsiveLayoutCollapseStartOpen: false,
               resizableColumns: true,
 
