@@ -102,12 +102,12 @@
                 {title: 'Weight Sanded', field: 'Weight_Sanded'},
                 {title: 'Foam Grams', field: 'Weight_Foam'},                
 
-                {title: 'Item', field: 'ItemNumber', responsive: 3},
+                {title: 'Item', field: 'ItemNumber', responsive: 3, minWidth: 150},
                 {title: 'Customer', field: 'CustomerName', responsive: 3},
                 {title: 'SO', field: 'LinkedSONumber', responsive: 3},                
                 
                 {title: 'Foam', field: 'FoamSystem', responsive: 4},
-                {title: 'Finish', field: 'SurfaceFinish', responsive: 4, minWidth: 150},
+                //{title: 'Finish', field: 'SurfaceFinish', responsive: 4, minWidth: 150},
                 {title: 'ShimLayup', field: 'ShimLayup', responsive: 4},
                 {title: 'MoldGlassLayers', field: 'MoldGlassLayers', responsive: 4},
 
@@ -496,4 +496,8 @@
   }  
 
   .tabulator { font-size: .9em; }
+
+  .tabulator .tabulator-header .tabulator-col .tabulator-col-content .tabulator-col-title {
+      white-space: normal;
+  }  
 </style>
