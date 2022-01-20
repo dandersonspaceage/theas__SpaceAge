@@ -43,12 +43,11 @@
     <b-row style="height:20%; background-color: #BDB76B">
 
         <b-col cols="7">
-          <h6>Working on: [[ data_ThisWO.WONumber ]] [[ data_ThisWO.CurrentShotCount ]] of [[ data_ThisWO.Quantity]]</h6>
+          <h6>Working on: WO [[ data_ThisWO.WONumber ]] (#[[ data_ThisWO.CurrentShotCount ]] of [[ data_ThisWO.Quantity]])</h6>
           <b-button @click="completeBoard" variant="success">Completed Board</b-button>
         </b-col>
 
         <b-col>
-          Another col
         </b-col>
 
     </b-row>
