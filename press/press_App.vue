@@ -23,7 +23,7 @@
 
     <b-col cols="1">
       <br />
-      <b-button>Reload</b-button>
+      <b-button @click="fetchData()">Reload</b-button>
     </b-col>
 
     <b-col cols="1">
@@ -349,7 +349,7 @@
 
         // check th.loadingCount so we don't fire off too many simultaneous requests
         if (
-                (forceOnError || !this.$th.theasParams.th$ErrorMessage) &&
+            (forceOnError || !this.$th.theasParams.th$ErrorMessage) &&
                 thatVue.$th.loadingCount < 5
         ) {
           if (thatVue.modalShowing === true) {
