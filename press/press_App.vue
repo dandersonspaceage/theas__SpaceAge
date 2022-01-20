@@ -109,7 +109,7 @@
                 {title: 'Foam', field: 'FoamSystem', responsive: 4},
                 //{title: 'Finish', field: 'SurfaceFinish', responsive: 4, minWidth: 150},
                 {title: 'ShimLayup', field: 'ShimLayup', responsive: 4},
-                {title: 'MoldGlassLayers', field: 'MoldGlassLayers', responsive: 4},
+                {title: 'Mold Glass Layers', field: 'MoldGlassLayers', responsive: 4},
 
                 {title: 'Notes', field: 'Notes', responsive: 0, width:'20%', minWidth: 200},
                                                                  
@@ -495,7 +495,7 @@
     height: calc(var(--vh, 1vh) * 100);
   }  
 
-  .tabulator { font-size: .9em; }
+  .tabulator { font-size: .8em; }
 
   .tabulator .tabulator-header .tabulator-col .tabulator-col-content .tabulator-col-title {
       white-space: normal;
