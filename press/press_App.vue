@@ -9,8 +9,8 @@
 
     <b-col cols="5">
     </b-col>
-    
-    <b-col cols=5>
+
+    <b-col cols=4>
       <b-form-group label="Press"
                     :label-for="'ListName'">
         <b-form-select :id="'listName'"
@@ -22,7 +22,11 @@
     </b-col>
 
     <b-col cols="1">
+      <br />
       <b-button>Reload</b-button>
+    </b-col>
+
+    <b-col cols="1">
     </b-col>
   
   </b-row>    
