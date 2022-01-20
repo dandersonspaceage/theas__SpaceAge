@@ -69,7 +69,12 @@
       Some Title
     </template>
     <div class="d-block text-center">
-      <p>Some data can go here</p>
+        <b-form-group label="Width"
+                    :label-for="'qaWidth'">
+        <b-form-text :id="'qaWidth'"
+                      v-model="data_ThisWO.QAWidth" size="sm"></b-form-text>
+      </b-form-group>
+
     </div>
   </b-modal>  
 
