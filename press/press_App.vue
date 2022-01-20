@@ -66,7 +66,7 @@
 
   <b-modal id="WOQualityModal" ref="WOQualityModal" @hide="onHideWOQuality" hide-footer>
     <template #modal-title>
-      <h4>QA Measurements for WO [[ data_ThisWO.WONumber ]]</h4>
+      <h4>WO [[ data_ThisWO.WONumber ]] QA Measurements</h4>
     </template>
 
     <div class="d-block">
@@ -137,7 +137,7 @@
           </b-form-group>           
         </b-col>
       </b-row>
-      
+
     </div>
   </b-modal>  
 
