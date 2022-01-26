@@ -165,12 +165,6 @@
               responsiveLayoutCollapseStartOpen: false,
               resizableColumns: true,
 
-              function testFormatter(cell, formatterParams) {
-    var bvid = cell.getValue();
-    cell.getElement().style.backgroundColor = "#A6A6DF";
-    return bvid
-}
-
               columns: [
                 {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
                 //{title: '', field:"StatusColor", formatter:"color"},
@@ -178,15 +172,18 @@
                   formatter: function(cell, formatterParams, onRendered){
                     let thisVal = cell.getValue();
                     let thisColor = '#000000'
-                      if (thisVal = 1) {
-                        thisColor = "#007bff";
-                      }                           
-                      else if (thisVal = 2) {
-                        thisColor = "#ffc107";
-                      }
+
+                    if (thisVal = 1) {
+                      // primary
+                      thisColor = "#007bff";
+                    }                           
+                    else if (thisVal = 2) {
+                      // warning
+                      thisColor = "#ffc107";
+                    }
 
                     cell.getElement().style.backgroundColor = thisColor;
-                    
+
                     return thisVal;
                     },
                   formatterParams: {formatStr: "dd MM/DD"}
