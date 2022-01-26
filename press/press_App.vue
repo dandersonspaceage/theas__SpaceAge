@@ -42,12 +42,16 @@
 
     <b-row style="height:20%; background-color: #BDB76B">
 
-        <b-col cols="7">
-          <h6>Working on: WO [[ data_ThisWO.WONumber ]] (#[[ data_ThisWO.CurrentShotCount + 1 ]] of [[ data_ThisWO.Quantity]])</h6>
+        <b-col cols="6">
+          <h4>Table A</h4>
+          <h6>Working on: WO [[ data_ThisWOA.WONumber ]] (#[[ data_ThisWOA.CurrentShotCount + 1 ]] of [[ data_ThisWOA.Quantity]])</h6>
           <b-button @click="completeBoard" variant="success">Completed Board</b-button>
         </b-col>
 
         <b-col>
+          <h4>Table </h4>
+          <h6>Working on: WO [[ data_ThisWOB.WONumber ]] (#[[ data_ThisWOB.CurrentShotCount + 1 ]] of [[ data_ThisWOB.Quantity]])</h6>
+          <b-button @click="completeBoard" variant="success">Completed Board</b-button>
         </b-col>
 
     </b-row>
@@ -64,7 +68,7 @@
     </div>
   </b-modal>
 
-  <b-modal id="WOQualityModal" ref="WOQualityModal" @hide="onHideWOQuality" hide-footer>
+  <b-modal id="WOQualityModal" ref="WOQualityModal" @hide="onHideWOQuality(data_ThisWO.qguid, $event)" hide-footer>
     <template #modal-title>
       <h4>WO [[ data_ThisWO.WONumber ]] QA Measurements</h4>
     </template>
@@ -76,7 +80,7 @@
           <b-form-group label="Caliper 1"
                         :label-for="'qaCaliper1'">
             <b-form-input :id="'qaCaliper1'"
-                          v-model="data_ThisWO.QACaliper1" size="sm"></b-form-input>
+                          v-model="data_ThisShot.QACaliper1" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
 
@@ -85,7 +89,7 @@
           <b-form-group label="Caliper 2"
                         :label-for="'qaCaliper2'">
             <b-form-input :id="'qaCaliper2'"
-                          v-model="data_ThisWO.QACaliper2" size="sm"></b-form-input>
+                          v-model="data_ThisShot.QACaliper2" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
       </b-row>
@@ -95,7 +99,7 @@
           <b-form-group label="Caliper Front"
                         :label-for="'qaCaliperFront'">
             <b-form-input :id="'qaCaliperFront'"
-                          v-model="data_ThisWO.QACaliperFront" size="sm"></b-form-input>
+                          v-model="data_ThisShot.QACaliperFront" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
 
@@ -104,7 +108,7 @@
           <b-form-group label="Caliper Back"
                         :label-for="'qaCaliperBack'">
             <b-form-input :id="'qaCaliperBack'"
-                          v-model="data_ThisWO.QACaliperBack" size="sm"></b-form-input>
+                          v-model="data_ThisShot.QACaliperBack" size="sm"></b-form-input>
           </b-form-group>          
         </b-col>
       </b-row>
@@ -114,7 +118,7 @@
           <b-form-group label="Actual Weight"
                         :label-for="'qaActualWeight'">
             <b-form-input :id="'qaActualWeight'"
-                          v-model="data_ThisWO.QAActualWeight" size="sm"></b-form-input>
+                          v-model="data_ThisShot.QAActualWeight" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
 
@@ -123,7 +127,7 @@
           <b-form-group label="Actual Set Time"
                         :label-for="'qaActualSetTime'">
             <b-form-input :id="'qaActualSetTIme'"
-                          v-model="data_ThisWO.QAActualSetTime" size="sm"></b-form-input>
+                          v-model="data_ThisShot.QAActualSetTime" size="sm"></b-form-input>
           </b-form-group>              
         </b-col>
       </b-row>
@@ -133,7 +137,7 @@
           <b-form-group label="Quality"
                         :label-for="'qaQuality'">
             <b-form-select :id="'qaQuality'"
-                          v-model="data_ThisWO.QAActualSetTime" size="sm"></b-form-select>
+                          v-model="data_ThisShot.QAActualSetTime" size="sm"></b-form-select>
           </b-form-group>           
         </b-col>
       </b-row>
@@ -225,6 +229,7 @@
 
         // Dynamic data will be fetched asynchronously
         data_WOs: [],
+        data_Shots: [],
 
         lastFetch_WOs: null,
 
@@ -237,6 +242,10 @@
         curWOList: 'N',
 
         data_ThisWO: {},
+        data_ThisWOA: {},
+        data_ThisWOB: {},
+
+        data_ThisShot: {},
         thisWO_CommitDate: null, // object for datepicker
       };
     },
@@ -290,8 +299,12 @@
         }
       }, 
 
-      onHideWOQuality: function() {
-        let noop;
+      onHideWOQuality: function(qguid, evt) {
+        let thatVue = this;
+
+        thatVue.data_ThisShot.qguid = qguid;
+        thatVue.data_Shots.push(thatVue.data_ThisShot);
+        thatVue.setDirty(qguid)
       },
 
       onthModalHide: function() {
@@ -329,7 +342,7 @@
         let thisDirty = thatVue.dirtyQGUIDs.find((el) => el === qguid);
         if (!thisDirty) {
           thatVue.dirtyQGUIDs.push(qguid);
-          thatVue.dirtyTimers.push({timer: setTimeout(thatVue.saveWO, 3000, qguid), qguid: qguid});
+          thatVue.dirtyTimers.push({timer: setTimeout(thatVue.saveShot, 3000, qguid), qguid: qguid});
           //note:  timeout of 3000 must be longer than debounce of 1000 in textarea       
         }    
       },
@@ -339,7 +352,7 @@
         
         if (thatVue.dirtyQGUIDs.length) {
           thatVue.dirtyTimers.forEach(o => clearTimeout(o.timer)); // clear out any pending dirty timers
-          thatVue.saveWO(); // save any panding qguids
+          thatVue.saveShot(); // save any panding qguids
         }
         
         thatVue.data_WOs = [];
@@ -514,7 +527,7 @@
 
       },
 
-      saveWO: function (qguid, event) {
+      saveShot: function (qguid, event) {
           // save reference to Vue object that can be used in async callbacks
           var thatVue = this;
           
@@ -542,7 +555,7 @@
 
             thatVue.$th.sendAsync({
               url: "/async/" + thatVue.asyncResource_WOs,
-              asyncCmd: 'updateWO',
+              asyncCmd: 'updateWOShot',
               data: {WO: thisWO}, //note: passes to @FormParams
 
               onResponse: function (rd, response) {
@@ -555,16 +568,7 @@
 
                   let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === qguid)
                   if (thisIndex >= 0) {
-                    thatVue.data_ThisWO = thatVue.data_WOs[thisIndex];
-
-                    if
-                      (
-                        (thatVue.curWOList == 'Unscheduled' && thatVue.data_ThisWO.PlannedPress) ||
-                        (thatVue.curWOList != 'Unscheduled' && thatVue.curWOList != thatVue.data_ThisWO.PlannedPress)
-                      ){
-                        thatVue.$delete(thatVue.data_WOs, thisIndex);
-                        thatVue.data_ThisWO = {};                    
-                      }
+                    thatVue.data_ThisShot = thatVue.data_Shots[thisIndex];
                   }
 
                 }
@@ -594,24 +598,7 @@
           name: el.name + " cloned",
         };
       },
-
-      onDropWO: function (evt) {
-        let thatVue = this;
-        
-        let newIndex = evt.moved.newIndex;
-
-        if (thatVue.data_WOs.length > 1) {
-          if (newIndex == thatVue.data_WOs.length - 1) {
-            //moved to end of list
-            thatVue.data_WOs[newIndex - 1].NextQguid =  thatVue.data_WOs[newIndex].qguid;
-            thatVue.setDirty(thatVue.data_WOs[newIndex - 1].qguid);           
-          }                    
-          else {
-            thatVue.data_WOs[newIndex].NextQguid =  thatVue.data_WOs[newIndex + 1].qguid;
-            thatVue.setDirty(thatVue.data_WOs[newIndex].qguid);          
-          }
-        }   
-      }     
+  
     },
   };
 </script>
