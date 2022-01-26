@@ -168,7 +168,7 @@
               columns: [
                 {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
                 //{title: '', field:"StatusColor", formatter:"color"},
-                {title: '', field:"Seq",
+                {title: '', field:"TableNo",
                   formatter: function(cell, formatterParams, onRendered){
                     let thisVal = cell.getValue();
                     let thisColor = '#000000'
@@ -446,8 +446,10 @@
 
                 if (thatVue && thatVue.data_WOs && thatVue.data_WOs.length > 0) {
                     thatVue.data_ThisWOA= thatVue.data_WOs[0];
+                    thatVue.data_ThisWOA.TableNo = 1;
                     if (thatVue.data_WOs.length > 1) {
-                      thatVue.data_ThisWOB= thatVue.data_WOs[1];                      
+                      thatVue.data_ThisWOB= thatVue.data_WOs[1]; 
+                      thatVue.data_ThisWOA.TableNo = 2;                                             
                     }
                 }             
 
