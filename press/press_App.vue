@@ -44,13 +44,13 @@
 
         <b-col cols="6">
           <h4>Table 1</h4>
-          <h6>Working on: WO [[ data_ThisWOA.WONumber ]] (#[[ data_ThisWOA.CurrentShotCount + 1 ]] of [[ data_ThisWOA.Quantity]])</h6>
+          <h6>Working on: WO [[ data_ThisWOA.WONumber ]] (#[[ Number(data_ThisWOA.CurrentShotCount) + 1 ]] of [[ data_ThisWOA.Quantity]])</h6>
           <b-button @click="completeBoard" variant="primary">Completed Board</b-button>
         </b-col>
 
         <b-col>
           <h4>Table 2</h4>
-          <h6>Working on: WO [[ data_ThisWOB.WONumber ]] (#[[ data_ThisWOB.CurrentShotCount + 1 ]] of [[ data_ThisWOB.Quantity]])</h6>
+          <h6>Working on: WO [[ data_ThisWOB.WONumber ]] (#[[ Number(data_ThisWOB.CurrentShotCount) + 1 ]] of [[ data_ThisWOB.Quantity]])</h6>
           <b-button @click="completeBoard" variant="warning">Completed Board</b-button>
         </b-col>
 
