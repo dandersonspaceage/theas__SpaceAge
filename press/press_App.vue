@@ -173,11 +173,11 @@
                     let thisVal = cell.getValue();
                     let thisColor = '#FFFFFF'
 
-                    if (thisVal == 1) {
+                    if (thisVal == 'Table 1') {
                       // primary
                       thisColor = "#007bff";
                     }                           
-                    else if (thisVal == 2) {
+                    else if (thisVal == 'Table 2') {
                       // warning
                       thisColor = "#ffc107";
                     }
@@ -446,10 +446,10 @@
 
                 if (thatVue && thatVue.data_WOs && thatVue.data_WOs.length > 0) {
                     thatVue.data_ThisWOA= thatVue.data_WOs[0];
-                    thatVue.data_ThisWOA.TableNo = 1;
+                    thatVue.data_ThisWOA.TableNo = 'Table 1';
                     if (thatVue.data_WOs.length > 1) {
                       thatVue.data_ThisWOB= thatVue.data_WOs[1]; 
-                      thatVue.data_ThisWOB.TableNo = 2;                                             
+                      thatVue.data_ThisWOB.TableNo = 'Table 2';                                             
                     }
                 }             
 
