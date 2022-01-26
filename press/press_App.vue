@@ -427,7 +427,7 @@
                 if (thatVue && thatVue.data_WOs && thatVue.data_WOs.length > 0) {
                     thatVue.data_ThisWOA= thatVue.data_WOs[0];
                     if (thatVue.data_WOs.Length > 1) {
-                      thatVue.data_ThisWOB= thatVue.data_WOs[a];                      
+                      thatVue.data_ThisWOB= thatVue.data_WOs[1];                      
                     }
                 }
 
