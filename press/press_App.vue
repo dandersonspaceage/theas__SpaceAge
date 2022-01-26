@@ -173,11 +173,11 @@
                     let thisVal = cell.getValue();
                     let thisColor = '#000000'
 
-                    if (thisVal = 1) {
+                    if (thisVal == 1) {
                       // primary
                       thisColor = "#007bff";
                     }                           
-                    else if (thisVal = 2) {
+                    else if (thisVal == 2) {
                       // warning
                       thisColor = "#ffc107";
                     }
@@ -449,7 +449,7 @@
                     thatVue.data_ThisWOA.TableNo = 1;
                     if (thatVue.data_WOs.length > 1) {
                       thatVue.data_ThisWOB= thatVue.data_WOs[1]; 
-                      thatVue.data_ThisWOA.TableNo = 2;                                             
+                      thatVue.data_ThisWOB.TableNo = 2;                                             
                     }
                 }             
 
