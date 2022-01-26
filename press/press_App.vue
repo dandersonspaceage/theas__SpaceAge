@@ -165,9 +165,32 @@
               responsiveLayoutCollapseStartOpen: false,
               resizableColumns: true,
 
+              function testFormatter(cell, formatterParams) {
+    var bvid = cell.getValue();
+    cell.getElement().style.backgroundColor = "#A6A6DF";
+    return bvid
+}
+
               columns: [
                 {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
-                {title: '', field:"StatusColor", formatter:"color"},
+                //{title: '', field:"StatusColor", formatter:"color"},
+                {title: '', field:"Seq",
+                  formatter: function(cell, formatterParams, onRendered){
+                    let thisVal = cell.getValue();
+                    let thisColor = '#000000'
+                      if (thisVal = 1) {
+                        thisColor = "#007bff";
+                      }                           
+                      else if (thisVal = 2) {
+                        thisColor = "#ffc107";
+                      }
+
+                    cell.getElement().style.backgroundColor = thisColor;
+                    
+                    return thisVal;
+                    },
+                  formatterParams: {formatStr: "dd MM/DD"}
+                },                              
                 {title: 'WO', field: 'WONumber', responsive: 0},                  
                 {title: 'Qty Remain', field: 'QtyRemaining', responsive: 0},
                 {title: 'Qty Needed', field: 'Quantity', responsive: 3},                
@@ -429,16 +452,7 @@
                     if (thatVue.data_WOs.length > 1) {
                       thatVue.data_ThisWOB= thatVue.data_WOs[1];                      
                     }
-                }
-
-
-                if (thatVue.data_ThisWOA) {
-                  thatVue.data_ThisWOA.StatusColor = "#007bff";
-                }
-
-                if (thatVue.data_ThisWOB) {
-                  thatVue.data_ThisWOB.StatusColor = "#ffc107";
-                }                
+                }             
 
               }
 
