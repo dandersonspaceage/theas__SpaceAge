@@ -45,13 +45,13 @@
         <b-col cols="6">
           <h4>Table A</h4>
           <h6>Working on: WO [[ data_ThisWOA.WONumber ]] (#[[ data_ThisWOA.CurrentShotCount + 1 ]] of [[ data_ThisWOA.Quantity]])</h6>
-          <b-button @click="completeBoard" variant="success">Completed Board</b-button>
+          <b-button @click="completeBoard" variant="primary">Completed Board</b-button>
         </b-col>
 
         <b-col>
-          <h4>Table </h4>
+          <h4>Table B</h4>
           <h6>Working on: WO [[ data_ThisWOB.WONumber ]] (#[[ data_ThisWOB.CurrentShotCount + 1 ]] of [[ data_ThisWOB.Quantity]])</h6>
-          <b-button @click="completeBoard" variant="success">Completed Board</b-button>
+          <b-button @click="completeBoard" variant="warning">Completed Board</b-button>
         </b-col>
 
     </b-row>
@@ -443,9 +443,17 @@
                     thatVue.data_ThisWO = thatVue.data_WOs.find((el) => el.qguid === thatVue.data_thisWO.qguid);                             
                 }
 
-                if (thatVue.data_ThisWO) {
-                  thatVue.data_ThisWO.StatusColor = "#28a745";
+
+                thatVue.data_ThisWOAA = thatVue.data_WOs[0];
+                thatVue.data_ThisWOAB = thatVue.data_WOs[1];
+
+                if (thatVue.data_ThisWOA) {
+                  thatVue.data_ThisWO.StatusColor = "#007bff";
                 }
+
+                if (thatVue.data_ThisWOB) {
+                  thatVue.data_ThisWOB.StatusColor = "#ffc107";
+                }                
 
               }
 
