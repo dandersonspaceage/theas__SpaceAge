@@ -171,7 +171,7 @@
                 {title: '', field:"TableNo",
                   formatter: function(cell, formatterParams, onRendered){
                     let thisVal = cell.getValue();
-                    let thisColor = '#000000'
+                    let thisColor = '#FFFFFF'
 
                     if (thisVal == 1) {
                       // primary
