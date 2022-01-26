@@ -360,17 +360,6 @@
         thatVue.fetchWOs();
       },
 
-      toggleWODetail: function(qguid, event) {
-        // save reference to Vue object
-        let thatVue = this;
-        
-        // find the corresponding WO  https://stackoverflow.com/questions/12462318/find-a-value-in-an-array-of-objects-in-javascript
-        thatVue.data_ThisWO = thatVue.data_WOs.find((el) => el.qguid === qguid);
-        //Note:  data_thisWO gets set to the most recently-expanded WO, but that is not
-        //a guarantee that data_thisWO is the only one that may be edited by the user (as
-        //multiple WO's could be expanded)
-      },     
-
       fetchWOs: function (qguid, reFetch) {
         // save reference to Vue object
         let thatVue = this;
@@ -435,20 +424,16 @@
                   thatVue.lastFetch_WOs = "1/1/1900";
                 }
 
-                if (thatVue && thatVue.data_WOs && thatVue.data_WOs.length > 0 && !thatVue.data_thisWO) {
-                    thatVue.data_ThisWO= thatVue.data_WOs[0];
+                if (thatVue && thatVue.data_WOs && thatVue.data_WOs.length > 0) {
+                    thatVue.data_ThisWOA= thatVue.data_WOs[0];
+                    if (thatVue.data_WOs.Length > 1) {
+                      thatVue.data_ThisWOB= thatVue.data_WOs[a];                      
+                    }
                 }
 
-                if (thatVue && thatVue.data_thisWO && thatVue.data_thisWO.qguid) {
-                    thatVue.data_ThisWO = thatVue.data_WOs.find((el) => el.qguid === thatVue.data_thisWO.qguid);                             
-                }
-
-
-                thatVue.data_ThisWOAA = thatVue.data_WOs[0];
-                thatVue.data_ThisWOAB = thatVue.data_WOs[1];
 
                 if (thatVue.data_ThisWOA) {
-                  thatVue.data_ThisWO.StatusColor = "#007bff";
+                  thatVue.data_ThisWOA.StatusColor = "#007bff";
                 }
 
                 if (thatVue.data_ThisWOB) {
