@@ -61,7 +61,7 @@
               <b-form-group label="Active WO"
                             :label-for="'woTable1'">
                 <b-form-select :id="'woTable1'"
-                              v-model="curWOList" :options="woListNames" @change="switchWOList()"
+                              :options="data_WOs"
                               size="sm"></b-form-select>
               </b-form-group>
             </b-col>
@@ -81,7 +81,7 @@
 
           <b-row>
             <b-col>
-              <h4>Table 1</h4>
+              <h4>Table 2</h4>
             </b-col>
 
             <b-col>     
@@ -94,7 +94,7 @@
               <b-form-group label="Active WO"
                             :label-for="'woTable2'">
                 <b-form-select :id="'woTable2'"
-                              v-model="curWOList" :options="woListNames" @change="switchWOList()"
+                              :options="data_WOs"
                               size="sm"></b-form-select>
               </b-form-group>
             </b-col>
