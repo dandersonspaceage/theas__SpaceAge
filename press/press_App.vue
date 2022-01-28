@@ -45,31 +45,60 @@
     <b-row>
 
         <b-col cols="6">
-          <h4>Table 1</h4>
-                
-          <b-form-group label="Active WO"
-                        :label-for="'woTable1'">
-            <b-form-select :id="'woTable1'"
-                          v-model="curWOList" :options="woListNames" @change="switchWOList()"
-                          size="sm"></b-form-select>
-          </b-form-group>
 
-          <h6>Working on: WO [[ data_ThisWOA.WONumber ]] (#[[ Number(data_ThisWOA.CurrentShotCount) + 1 ]] of [[ data_ThisWOA.Quantity]])</h6>
-          <b-button @click="completeBoard" variant="primary">Completed Board</b-button>
+          <b-row>
+            <b-col>
+              <h4>Table 1</h4>
+            </b-col>
+
+            <b-col>               
+              <b-form-group label="Active WO"
+                            :label-for="'woTable1'">
+                <b-form-select :id="'woTable1'"
+                              v-model="curWOList" :options="woListNames" @change="switchWOList()"
+                              size="sm"></b-form-select>
+              </b-form-group>
+            </b-col>
+
+          </b-row>
+
+
+          <b-row>
+            <b-col>     
+              <h6>Working on: WO [[ data_ThisWOA.WONumber ]] (#[[ Number(data_ThisWOA.CurrentShotCount) + 1 ]] of [[ data_ThisWOA.Quantity]])</h6>
+            </b-col>
+
+            <b-col>
+              <b-button @click="completeBoard" variant="primary">Completed Board</b-button>
+            </b-col>
+          </b-row>          
         </b-col>
 
         <b-col>
-          <h4>Table 2</h4>
+          <b-row>
+            <b-col>
+              <h4>Table 2</h4>
+            </b-col>
 
-          <b-form-group label="Active WO"
-                        :label-for="'woTable2'">
-            <b-form-select :id="'woTable2'"
-                          v-model="curWOList" :options="woListNames" @change="switchWOList()"
-                          size="sm"></b-form-select>
-          </b-form-group>
-                
-          <h6>Working on: WO [[ data_ThisWOB.WONumber ]] (#[[ Number(data_ThisWOB.CurrentShotCount) + 1 ]] of [[ data_ThisWOB.Quantity]])</h6>
-          <b-button @click="completeBoard" variant="warning">Completed Board</b-button>
+            <b-col>               
+              <b-form-group label="Active WO"
+                            :label-for="'woTable2'">
+                <b-form-select :id="'woTable2'"
+                              v-model="curWOList" :options="woListNames" @change="switchWOList()"
+                              size="sm"></b-form-select>
+              </b-form-group>
+            </b-col>
+          </b-row>
+
+          <b-row>
+            <b-col>     
+              <h6>Working on: WO [[ data_ThisWOB.WONumber ]] (#[[ Number(data_ThisWOB.CurrentShotCount) + 1 ]] of [[ data_ThisWOB.Quantity]])</h6>
+            </b-col>
+
+            <b-col>
+              <b-button @click="completeBoard" variant="warning">Completed Board</b-button>
+            </b-col>
+          </b-row>
         </b-col>
 
     </b-row>
