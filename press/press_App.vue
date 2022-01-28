@@ -48,11 +48,11 @@
 
           <b-row>
             <b-col>
-              <h4 style="font-size:1.75vw">Table 1</h4>
+              <h4 style="font-size:calc(0.8em + 1vmin)">Table 1</h4>
             </b-col>
 
             <b-col>     
-              <h6 style="font-size:calc(0.7em + 1.2vmin)">WO [[ data_ThisWOA.WONumber ]] (#[[ Number(data_ThisWOA.CurrentShotCount) + 1 ]] of [[ data_ThisWOA.Quantity]])</h6>
+              <h6 style="font-size:calc(0.7em + 1.3vmin)">WO [[ data_ThisWOA.WONumber ]] (#[[ Number(data_ThisWOA.CurrentShotCount) + 1 ]] of [[ data_ThisWOA.Quantity]])</h6>
             </b-col>      
           </b-row>      
 
@@ -83,11 +83,11 @@
 
           <b-row>
             <b-col>
-              <h4 style="font-size:1.75vw">Table 2</h4>
+              <h4 style="font-size:calc(0.8em + 1vmin)">Table 2</h4>
             </b-col>
 
             <b-col>     
-              <h6 style="font-size:1.5vw">WO [[ data_ThisWOB.WONumber ]] (#[[ Number(data_ThisWOB.CurrentShotCount) + 1 ]] of [[ data_ThisWOB.Quantity]])</h6>
+              <h6 style="font-size:calc(0.7em + 1.3vmin)">WO [[ data_ThisWOB.WONumber ]] (#[[ Number(data_ThisWOB.CurrentShotCount) + 1 ]] of [[ data_ThisWOB.Quantity]])</h6>
             </b-col>      
           </b-row>      
 
