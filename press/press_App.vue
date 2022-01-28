@@ -41,7 +41,7 @@
 
   </div>
 
-  <div class="bottom" style="height:200px; background-color: #BDB76B" >
+  <div class="bottom" style="height:150px; background-color: #BDB76B" >
     <b-row>
 
         <b-col cols="6">
