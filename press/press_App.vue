@@ -67,7 +67,7 @@
             </b-col>
 
             <b-col cols="6">
-              <div style="height:30px">
+              <div style="height:32px">
               </div>
 
               <b-button @click="completeBoard" variant="primary">Completed Board</b-button>
@@ -101,7 +101,7 @@
 
           <b-row>
             <b-col cols="2" offset="6">
-              <div style="height:30px">
+              <div style="height:32px">
               </div>    
 
               <b-button @click="completeBoard" variant="warning">Completed Board</b-button>
