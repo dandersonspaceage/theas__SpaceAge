@@ -48,7 +48,7 @@
 
           <b-row>
             <b-col>
-              <h4>Table 1</h4>
+              <h4 style="font-size:1.75vw">Table 1</h4>
             </b-col>
 
             <b-col>     
@@ -83,7 +83,7 @@
 
           <b-row>
             <b-col>
-              <h4>Table 2</h4>
+              <h4 style="font-size:1.75vw">Table 2</h4>
             </b-col>
 
             <b-col>     
