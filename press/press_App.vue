@@ -67,6 +67,9 @@
             </b-col>
 
             <b-col cols="6">
+              <div style="height:24px">
+              </div>
+                         
               <b-button @click="completeBoard" variant="primary">Completed Board</b-button>
             </b-col>            
 
@@ -98,6 +101,9 @@
 
           <b-row>
             <b-col cols="2" offset="6">
+              <div style="height:24px">
+              </div>    
+
               <b-button @click="completeBoard" variant="warning">Completed Board</b-button>
             </b-col>
           </b-row>
@@ -692,11 +698,5 @@
     background-color: #BDB76B;
   }
 
-
-  label {
-    display: inline-block;
-    width: 150px;
-    text-align: right;
-  }
 
 </style>
