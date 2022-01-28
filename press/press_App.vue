@@ -52,7 +52,7 @@
             </b-col>
 
             <b-col>     
-              <h6>Working on: WO [[ data_ThisWOA.WONumber ]] (#[[ Number(data_ThisWOA.CurrentShotCount) + 1 ]] of [[ data_ThisWOA.Quantity]])</h6>
+              <h6>WO [[ data_ThisWOA.WONumber ]] (#[[ Number(data_ThisWOA.CurrentShotCount) + 1 ]] of [[ data_ThisWOA.Quantity]])</h6>
             </b-col>      
           </b-row>      
 
@@ -85,7 +85,7 @@
             </b-col>
 
             <b-col>     
-              <h6>Working on: WO [[ data_ThisWOB.WONumber ]] (#[[ Number(data_ThisWOB.CurrentShotCount) + 1 ]] of [[ data_ThisWOB.Quantity]])</h6>
+              <h6>WO [[ data_ThisWOB.WONumber ]] (#[[ Number(data_ThisWOB.CurrentShotCount) + 1 ]] of [[ data_ThisWOB.Quantity]])</h6>
             </b-col>      
           </b-row>      
 
