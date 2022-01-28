@@ -160,7 +160,7 @@
 
             tab1Options: {
               responsiveLayout: 'collapse', // enable responsive layouts
-              height: '68vh', //with responsiveCollapse we need to specify an absolute height
+              height: '65vh', //with responsiveCollapse we need to specify an absolute height
               layout: 'fitDataFill',
               //layout: 'fitColumns',
               responsiveLayoutCollapseStartOpen: false,
@@ -633,7 +633,7 @@
     height: calc(var(--vh, 1vh) * 100);
   }  
 
-  .tabulator { font-size: .8em; }
+  .tabulator { font-size: 1em; }
 
   .bottom {
     position: fixed;
