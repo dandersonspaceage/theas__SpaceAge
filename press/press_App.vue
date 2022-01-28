@@ -57,13 +57,15 @@
           </b-row>      
 
           <b-row>
-            <b-col cols="6">               
+            <b-col cols="6">     
+              <div style="max-width: 150px">          
               <b-form-group label="Active WO"
                             :label-for="'woTable1'">
                 <b-form-select :id="'woTable1'"
                               :options="data_WOs"
                               size="sm"></b-form-select>
               </b-form-group>
+              </div>
             </b-col>
 
             <b-col cols="6">
@@ -90,13 +92,15 @@
           </b-row>      
 
           <b-row>
-            <b-col cols="6">               
+            <b-col cols="6">
+              <div style="max-width: 150px">                                
               <b-form-group label="Active WO"
                             :label-for="'woTable2'">
                 <b-form-select :id="'woTable2'"
                               :options="data_WOs"
                               size="sm"></b-form-select>
               </b-form-group>
+              </div>
             </b-col>
 
             <b-col cols="6">
