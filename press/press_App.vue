@@ -77,12 +77,19 @@
        
         </b-col>
 
-        <b-col>
+        <b-col cols="6">
+
           <b-row>
-            <b-col cols="6">
-              <h4>Table 2</h4>
+            <b-col>
+              <h4>Table 1</h4>
             </b-col>
 
+            <b-col>     
+              <h6>Working on: WO [[ data_ThisWOB.WONumber ]] (#[[ Number(data_ThisWOB.CurrentShotCount) + 1 ]] of [[ data_ThisWOB.Quantity]])</h6>
+            </b-col>      
+          </b-row>      
+
+          <b-row>
             <b-col cols="6">               
               <b-form-group label="Active WO"
                             :label-for="'woTable2'">
@@ -91,23 +98,18 @@
                               size="sm"></b-form-select>
               </b-form-group>
             </b-col>
-          </b-row>
 
-          <b-row>
-            <b-col>     
-              <h6>Working on: WO [[ data_ThisWOB.WONumber ]] (#[[ Number(data_ThisWOB.CurrentShotCount) + 1 ]] of [[ data_ThisWOB.Quantity]])</h6>
-            </b-col>
-          </b-row>
-
-          <b-row>
-            <b-col cols="2" offset="6">
+            <b-col cols="6">
               <div style="height:32px">
-              </div>    
+              </div>
 
               <b-button @click="completeBoard" variant="warning">Completed Board</b-button>
-            </b-col>
+            </b-col>            
+
           </b-row>
+       
         </b-col>
+
 
     </b-row>
   </div>
