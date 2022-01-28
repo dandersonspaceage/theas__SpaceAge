@@ -88,8 +88,8 @@
             </b-col>
 
             <b-col>     
-              <h5 style="font-size:calc(0.6em + 1.4vmin)">>WO [[ data_ThisWOB.WONumber ]]</h5>
-              <h6> style="font-size:calc(0.6em + 1vmin)">>#[[ Number(data_ThisWOB.CurrentShotCount) + 1 ]] of [[ data_ThisWOB.Quantity]]</h6>
+              <h5 style="font-size:calc(0.6em + 1.4vmin)">WO [[ data_ThisWOB.WONumber ]]</h5>
+              <h6 style="font-size:calc(0.6em + 1vmin)">#[[ Number(data_ThisWOB.CurrentShotCount) + 1 ]] of [[ data_ThisWOB.Quantity]]</h6>
             </b-col>      
           </b-row>      
 
