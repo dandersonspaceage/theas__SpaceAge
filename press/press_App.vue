@@ -51,7 +51,7 @@
               <h4>Table 1</h4>
             </b-col>
 
-            <b-col>               
+            <b-col cols="2">               
               <b-form-group label="Active WO"
                             :label-for="'woTable1'">
                 <b-form-select :id="'woTable1'"
@@ -80,7 +80,7 @@
               <h4>Table 2</h4>
             </b-col>
 
-            <b-col>               
+            <b-col cols="2">               
               <b-form-group label="Active WO"
                             :label-for="'woTable2'">
                 <b-form-select :id="'woTable2'"
