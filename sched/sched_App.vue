@@ -489,6 +489,13 @@
                         "Seq",
                         false //false=ascending, true=descending
                 );
+                
+
+                //copy some properties so data_WOs can be used as options for selects
+                thatVue.data_WOs.forEach(wo => {
+                  wo.value = wo.qguid;
+                  wo.text = wo.WONumber;
+                });
 
                 if (thatVue.lastFetch_WOs) {
                   thatVue.lastFetch_WOs = thisFetchDate;
