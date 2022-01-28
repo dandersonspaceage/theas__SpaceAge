@@ -52,8 +52,8 @@
             </b-col>
 
             <b-col>     
-              <h5 style="font-size:calc(0.6em + 1.4vmin)">>WO [[ data_ThisWOA.WONumber ]]</h5>
-              <h6 style="font-size:calc(0.6em + 1vmin)">>#[[ Number(data_ThisWOA.CurrentShotCount) + 1 ]] of [[ data_ThisWOA.Quantity]]</h6>
+              <h5 style="font-size:calc(0.6em + 1.4vmin)">WO [[ data_ThisWOA.WONumber ]]</h5>
+              <h6 style="font-size:calc(0.6em + 1vmin)">#[[ Number(data_ThisWOA.CurrentShotCount) + 1 ]] of [[ data_ThisWOA.Quantity]]</h6>
             </b-col>      
           </b-row>      
 
@@ -499,6 +499,12 @@
                         "Seq",
                         false //false=ascending, true=descending
                 );
+
+                //copy some properties so data_WOs can be used as options for selects
+                thatVue.data_WOs.forEach(wo => {
+                  wo.value = wo.qguid;
+                  wo.text = wo.WONumber;
+                });                
 
                 if (thatVue.lastFetch_WOs) {
                   thatVue.lastFetch_WOs = thisFetchDate;
