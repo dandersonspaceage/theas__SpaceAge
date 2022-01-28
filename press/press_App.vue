@@ -52,7 +52,8 @@
             </b-col>
 
             <b-col>     
-              <h6 style="font-size:calc(0.6em + 1.4vmin)">WO [[ data_ThisWOA.WONumber ]] <span style="font-size:calc(0.6em + 1vmin)">#[[ Number(data_ThisWOA.CurrentShotCount) + 1 ]] of [[ data_ThisWOA.Quantity]]</span></h6>
+              <h5 style="font-size:calc(0.6em + 1.4vmin)">WO [[ data_ThisWOA.WONumber ]]</h5>
+              <h6 style="font-size:calc(0.6em + 1vmin)">#[[ Number(data_ThisWOA.CurrentShotCount) + 1 ]] of [[ data_ThisWOA.Quantity]]</h6>
             </b-col>      
           </b-row>      
 
@@ -87,7 +88,8 @@
             </b-col>
 
             <b-col>     
-              <h6 style="font-size:calc(0.6em + 1.4vmin)">WO [[ data_ThisWOB.WONumber ]] <span style="font-size:calc(0.6em + 1vmin)">#[[ Number(data_ThisWOB.CurrentShotCount) + 1 ]] of [[ data_ThisWOB.Quantity]]</span></h6>
+              <h5 style="font-size:calc(0.6em + 1.4vmin)">WO [[ data_ThisWOB.WONumber ]]</h5>
+              <h6> style="font-size:calc(0.6em + 1vmin)">#[[ Number(data_ThisWOB.CurrentShotCount) + 1 ]] of [[ data_ThisWOB.Quantity]]</h6>
             </b-col>      
           </b-row>      
 
