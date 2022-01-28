@@ -52,7 +52,7 @@
             </b-col>
 
             <b-col>     
-              <h6 style="font-size:1.5vw">WO [[ data_ThisWOA.WONumber ]] (#[[ Number(data_ThisWOA.CurrentShotCount) + 1 ]] of [[ data_ThisWOA.Quantity]])</h6>
+              <h6 style="font-size:calc(0.75em + 1vmin)">WO [[ data_ThisWOA.WONumber ]] (#[[ Number(data_ThisWOA.CurrentShotCount) + 1 ]] of [[ data_ThisWOA.Quantity]])</h6>
             </b-col>      
           </b-row>      
 
