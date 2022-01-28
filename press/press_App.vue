@@ -70,7 +70,7 @@
               <div style="height:32px">
               </div>
 
-              <b-button style="white-space:nowrap" @click="completeBoard" variant="primary">Completed Board</b-button>
+              <b-button @click="completeBoard" variant="primary">Shot</b-button>
             </b-col>            
 
           </b-row>
@@ -103,7 +103,7 @@
               <div style="height:32px">
               </div>
 
-              <b-button style="whitespace: nowrap" @click="completeBoard" variant="warning">Completed Board</b-button>
+              <b-button @click="completeBoard" variant="warning">Shot</b-button>
             </b-col>            
 
           </b-row>
