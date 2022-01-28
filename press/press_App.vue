@@ -33,14 +33,16 @@
 
   <div class="ml-3" style="height:85%" :style="{cursor: curCursor}">
 
-    <b-row style="height: 80%">
+    <b-row>
       <b-col>
           <Vue-Tabulator ref="tabulator" class="table-striped table-sm" v-model="data_WOs" :options="tab1Options" />
       </b-col>
     </b-row>
 
+  </div>
 
-    <b-row style="height:20%; background-color: #BDB76B">
+  <div class="bottom" style="height:400px; background-color: #BDB76B">
+    <b-row>
 
         <b-col cols="6">
           <h4>Table 1</h4>
@@ -56,7 +58,6 @@
 
     </b-row>
   </div>
-
 
   <b-modal id="thModal" ref="thModal" @hide="onthModalHide" hide-footer>
     <template #modal-title>
@@ -633,5 +634,11 @@
   }  
 
   .tabulator { font-size: .8em; }
+
+  .bottom {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
 
 </style>
