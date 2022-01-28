@@ -31,7 +31,7 @@
   
   </b-row>    
 
-  <div class="ml-3" style="height:85%" :style="{cursor: curCursor}">
+  <div class="ml-3" style="height:65%" :style="{cursor: curCursor}">
 
     <b-row>
       <b-col>
@@ -41,7 +41,7 @@
 
   </div>
 
-  <div class="bottom" style="height:400px; background-color: #BDB76B">
+  <div class="bottom" style="height:20%; background-color: #BDB76B" >
     <b-row>
 
         <b-col cols="6">
