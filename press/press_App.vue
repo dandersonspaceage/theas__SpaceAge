@@ -47,11 +47,11 @@
         <b-col cols="6">
 
           <b-row>
-            <b-col>
+            <b-col cols="6">
               <h4>Table 1</h4>
             </b-col>
 
-            <b-col cols="2">               
+            <b-col cols="6">               
               <b-form-group label="Active WO"
                             :label-for="'woTable1'">
                 <b-form-select :id="'woTable1'"
@@ -70,7 +70,7 @@
           </b-row>
 
           <b-row>
-            <b-col cols="2">
+            <b-col cols="2" offset="6">
               <b-button @click="completeBoard" variant="primary">Completed Board</b-button>
             </b-col>
           </b-row>          
@@ -78,11 +78,11 @@
 
         <b-col>
           <b-row>
-            <b-col>
+            <b-col cols="6">
               <h4>Table 2</h4>
             </b-col>
 
-            <b-col cols="2">               
+            <b-col cols="6">               
               <b-form-group label="Active WO"
                             :label-for="'woTable2'">
                 <b-form-select :id="'woTable2'"
@@ -99,7 +99,7 @@
           </b-row>
 
           <b-row>
-            <b-col cols="2">
+            <b-col cols="2" offset="6">
               <b-button @click="completeBoard" variant="warning">Completed Board</b-button>
             </b-col>
           </b-row>
