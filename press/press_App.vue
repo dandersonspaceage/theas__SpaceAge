@@ -87,7 +87,7 @@
             </b-col>
 
             <b-col>     
-              <h6>WO [[ data_ThisWOB.WONumber ]] (#[[ Number(data_ThisWOB.CurrentShotCount) + 1 ]] of [[ data_ThisWOB.Quantity]])</h6>
+              <h6 style="font-size:1vw">WO [[ data_ThisWOB.WONumber ]] (#[[ Number(data_ThisWOB.CurrentShotCount) + 1 ]] of [[ data_ThisWOB.Quantity]])</h6>
             </b-col>      
           </b-row>      
 
