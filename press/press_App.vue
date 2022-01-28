@@ -692,4 +692,11 @@
     background-color: #BDB76B;
   }
 
+
+  label {
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+  }
+
 </style>
