@@ -41,7 +41,7 @@
 
   </div>
 
-  <div class="bottom" style="height:200px; background-color: #BDB76B" >
+  <div class="bottom">
     <b-row>
 
         <b-col cols="6">
@@ -683,9 +683,11 @@
   .bottom {
     position: fixed;
     width: 100%;
+    height: 150px;
     bottom: 0;
     padding-left: 10px;
     padding-right: 10px;
+    background-color: #BDB76B;
   }
 
 </style>
