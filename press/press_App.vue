@@ -568,12 +568,14 @@
       changeActiveWO: function (tableCode, qguid) {
         let thatVue = this; 
 
+        let wo = thatVue.data_WOs.findIndex((el) => el.qguid === qguid);
+
         if (tableCode = 'Table1') {
-          thatVue.data_ThisWOA = thatVue.data_WOs.findIndex((el) => el.qguid === qguid);    
+          thatVue.data_ThisWOA = wo;
         }
 
         else if (tableCode = 'Table2') {
-          thatVue.data_ThisWOB = thatVue.data_WOs.findIndex((el) => el.qguid === qguid);    
+          thatVue.data_ThisWOB = wo;    
         }
 
 
