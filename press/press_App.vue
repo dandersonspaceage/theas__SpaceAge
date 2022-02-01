@@ -252,7 +252,8 @@
                     },
                   formatterParams: {formatStr: "dd MM/DD"}
                 },                              
-                {title: 'WO', field: 'WONumber', responsive: 0},                  
+                {title: 'WO', field: 'WONumber', responsive: 0},      
+                {tite: 'Test', field: 'TestJon'},        
                 {title: 'Qty Remain', field: 'QtyRemaining', responsive: 0},
                 {title: 'Qty Needed', field: 'Quantity', responsive: 3},                
                 {title: 'Qty Shot', field: 'CurrentShotCount', responsive: 4},
