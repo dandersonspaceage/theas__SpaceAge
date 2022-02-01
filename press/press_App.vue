@@ -568,7 +568,7 @@
       changeActiveWO: function (tableCode, qguid) {
         let thatVue = this; 
 
-        let wo = thatVue.data_WOs.findIndex((el) => el.qguid === qguid);
+        let wo = thatVue.data_WOs.find((el) => el.qguid === qguid);
 
         if (tableCode = 'Table1') {
           thatVue.data_ThisWOA = wo;
