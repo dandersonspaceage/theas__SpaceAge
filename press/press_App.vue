@@ -66,7 +66,8 @@
                               :options="data_WOs"
                               v-model="curWOqguid_Table1"
                               @change="changeActiveWO('Table1', curWOqguid_Table1)"
-                              size="sm"></b-form-select>
+                >
+                </b-form-select>
               </b-form-group>
               </div>
             </b-col>
@@ -105,7 +106,8 @@
                               :options="data_WOs"
                               v-model="curWOqguid_Table2"
                               @change="changeActiveWO('Table2', curWOqguid_Table2)"
-                              size="sm"></b-form-select>                              
+                              >
+                </b-form-select>                              
               </b-form-group>
               </div>
             </b-col>
