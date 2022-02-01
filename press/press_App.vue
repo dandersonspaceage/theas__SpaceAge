@@ -64,7 +64,8 @@
                             :label-for="'woTable1'">
                 <b-form-select :id="'woTable1'"
                               :options="data_WOs"
-                              @change="changeActiveWO(data_ThisWOA)"
+                              v-model="curWOqguid_Table1"
+                              @change="changeActiveWO('Table1', curWOqguid_Table1)"
                               size="sm"></b-form-select>
               </b-form-group>
               </div>
@@ -324,6 +325,8 @@
         woListNames: ['N', 'NW', 'S', 'W'],
         curWOList: 'N',
 
+        curWOqguid_Table1: null,
+
         data_ThisWO: {},
         data_ThisWOA: {},
         data_ThisWOB: {},
@@ -560,6 +563,20 @@
       onChangePlan: function (qguid, event) {
           let thatVue = this;  
           thatVue.setDirty(qguid);                         
+      },
+
+      changeActiveWO: function (tableCode, qguid) {
+        let thatVue = this; 
+
+        if (tableCode = 'Table1') {
+          thatVue.data_ThisWOA = thatVue.data_WOs.findIndex((el) => el.qguid === qguid);    
+        }
+
+        else if (tableCode = 'Table2') {
+          thatVue.data_ThisWOB = thatVue.data_WOs.findIndex((el) => el.qguid === qguid);    
+        }
+
+
       },
 
       completeBoard: function(event) {
