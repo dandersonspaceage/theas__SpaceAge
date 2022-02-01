@@ -52,8 +52,8 @@
             </b-col>
 
             <b-col>     
-              <h5 style="font-size:calc(0.6em + 1.4vmin)">WO [[ data_ThisWOA.WONumber ]]</h5>
-              <h6 style="font-size:calc(0.6em + 1vmin)">#[[ Number(data_ThisWOA.CurrentShotCount) + 1 ]] of [[ data_ThisWOA.Quantity]]</h6>
+              <h5 style="font-size:calc(0.6em + 1.4vmin)">WO [[ curWOTable1.WONumber ]]</h5>
+              <h6 style="font-size:calc(0.6em + 1vmin)">#[[ Number(curWOTable1.CurrentShotCount) + 1 ]] of [[ curWOTable1.Quantity ]]</h6>
             </b-col>      
           </b-row>      
 
@@ -90,8 +90,8 @@
             </b-col>
 
             <b-col>     
-              <h5 style="font-size:calc(0.6em + 1.4vmin)">WO [[ data_ThisWOB.WONumber ]]</h5>
-              <h6 style="font-size:calc(0.6em + 1vmin)">#[[ Number(data_ThisWOB.CurrentShotCount) + 1 ]] of [[ data_ThisWOB.Quantity]]</h6>
+              <h5 style="font-size:calc(0.6em + 1.4vmin)">WO [[ curWOTable2.WONumber ]]</h5>
+              <h6 style="font-size:calc(0.6em + 1vmin)">#[[ Number(curWOTable2.CurrentShotCount) + 1 ]] of [[ curWOTable2.Quantity]]</h6>
             </b-col>      
           </b-row>      
 
@@ -102,6 +102,8 @@
                             :label-for="'woTable2'">
                 <b-form-select :id="'woTable2'"
                               :options="data_WOs"
+                              v-model="curWOqguid_Table1"
+                              @change="changeActiveWO('Table2', curWOqguid_Table2)"                              
                               size="sm"></b-form-select>
               </b-form-group>
               </div>
@@ -328,8 +330,8 @@
         curWOqguid_Table1: null,
 
         data_ThisWO: {},
-        data_ThisWOA: {},
-        data_ThisWOB: {},
+        curWOTable1: {},
+        curWOTable2: {},
 
         data_ThisShot: {},
         thisWO_CommitDate: null, // object for datepicker
@@ -517,11 +519,11 @@
                 }
 
                 if (thatVue && thatVue.data_WOs && thatVue.data_WOs.length > 0) {
-                    thatVue.data_ThisWOA= thatVue.data_WOs[0];
-                    thatVue.data_ThisWOA.TableNo = 'Table 1';
+                    thatVue.curWOTable1= thatVue.data_WOs[0];
+                    thatVue.curWOTable1.TableNo = 'Table1';
                     if (thatVue.data_WOs.length > 1) {
-                      thatVue.data_ThisWOB= thatVue.data_WOs[1]; 
-                      thatVue.data_ThisWOB.TableNo = 'Table 2';                                             
+                      thatVue.curWOTable2= thatVue.data_WOs[1]; 
+                      thatVue.curWOTable2.TableNo = 'Table2';                                             
                     }
                 }             
 
@@ -571,11 +573,11 @@
         let wo = thatVue.data_WOs.find((el) => el.qguid === qguid);
 
         if (tableCode = 'Table1') {
-          thatVue.data_ThisWOA = wo;
+          thatVue.curWOTable1 = wo;
         }
 
         else if (tableCode = 'Table2') {
-          thatVue.data_ThisWOB = wo;    
+          thatVue.curWOTable2 = wo;    
         }
 
 
