@@ -8,6 +8,7 @@
     </b-col>
 
     <b-col cols="5">
+      <h3>Hi Jon</h3>
     </b-col>
 
     <b-col cols=4>
@@ -64,6 +65,7 @@
                             :label-for="'woTable1'">
                 <b-form-select :id="'woTable1'"
                               :options="data_WOs"
+                              @change="changeActiveWO(data_ThisWOA)"
                               size="sm"></b-form-select>
               </b-form-group>
               </div>
