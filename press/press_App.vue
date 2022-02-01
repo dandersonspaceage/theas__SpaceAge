@@ -240,11 +240,11 @@
                     let thisVal = cell.getValue();
                     let thisColor = '#FFFFFF'
 
-                    if (thisVal == 'Table 1') {
+                    if (thisVal == 'Table1') {
                       // primary
                       thisColor = "#007bff";
                     }                           
-                    else if (thisVal == 'Table 2') {
+                    else if (thisVal == 'Table2') {
                       // warning
                       thisColor = "#ffc107";
                     }
@@ -576,11 +576,11 @@
 
         let wo = thatVue.data_WOs.find((el) => el.qguid === qguid);
 
-        if (tableCode = 'Table1') {
+        if (tableCode == 'Table1') {
           thatVue.curWOTable1 = wo;
         }
 
-        else if (tableCode = 'Table2') {
+        else if (tableCode == 'Table2') {
           thatVue.curWOTable2 = wo;    
         }
 
