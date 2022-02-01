@@ -8,7 +8,6 @@
     </b-col>
 
     <b-col cols="5">
-      <h3>Hi Jon</h3>
     </b-col>
 
     <b-col cols=4>
@@ -252,8 +251,7 @@
                     },
                   formatterParams: {formatStr: "dd MM/DD"}
                 },                              
-                {title: 'WO', field: 'WONumber', responsive: 0},      
-                {tite: 'Test', field: 'TestJon'},        
+                {title: 'WO', field: 'WONumber', responsive: 0},        
                 {title: 'Qty Remain', field: 'QtyRemaining', responsive: 0},
                 {title: 'Qty Needed', field: 'Quantity', responsive: 3},                
                 {title: 'Qty Shot', field: 'CurrentShotCount', responsive: 4},
