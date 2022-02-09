@@ -9,7 +9,7 @@
 
     <b-col cols="4">
 
-      <div style="max-width: 150px">   
+      <div style="max-width: 225px">   
 
         <b-form-group label="Operator"
                     :label-for="'selOperator'">
