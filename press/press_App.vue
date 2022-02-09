@@ -653,7 +653,7 @@
 
           if (thatVue.enableFetching === true) {
             thatVue.fetchWOs();
-            thatVue.fetchOperators();
+            //thatVue.fetchOperators();
             // can add additional fetches here
           }
         }
