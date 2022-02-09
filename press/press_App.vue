@@ -25,7 +25,7 @@
       
     </b-col>
 
-    <b-col cols="3">
+    <b-col cols="2">
       <div style="max-width: 150px">   
 
         <b-form-group label="Press"
@@ -44,6 +44,11 @@
       <br />
       <b-button @click="fetchData()">Reload</b-button>
     </b-col>
+
+    <b-col cols="1">
+      <img src="/resources/SpaceAgeLogo.png">
+    </b-col>
+
 
   
   </b-row>    
