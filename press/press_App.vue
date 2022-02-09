@@ -3,17 +3,17 @@
 
   <b-row style="height: 15%">
 
-    <b-col cols="1">
+    <b-col cols="3">
       <img src="/resources/SpaceAgeLogo.png">
     </b-col>
 
-    <b-col cols="5">
+    <b-col cols="3">
 
       <div style="max-width: 150px">   
 
         <b-form-group label="Operator"
                     :label-for="'selOperator'">
-                    
+
           <b-form-select :id="'selOperator'"
                         :options="data_WOs"
                         v-model="curWOqguid_Table1"
