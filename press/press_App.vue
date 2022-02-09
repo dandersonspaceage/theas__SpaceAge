@@ -529,7 +529,11 @@
                         false //false=ascending, true=descending
                 );
 
-                       
+                //copy some properties so data_WOs can be used as options for selects
+                thatVue.data_Operators.forEach(op => {
+                  op.value = op.qguid;
+                  op.text = op.Operators;
+                });                         
 
                 if (thatVue.lastFetch_WOs) {
                   thatVue.lastFetch_Operators = thisFetchDate;
