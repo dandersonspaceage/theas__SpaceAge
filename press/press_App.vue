@@ -3,11 +3,11 @@
 
   <b-row style="height: 15%">
 
-    <b-col cols="5">
+    <b-col cols="4">
       <img src="/resources/SpaceAgeLogo.png">
     </b-col>
 
-    <b-col cols="3">
+    <b-col cols="4">
 
       <div style="max-width: 150px">   
 
