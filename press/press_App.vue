@@ -532,7 +532,7 @@
                 //copy some properties so data_WOs can be used as options for selects
                 thatVue.data_Operators.forEach(op => {
                   op.value = op.qguid;
-                  op.text = op.Operators;
+                  op.text = op.Operator;
                 });                         
 
                 if (thatVue.lastFetch_WOs) {
