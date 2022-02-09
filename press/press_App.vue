@@ -284,7 +284,7 @@
 
 
                 {title: 'Foam Grams', field: 'Weight_Foam'},
-                {title: 'Set Time', field: 'SetTime'},     
+                {title: 'Set Time', field: 'SetTimeSeconds'},     
 
                 {title: 'Item', field: 'ItemNumber', responsive: 3, minWidth: 150},
                 {title: 'Customer', field: 'CustomerName', responsive: 3, minWidth: 175},
