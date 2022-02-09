@@ -76,7 +76,7 @@
               <div style="height:32px">
               </div>
 
-              <b-button @click="completeBoard" variant="primary">Shot</b-button>
+              <b-button @click="completeShot('Table1')" variant="primary">Shot</b-button>
             </b-col>            
 
           </b-row>
@@ -116,7 +116,7 @@
               <div style="height:32px">
               </div>
 
-              <b-button @click="completeBoard" variant="warning">Shot</b-button>
+              <b-button @click="completeShot('Table2')" variant="warning">Shot</b-button>
             </b-col>            
 
           </b-row>
@@ -137,9 +137,10 @@
     </div>
   </b-modal>
 
-  <b-modal id="WOQualityModal" ref="WOQualityModal" @hide="onHideWOQuality(data_ThisWO.qguid, $event)" hide-footer>
+  <b-modal id="WOQualityModal" ref="WOQualityModal" @hide="onHideWOQuality(curWO.qguid, $event)" hide-footer>
     <template #modal-title>
-      <h4>WO [[ data_ThisWO.WONumber ]] QA Measurements</h4>
+      <h3>
+      <h4>WO [[ curWO.WONumber ]] QA Measurements</h4>
     </template>
 
     <div class="d-block">
@@ -149,7 +150,7 @@
           <b-form-group label="Caliper 1"
                         :label-for="'qaCaliper1'">
             <b-form-input :id="'qaCaliper1'"
-                          v-model="data_ThisShot.QACaliper1" size="sm"></b-form-input>
+                          v-model="curShot.QACaliper1" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
 
@@ -158,7 +159,7 @@
           <b-form-group label="Caliper 2"
                         :label-for="'qaCaliper2'">
             <b-form-input :id="'qaCaliper2'"
-                          v-model="data_ThisShot.QACaliper2" size="sm"></b-form-input>
+                          v-model="curShot.QACaliper2" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
       </b-row>
@@ -168,7 +169,7 @@
           <b-form-group label="Caliper Front"
                         :label-for="'qaCaliperFront'">
             <b-form-input :id="'qaCaliperFront'"
-                          v-model="data_ThisShot.QACaliperFront" size="sm"></b-form-input>
+                          v-model="curShot.QACaliperFront" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
 
@@ -177,7 +178,7 @@
           <b-form-group label="Caliper Back"
                         :label-for="'qaCaliperBack'">
             <b-form-input :id="'qaCaliperBack'"
-                          v-model="data_ThisShot.QACaliperBack" size="sm"></b-form-input>
+                          v-model="curShot.QACaliperBack" size="sm"></b-form-input>
           </b-form-group>          
         </b-col>
       </b-row>
@@ -187,7 +188,7 @@
           <b-form-group label="Actual Weight"
                         :label-for="'qaActualWeight'">
             <b-form-input :id="'qaActualWeight'"
-                          v-model="data_ThisShot.QAActualWeight" size="sm"></b-form-input>
+                          v-model="curShot.QAActualWeight" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
 
@@ -196,7 +197,7 @@
           <b-form-group label="Actual Set Time"
                         :label-for="'qaActualSetTime'">
             <b-form-input :id="'qaActualSetTIme'"
-                          v-model="data_ThisShot.QAActualSetTime" size="sm"></b-form-input>
+                          v-model="curShot.QAActualSetTime" size="sm"></b-form-input>
           </b-form-group>              
         </b-col>
       </b-row>
@@ -206,7 +207,7 @@
           <b-form-group label="Quality"
                         :label-for="'qaQuality'">
             <b-form-select :id="'qaQuality'"
-                          v-model="data_ThisShot.QAActualSetTime" size="sm"></b-form-select>
+                          v-model="curShot.QAActualSetTime" size="sm"></b-form-select>
           </b-form-group>           
         </b-col>
       </b-row>
@@ -280,7 +281,10 @@
 
                 {title: 'Weight OP', field: 'Weight_OffPress'},                
                 {title: 'Weight Sanded', field: 'Weight_Sanded'},
-                {title: 'Foam Grams', field: 'Weight_Foam'},                
+
+
+                {title: 'Foam Grams', field: 'Weight_Foam'},
+                {title: 'Set Time', field: 'SetTime'},     
 
                 {title: 'Item', field: 'ItemNumber', responsive: 3, minWidth: 150},
                 {title: 'Customer', field: 'CustomerName', responsive: 3, minWidth: 175},
@@ -333,11 +337,11 @@
         curWOqguid_Table1: null,
         curWOqguid_Table2: null,        
 
-        data_ThisWO: {},
+        curWO: {},
         curWOTable1: {},
         curWOTable2: {},
 
-        data_ThisShot: {},
+        curShot: {},
         thisWO_CommitDate: null, // object for datepicker
       };
     },
@@ -394,8 +398,8 @@
       onHideWOQuality: function(qguid, evt) {
         let thatVue = this;
 
-        thatVue.data_ThisShot.qguid = qguid;
-        thatVue.data_Shots.push(thatVue.data_ThisShot);
+        thatVue.curShot.qguid = qguid;
+        thatVue.data_Shots.push(thatVue.curShot);
         thatVue.setDirty(qguid)
       },
 
@@ -589,14 +593,21 @@
 
       },
 
-      completeBoard: function(event) {
+      completeShot: function(tableCode) {
           var thatVue = this;
+
+          if (tableCode == 'Table1') {
+            thatVue.curWO = thatVue.curWOTable1
+          }
+          else if (tableCode == 'Table2') {
+            thatVue.curWO = thatVue.curWOTable2
+          }
 
           thatVue.$bvModal.show('WOQualityModal');
 
           thatVue.$th.sendAsync({
             url: "/async/" + thatVue.asyncResource_WOs,
-            asyncCmd: 'completeBoard',
+            asyncCmd: 'completeShot',
             data: {WO: thisWO}, //note: passes to @FormParams
 
             onResponse: function (rd, response) {
@@ -609,15 +620,15 @@
 
                 let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === qguid)
                 if (thisIndex >= 0) {
-                  thatVue.data_ThisWO = thatVue.data_WOs[thisIndex];
+                  thatVue.curWO = thatVue.data_WOs[thisIndex];
 
                   if
                     (
-                      (thatVue.curWOList == 'Unscheduled' && thatVue.data_ThisWO.PlannedPress) ||
-                      (thatVue.curWOList != 'Unscheduled' && thatVue.curWOList != thatVue.data_ThisWO.PlannedPress)
+                      (thatVue.curWOList == 'Unscheduled' && thatVue.curWO.PlannedPress) ||
+                      (thatVue.curWOList != 'Unscheduled' && thatVue.curWOList != thatVue.curWO.PlannedPress)
                     ){
                       thatVue.$delete(thatVue.data_WOs, thisIndex);
-                      thatVue.data_ThisWO = {};                    
+                      thatVue.curWO = {};                    
                     }
                 }
 
@@ -670,7 +681,7 @@
 
                   let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === qguid)
                   if (thisIndex >= 0) {
-                    thatVue.data_ThisShot = thatVue.data_Shots[thisIndex];
+                    thatVue.curShot = thatVue.data_Shots[thisIndex];
                   }
 
                 }
