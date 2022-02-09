@@ -3,7 +3,7 @@
 
   <b-row style="height: 15%">
 
-    <b-col cols="4">
+    <b-col cols="5">
       <img src="/resources/SpaceAgeLogo.png">
     </b-col>
 
@@ -47,8 +47,6 @@
       <b-button @click="fetchData()">Reload</b-button>
     </b-col>
 
-    <b-col cols="1">
-    </b-col>
   
   </b-row>    
 
