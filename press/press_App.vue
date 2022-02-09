@@ -3,7 +3,7 @@
 
   <b-row style="height: 15%">
 
-    <b-col cols="3">
+    <b-col cols="4">
       <img src="/resources/SpaceAgeLogo.png">
     </b-col>
 
@@ -27,15 +27,19 @@
       
     </b-col>
 
-    <b-col cols="4">
-      <b-form-group label="Press"
-                    :label-for="'ListName'">
-        <b-form-select :id="'listName'"
-                      v-model="curWOList" :options="woListNames" @change="switchWOList()"
-                      size="sm"></b-form-select>
-      </b-form-group>
+    <b-col cols="3">
+      <div style="max-width: 150px">   
 
-        <h6>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>        
+        <b-form-group label="Press"
+                      :label-for="'ListName'">
+          <b-form-select :id="'listName'"
+                        v-model="curWOList" :options="woListNames" @change="switchWOList()"
+                        size="sm"></b-form-select>
+        </b-form-group>
+
+          <h6>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>        
+
+      </div>      
     </b-col>
 
     <b-col cols="1">
