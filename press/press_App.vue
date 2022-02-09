@@ -46,7 +46,6 @@
     </b-col>
 
     <b-col cols="1">
-      <img src="/resources/SpaceAgeLogo.png">
     </b-col>
 
 
