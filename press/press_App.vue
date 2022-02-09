@@ -15,9 +15,7 @@
                     :label-for="'selOperator'">
 
           <b-form-select :id="'selOperator'"
-                        :options="data_WOs"
-                        v-model="curWOqguid_Table1"
-                        @change="changeActiveWO('Table1', curWOqguid_Table1)"
+                        :options="data_Operators"
           >
           </b-form-select>
 
@@ -342,11 +340,14 @@
         // Dynamic data will be fetched asynchronously
         data_WOs: [],
         data_Shots: [],
+        data_Operators: [],
 
         lastFetch_WOs: null,
+        lastFetch_Operators: null,
 
         asyncResource_WOs: 'sched/sched_App.vue',
         asyncCmd_WOs: 'fetchWOsForPress',
+        asyncCmd_Operators: 'fetchOperators',
 
         pressCodes: ['N', 'NW', 'S', 'W'],
 
@@ -475,6 +476,75 @@
         thatVue.fetchWOs();
       },
 
+      fetchOperators: function () {
+        // save reference to Vue object
+        let thatVue = this;
+
+        thatVue.incBusy();        
+
+        thatVue.$th.sendAsync({
+          url: "/async/" + thatVue.asyncResource_WOs,
+          asyncCmd: thatVue.asyncCmd_Operators,
+          lastFetchDate: thatVue.lastFetch_WOs,
+          data: {}, //note: passes to @FormParams
+
+          onResponse: function (rd, response, config) {
+            // rd contains the response data split into an object (of name/value pairs)
+            // (might have been returned as either a string of URL-encoded name/value
+            // pairs, or as a JSON strong)
+
+            // response contains the complete response object, in which .data contains
+            // the raw data that was received.
+
+            let thisObj;
+            let thisData;
+            let thisFetchDate;
+
+            thisObj = {};
+            thisData = [];
+            thisFetchDate = null;
+
+           if (!thatVue.$th.haveError(true)) {
+
+              //  WOs
+              if (rd["Operators"]) {
+                thisObj = JSON.parse(rd["Operators"])[0];
+                thisData = thisObj["JSONData"];
+                thisFetchDate = thisObj["FetchDate"];
+
+                
+                if (thisData) {
+                  thatVue.data_Operators = thatVue.$th.merge(
+                          // string (optional): key field name with unique values to merge on
+                          "qguid",
+                          // string (optional): key value to exclude from merge (i.e. currently-displayed rows)
+                          //'someIDValue'
+                          thatVue.data_Operators,
+                          thisData
+                  );
+                }
+                thatVue.data_WOs = thatVue.$th.sortArray(
+                        thatVue.data_Operators,
+                        "Seq",
+                        false //false=ascending, true=descending
+                );
+
+                       
+
+                if (thatVue.lastFetch_WOs) {
+                  thatVue.lastFetch_Operators = thisFetchDate;
+                } else {
+                  thatVue.lastFetch_Operators = "1/1/1900";
+                }           
+
+              }
+
+            }
+            thatVue.decBusy();
+          },
+        });
+      },
+
       fetchWOs: function (qguid, reFetch) {
         // save reference to Vue object
         let thatVue = this;
@@ -583,6 +653,7 @@
 
           if (thatVue.enableFetching === true) {
             thatVue.fetchWOs();
+            thatVue.fetchOperators();
             // can add additional fetches here
           }
         }
