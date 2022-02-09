@@ -485,7 +485,7 @@
         thatVue.$th.sendAsync({
           url: "/async/" + thatVue.asyncResource_WOs,
           asyncCmd: thatVue.asyncCmd_Operators,
-          lastFetchDate: thatVue.lastFetch_WOs,
+          lastFetchDate: thatVue.lastFetch_Operators,
           data: {}, //note: passes to @FormParams
 
           onResponse: function (rd, response, config) {
@@ -523,7 +523,7 @@
                           thisData
                   );
                 }
-                thatVue.data_WOs = thatVue.$th.sortArray(
+                thatVue.data_Operators = thatVue.$th.sortArray(
                         thatVue.data_Operators,
                         "Seq",
                         false //false=ascending, true=descending
@@ -653,7 +653,7 @@
 
           if (thatVue.enableFetching === true) {
             thatVue.fetchWOs();
-            //thatVue.fetchOperators();
+            thatVue.fetchOperators();
             // can add additional fetches here
           }
         }
