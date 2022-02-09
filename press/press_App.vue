@@ -16,6 +16,7 @@
 
           <b-form-select :id="'selOperator'"
                         :options="data_Operators"
+                        size="sm"                        
           >
           </b-form-select>
 
@@ -32,6 +33,7 @@
                       :label-for="'ListName'">
           <b-form-select :id="'listName'"
                         v-model="curWOList" :options="woListNames" @change="switchWOList()"
+                        size="sm"
                         ></b-form-select>
         </b-form-group>
 
