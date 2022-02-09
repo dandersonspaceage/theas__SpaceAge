@@ -34,7 +34,7 @@
                       :label-for="'ListName'">
           <b-form-select :id="'listName'"
                         v-model="curWOList" :options="woListNames" @change="switchWOList()"
-                        size="sm"></b-form-select>
+                        ></b-form-select>
         </b-form-group>
 
           <h6>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>        
