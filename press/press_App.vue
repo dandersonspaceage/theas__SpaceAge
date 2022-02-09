@@ -9,19 +9,25 @@
 
     <b-col cols="5">
 
-      <b-form-group label="Operator"
+      <div style="max-width: 150px">   
+
+        <b-form-group label="Operator"
                     :label-for="'selOperator'">
-        <b-form-select :id="'selOperator'"
-                      :options="data_WOs"
-                      v-model="curWOqguid_Table1"
-                      @change="changeActiveWO('Table1', curWOqguid_Table1)"
-        >
-        </b-form-select>
-      </b-form-group>      
+                    
+          <b-form-select :id="'selOperator'"
+                        :options="data_WOs"
+                        v-model="curWOqguid_Table1"
+                        @change="changeActiveWO('Table1', curWOqguid_Table1)"
+          >
+          </b-form-select>
+
+        </b-form-group>   
+
+      </div>         
       
     </b-col>
 
-    <b-col cols=4>
+    <b-col cols="4">
       <b-form-group label="Press"
                     :label-for="'ListName'">
         <b-form-select :id="'listName'"
