@@ -433,17 +433,12 @@
       onShowWOQuality: function() {
         let thatVue = this;
 
-        if (!thatVue.curOperator) {
-          thatVue.$th.raiseError('No operator selected!  Please select the operator working on this press.');
-        }
       },
 
       onHideWOQuality: function(qguid, evt) {
         let thatVue = this;
 
-        thatVue.curShot.qguid = qguid;
-        thatVue.data_Shots.push(thatVue.curShot);
-        thatVue.setDirty(qguid)
+        thatVue.setDirty(qguid);       
       },
 
       onthModalHide: function() {
@@ -720,41 +715,12 @@
             thatVue.curWO = thatVue.curWOTable2
           }
 
-          thatVue.$bvModal.show('WOQualityModal');
-
-          thatVue.$th.sendAsync({
-            url: "/async/" + thatVue.asyncResource_WOs,
-            asyncCmd: 'completeShot',
-            data: {WO: thisWO}, //note: passes to @FormParams
-
-            onResponse: function (rd, response) {
-                // rd contains the response data split into an object (of name/value pairs)
-                // (might have been returned as either a string of URL-encoded name/value
-                // pairs, or as a JSON strong)
-
-                // response contains the complete response object, in which .data contains
-                // the raw data that was received.              
-
-                let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === qguid)
-                if (thisIndex >= 0) {
-                  thatVue.curWO = thatVue.data_WOs[thisIndex];
-
-                  if
-                    (
-                      (thatVue.curWOList == 'Unscheduled' && thatVue.curWO.PlannedPress) ||
-                      (thatVue.curWOList != 'Unscheduled' && thatVue.curWOList != thatVue.curWO.PlannedPress)
-                    ){
-                      thatVue.$delete(thatVue.data_WOs, thisIndex);
-                      thatVue.curWO = {};                    
-                    }
-                }
-
-              }
-          });
-
- 
-
-
+          if (!thatVue.curOperator) {
+            thatVue.$th.raiseError('No operator selected!  Please select the operator working on this press.');
+          }
+          else {
+            thatVue.$bvModal.show('WOQualityModal');            
+          }
       },
 
       saveShot: function (qguid, event) {
@@ -786,6 +752,7 @@
             thatVue.$th.sendAsync({
               url: "/async/" + thatVue.asyncResource_WOs,
               asyncCmd: 'updateWOShot',
+              //asyncCmd: 'completeShot',              
               data: {WO: thisWO}, //note: passes to @FormParams
 
               onResponse: function (rd, response) {
