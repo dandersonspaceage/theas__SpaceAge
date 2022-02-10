@@ -239,7 +239,7 @@
 
       <b-row>
         <b-col>
-          <b><i>[[ curOperator ]]</i></b>
+          <h5>Operator: [[ curOperator ]]</h5>
         </b-col>
       </b-row>
 
