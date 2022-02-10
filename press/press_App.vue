@@ -775,7 +775,7 @@
                   }
                   */
 
-                 thatVue.curShot = null;
+                 thatVue.curShot = {};
 
                 }
             });
