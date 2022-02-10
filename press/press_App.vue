@@ -34,12 +34,12 @@
           <b-form-select :id="'listName'"
                         v-model="curWOList" :options="woListNames" @change="switchWOList()"
                         size="sm"
-                         class="m-0 p-0"
+                         class="m-2 p-0"
                         >
           </b-form-select>
         </b-form-group>
 
-          <h6 class="m0 p0">[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>        
+          <h6>[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>        
 
       </div>      
     </b-col>
