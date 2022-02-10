@@ -239,7 +239,7 @@
 
       <b-row>
         <b-col>
-          <h5>Operator: [[ curOperator ]]</h5>
+          <h5>Operator: [[ data_Operators.find((el) => el.value == curOperator) ]]</h5>
         </b-col>
       </b-row>
 
