@@ -753,7 +753,7 @@
             // we loop, to save all qguids in the queue
 
             let thisWO = thatVue.data_WOs.find((el) => el.qguid === qguid)
-            curShot.Operator = curOperator.qguid;
+            thatVue.curShot.Operator = curOperator.qguid;
 
             thatVue.$th.sendAsync({
               url: "/async/" + thatVue.asyncResource_WOs,
