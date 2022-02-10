@@ -162,7 +162,7 @@
     </div>
   </b-modal>
 
-  <b-modal id="WOQualityModal" ref="WOQualityModal" @hide="onHideWOQuality(curWO.qguid, $event)" hide-footer>
+  <b-modal id="WOQualityModal" ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality(curWO.qguid, $event)" hide-footer>
     <template #modal-title>
       <h3>
       <h4>WO [[ curWO.WONumber ]] QA Measurements</h4>
@@ -428,6 +428,15 @@
           screenfull.request();
         }
       }, 
+
+
+      onShowWOQuality: function() {
+        let thatVue = this;
+
+        if (!curOperator) {
+          thatVue.th.raiseError('No operator selected!  Please select the operator working on this press.');
+        }
+      },
 
       onHideWOQuality: function(qguid, evt) {
         let thatVue = this;
