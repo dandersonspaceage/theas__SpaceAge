@@ -754,7 +754,7 @@
               url: "/async/" + thatVue.asyncResource_WOs,
               asyncCmd: 'updateWOShot',
               //asyncCmd: 'completeShot',              
-              data: {WO: thisWO}, //note: passes to @FormParams
+              data: {WO: thisWO, Shot: curShot}, //note: passes to @FormParams
 
               onResponse: function (rd, response) {
                   // rd contains the response data split into an object (of name/value pairs)
