@@ -753,11 +753,11 @@
             // we loop, to save all qguids in the queue
 
             let thisWO = thatVue.data_WOs.find((el) => el.qguid === qguid)
+            curShot.Operator = curOperator.qguid;
 
             thatVue.$th.sendAsync({
               url: "/async/" + thatVue.asyncResource_WOs,
-              asyncCmd: 'updateWOShot',
-              //asyncCmd: 'completeShot',              
+              asyncCmd: 'completeShot',              
               data: {WO: thisWO, Shot: thatVue.curShot}, //note: passes to @FormParams
 
               onResponse: function (rd, response) {
