@@ -302,6 +302,7 @@
                 {title: 'Shim Layup', field: 'ShimLayup', width: '7em', formatter: 'textarea'},
                 {title: 'Glass Layers', field: 'MoldGlassLayers', responsive: 2},        
 
+                {title: 'Foam', field: 'FoamSystem', responsive: 2},
                 {title: 'Foam Grams', field: 'Weight_Foam'},
                 {title: 'Set Time', field: 'SetTimeSeconds'},   
                 
@@ -317,8 +318,6 @@
                   formatterParams: {formatStr: "MM/DD"}
                 },   
 
-                
-                {title: 'Foam', field: 'FoamSystem', responsive: 2},
                 //{title: 'Finish', field: 'SurfaceFinish', responsive: 4, minWidth: 150},
 
 
