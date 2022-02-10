@@ -30,7 +30,7 @@
       <div style="max-width: 150px">   
 
         <b-form-group label="Press"
-                      :label-for="'ListName'" class="m-0 p-2">
+                      :label-for="'ListName'" class="mb-0 pb-2">
           <b-form-select :id="'listName'"
                         v-model="curWOList" :options="woListNames" @change="switchWOList()"
                         size="sm"
