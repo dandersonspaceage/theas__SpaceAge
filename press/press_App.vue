@@ -27,7 +27,7 @@
     </b-col>
 
     <b-col cols="3">
-      <div style="max-width: 150px">   
+      <div style="max-width: 200px">   
 
         <b-form-group label="Press"
                       :label-for="'ListName'" class="mb-0 pb-2">
