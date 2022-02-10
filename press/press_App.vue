@@ -293,21 +293,21 @@
 
                 {title: 'Est Hours Remain', field: 'PressHoursRemain'},
 
+                {title: 'Glass', field: 'GlassSpecs', width: '5em', formatter: 'textarea'},  
+                {title: 'Shim Layup', field: 'ShimLayup', responsive: 2, formatter: 'textarea'},
+                {title: 'Glass Layers', field: 'MoldGlassLayers', responsive: 2},
+
+                {title: 'Foam Grams', field: 'Weight_Foam'},
+                {title: 'Set Time', field: 'SetTimeSeconds'},
+
                 {title: 'Thick', field: 'DimThickness_Finished'},
                 {title: 'Thick OP', field: 'DimThickness_OffPress'},
                 {title: 'Width OP', field: 'DimWidth_OffPress'},
                 {title: 'Length OP', field: 'DimLength_OffPress'},
 
-                {title: 'Glass', field: 'GlassSpecs', width: '5em', formatter: 'textarea'},  
-                {title: 'Shim Layup', field: 'ShimLayup', responsive: 2, formatter: 'textarea'},
-                {title: 'Glass Layers', field: 'MoldGlassLayers', responsive: 2},
-
                 {title: 'Weight OP', field: 'Weight_OffPress'},                
                 {title: 'Weight Sanded', field: 'Weight_Sanded'},
 
-
-                {title: 'Foam Grams', field: 'Weight_Foam'},
-                {title: 'Set Time', field: 'SetTimeSeconds'},     
 
                 {title: 'Item', field: 'ItemNumber', responsive: 3, minWidth: 150},
                 {title: 'Customer', field: 'CustomerName', responsive: 3, minWidth: 175},
