@@ -808,7 +808,17 @@
         return result;
       },
 
-      curOperatorName: function() {return this.data_Operators.find((el) => el.qguid == this.curOperator).Operator;},
+      curOperatorName: function() {
+        let thisOperator = this.data_Operators.find((el) => el.qguid == this.curOperator);
+
+        let thisName = null;
+
+        if (thisOperator) {
+          thisName = thisOperator.Operator;
+        }
+        
+        return thisName
+      },
 
       add: function () {
         this.list.push({name: "Juan"});
