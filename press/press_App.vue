@@ -716,7 +716,8 @@
           }
 
           if (!thatVue.curOperator) {
-            thatVue.$th.raiseError('No operator selected!  Please select the operator working on this press.');
+            //TechnicalMessage|FriendlyMessage|ShowTech?|Title
+            thatVue.$th.raiseError('|Please select the operator working on this press.!1|No operator selected!');
           }
           else {
             thatVue.$bvModal.show('WOQualityModal');            
