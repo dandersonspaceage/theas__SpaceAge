@@ -300,14 +300,13 @@
 
                 {title: 'Glass', field: 'GlassSpecs', width: '5em', formatter: 'textarea'},  
                 {title: 'Shim Layup', field: 'ShimLayup', width: '7em', formatter: 'textarea'},
-                {title: 'Glass Layers', field: 'MoldGlassLayers', responsive: 2},
-
-                {title: 'Weight OP', field: 'Weight_OffPress'},                
-                {title: 'Weight Sanded', field: 'Weight_Sanded'},
-
+                {title: 'Glass Layers', field: 'MoldGlassLayers', responsive: 2},        
 
                 {title: 'Foam Grams', field: 'Weight_Foam'},
-                {title: 'Set Time', field: 'SetTimeSeconds'},     
+                {title: 'Set Time', field: 'SetTimeSeconds'},   
+                
+                {title: 'Weight OP', field: 'Weight_OffPress'},                
+                {title: 'Weight Sanded', field: 'Weight_Sanded'},                
 
                 {title: 'Item', field: 'ItemNumber', responsive: 3, minWidth: 150},
                 {title: 'Customer', field: 'CustomerName', responsive: 3, minWidth: 175},
