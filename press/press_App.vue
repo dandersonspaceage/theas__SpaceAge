@@ -16,6 +16,7 @@
 
           <b-form-select :id="'selOperator'"
                         :options="data_Operators"
+                        v-model="curOperator"
                         size="sm"                        
           >
           </b-form-select>
@@ -236,6 +237,12 @@
         </b-col>
       </b-row>
 
+      <b-row>
+        <b-col>
+          <b><i>[[ curOperator ]]</i></b>
+        </b-col>
+      </b-row>
+
     </div>
   </b-modal>  
 
@@ -360,7 +367,8 @@
         curWOList: 'N',
 
         curWOqguid_Table1: null,
-        curWOqguid_Table2: null,        
+        curWOqguid_Table2: null,   
+        curOperator: null,     
 
         curWO: {},
         curWOTable1: {},
