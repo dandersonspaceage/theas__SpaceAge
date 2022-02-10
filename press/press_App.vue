@@ -38,7 +38,7 @@
           </b-form-select>
         </b-form-group>
 
-          <h6 class="ml-5">[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>        
+          <h6 class="ml-1">[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>        
 
       </div>      
     </b-col>
