@@ -184,7 +184,7 @@
           <b-form-group label="Caliper 2"
                         :label-for="'qaCaliper2'">
             <b-form-input :id="'qaCaliper2'"
-                          v-model="curShot.QACaliper2" size="sm"></b-form-input>
+                          v-model="curShot.qaCaliper2" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
       </b-row>
@@ -194,7 +194,7 @@
           <b-form-group label="Caliper Front"
                         :label-for="'qaCaliperFront'">
             <b-form-input :id="'qaCaliperFront'"
-                          v-model="curShot.QACaliperFront" size="sm"></b-form-input>
+                          v-model="curShot.qaCaliperFront" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
 
@@ -203,7 +203,7 @@
           <b-form-group label="Caliper Back"
                         :label-for="'qaCaliperBack'">
             <b-form-input :id="'qaCaliperBack'"
-                          v-model="curShot.QACaliperBack" size="sm"></b-form-input>
+                          v-model="curShot.qaCaliperBack" size="sm"></b-form-input>
           </b-form-group>          
         </b-col>
       </b-row>
@@ -213,7 +213,7 @@
           <b-form-group label="Actual Weight"
                         :label-for="'qaActualWeight'">
             <b-form-input :id="'qaActualWeight'"
-                          v-model="curShot.QAActualWeight" size="sm"></b-form-input>
+                          v-model="curShot.qaActualWeight" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
 
@@ -222,7 +222,7 @@
           <b-form-group label="Actual Set Time"
                         :label-for="'qaActualSetTime'">
             <b-form-input :id="'qaActualSetTIme'"
-                          v-model="curShot.QAActualSetTime" size="sm"></b-form-input>
+                          v-model="curShot.qaActualSetTime" size="sm"></b-form-input>
           </b-form-group>              
         </b-col>
       </b-row>
@@ -232,7 +232,8 @@
           <b-form-group label="Quality"
                         :label-for="'qaQuality'">
             <b-form-select :id="'qaQuality'"
-                          v-model="curShot.QAActualSetTime" size="sm"></b-form-select>
+                          :options="qualityLevels"                      
+                          v-model="curShot.qaQuality" size="sm"></b-form-select>
           </b-form-group>           
         </b-col>
       </b-row>
@@ -334,6 +335,12 @@
                                                                  
               ],
             },
+
+        qualityLevels: [
+          { value: 'A', text: 'A' },
+          { value: 'B', text: 'B' },
+          { value: 'RW', text: 'RW' }
+        ],
 
         theasParams: {},
         theasLastError: {},
