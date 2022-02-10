@@ -433,8 +433,8 @@
       onShowWOQuality: function() {
         let thatVue = this;
 
-        if (!curOperator) {
-          thatVue.th.raiseError('No operator selected!  Please select the operator working on this press.');
+        if (!thatVue.curOperator) {
+          thatVue.$th.raiseError('No operator selected!  Please select the operator working on this press.');
         }
       },
 
