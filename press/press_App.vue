@@ -298,7 +298,7 @@
                 {title: 'Width OP', field: 'DimWidth_OffPress'},
                 {title: 'Length OP', field: 'DimLength_OffPress'},
 
-                {title: 'Glass', field: 'GlassSpecs', width: '4em', formatter: 'textarea'},  
+                {title: 'Glass', field: 'GlassSpecs', width: '7em', formatter: 'textarea'},  
                 {title: 'Shim Layup', field: 'ShimLayup', responsive: 2, formatter: 'textarea'},
                 {title: 'Glass Layers', field: 'MoldGlassLayers', responsive: 2},
 
