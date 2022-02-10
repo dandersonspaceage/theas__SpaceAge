@@ -841,6 +841,10 @@
 
   .tabulator { font-size: 1em; }
 
+  .tabulator-row .tabulator-cell{
+      padding:4px 2px;
+  }
+
   .bottom {
     position: fixed;
     width: 100%;
