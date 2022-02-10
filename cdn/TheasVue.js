@@ -3,12 +3,13 @@ if (!FormData.prototype.set) {
   FormData.prototype.set = FormData.prototype.append;
 }
 
+
 function Theas(vue) {
    // save reference to Vue object that can be used in async callbacks
    this.thatVue = vue;
    this.theasParams = {th$ErrorMessage: ''};
 
-   this.lastError = {msg: '', msgTitle: '', msgTech: '', msgFriendly: '', msgParts: []};
+   this.lastError = {msg: '', msgTech: '', msgFriendly: '',  showTech: false, msgTitle: '', msgParts: []}
 
    this.useCurrentLocation = false;
    this.currentLocation = null;
@@ -41,8 +42,7 @@ Theas.prototype.setVue = function (vue){
 Theas.prototype.uuidv4 = function () {
  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
- )
-};
+ )};
 
 Theas.prototype.getCookie = function (cname) {
    // from https://www.w3schools.com/js/js_cookies.asp
@@ -116,9 +116,41 @@ Theas.prototype.updateAllTheasParams = function (nv) {
 
     if (typeof nv == 'object') {
       if (nv['__TheasParams']) {
-        Object.assign(thatTheas.theasParams, JSON.parse(nv['__TheasParams']));
+        thatTheas.updateAllTheasParams(JSON.parse(nv['__TheasParams']));
       }
+
+      //Update all theas controls as per the updateStr
+
+      const pfx = 'theas:';
+      const pfx2 = 'theas$';
+
+      for (let n in nv) {
+          let k;
+
+          if (nv.hasOwnProperty(n)) {
+              if (n.startsWith(pfx)) {
+                  k = n.substring(pfx.length);
+              }
+              else if (n.startsWith(pfx2)) {
+                  k = n.substring(pfx2.length);
+              }
+              else {
+                k = n;
+              }
+
+              if (k) {
+                  k = k.replace(':', '$');
+                  //thatTheas.theasParams[k] = nv[n];
+                  thatTheas.thatVue.$set(thatTheas.theasParams, k, nv[n]);
+              }
+          }
+      }
+
+      let thisErr = thatTheas.theasParams['th$ErrorMessage'];   
+
     }
+
+    /*
     else if (typeof nv == 'string') {
 
       //Update all theas controls as per the updateStr
@@ -146,6 +178,7 @@ Theas.prototype.updateAllTheasParams = function (nv) {
           }
       }
     }
+    */
 };
 
 
@@ -765,6 +798,9 @@ Theas.prototype.submitForm = function (v, config) {
        }
    }
 
+   
+   thatTheas.theasParams['Login$Password'] = '';
+
 
    let axiosConfig = {
        method: 'post',
@@ -780,38 +816,25 @@ Theas.prototype.submitForm = function (v, config) {
 
    axios(axiosConfig)
        .then(function (response) {
-           //handle success
-           console.log(response);
+          //handle success
+          thatTheas.updateAllTheasParams(thatTheas.splitToNV(response.data))        
 
-           let params;
-           let nameValue;
-           let thisName;
-           let thisValue;
+          vueObj.submitted = false;
 
-           let goToURL = '';
 
-           if (response != undefined) {
-               params = response.data.split('&');
-               for (let i = 0; i < params.length; i++) {
-                   nameValue = params[i].split('=');
+          let goToURL = thatTheas.theasParams['th$NextPage'];
 
-                   thisName = nameValue[0];
-                   thisValue = nameValue[1];
+          if (!goToURL && config.onSuccessURL) {
+              goToURL = config.onSuccessURL
+          }
 
-                   if (thisName == 'theas:th:NextPage') {
-                       // navigate to specified page
-                       goToURL = thisValue;
-                   }
-               }
+          if (goToURL) {
+            if (!goToURL.startsWith('/')) {
+            goToURL = '/' + goToURL;
+            }
 
-               if (!goToURL && config.onSuccessURL) {
-                   goToURL = config.onSuccessURL
-               }
-
-               if (goToURL) {
-                   window.location = goToURL;
-               }
-           }
+            window.location = goToURL;             
+          }           
 
        })
        .catch(function (response) {
@@ -820,7 +843,6 @@ Theas.prototype.submitForm = function (v, config) {
        });
 
    vueObj.submitted = true;
-
 };
 
 Theas.prototype.clearError = function (doFetchData) {
@@ -887,47 +909,70 @@ Theas.prototype.showModal =  function(msg, title, onClose, goBackOnClose) {
 };
 
 Theas.prototype.raiseError = function (errMsg) {
-       let thatTheas = this;
+  let thatTheas = this;
 
-       thatTheas.theasParams['th$ErrorMessage'] = errMsg;
-       thatTheas.thatVue.$bvModal.show('thModal');     
-          
- };
+  thatTheas.parseError(errMsg);
+  thatTheas.thatVue.$bvModal.show('thModal');  
+};
 
-Theas.prototype.haveError = function(showModal) {
-  // save reference to Theas object
+Theas.prototype.parseError = function(msg) {
   let thatTheas = this;
 
   let result = false;
 
-  let msg = thatTheas.theasParams['th$ErrorMessage'];
-
-  if (msg.length > 0) {
-      result = true;
-
-      let lastErr = thatTheas.lastError;
-
-      lastErr.msg = msg;
-
-      //message can be pipe-delimited:  TechnicalMessage|Title|FriendlyMessage
-      lastErr.msgParts = msg.split('|');
-
-      lastErr.msgTitle = 'Error';
-      lastErr.msgTech = lastErr.msgParts[0]; 
-      lastErr.msgFriendly = '';
-
-      if (lastErr.msgParts.length > 1) {             
-        lastErr.msgTitle = lastErr.msgParts[1];
-
-        if (lastErr.msgParts.length > 2) { 
-          lastErr.msgFriendly = lastErr.msgParts[2];                      
-        }
-      }
-
-    if (showModal) {
-      thatTheas.thatVue.$bvModal.show('thModal');        
-    }     
+  if (msg) {
+      thatTheas.theasParams['th$ErrorMessage'] = msg;
   }
 
-   return result;
+  msg = thatTheas.theasParams['th$ErrorMessage'];
+
+  if (msg.length > 0) {
+    result = true;
+
+    let lastErr = thatTheas.lastError;
+
+    lastErr.msg = msg;
+
+    //message can be pipe-delimited:  TechnicalMessage|FriendlyMessage|ShowTech?|Title
+
+    lastErr.msgParts = msg.split('|');
+
+
+
+    lastErr.msgTitle = 'Error';
+    lastErr.msgTech = lastErr.msgParts[0]; 
+    lastErr.msgFriendly = '';
+
+    if (lastErr.msgParts.length > 1) {             
+      lastErr.msgFriendly = lastErr.msgParts[1];      
+
+      if (lastErr.msgParts.length > 2) {
+        lastErr.showTech = Boolean(lastErr.msgParts[2]);
+
+        if (lastErr.msgParts.length > 3) { 
+          lastErr.msgTitle = lastErr.msgParts[3];                                
+        }               
+      }
+
+    } 
+  }
+}
+
+Theas.prototype.haveError = function(showModal) {
+// save reference to Theas object
+let thatTheas = this;
+
+let result = false;
+
+thatTheas.parseError();
+
+if (thatTheas.theasParams['th$ErrorMessage']) {
+  result = true;
+  
+  if (showModal) {
+    thatTheas.thatVue.$bvModal.show('thModal');        
+  }          
+}
+
+return result;
 };
