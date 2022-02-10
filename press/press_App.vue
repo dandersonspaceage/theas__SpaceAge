@@ -239,7 +239,8 @@
 
       <b-row>
         <b-col>
-          <h5>Operator: [[ data_Operators.find((el) => el.value == curOperator) ]]</h5>
+          <h5>Operator: [[ curOperatorName  ]]</h5>
+
         </b-col>
       </b-row>
 
@@ -807,12 +808,16 @@
         return result;
       },
 
+      curOperatorName: function() {return data_Operators.find((el) => el.qguid == this.curOperator);},
+
       add: function () {
         this.list.push({name: "Juan"});
       },
+
       replace: function () {
         this.list = [{name: "Edgard"}];
       },
+
       clone: function (el) {
         return {
           name: el.name + " cloned",
