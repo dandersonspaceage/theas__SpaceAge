@@ -291,7 +291,7 @@
                   formatterParams: {formatStr: "dd MM/DD"}
                 },
 
-                {title: 'Est Hours Remain', field: 'PressHoursRemain'},
+                {title: 'Hours Remain', field: 'PressHoursRemain'},
 
                 {title: 'Thick', field: 'DimThickness_Finished'},
                 {title: 'Thick OP', field: 'DimThickness_OffPress'},
