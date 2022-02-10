@@ -30,16 +30,16 @@
       <div style="max-width: 150px">   
 
         <b-form-group label="Press"
-                      :label-for="'ListName'" style="padding:0">
+                      :label-for="'ListName'" class="m0 p0">
           <b-form-select :id="'listName'"
                         v-model="curWOList" :options="woListNames" @change="switchWOList()"
                         size="sm"
-                        style="padding:0"
+                         class="m0 p0"
                         >
           </b-form-select>
         </b-form-group>
 
-          <h6 style="padding:0">[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>        
+          <h6 class="m0 p0">[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>        
 
       </div>      
     </b-col>
