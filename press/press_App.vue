@@ -238,6 +238,16 @@
         </b-col>
       </b-row>
 
+      <b-row>      
+        <b-col>   
+          <b-form-group label="Notes"
+                        :label-for="'qaNotes'">
+            <b-form-textarea :id="'qaNotes'" debounce="300"
+                            v-model="curShot.qaNotes" rows="3" max-rows="3">                          
+          </b-form-group>           
+        </b-col>
+      </b-row>      
+
       <b-row>
         <b-col>
           <h5>Operator: [[ curOperatorName() ]]</h5>
