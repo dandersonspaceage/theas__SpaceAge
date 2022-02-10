@@ -768,10 +768,14 @@
                   // response contains the complete response object, in which .data contains
                   // the raw data that was received.              
 
+                  /*
                   let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === qguid)
                   if (thisIndex >= 0) {
                     thatVue.curShot = thatVue.data_Shots[thisIndex];
                   }
+                  */
+
+                 thatVue.curShot = null;
 
                 }
             });
