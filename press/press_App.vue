@@ -808,7 +808,7 @@
         return result;
       },
 
-      curOperatorName: function() {return this.data_Operators.find((el) => el.qguid == this.curOperator);},
+      curOperatorName: function() {return this.data_Operators.find((el) => el.qguid == this.curOperator).Operator;},
 
       add: function () {
         this.list.push({name: "Juan"});
