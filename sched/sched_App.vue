@@ -108,6 +108,11 @@
                           <b-col>
                             <span class='bg-warning' v-if="!wo.CommitDate">No Commit Date</span>
                           </b-col>
+
+                          <b-col>
+
+                            <b-button>Split WO</b-button>
+                          </b-col>
                         </b-row>
                     
 
