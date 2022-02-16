@@ -119,9 +119,9 @@
                               <span class="when-closed">       
                                 <i class="fa fa-chevron-up" aria-hidden="true"></i>
           <b-form-group label="Number of WOs"
-                        :label-for="'SplitNoWOS">
-            <b-form-input :id="'SplitNoWOS'"
-                          v-model="splitNoWOS" size="sm"></b-form-input>
+                        :label-for="'SplitNoWOs'">
+            <b-form-input :id="'SplitNoWOs'"
+                          v-model="splitNoWOs" size="sm"></b-form-input>
           </b-form-group>   
 
                               </span>
@@ -294,7 +294,7 @@
 
         thisWO_CommitDate: null, // object for datepicker
 
-        splitNoWOS: null,
+        splitNoWOs: null,
       };
     },
 
