@@ -118,19 +118,25 @@
                               </span>
                               <span class="when-closed">       
                                 <i class="fa fa-chevron-up" aria-hidden="true"></i>
-          <b-form-group label="Number of WOs"
-                        :label-for="'SplitNoWOs'">
-            <b-form-input :id="'SplitNoWOs'"
-                          v-model="splitNoWOs" size="sm"></b-form-input>
-          </b-form-group>   
-
                               </span>
 
                             </b-btn>
                           </b-col>
                         </b-row>
                     
+                        <b-collapse :id="'collapseSplit' + wo.qguid">
+                          <b-row>
+                            <b-col>
+          <b-form-group label="Number of WOs"
+                        :label-for="'SplitNoWOs'">
+            <b-form-input :id="'SplitNoWOs'"
+                          v-model="splitNoWOs" size="sm"></b-form-input>
+          </b-form-group>   
+                            </b-col>
+                          </b-row>
+                        </b-collapse>
 
+                
                         <b-collapse :id="'collapse' + wo.qguid">
                           <b-row>
                             <b-col>
