@@ -325,7 +325,7 @@
 
         thisWO_CommitDate: null, // object for datepicker
 
-        splitNoWOs: []],
+        splitNoWOs: []
       };
     },
 
