@@ -128,10 +128,35 @@
                           <b-row>
                             <b-col offset-md="6">
           <b-form-group label="Number of WOs"
-                        :label-for="'SplitNoWOs'">
-            <b-form-input :id="'SplitNoWOs'"
-                          v-model="splitNoWOs" size="sm"></b-form-input>
-          </b-form-group>   
+                        :label-for="'SplitNoWOs1'">
+            <b-form-input :id="'SplitNoWOs1'"
+                          v-model="splitNoWOs[0]" size="sm"></b-form-input>
+          </b-form-group>
+
+          <b-form-group label="Number of WOs"
+                        :label-for="'SplitNoWOs2'">
+            <b-form-input :id="'SplitNoWOs2'"
+                          v-model="splitNoWOs[1]" size="sm"></b-form-input>
+          </b-form-group>    
+
+          <b-form-group label="Number of WOs"
+                        :label-for="'SplitNoWOs3'">
+            <b-form-input :id="'SplitNoWOs3'"
+                          v-model="splitNoWOs[2]" size="sm"></b-form-input>
+          </b-form-group>  
+
+          <b-form-group label="Number of WOs"
+                        :label-for="'SplitNoWOs4'">
+            <b-form-input :id="'SplitNoWOs4'"
+                          v-model="splitNoWOs[3]" size="sm"></b-form-input>
+          </b-form-group> 
+
+          <b-form-group label="Number of WOs"
+                        :label-for="'SplitNoWOs5'">
+            <b-form-input :id="'SplitNoWOs5'"
+                          v-model="splitNoWOs[4]" size="sm"></b-form-input>
+          </b-form-group>           
+
                             </b-col>
                           </b-row>
                         </b-collapse>
@@ -300,7 +325,7 @@
 
         thisWO_CommitDate: null, // object for datepicker
 
-        splitNoWOs: null,
+        splitNoWOs: []],
       };
     },
 
