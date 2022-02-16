@@ -111,7 +111,7 @@
 
                           <b-col>
 
-                            <b-btn v-b-toggle="'collapseSplit' + wo.qguid">Split WO
+                            <b-btn variant="primary" v-b-toggle="'collapseSplit' + wo.qguid">Split WO
 
                               <span class="when-opened">
                                 <i class="fa fa-chevron-down" aria-hidden="true"></i>
