@@ -111,7 +111,22 @@
 
                           <b-col>
 
-                            <b-button>Split WO</b-button>
+                            <b-btn v-b-toggle="'collapseSplit' + wo.qguid">Split WO
+
+                              <span class="when-opened">
+                                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                              </span>
+                              <span class="when-closed">       
+                                <i class="fa fa-chevron-up" aria-hidden="true"></i>
+          <b-form-group label="Number of WOs"
+                        :label-for="'SplitNoWOS">
+            <b-form-input :id="'SplitNoWOS'"
+                          v-model="splitNoWOS" size="sm"></b-form-input>
+          </b-form-group>   
+
+                              </span>
+
+                            </b-btn>
                           </b-col>
                         </b-row>
                     
@@ -278,6 +293,8 @@
         data_ThisWO: {},
 
         thisWO_CommitDate: null, // object for datepicker
+
+        splitNoWOS: null,
       };
     },
 
