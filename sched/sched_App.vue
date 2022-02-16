@@ -21,7 +21,7 @@
                 <b-form-group label="Search"
                               :label-for="'search'">
                   <b-input :id="'search'"
-                                v-model="searchTarget" @keyup="onSearchKeyUp" debounce="100" placeholder="search...">
+                                v-model="searchTarget" @keyup="onSearchKeyUp" debounce="100" placeholder="search..."
                                 size="sm"></b-input>
                 </b-form-group>                
               </b-col>         
@@ -129,31 +129,31 @@
                             <b-col offset-md="6">
           <b-form-group label="Qty Batch 1"
                         :label-for="'SplitNoWOs1'">
-            <b-form-input :id="'SplitNoWOs1'"
+            <b-form-input :id="'SplitNoWOs1'" size="sm"
                           v-model="splitNoWOs[0]" size="sm"></b-form-input>
           </b-form-group>
 
           <b-form-group label="Qty Batch 2"
                         :label-for="'SplitNoWOs2'">
-            <b-form-input :id="'SplitNoWOs2'"
+            <b-form-input :id="'SplitNoWOs2'" size="sm"
                           v-model="splitNoWOs[1]" size="sm"></b-form-input>
           </b-form-group>    
 
           <b-form-group label="Qty Batch 3"
                         :label-for="'SplitNoWOs3'">
-            <b-form-input :id="'SplitNoWOs3'"
+            <b-form-input :id="'SplitNoWOs3'" size="sm"
                           v-model="splitNoWOs[2]" size="sm"></b-form-input>
           </b-form-group>  
 
           <b-form-group label="Qty Batch 4"
                         :label-for="'SplitNoWOs4'">
-            <b-form-input :id="'SplitNoWOs4'"
+            <b-form-input :id="'SplitNoWOs4'" size="sm"
                           v-model="splitNoWOs[3]" size="sm"></b-form-input>
           </b-form-group> 
 
           <b-form-group label="Qty Batch 5"
                         :label-for="'SplitNoWOs5'">
-            <b-form-input :id="'SplitNoWOs5'"
+            <b-form-input :id="'SplitNoWOs5'" size="sm"
                           v-model="splitNoWOs[4]" size="sm"></b-form-input>
           </b-form-group>           
 
