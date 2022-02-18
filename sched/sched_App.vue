@@ -127,6 +127,7 @@
                         <b-collapse :id="'collapseSplit' + wo.qguid">
                           <b-row>
                             <b-col offset-md="6">
+                              
           <b-form-group label="Qty Batch 1"
                         :label-for="'SplitNoWOs1'">
             <b-form-input :id="'SplitNoWOs1'" size="sm"

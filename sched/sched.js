@@ -4,6 +4,7 @@ import vueNewPage1 from "{{ '/sched/sched_App.vue'|theasResource }}"
     Vue.use(BootstrapVue);
 
     Vue.prototype.$th = new Theas()
+    
 
    //use Axios instead of vue-resource for HTTP calls as per https://medium.com/the-vue-point/retiring-vue-resource-871a82880af4
     Vue.prototype.$http = axios;
