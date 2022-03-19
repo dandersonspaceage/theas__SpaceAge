@@ -47,6 +47,7 @@
     <b-col cols="1">
       <br />
       <b-button @click="fetchData()">Reload</b-button>
+      <br />
     </b-col>
 
     <b-col cols="1">
