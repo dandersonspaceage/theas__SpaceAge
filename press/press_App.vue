@@ -55,9 +55,9 @@
   </b-row>  
 
   <b-row>
-    <b-cols col="1" offset-md="11">
+    <b-col md="1" offset-md="11">
         <b-button variant="outline-primary" @click="$bvModal.show('ShotHistoryModal')">Shot History</b-button>   
-    </b-cols>
+    </b-col>
   </b-row>  
 
   <div class="ml-3" style="height:65%" :style="{cursor: curCursor}">
