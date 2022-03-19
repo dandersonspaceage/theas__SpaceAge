@@ -51,10 +51,14 @@
 
     <b-col cols="1">
     </b-col>
-
-
   
-  </b-row>    
+  </b-row>  
+
+  <b-row>
+    <b-cols col="1">
+        <b-button @click="$bvModal.show('ShotHistoryModal')">Show History</b-button>   
+    </b-cols>
+  </b-row>  
 
   <div class="ml-3" style="height:65%" :style="{cursor: curCursor}">
 
@@ -162,9 +166,19 @@
     </div>
   </b-modal>
 
+
+  <b-modal id="ShotHistoryModal" ref="ShotHistoryModal" @show="onShowShotHistory" @hide="onHideShotHistory($event)" hide-footer>
+    <template #modal-title>
+      <h4>Shot History</h4>
+    </template>
+
+    <div class="d-block">
+      <p>Shot history goes here...</p>
+    </div>
+  </b-modal>
+
   <b-modal id="WOQualityModal" ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality(curWO.qguid, $event)" hide-footer>
     <template #modal-title>
-      <h3>
       <h4>WO [[ curWO.WONumber ]] QA Measurements</h4>
     </template>
 
@@ -446,10 +460,16 @@
         }
       }, 
 
+      onShowShotHistory: function() {
+        let thatVue = this;
+      },
+
+      onHideShotHistory: function(qguid, evt) {
+        let thatVue = this; 
+      },
 
       onShowWOQuality: function() {
         let thatVue = this;
-
       },
 
       onHideWOQuality: function(qguid, evt) {
