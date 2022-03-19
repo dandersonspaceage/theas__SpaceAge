@@ -55,7 +55,7 @@
   </b-row>  
 
   <b-row>
-    <b-col md="1" offset-md="11">
+    <b-col cols="2" offset="8">
         <b-button variant="outline-primary" @click="$bvModal.show('ShotHistoryModal')">Shot History</b-button>   
     </b-col>
   </b-row>  
