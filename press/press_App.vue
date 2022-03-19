@@ -173,7 +173,11 @@
     </template>
 
     <div class="d-block">
-      <p>Shot history goes here...</p>
+      <b-row>
+        <b-col>
+            <Vue-Tabulator ref="tabuShotHistory" class="table-striped table-sm" v-model="data_WOs" :options="tab1Options" />
+        </b-col>
+      </b-row>
     </div>
   </b-modal>
 
