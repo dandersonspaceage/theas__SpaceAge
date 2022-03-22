@@ -167,7 +167,7 @@
   </b-modal>
 
 
-  <b-modal id="ShotHistoryModal" ref="ShotHistoryModal" @show="onShowShotHistory" @hide="onHideShotHistory($event)" hide-footer>
+  <b-modal id="ShotHistoryModal" ref="ShotHistoryModal" size="lg" @show="onShowShotHistory" @hide="onHideShotHistory($event)" hide-footer>
     <template #modal-title>
       <h4>Shot History</h4>
     </template>
