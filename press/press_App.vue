@@ -175,7 +175,7 @@
     <div class="d-block">
       <b-row>
         <b-col>
-            <Vue-Tabulator ref="tabuShotHistory" class="table-striped table-sm" v-model="data_WOs" :options="tab1Options" />
+            <Vue-Tabulator ref="tabuShotHistory" class="table-striped table-sm" v-model="data_Shots" :options="tabShotHistOpt" />
         </b-col>
       </b-row>
     </div>
@@ -359,6 +359,30 @@
                 //{title: 'Finish', field: 'SurfaceFinish', responsive: 4, minWidth: 150},
 
 
+                {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175}
+                                                                 
+              ],
+            },
+
+            tabShotHistOpt: {
+              responsiveLayout: 'collapse', // enable responsive layouts
+              height: '50vh', //with responsiveCollapse we need to specify an absolute height
+              layout: 'fitDataFill',
+              //layout: 'fitColumns',
+              responsiveLayoutCollapseStartOpen: false,
+              resizableColumns: true,
+
+              columns: [
+                {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
+                             
+                {title: 'WO', field: 'WONumber', responsive: 0},      
+                {title: 'Time', field: 'ShotDate', 
+                  formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);},
+                  formatterParams: {formatStr: "dd hh:mm"}
+                },
+
+                {title: 'Quality', field: 'Quality', responsive: 0},
+                
                 {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175}
                                                                  
               ],
