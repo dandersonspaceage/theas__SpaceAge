@@ -100,6 +100,7 @@
         </a>
 
         <!--Optionally, a div with id="thapp" wiil be replaced by Vue-rendered content-->
+        
         <div id="thapp">Please wait while this page is being loaded.</div>
     </main>
   
