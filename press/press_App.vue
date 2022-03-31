@@ -731,7 +731,7 @@
 
               //  WOs
               if (rd["Shotss"]) {
-                thisObj = JSON.parse(rd["Shotss"])[0];
+                thisObj = JSON.parse(rd["Shots"])[0];
                 thisData = thisObj["JSONData"];
                 thisFetchDate = thisObj["FetchDate"];
 
