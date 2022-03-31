@@ -730,7 +730,7 @@
 
 
               //  Shots
-              if (1==0 && rd["Shots"]) {
+              if (1==1 && rd["Shots"]) {
                 thisObj = JSON.parse(rd["Shots"])[0];
                 thisData = thisObj["JSONData"];
                 thisFetchDate = thisObj["FetchDate"];
