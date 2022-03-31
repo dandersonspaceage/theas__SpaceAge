@@ -64,13 +64,6 @@
 
     <b-row>
       <b-col>
-          <Vue-Tabulator ref="tabuShotHistory" class="table-striped table-sm" v-model="data_Shots" :options="tabShotHistOpt" />
-      </b-col>
-    </b-row>
-
-
-    <b-row>
-      <b-col>
           <Vue-Tabulator ref="tabulator" class="table-striped table-sm" v-model="data_WOs" :options="tab1Options" />
       </b-col>
     </b-row>
@@ -179,14 +172,18 @@
       <h4>Shot History</h4>
     </template>
 
+  
+
     <div class="d-block">
-      <b-row>
-        <b-col>
-            <p>Tabulator Goes Here</p>
-            
-        </b-col>
-      </b-row>
+      <b-container>
+        <b-row>
+          <b-col>
+              <Vue-Tabulator ref="tabuShotHistory" class="table-striped table-sm" v-model="data_Shots" :options="tabShotHistOpt" />            
+          </b-col>
+        </b-row>
+      </b-container>
     </div>
+    
   </b-modal>
 
   <b-modal id="WOQualityModal" ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality(curWO.qguid, $event)" hide-footer>
