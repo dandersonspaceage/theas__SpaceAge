@@ -749,7 +749,7 @@
                           thisData
                   );
                 }
-                thatVue.data_WOs = thatVue.$th.sortArray(
+                thatVue.data_Shots = thatVue.$th.sortArray(
                         thatVue.data_Shots,
                         "DateStarted",
                         true //false=ascending, true=descending
