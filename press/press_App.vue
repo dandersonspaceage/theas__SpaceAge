@@ -378,7 +378,7 @@
                 {title: 'WO', field: 'WONumber', responsive: 0},
                 {title: 'Shot', field: 'ShotNumber', responsive: 0},
                 
-                {title: 'Time', field: 'DateFinished,' responsive: 0, 
+                {title: 'Time', field: 'DateFinished', responsive: 0, 
                   formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);},
                   formatterParams: {formatStr: "dd hh:mm:ss"}
                 },
