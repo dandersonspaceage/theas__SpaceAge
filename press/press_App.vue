@@ -64,6 +64,13 @@
 
     <b-row>
       <b-col>
+          <Vue-Tabulator ref="tabuShotHistory" class="table-striped table-sm" v-model="data_Shots" :options="tabShotHistOpt" />
+      </b-col>
+    </b-row>
+
+
+    <b-row>
+      <b-col>
           <Vue-Tabulator ref="tabulator" class="table-striped table-sm" v-model="data_WOs" :options="tab1Options" />
       </b-col>
     </b-row>
@@ -175,7 +182,8 @@
     <div class="d-block">
       <b-row>
         <b-col>
-            <Vue-Tabulator ref="tabuShotHistory" class="table-striped table-sm" v-model="data_Shots" :options="tabShotHistOpt" />
+            <p>Tabulator Goes Here</p>
+            
         </b-col>
       </b-row>
     </div>
