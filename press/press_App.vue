@@ -380,7 +380,7 @@
                 
                 {title: 'Time', field: 'DateFinished', responsive: 0, 
                   formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);},
-                  formatterParams: {formatStr: "dd hh:mm:ss"}
+                  formatterParams: {formatStr: "dd hh:mm"}
                 },
 
                 {title: 'Quality', field: 'Quality', responsive: 0},
