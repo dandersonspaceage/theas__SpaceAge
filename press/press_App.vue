@@ -378,26 +378,8 @@
               resizableColumns: true,
 
               columns: [
-                {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
-                             
+                                      
                 {title: 'WO', field: 'WONumber', responsive: 0},
-                {title: 'Shot', field: 'ShotNumber'},
-                
-                {title: 'Time', field: 'DateFinished', 
-                  formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);},
-                  formatterParams: {formatStr: "dd hh:mm:ss"}
-                },
-
-                {title: 'Quality', field: 'Quality', responsive: 0},
-
-                {title: 'Set Time', field: 'qaActualSetTime'},
-                {title: 'Weight', field: 'qaActualWeight'},
-                {title: 'Caliper 1', field: 'qaCaliper1,'},
-                {title: 'Caliper 2', field: 'qaCaliper2'},
-                {title: 'Caliper Back ', field: 'qaCaliperBack'},
-                {title: 'Caliper Front', field: 'qaCaliperFront'},
-                
-                {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175}
                                                                  
               ],
             },
