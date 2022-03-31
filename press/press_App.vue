@@ -183,7 +183,7 @@
         </b-row>
       </b-container>
     </div>
-    
+
   </b-modal>
 
   <b-modal id="WOQualityModal" ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality(curWO.qguid, $event)" hide-footer>
@@ -370,8 +370,8 @@
             },
 
             tabShotHistOpt: {
-              responsiveLayout: 'collapse', // enable responsive layouts
-              height: '50vh', //with responsiveCollapse we need to specify an absolute height
+              responsiveLayout: 'hide', // enable responsive layouts
+              height: '100%', //with responsiveCollapse we need to specify an absolute height
               layout: 'fitDataFill',
               //layout: 'fitColumns',
               responsiveLayoutCollapseStartOpen: false,
