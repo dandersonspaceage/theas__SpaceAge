@@ -376,21 +376,21 @@
               columns: [
                                       
                 {title: 'WO', field: 'WONumber', responsive: 0},
-                {title: 'Shot', field: 'ShotNumber'},
+                {title: 'Shot', field: 'ShotNumber', responsive: 0},
                 
-                {title: 'Time', field: 'DateFinished', 
+                {title: 'Time', field: 'DateFinished, responsive: 0', 
                   formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);},
                   formatterParams: {formatStr: "dd hh:mm:ss"}
                 },
 
                 {title: 'Quality', field: 'Quality', responsive: 0},
 
-                {title: 'Set Time', field: 'qaActualSetTime'},
-                {title: 'Weight', field: 'qaActualWeight'},
-                {title: 'Caliper 1', field: 'qaCaliper1,'},
-                {title: 'Caliper 2', field: 'qaCaliper2'},
-                {title: 'Caliper Back ', field: 'qaCaliperBack'},
-                {title: 'Caliper Front', field: 'qaCaliperFront'},
+                {title: 'Set Time', field: 'qaActualSetTime', responsive: 0},
+                {title: 'Weight', field: 'qaActualWeight', responsive: 0},
+                {title: 'Caliper 1', field: 'qaCaliper1,', responsive: 0},
+                {title: 'Caliper 2', field: 'qaCaliper2', responsive: 0},
+                {title: 'Caliper Back ', field: 'qaCaliperBack', responsive: 0},
+                {title: 'Caliper Front', field: 'qaCaliperFront', responsive: 0},
                 
                 {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175}
                                                                  
