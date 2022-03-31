@@ -375,13 +375,22 @@
               columns: [
                 {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
                              
-                {title: 'WO', field: 'WONumber', responsive: 0},      
-                {title: 'Time', field: 'ShotDate', 
+                {title: 'WO', field: 'WONumber', responsive: 0},
+                {title: 'Shot', field: 'ShotNumber'},
+                
+                {title: 'Time', field: 'DateFinished', 
                   formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);},
-                  formatterParams: {formatStr: "dd hh:mm"}
+                  formatterParams: {formatStr: "dd hh:mm:ss"}
                 },
 
                 {title: 'Quality', field: 'Quality', responsive: 0},
+
+                {title: 'Set Time', field: 'qaActualSetTime'},
+                {title: 'Weight', field: 'qaActualWeight'},
+                {title: 'Caliper 1', field: 'qaCaliper1,'},
+                {title: 'Caliper 2', field: 'qaCaliper2'},
+                {title: 'Caliper Back ', field: 'qaCaliperBack'},
+                {title: 'Caliper Front', field: 'qaCaliperFront'},
                 
                 {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175}
                                                                  
@@ -716,6 +725,35 @@
                       thatVue.curWOqguid_Table2 = thatVue.curWOTable2.qguid;                                           
                     }
                 }             
+
+              }
+
+
+              //  WOs
+              if (rd["Shotss"]) {
+                thisObj = JSON.parse(rd["Shotss"])[0];
+                thisData = thisObj["JSONData"];
+                thisFetchDate = thisObj["FetchDate"];
+
+                if (config.reFetch) {
+                  thatVue.data_Shots.length = 0; //clear out WO      
+                }          
+
+                if (thisData) {
+                  thatVue.data_Shots = thatVue.$th.merge(
+                          // string (optional): key field name with unique values to merge on
+                          "qguid",
+                          // string (optional): key value to exclude from merge (i.e. currently-displayed rows)
+                          //'someIDValue'
+                          thatVue.data_Shots,
+                          thisData
+                  );
+                }
+                thatVue.data_WOs = thatVue.$th.sortArray(
+                        thatVue.data_Shots,
+                        "DateStarted",
+                        true //false=ascending, true=descending
+                );
 
               }
 
