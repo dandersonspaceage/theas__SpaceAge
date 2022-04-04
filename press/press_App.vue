@@ -965,6 +965,4 @@
     background-color: #BDB76B;
   }
 
-  @media (min-width: 992px) { .modal .modal-huge { max-width: 90% !important; width: 90% !important;; } } 
-
 </style>
