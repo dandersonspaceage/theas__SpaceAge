@@ -815,7 +815,7 @@
       showHistory: function() {        
         let thatVue = this;
 
-        $bvModal.show('ShotHistoryModal');                
+        thatVue.$bvModal.show('ShotHistoryModal');                
         thatVue.$refs.tabuShotHistory.setSort({column:"DateFinished", dir:"desc"});
       },
 
