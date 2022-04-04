@@ -373,6 +373,10 @@
               //responsiveLayoutCollapseStartOpen: false,
               resizableColumns: true,
 
+              rowClick:function(e, row){
+                alert(row.qguid);
+              },
+
               columns: [
                                       
                 {title: 'WO', field: 'WONumber', responsive: 0, headerSort:false},
@@ -392,7 +396,9 @@
                 {title: 'Caliper Back ', field: 'qaCaliperBack', responsive: 0, headerSort:false},
                 {title: 'Caliper Front', field: 'qaCaliperFront', responsive: 0, headerSort:false},
                 
-                {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175, headerSort:false}
+                {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175, headerSort:false},
+
+                {title: 'qguid', field: 'qguid', visible: false}                
                                                                  
               ],
             },
