@@ -56,7 +56,7 @@
 
   <b-row>
     <b-col cols="2" offset="10">
-        <b-button class="mb-1" variant="outline-primary" @click="$bvModal.show('ShotHistoryModal')">Shot History</b-button>  
+        <b-button class="mb-1" variant="outline-primary" @click="showHistory">Shot History</b-button>  
     </b-col>
   </b-row>  
 
@@ -366,11 +366,11 @@
             },
 
             tabShotHistOpt: {
-              responsiveLayout: 'hide', // enable responsive layouts
+              //responsiveLayout: 'hide', // enable responsive layouts
               height: '100%', //with responsiveCollapse we need to specify an absolute height
-              layout: 'fitDataFill',
-              //layout: 'fitColumns',
-              responsiveLayoutCollapseStartOpen: false,
+              //layout: 'fitDataFill',
+              layout: 'fitColumns',
+              //responsiveLayoutCollapseStartOpen: false,
               resizableColumns: true,
 
               columns: [
@@ -810,6 +810,15 @@
         }
 
 
+      },
+
+      showHistory: function() {        
+        let thatVue = this;
+
+        $bvModal.show('ShotHistoryModal');
+        <Vue-Tabulator ref="tabuShotHistory" class="table-striped table-sm" v-model="data_Shots" :options="tabShotHistOpt" />            
+        
+        thatVue.$refs.tabuShotHistory.setSort({column:"DateFinished", dir:"desc"});
       },
 
       completeShot: function(tableCode) {
