@@ -566,7 +566,11 @@
       onHistoryRowClick: function(e, row) {
         let thatVue = this;
 
-        thatVue.curWO = thatVue.data_Shots.find((el) => el === row.getData().qguid);
+        //correct, but shot history is currently fake data for testing
+        //thatVue.curWO = thatVue.data_Shots.find((el) => el === row.getData().qguid);
+        
+        //for testing only
+        thatVue.curWO = data_WOs[0];
         thatVue.$bvModal.show('ShotHistoryModal');     
       },
 
