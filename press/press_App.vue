@@ -167,7 +167,7 @@
   </b-modal>
 
 
-  <b-modal id="ShotHistoryModal" ref="ShotHistoryModal"  size="huge" @show="onShowShotHistory" @hide="onHideShotHistory($event)" hide-footer>
+  <b-modal id="ShotHistoryModal" ref="ShotHistoryModal"  class="tabsmalltext" size="huge" @show="onShowShotHistory" @hide="onHideShotHistory($event)" hide-footer>
     <template #modal-title>
       <h4>Shot History</h4>
     </template>
@@ -950,6 +950,8 @@
   }  
 
   .tabulator { font-size: 1em; }
+
+  .tabulator .tabsmalltext {font-size: .7em !important;}
 
   .tabulator-row .tabulator-cell{
       padding:2px 2px;
