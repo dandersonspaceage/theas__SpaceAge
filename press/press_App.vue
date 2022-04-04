@@ -832,8 +832,8 @@
         let thatVue = this;
 
         thatVue.$bvModal.show('ShotHistoryModal');         
-        thatVue.$refs.tabuShotHistory.redraw(true);       
-        //thatVue.$refs.tabuShotHistory.setSort({column:"DateFinished", dir:"desc"});
+        //thatVue.$refs.tabuShotHistory.redraw(true);       
+        thatVue.$refs.tabuShotHistory.setSort({column:"DateFinished", dir:"desc"});
       },
 
       completeShot: function(tableCode) {
