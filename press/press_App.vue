@@ -570,7 +570,7 @@
         //thatVue.curWO = thatVue.data_Shots.find((el) => el === row.getData().qguid);
         
         //for testing only
-        thatVue.curWO = data_WOs[0];
+        thatVue.curWO = thatVue.data_WOs[0];
         thatVue.$bvModal.show('ShotHistoryModal');     
       },
 
