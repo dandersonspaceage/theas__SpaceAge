@@ -949,7 +949,7 @@
     height: calc(var(--vh, 1vh) * 100);
   }  
 
-  .tabulator { font-size: .8em; }
+  .tabulator { font-size: .85em; }
 
   .tabulator-row .tabulator-cell{
       padding:2px 2px;
