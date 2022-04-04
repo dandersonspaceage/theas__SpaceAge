@@ -372,9 +372,9 @@
               layout: 'fitDataFill',
               //layout: 'fitColumns',
               //responsiveLayoutCollapseStartOpen: false,
-              resizableColumns: false,
+              //resizableColumns: false,
 
-              virtualDom:false,
+              //virtualDom:false,
 
               columns: [
                                       
