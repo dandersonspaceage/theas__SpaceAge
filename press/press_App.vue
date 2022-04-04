@@ -838,7 +838,8 @@
         //thatVue.$refs.tabuShotHistory.setSort({column:"DateFinished", dir:"desc"});
 
         setTimeout(function(){
-        //Vue.nextTick(function () {          
+        //Vue.nextTick(function () {     
+            //need to refdraw the table after the modal is shown.  nextTick does not work, but setTimeout does work.     
             thatVue.$refs.tabuShotHistory.tabulatorInstance.redraw(true);
         //});            
         }, 100);        
