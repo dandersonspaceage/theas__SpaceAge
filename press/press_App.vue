@@ -571,7 +571,8 @@
         
         //for testing only
         thatVue.curWO = thatVue.data_WOs[0];
-        thatVue.$bvModal.show('ShotHistoryModal');     
+        //thatVue.$bvModal.hide('ShotHistoryModal');     
+        thatVue.$bvModal.show('WOQualityModal'); 
       },
 
       switchWOList: function() {
