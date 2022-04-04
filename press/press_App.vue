@@ -374,7 +374,7 @@
               resizableColumns: true,
 
               rowClick:function(e, row){
-                alert(row.qguid);
+                alert(row.getData().qguid);
               },
 
               columns: [
