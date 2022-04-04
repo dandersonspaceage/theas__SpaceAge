@@ -837,9 +837,11 @@
         //thatVue.$refs.tabuShotHistory.redraw(true);       
         //thatVue.$refs.tabuShotHistory.setSort({column:"DateFinished", dir:"desc"});
 
-        setTimeout(function(){
+        //setTimeout(function(){
+        Vue.nextTick(function () {          
             thatVue.$refs.tabuShotHistory.tabulatorInstance.redraw(true);
-        }, 1000);        
+        });            
+        //}, 1000);        
       },
 
       completeShot: function(tableCode) {
