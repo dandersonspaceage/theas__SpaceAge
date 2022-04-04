@@ -367,7 +367,7 @@
 
             tabShotHistOpt: {
 
-              //responsiveLayout: 'hide', // enable responsive layouts
+              responsiveLayout: 'hide', // enable responsive layouts
               //height: '100%', //with responsiveCollapse we need to specify an absolute height
               layout: 'fitDataFill',
               //layout: 'fitColumns',
@@ -378,6 +378,7 @@
 
               columns: [
                                       
+                {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                                          
                 {title: 'WO', field: 'WONumber', responsive: 0, headerSort:false},
                 {title: 'Shot', field: 'ShotNumber', responsive: 0, headerSort:false},
                 
