@@ -374,7 +374,10 @@
               resizableColumns: true,
 
               rowClick:function(e, row){
-                alert(row.getData().qguid);
+                let thatVue = this;
+
+                thatVue.curWO = thatVue.data_Shots.find((el) => el === row.getData().qguid);
+                thatVue.$bvModal.show('ShotHistoryModal');     
               },
 
               columns: [
