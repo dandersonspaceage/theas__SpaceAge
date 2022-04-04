@@ -375,24 +375,24 @@
 
               columns: [
                                       
-                {title: 'WO', field: 'WONumber', responsive: 0},
-                {title: 'Shot', field: 'ShotNumber', responsive: 0},
+                {title: 'WO', field: 'WONumber', responsive: 0, headerSort:false},
+                {title: 'Shot', field: 'ShotNumber', responsive: 0, headerSort:false},
                 
-                {title: 'Time', field: 'DateFinished', responsive: 0, 
+                {title: 'Time', field: 'DateFinished', responsive: 0, headerSort:false, 
                   formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);},
                   formatterParams: {formatStr: "dd hh:mm"}
                 },
 
-                {title: 'Quality', field: 'Quality', responsive: 0},
+                {title: 'Quality', field: 'Quality', responsive: 0, headerSort:false},
 
-                {title: 'Set Time', field: 'qaActualSetTime', responsive: 0},
-                {title: 'Weight', field: 'qaActualWeight', responsive: 0},
-                {title: 'Caliper 1', field: 'qaCaliper1,', responsive: 0},
-                {title: 'Caliper 2', field: 'qaCaliper2', responsive: 0},
-                {title: 'Caliper Back ', field: 'qaCaliperBack', responsive: 0},
-                {title: 'Caliper Front', field: 'qaCaliperFront', responsive: 0},
+                {title: 'Set Time', field: 'qaActualSetTime', responsive: 0, headerSort:false},
+                {title: 'Weight', field: 'qaActualWeight', responsive: 0, headerSort:false},
+                {title: 'Caliper 1', field: 'qaCaliper1,', responsive: 0, headerSort:false},
+                {title: 'Caliper 2', field: 'qaCaliper2', responsive: 0, headerSort:false},
+                {title: 'Caliper Back ', field: 'qaCaliperBack', responsive: 0, headerSort:false},
+                {title: 'Caliper Front', field: 'qaCaliperFront', responsive: 0, headerSort:false},
                 
-                {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175}
+                {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175, headerSort:false}
                                                                  
               ],
             },
