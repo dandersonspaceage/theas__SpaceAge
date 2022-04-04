@@ -369,10 +369,10 @@
 
               //responsiveLayout: 'hide', // enable responsive layouts
               height: '100%', //with responsiveCollapse we need to specify an absolute height
-              //layout: 'fitDataFill',
-              layout: 'fitColumns',
+              layout: 'fitDataFill',
+              //layout: 'fitColumns',
               //responsiveLayoutCollapseStartOpen: false,
-              resizableColumns: true,
+              resizableColumns: false,
 
               columns: [
                                       
