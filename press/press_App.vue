@@ -176,7 +176,7 @@
 
     <div class="d-block">
 
-      <Vue-Tabulator ref="tabuShotHistory" class="table-striped table-sm" v-model="data_Shots" :options="tabShotHistOpt" />            
+      <Vue-Tabulator ref="tabuShotHistory" class="table-striped table-sm" v-model="data_Shots" :options="tabShotHistOpt" @row-click="onHistoryRowClick" />            
 
     </div>
 
@@ -366,19 +366,13 @@
             },
 
             tabShotHistOpt: {
+
               //responsiveLayout: 'hide', // enable responsive layouts
               height: '100%', //with responsiveCollapse we need to specify an absolute height
               //layout: 'fitDataFill',
               layout: 'fitColumns',
               //responsiveLayoutCollapseStartOpen: false,
               resizableColumns: true,
-
-              rowClick:function(e, row){
-                let thatVue = this;
-
-                thatVue.curWO = thatVue.data_Shots.find((el) => el === row.getData().qguid);
-                thatVue.$bvModal.show('ShotHistoryModal');     
-              },
 
               columns: [
                                       
@@ -566,6 +560,14 @@
           thatVue.dirtyTimers.push({timer: setTimeout(thatVue.saveShot, 3000, qguid), qguid: qguid});
           //note:  timeout of 3000 must be longer than debounce of 1000 in textarea       
         }    
+      },
+
+
+      onHistoryRowClick: function(e, row) {
+        let thatVue = this;
+
+        thatVue.curWO = thatVue.data_Shots.find((el) => el === row.getData().qguid);
+        thatVue.$bvModal.show('ShotHistoryModal');     
       },
 
       switchWOList: function() {
