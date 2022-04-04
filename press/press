@@ -4,14 +4,9 @@
 
 <head>
 
+<!-- https://stackoverflow.com/questions/54239306/need-to-increase-b-modal-width-vuejs-bootsrap Yuriy Korovko Jan 18, 2019 at 7:56 -->
 <style>
-    <!-- https://stackoverflow.com/questions/54239306/need-to-increase-b-modal-width-vuejs-bootsrap Yuriy Korovko Jan 18, 2019 at 7:56 -->
-    @media (min-width: 992px) {
-       .modal .modal-huge {
-          max-width: 90% !important;
-          width: 90% !important;
-         } 
-    } 
+  @media (min-width: 992px) { .modal .modal-huge { max-width: 90% !important; width: 90% !important;; } }
 </style>
 
     <meta charset="utf-8"/>
