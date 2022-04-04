@@ -838,7 +838,7 @@
         //thatVue.$refs.tabuShotHistory.setSort({column:"DateFinished", dir:"desc"});
 
         setTimeout(function(){
-            thatVue.$refs.tabuShotHistory.redraw(true);
+            thatVue.$refs.tabuShotHistory.tabulatorInstance.redraw(true);
         }, 1000);        
       },
 
