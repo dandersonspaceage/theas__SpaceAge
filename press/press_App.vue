@@ -815,9 +815,7 @@
       showHistory: function() {        
         let thatVue = this;
 
-        $bvModal.show('ShotHistoryModal');
-        <Vue-Tabulator ref="tabuShotHistory" class="table-striped table-sm" v-model="data_Shots" :options="tabShotHistOpt" />            
-        
+        $bvModal.show('ShotHistoryModal');                
         thatVue.$refs.tabuShotHistory.setSort({column:"DateFinished", dir:"desc"});
       },
 
