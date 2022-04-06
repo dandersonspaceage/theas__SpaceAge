@@ -368,7 +368,7 @@
             tabShotHistOpt: {
 
               responsiveLayout: 'hide', // enable responsive layouts
-              //height: '100%', //with responsiveCollapse we need to specify an absolute height
+              height: '40%', //with responsiveCollapse we need to specify an absolute height
               layout: 'fitDataFill',
               //layout: 'fitColumns',
               //responsiveLayoutCollapseStartOpen: false,
