@@ -572,7 +572,11 @@
         //thatVue.curWO = thatVue.data_Shots.find((el) => el === row.getData().qguid);
         
         //for testing only
-        thatVue.curWO = thatVue.data_WOs[0];
+        //let thisIndex = thatVue.data_Shots.findIndex((el) => el.qguid === thatVue.curShot.qguid)
+        //if (thisIndex >= 0) {
+        //  thatVue.data_Shots[thisIndex] = thatVue.curShot;
+        //}
+                            
         //thatVue.$bvModal.hide('ShotHistoryModal');     
         thatVue.$bvModal.show('WOQualityModal'); 
       },
@@ -875,6 +879,8 @@
       saveShot: function (qguid, event) {
           // save reference to Vue object that can be used in async callbacks
           var thatVue = this;
+
+          //note that qguid is for the WO (not the shot)
           
           if (qguid) {
             // qguid was specified.  We will save it, but first we remove any entries in the queue.
@@ -922,7 +928,7 @@
                   if (thatVue.curShot.qguid) {
                     // updating existing shot
 
-                    let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === thatVue.curShot.qguid)
+                    let thisIndex = thatVue.data_Shots.findIndex((el) => el.qguid === thatVue.curShot.qguid)
                     if (thisIndex >= 0) {
                       thatVue.data_Shots[thisIndex] = thatVue.curShot;
                     }
