@@ -471,7 +471,7 @@
       thatVue.theasLastError = thatVue.$th.lastError;  
 
       // perform the initial fetch of data
-      this.fetchData(true);
+      thatVue.fetchData(true);
     },
 
     // method executed when the Vue object is mounted / done rendering
@@ -545,6 +545,9 @@
         if (thatVue.busyCount <= 0) {
           thatVue.curCursor = 'default';
           document.body.style.cursor = 'default';
+
+          // set timer for auto-refresh
+          setTimeout(thatVue.fetchData(), 5000);          
         }
       },      
 
@@ -776,7 +779,6 @@
                 );
 
               }
-
             }
             thatVue.decBusy();
           },
