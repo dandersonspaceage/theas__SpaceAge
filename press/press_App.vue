@@ -547,7 +547,9 @@
           document.body.style.cursor = 'default';
 
           // set timer for auto-refresh
-          setTimeout(thatVue.fetchData, 5000);          
+          if (thatVue.dataRefreshInterval) {
+            setTimeout(thatVue.fetchData, thatVue.dataRefreshInterval);    
+          }      
         }
       },      
 
