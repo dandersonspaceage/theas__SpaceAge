@@ -664,10 +664,10 @@
         // save reference to Vue object
         let thatVue = this;
 
-        //for now, do a full fetch of all data (not incremental fetch)
-        //so that we can remove stale WOs
-        //thatVue.lastFetch_WOs = null;
-        //thatVue.data_WOs = [];
+        //for now, do a full refresh (not incremental) so that
+        //we can remove stale WOs
+        thatVue.lastFetch_WOs = null;
+        thatVue.data_WOs = [];
 
         thatVue.incBusy();        
 
@@ -722,10 +722,6 @@
                         "Seq",
                         false //false=ascending, true=descending
                 );
-
-                //To-do:  filter out WOs that are no longer to be displayed (completed, unreleased, etc.)
-                //For now we will disable incremental fetches
-                //thatVue.data_WOs = thatVue.data_WOs.filter((ReleasedToPress) >= ReleasedToPress)             
 
                 //copy some properties so data_WOs can be used as options for selects
                 thatVue.data_WOs.forEach(wo => {
