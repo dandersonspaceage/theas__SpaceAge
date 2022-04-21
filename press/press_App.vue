@@ -64,7 +64,7 @@
 
     <b-row>
       <b-col>
-          <Vue-Tabulator ref="tabulator" class="table-striped table-sm" v-model="data_WOs" :options="tab1Options" />
+          <Vue-Tabulator ref="tabulator" class="table-striped table-sm" v-model="data_Shots" :options="tab1Options" />
       </b-col>
     </b-row>
 
@@ -370,12 +370,8 @@
               responsiveLayout: 'hide', // enable responsive layouts
               height: '40vh', //with responsiveCollapse we need to specify an absolute height
               layout: 'fitDataFill',
-              //layout: 'fitColumns',
-              //responsiveLayoutCollapseStartOpen: false,
+              responsiveLayoutCollapseStartOpen: false,
               //resizableColumns: false,
-
-              //virtualDom:false,
-
               columns: [
                                       
                 //{title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                                          
