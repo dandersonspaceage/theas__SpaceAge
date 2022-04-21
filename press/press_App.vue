@@ -938,7 +938,7 @@
                   }
                   else {
                     // new shot
-                    thatVue.data_Shots.push(thatVue.curShot);
+                    thatVue.data_Shots.unshift(thatVue.curShot);
                   }
 
                  thatVue.curShot = {};
