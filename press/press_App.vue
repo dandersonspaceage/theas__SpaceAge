@@ -570,8 +570,7 @@
       onHistoryRowClick: function(e, row) {
         let thatVue = this;
 
-        //correct, but shot history is currently fake data for testing
-        //thatVue.curWO = thatVue.data_Shots.find((el) => el === row.getData().qguid);
+        thatVue.curShot = thatVue.data_Shots.find((el) => el === row.getData().qguid);
         
         //for testing only
         //let thisIndex = thatVue.data_Shots.findIndex((el) => el.qguid === thatVue.curShot.qguid)
