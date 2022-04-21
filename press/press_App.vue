@@ -387,7 +387,7 @@
 
                 {title: 'Set Time', field: 'qaActualSetTime', responsive: 0, headerSort:false},
                 {title: 'Weight', field: 'qaActualWeight', responsive: 0, headerSort:false},
-                {title: 'Caliper 1', field: 'qaCaliper1,', responsive: 0, headerSort:false},
+                {title: 'Caliper 1', field: 'qaCaliper1', responsive: 0, headerSort:false},
                 {title: 'Caliper 2', field: 'qaCaliper2', responsive: 0, headerSort:false},
                 {title: 'Caliper Back ', field: 'qaCaliperBack', responsive: 0, headerSort:false},
                 {title: 'Caliper Front', field: 'qaCaliperFront', responsive: 0, headerSort:false},
@@ -570,7 +570,7 @@
       onHistoryRowClick: function(e, row) {
         let thatVue = this;
 
-        thatVue.curShot = thatVue.data_Shots.find((el) => el === row.getData().qguid);
+        thatVue.curShot = thatVue.data_Shots.find((el) => el.qguid === row.getData().qguid);
         
         //for testing only
         //let thisIndex = thatVue.data_Shots.findIndex((el) => el.qguid === thatVue.curShot.qguid)
