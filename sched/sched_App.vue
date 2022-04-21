@@ -492,7 +492,7 @@
         let thatVue = this;
         alert('Clicked');
 
-        thatVue.saveWO(thatVue.data.ThisWO.qguid);
+        thatVue.saveWO(thatVue.data_ThisWO.qguid);
       },
 
       fetchWOs: function (qguid, reFetch) {
