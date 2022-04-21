@@ -915,6 +915,18 @@
                   }
                   */
 
+                  let newShots[];
+                  newShots.push(thatVue.curShot);
+                                   
+                  thatVue.data_Shots = thatVue.$th.merge(
+                    // string (optional): key field name with unique values to merge on
+                    "qguid",
+                    // string (optional): key value to exclude from merge (i.e. currently-displayed rows)
+                    //'someIDValue'
+                    thatVue.data_Shots,
+                    newShots
+                  )
+
                  thatVue.curShot = {};
 
                 }
