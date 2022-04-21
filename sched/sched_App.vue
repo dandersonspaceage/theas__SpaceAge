@@ -490,8 +490,6 @@
 
       onReleaseClick: function(qguid, event) {
         let thatVue = this;
-        alert('Clicked');
-
         thatVue.saveWO(qguid);
       },
 
