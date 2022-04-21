@@ -547,7 +547,7 @@
           document.body.style.cursor = 'default';
 
           // set timer for auto-refresh
-          setTimeout(thatVue.fetchData(), 5000);          
+          setTimeout(thatVue.fetchData(), 10000);          
         }
       },      
 
