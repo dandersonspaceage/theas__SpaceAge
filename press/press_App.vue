@@ -771,6 +771,10 @@
                           thatVue.data_Shots,
                           thisData
                   );
+
+                  // remove any shots that don't have a qguid (i.e. recently-added temporary shots that should now have been received with a qguid
+                  thatvue.data_Shots = thatVue.data_Shots.filter((qguid) => true ? qguid : false)
+                  
                 }
                 thatVue.data_Shots = thatVue.$th.sortArray(
                         thatVue.data_Shots,
@@ -915,8 +919,19 @@
                   }
                   */
 
-                  let newShots[];
-                  newShots.push(thatVue.curShot);
+                  if (thatVue.curShot.qguid) {
+                    // updating existing shot
+
+                    let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === thatVue.curShot.qguid)
+                    if (thisIndex >= 0) {
+                      thatVue.data_Shots[thisIndex] = thatVue.curShot;
+                    }
+
+                  }
+                  else {
+                    // new shot
+                    thatVue_data_Shots(thatVue.curShot);
+                  }
                                    
                   thatVue.data_Shots = thatVue.$th.merge(
                     // string (optional): key field name with unique values to merge on
