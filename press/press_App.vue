@@ -548,7 +548,7 @@
 
           // set timer for auto-refresh
           if (thatVue.dataRefreshInterval) {
-            setTimeout(thatVue.fetchData, thatVue.dataRefreshInterval);    
+            setTimeout(thatVue.fetchData, thatVue.dataRefreshInterval * 1000);    
           }      
         }
       },      
