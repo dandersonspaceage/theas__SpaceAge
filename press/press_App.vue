@@ -664,11 +664,6 @@
         // save reference to Vue object
         let thatVue = this;
 
-        //for now, do a full refresh (not incremental) so that
-        //we can remove stale WOs
-        thatVue.lastFetch_WOs = null;
-        thatVue.data_WOs = [];
-
         thatVue.incBusy();        
 
         thatVue.$th.sendAsync({
