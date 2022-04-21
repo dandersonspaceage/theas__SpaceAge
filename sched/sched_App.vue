@@ -47,7 +47,7 @@
 
                           <b-col>
                             <h6 class="dragHandle" ><span class="badge badge-secondary">[[ wo.Seq ]]</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge badge-secondary" v-if="!wo.LastToMove" @click="doRepeatMove(wo.qguid, $event)">Repeat Move</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge badge-secondary" @click="doMoveLast(wo.qguid, $event)">Move Last</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <b-checkbox v-model="wo.ReleasedToPress" @click="onReleaseClick"></b-checkbox></h6> 
+                            <b-checkbox v-model="wo.ReleasedToPress" @change="onReleaseClick"></b-checkbox></h6> 
                           </b-col>          
 
                           <b-col>
@@ -490,6 +490,7 @@
 
       onReleaseClick: function() {
         let thatVue = this;
+        alert('Clicked');
 
         thatVue.saveWO(thatVue.data.ThisWO.qguid);
       },
