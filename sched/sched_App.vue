@@ -46,7 +46,8 @@
                         <b-row>
 
                           <b-col>
-                            <h6 class="dragHandle" ><span class="badge badge-secondary">[[ wo.Seq ]]</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge badge-secondary" v-if="!wo.LastToMove" @click="doRepeatMove(wo.qguid, $event)">Repeat Move</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge badge-secondary" @click="doMoveLast(wo.qguid, $event)">Move Last</span>&nbsp;&nbsp;&nbsp;&nbsp;<b-checkbox v-model="wo.ReleasedToPress"></b-checkbox></h6> 
+                            <h6 class="dragHandle" ><span class="badge badge-secondary">[[ wo.Seq ]]</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge badge-secondary" v-if="!wo.LastToMove" @click="doRepeatMove(wo.qguid, $event)">Repeat Move</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge badge-secondary" @click="doMoveLast(wo.qguid, $event)">Move Last</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <b-checkbox v-model="wo.ReleasedToPress" @click="onReleaseClick"></b-checkbox></h6> 
                           </b-col>          
 
                           <b-col>
@@ -486,6 +487,12 @@
         //a guarantee that data_thisWO is the only one that may be edited by the user (as
         //multiple WO's could be expanded)
       },     
+
+      onReleaseClick: function() {
+        let thatVue = this;
+
+        thatVue.saveWO(thatVue.data.ThisWO.qguid);
+      },
 
       fetchWOs: function (qguid, reFetch) {
         // save reference to Vue object
