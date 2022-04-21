@@ -773,8 +773,8 @@
                   );
 
                   // remove any shots that don't have a qguid (i.e. recently-added temporary shots that should now have been received with a qguid
-                  thatvue.data_Shots = thatVue.data_Shots.filter((qguid) => true ? qguid : false)
-                  
+                  thatVue.data_Shots = thatVue.data_Shots.filter((qguid) => true ? qguid : false)
+
                 }
                 thatVue.data_Shots = thatVue.$th.sortArray(
                         thatVue.data_Shots,
