@@ -666,8 +666,8 @@
 
         //for now, do a full fetch of all data (not incremental fetch)
         //so that we can remove stale WOs
-        thatVue.lastFetch_WOs = null;
-        thatVue.data_WOs = [];
+        //thatVue.lastFetch_WOs = null;
+        //thatVue.data_WOs = [];
 
         thatVue.incBusy();        
 
