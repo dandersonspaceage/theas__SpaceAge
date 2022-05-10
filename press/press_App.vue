@@ -491,7 +491,15 @@
       }, 
 
       isNumPress : function() {
-        return this;
+        let isOK;
+        if (this) {
+          isOK = true;
+        }
+        else {
+          isOK = false;
+        }
+
+        return isOK;
       }
 
     },
