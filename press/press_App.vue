@@ -491,7 +491,7 @@
       }, 
 
       isNumPress : function() {
-        return this.form.password.length;
+        return this;
       }
 
     },
