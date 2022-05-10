@@ -130,7 +130,7 @@
                             <b-col offset-md="6">
 
                               
-                              <b-form-group v-for="n in 6" label="'Qty Batch ' + n" :label-for="'SplitNoWOs' + n">
+                              <b-form-group v-for="n in 6" :label="'Qty Batch ' + n" :label-for="'SplitNoWOs' + n">
                                 <b-form-input :id="'SplitNoWOs' + n" size="sm" v-model="splitNoWOs[n]"></b-form-input>
                               </b-form-group>                     
 
