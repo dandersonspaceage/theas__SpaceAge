@@ -1017,7 +1017,7 @@
         let isRequired = false;
 
         // Required on first, last and each 10th
-        return (thisSeq == 1 || thisSeq == curWO.Quantity || (thisSeq % 10) == 0)
+        return (thisSeq == 1 || thisSeq == this.curWO.Quantity || (thisSeq % 10) == 0)
       },
 
       isNumPress : function(thisVal) {
