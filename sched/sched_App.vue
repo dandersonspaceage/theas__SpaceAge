@@ -128,37 +128,11 @@
                         <b-collapse :id="'collapseSplit' + wo.qguid">
                           <b-row>
                             <b-col offset-md="6">
+
                               
-          <b-form-group label="Qty Batch 1" class="p-0"
-                        :label-for="'SplitNoWOs1'"
-                        >
-            <b-form-input :id="'SplitNoWOs1'" size="lg" class="p-0"
-                          v-model="splitNoWOs[0]"></b-form-input>
-          </b-form-group>
-
-          <b-form-group label="Qty Batch 2"
-                        :label-for="'SplitNoWOs2'">
-            <b-form-input :id="'SplitNoWOs2'" size="sm"
-                          v-model="splitNoWOs[1]" size="sm"></b-form-input>
-          </b-form-group>    
-
-          <b-form-group label="Qty Batch 3"
-                        :label-for="'SplitNoWOs3'">
-            <b-form-input :id="'SplitNoWOs3'" size="sm"
-                          v-model="splitNoWOs[2]" size="sm"></b-form-input>
-          </b-form-group>  
-
-          <b-form-group label="Qty Batch 4"
-                        :label-for="'SplitNoWOs4'">
-            <b-form-input :id="'SplitNoWOs4'" size="sm"
-                          v-model="splitNoWOs[3]" size="sm"></b-form-input>
-          </b-form-group> 
-
-          <b-form-group label="Qty Batch 5"
-                        :label-for="'SplitNoWOs5'">
-            <b-form-input :id="'SplitNoWOs5'" size="sm"
-                          v-model="splitNoWOs[4]" size="sm"></b-form-input>
-          </b-form-group>           
+                              <b-form-group v-for="n in 6" label="'Qty Batch ' + n" :label-for="'SplitNoWOs' + n">
+                                <b-form-input :id="'SplitNoWOs' + n" size="sm" v-model="splitNoWOs[n]"></b-form-input>
+                              </b-form-group>                     
 
                             </b-col>
                           </b-row>
