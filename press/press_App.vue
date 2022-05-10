@@ -193,7 +193,7 @@
         <b-col>          
           <b-form-group label="Caliper 1"
                         :label-for="'qaCaliper1'">
-            <b-form-input :id="'qaCaliper1'"
+            <b-form-input :id="'qaCaliper1'" type="number" min="0" max="200"
                           v-model="curShot.QACaliper1" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
@@ -202,7 +202,7 @@
         <b-col>     
           <b-form-group label="Caliper 2"
                         :label-for="'qaCaliper2'">
-            <b-form-input :id="'qaCaliper2'"
+            <b-form-input :id="'qaCaliper2'" type="number" min="0" max="200"
                           v-model="curShot.qaCaliper2" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
@@ -212,7 +212,7 @@
         <b-col>   
           <b-form-group label="Caliper Front"
                         :label-for="'qaCaliperFront'">
-            <b-form-input :id="'qaCaliperFront'"
+            <b-form-input :id="'qaCaliperFront'" type="number" min="0" max="200"
                           v-model="curShot.qaCaliperFront" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
@@ -221,7 +221,7 @@
         <b-col>                 
           <b-form-group label="Caliper Back"
                         :label-for="'qaCaliperBack'">
-            <b-form-input :id="'qaCaliperBack'"
+            <b-form-input :id="'qaCaliperBack'" type="number" min="0" max="200"
                           v-model="curShot.qaCaliperBack" size="sm"></b-form-input>
           </b-form-group>          
         </b-col>
@@ -231,7 +231,7 @@
         <b-col>           
           <b-form-group label="Actual Weight"
                         :label-for="'qaActualWeight'">
-            <b-form-input :id="'qaActualWeight'"
+            <b-form-input :id="'qaActualWeight'" type="number" min="0" max="200"
                           v-model="curShot.qaActualWeight" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
@@ -240,7 +240,7 @@
         <b-col>  
           <b-form-group label="Actual Set Time"
                         :label-for="'qaActualSetTime'">
-            <b-form-input :id="'qaActualSetTIme'"
+            <b-form-input :id="'qaActualSetTIme'" type="number" min="0" max="200"
                           v-model="curShot.qaActualSetTime" size="sm"></b-form-input>
           </b-form-group>              
         </b-col>
