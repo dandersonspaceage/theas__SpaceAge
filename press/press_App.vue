@@ -490,8 +490,8 @@
         return this.busyCount > 0;
       }, 
 
-      isNumPress : function(myVal) {
-        return false;
+      isNumPress : function() {
+        return this.form.password.length;
       }
 
     },
