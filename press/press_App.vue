@@ -502,10 +502,10 @@
       validCaliperBack : function() {
         return this.isNumPress(this.curShot.qaCaliperRear);
       },
-      validCaliperActualWeight : function() {
+      validActualWeight : function() {
         return this.isNumPress(this.curShot.qaActualWeight);
       },
-      validCaliperActualSetTime : function() {
+      validActualSetTime : function() {
         return this.isNumPress(this.curShot.qaActualSetTime);
       },                        
 
