@@ -193,7 +193,7 @@
         <b-col>          
           <b-form-group label="Caliper 1"
                         :label-for="'qaCaliper1'">
-            <b-form-input :id="'qaCaliper1'" :state="isNumPress"
+            <b-form-input :id="'qaCaliper1'" :state="isNumPress('Caliper1')"
                           v-model="curShot.QACaliper1" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
@@ -490,7 +490,7 @@
         return this.busyCount > 0;
       }, 
 
-      isNumPress : function() {
+      isNumPress : function(thisName) {
         let isOK;
         if (this) {
           isOK = true;
