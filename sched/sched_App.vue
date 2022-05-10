@@ -129,11 +129,11 @@
                           <b-row>
                             <b-col offset-md="6">
                               
-          <b-form-group label="Qty Batch 1"
+          <b-form-group label="Qty Batch 1" class="p-0"
                         :label-for="'SplitNoWOs1'"
                         >
-            <b-form-input :id="'SplitNoWOs1'" size="lg"
-                          v-model="splitNoWOs[0]>"</b-form-input>
+            <b-form-input :id="'SplitNoWOs1'" size="lg" class="p-0"
+                          v-model="splitNoWOs[0]"></b-form-input>
           </b-form-group>
 
           <b-form-group label="Qty Batch 2"
