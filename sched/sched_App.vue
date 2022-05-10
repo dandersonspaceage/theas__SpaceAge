@@ -37,7 +37,7 @@
             <h6>[[ curWOList ]] (<span v-if="isBusy()">Loading</span><span v-if="!isBusy()">[[ visibleWOs.length ]]</span><span>orders</span>)</h6>
               <div class="fastscroll" style="height:75vh;">
 
-                <draggable v-model="visibleWOs" group="wo" handle=".dragHandle" :disabled"disableDraggable" @start="drag=true" @end="drag=false" @change="onDropWO">
+                <draggable v-model="visibleWOs" group="wo" handle=".dragHandle" :disabled="disableDraggable" @start="drag=true" @end="drag=false" @change="onDropWO">
 
                   <b-card v-for="wo in visibleWOs" :key="wo.qguid" :class="{ lastToMove: wo.LastToMove }">
                     <b-row>
@@ -237,7 +237,7 @@
 
       </b-row>
 
-    <b-container>
+    </b-container>
 
     <b-modal id="thModal" ref="thModal" @hide="onthModalHide" hide-footer>
       <template #modal-title>
