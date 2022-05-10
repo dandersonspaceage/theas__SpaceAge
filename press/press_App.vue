@@ -509,9 +509,8 @@
         return this.isNumPress(this.curShot.qaActualSetTime);
       },                        
       validQuality : function() {
-        return this.curShot.qaQuality in ('A', 'B', 'RW');
+        return ['A', 'B', 'RW'].includes(this.curShot.qaQuality);
       }
-
 
     },
 
