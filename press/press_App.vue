@@ -1007,7 +1007,7 @@
       },
 
       isNumPress : function(thisVal) {
-        let isValid = (thisVal && !isNan(thisVal) && thisVal > 0 && thisVal < 200);
+        let isValid = (thisVal && !isNaN(thisVal) && thisVal > 0 && thisVal < 200);
         return isValid;
       }      
   
