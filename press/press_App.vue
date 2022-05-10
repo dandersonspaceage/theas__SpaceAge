@@ -250,7 +250,7 @@
         <b-col>   
           <b-form-group label="Quality"
                         :label-for="'qaQuality'">
-            <b-form-select :id="'qaQuality'"
+            <b-form-select :id="'qaQuality'" :state="validQuality"
                           :options="qualityLevels"                      
                           v-model="curShot.qaQuality" size="sm"></b-form-select>
           </b-form-group>           
@@ -508,7 +508,9 @@
       validActualSetTime : function() {
         return this.isNumPress(this.curShot.qaActualSetTime);
       },                        
-
+      validQuality : function() {
+        return this.curShot.qaQuality in ('A', 'B', 'RW');
+      }
 
 
     },
