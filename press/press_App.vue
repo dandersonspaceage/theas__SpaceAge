@@ -194,7 +194,7 @@
           <b-form-group label="Caliper 1"
                         :label-for="'qaCaliper1'">
             <b-form-input :id="'qaCaliper1'" :state="validCaliper1"
-                          v-model="curShot.QACaliper1" size="sm"></b-form-input>
+                          v-model="curShot.qaCaliper1" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
 
@@ -500,7 +500,7 @@
         return this.isNumPress(this.curShot.qaCaliperFront);
       },
       validCaliperBack : function() {
-        return this.isNumPress(this.curShot.qaCaliperRear);
+        return this.isNumPress(this.curShot.qaCaliperBack);
       },
       validActualWeight : function() {
         return this.isNumPress(this.curShot.qaActualWeight);
