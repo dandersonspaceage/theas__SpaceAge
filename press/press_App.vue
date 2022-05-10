@@ -193,7 +193,7 @@
         <b-col>          
           <b-form-group label="Caliper 1"
                         :label-for="'qaCaliper1'">
-            <b-form-input :id="'qaCaliper1'" :state="isNumPress('Caliper1')"
+            <b-form-input :id="'qaCaliper1'" :state="validCaliper1"
                           v-model="curShot.QACaliper1" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
@@ -202,7 +202,7 @@
         <b-col>     
           <b-form-group label="Caliper 2"
                         :label-for="'qaCaliper2'">
-            <b-form-input :id="'qaCaliper2'" :state="isNumPress"
+            <b-form-input :id="'qaCaliper2'" :state="validCaliper2"
                           v-model="curShot.qaCaliper2" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
@@ -212,7 +212,7 @@
         <b-col>   
           <b-form-group label="Caliper Front"
                         :label-for="'qaCaliperFront'">
-            <b-form-input :id="'qaCaliperFront'" :state="isNumPress"
+            <b-form-input :id="'qaCaliperFront'" :state="validCaliperFront"
                           v-model="curShot.qaCaliperFront" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
@@ -221,7 +221,7 @@
         <b-col>                 
           <b-form-group label="Caliper Back"
                         :label-for="'qaCaliperBack'">
-            <b-form-input :id="'qaCaliperBack'" :state="isNumPress"
+            <b-form-input :id="'qaCaliperBack'" :state="validCaliperBack"
                           v-model="curShot.qaCaliperBack" size="sm"></b-form-input>
           </b-form-group>          
         </b-col>
@@ -231,7 +231,7 @@
         <b-col>           
           <b-form-group label="Actual Weight"
                         :label-for="'qaActualWeight'">
-            <b-form-input :id="'qaActualWeight'" :state="isNumPress"
+            <b-form-input :id="'qaActualWeight'" :state="validActualWeight"
                           v-model="curShot.qaActualWeight" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
@@ -240,7 +240,7 @@
         <b-col>  
           <b-form-group label="Actual Set Time"
                         :label-for="'qaActualSetTime'">
-            <b-form-input :id="'qaActualSetTIme'" :state="isNumPress"
+            <b-form-input :id="'qaActualSetTIme'" :state="validActualSetTime"
                           v-model="curShot.qaActualSetTime" size="sm"></b-form-input>
           </b-form-group>              
         </b-col>
@@ -490,17 +490,26 @@
         return this.busyCount > 0;
       }, 
 
-      isNumPress : function(thisName) {
-        let isOK;
-        if (this) {
-          isOK = true;
-        }
-        else {
-          isOK = false;
-        }
+      validCaliper1 : function() {
+        return this.isNumPress(this.curShot.qaCaliper1);
+      },
+      validCaliper2 : function() {
+        return this.isNumPress(this.curShot.qaCaliper2);
+      },
+      validCaliperFront : function() {
+        return this.isNumPress(this.curShot.qaCaliperFront);
+      },
+      validCaliperBack : function() {
+        return this.isNumPress(this.curShot.qaCaliperRear);
+      },
+      validCaliperActualWeight : function() {
+        return this.isNumPress(this.curShot.qaActualWeight);
+      },
+      validCaliperActualSetTime : function() {
+        return this.isNumPress(this.curShot.qaActualSetTime);
+      },                        
 
-        return isOK;
-      }
+
 
     },
 
@@ -996,6 +1005,11 @@
           name: el.name + " cloned",
         };
       },
+
+      isNumPress : function(thisVal) {
+        let isValid = (thisVal && !isNan(thisVal) && thisVal > 0 && thisVal < 200);
+        return isValid;
+      }      
   
     },
   };
