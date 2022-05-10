@@ -193,7 +193,7 @@
         <b-col>          
           <b-form-group label="Caliper 1"
                         :label-for="'qaCaliper1'">
-            <b-form-input :id="'qaCaliper1'" min="0" max="200"
+            <b-form-input :id="'qaCaliper1'" :state="isNumPress(curShot.QACaliper1)"
                           v-model="curShot.QACaliper1" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
@@ -202,7 +202,7 @@
         <b-col>     
           <b-form-group label="Caliper 2"
                         :label-for="'qaCaliper2'">
-            <b-form-input :id="'qaCaliper2'" min="0" max="200"
+            <b-form-input :id="'qaCaliper2'" :state="isNumPress"
                           v-model="curShot.qaCaliper2" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
@@ -212,7 +212,7 @@
         <b-col>   
           <b-form-group label="Caliper Front"
                         :label-for="'qaCaliperFront'">
-            <b-form-input :id="'qaCaliperFront'" min="0" max="200"
+            <b-form-input :id="'qaCaliperFront'" :state="isNumPress"
                           v-model="curShot.qaCaliperFront" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
@@ -221,7 +221,7 @@
         <b-col>                 
           <b-form-group label="Caliper Back"
                         :label-for="'qaCaliperBack'">
-            <b-form-input :id="'qaCaliperBack'" min="0" max="200"
+            <b-form-input :id="'qaCaliperBack'" :state="isNumPress"
                           v-model="curShot.qaCaliperBack" size="sm"></b-form-input>
           </b-form-group>          
         </b-col>
@@ -231,7 +231,7 @@
         <b-col>           
           <b-form-group label="Actual Weight"
                         :label-for="'qaActualWeight'">
-            <b-form-input :id="'qaActualWeight'" min="0" max="200"
+            <b-form-input :id="'qaActualWeight'" :state="isNumPress"
                           v-model="curShot.qaActualWeight" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
@@ -240,7 +240,7 @@
         <b-col>  
           <b-form-group label="Actual Set Time"
                         :label-for="'qaActualSetTime'">
-            <b-form-input :id="'qaActualSetTIme'" min="0" max="200"
+            <b-form-input :id="'qaActualSetTIme'" :state="isNumPress"
                           v-model="curShot.qaActualSetTime" size="sm"></b-form-input>
           </b-form-group>              
         </b-col>
@@ -489,6 +489,10 @@
       busy : function () {
         return this.busyCount > 0;
       }, 
+
+      isNumPress : function(myVal) {
+        return false;
+      }
 
     },
 
