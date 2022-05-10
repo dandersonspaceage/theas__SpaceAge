@@ -193,7 +193,7 @@
         <b-col>          
           <b-form-group label="Caliper 1"
                         :label-for="'qaCaliper1'">
-            <b-form-input :id="'qaCaliper1'" :state="isNumPress(curShot.QACaliper1)"
+            <b-form-input :id="'qaCaliper1'" :state="isNumPress"
                           v-model="curShot.QACaliper1" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
