@@ -509,7 +509,7 @@
         return this.isNumPress(this.curShot.qaActualSetTime);
       },                        
       validQuality : function() {
-        return ['A', 'B', 'RW'].includes(this.curShot.qaQuality);
+        return ((!this.isQARequired() & !this.curShot.qaQuality) || (this.isQARequired() && ['A', 'B', 'RW'].includes(this.curShot.qaQuality)));
       }
 
     },
@@ -1007,8 +1007,21 @@
         };
       },
 
+      isQARequired : function() {
+        let thisSeq = this.curShot.ShotNumber;
+
+        if (!Boolean(this.curShot.qugid)) {
+          thisSeq = this.data_Shots.length + 1
+        }
+
+        let isRequired = false;
+
+        // Required on first, last and each 10th
+        return (thisSeq == 1 || thisSeq == curWO.Quantity || (thisSeq % 10) == 0)
+      },
+
       isNumPress : function(thisVal) {
-        let isValid = (thisVal && !isNaN(thisVal) && thisVal > 0 && thisVal < 200);
+        let isValid = (!this.isQARequired() && !thisVal) || (this.isQARequired() && thisVal && !isNaN(thisVal) && thisVal > 0 && thisVal < 200);
         return isValid;
       }      
   
