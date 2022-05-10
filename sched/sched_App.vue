@@ -131,9 +131,9 @@
                               
           <b-form-group label="Qty Batch 1"
                         :label-for="'SplitNoWOs1'"
-                        size="lg">
+                        >
             <b-form-input :id="'SplitNoWOs1'" size="lg"
-                          v-model="splitNoWOs[0]"</b-form-input>
+                          v-model="splitNoWOs[0]>"</b-form-input>
           </b-form-group>
 
           <b-form-group label="Qty Batch 2"
