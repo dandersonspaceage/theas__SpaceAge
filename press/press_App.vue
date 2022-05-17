@@ -1016,16 +1016,10 @@
 
         else {
 
-        let thisSeq = curWO.CurrentShotCount
-        if (thisSeq) {
-          thisSeq = thisSeq + 1;
-        }
-        else {
-          thisSeq = 1;
-        }
+          let isRequired = false;
 
-        // Required on first, last and each 10th
-        return (thisSeq == 1 || thisSeq == this.curWO.Quantity || (thisSeq % 10) == 0)
+          // Required on first, last and each 10th
+          return (thisSeq == 1 || thisSeq == this.curWO.Quantity || (curWO.ShotSeq % 10) == 0)
 
         }
       },
