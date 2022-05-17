@@ -1008,20 +1008,21 @@
       },
 
       isQARequired : function() {
-        let isNewShot = (!Boolean(this.curShot.qugid));
+        //let isNewShot = (!Boolean(this.curShot.qugid));
 
-        if (!isNewShot) {
-          return false
-        }
+        //if (!isNewShot) {
+        //  return false
+        //}
 
-        else {
+        //else {
 
-          let isRequired = false;
+        //  let isRequired = false;
 
           // Required on first, last and each 10th
-          return (thisSeq == 1 || thisSeq == this.curWO.Quantity || (curWO.ShotSeq % 10) == 0)
+        //  return (thisSeq == 1 || thisSeq == this.curWO.Quantity || (curWO.ShotSeq % 10) == 0)
 
-        }
+       // }
+       return false;
       },
 
       isNumPress : function(thisVal) {
