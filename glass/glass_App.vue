@@ -15,7 +15,7 @@
                     :label-for="'selOperator'">
 
           <b-form-select :id="'selOperator'"
-                        :options="data_Operators"
+                        options="data_Operators"
                         v-model="curOperator"
                         size="sm"                        
           >
