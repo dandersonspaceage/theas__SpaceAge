@@ -39,7 +39,7 @@
     <link type="text/css" rel="stylesheet" href="{{ '/cdn/font-awesome/css/all.css'|theasResource }}">
 
 
-    <title>SpaceAge Glasss Cutting</title>
+    <title>SpaceAge Glass Cutting</title>
 
     <!--Static global styles-->
 
