@@ -1,108 +1,215 @@
-<html>
-    <head>
-    <script language="javascript">
-    function setTimeForSubmit(){
-    window.setTimeout("submitForm()",100);
-    }
-    function submitForm(){
-    document.insert.submit();
-    }
-    </script>
-    <style type="text/css">
-    @media print { html, body { height: 99%; overflow: hidden; } }
-    </style>
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!--meta data...optional-->
+    <meta name="description" content="Theas Sample Page">
+    <meta name="keywords" content="Theas,OpsStream,UI,Sample">
+    <meta name="author" content="github.com/davidrueter/theas">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+        <!--
+         https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+         If content is set to yes, the web application runs in full-screen mode; otherwise, it does not. The default behavior is to use Safari to display web content.
+         You can determine whether a webpage is displayed in full-screen mode using the window.navigator.standalone read-only Boolean JavaScript property.        
+        -->
+    <meta name="apple-mobile-web-app-title" content="TestJQ1">
+    <meta name="application-name" content="TestJQ1">    
+
+    <!--favicon resources.  Build with https://favicon.io or other or create by hand.
+    More Info: 
+    https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs
+    See https://www.emergeinteractive.com/insights/detail/The-Essentials-of-FavIcons/
+    https://medium.com/dev-channel/how-to-add-a-web-app-manifest-and-mobile-proof-your-site-450e6e485638
+    -->    
+    <link rel="icon" href="/favicon.ico" sizes="any"><!-- 32?32 -->
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180?180 -->
+    <link rel="manifest" href="/manifest.webmanifest">     
+
+    <!--https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name/theme-color-->
+    <meta name="theme-color" content="#ffffff">
+
+    <link type="text/css" rel="stylesheet" href="{{ "/cdn/bootstrap4/css/bootstrap.css"|theasResource }}">   
+    <link type="text/css" rel="stylesheet" href="{{ "/cdn/bootstrap-vue/bootstrap-vue.css"|theasResource }}">
+    <link type="text/css" rel="stylesheet" href="{{ "/cdn/font-awesome/css/all.css"|theasResource }}">
+
+
+    <title>SpaceAge Glass Cutting</title>
+
+    <!--Static global styles-->
+
+    
+
+    <!-- https://stackoverflow.com/questions/54239306/need-to-increase-b-modal-width-vuejs-bootsrap Yuriy Korovko Jan 18, 2019 at 7:56 -->
     <style>
-    <!--
-     /* Font Definitions */
-     @font-face
-        {font-family:"Cambria Math";
-        panose-1:2 4 5 3 5 4 6 3 2 4;}
-    @font-face
-        {font-family:Tahoma;
-        panose-1:2 11 6 4 3 5 4 4 2 4;}
-     /* Style Definitions */
-     p.MsoNormal, li.MsoNormal, div.MsoNormal
-        {margin:0in;
-        margin-bottom:.0001pt;
-        font-size:12.0pt;
-        font-family:"Times New Roman",serif;}
-    p.MsoHeader, li.MsoHeader, div.MsoHeader
-        {margin:0in;
-        margin-bottom:.0001pt;
-        font-size:12.0pt;
-        font-family:"Times New Roman",serif;}
-    p.MsoFooter, li.MsoFooter, div.MsoFooter
-        {margin:0in;
-        margin-bottom:.0001pt;
-        font-size:12.0pt;
-        font-family:"Times New Roman",serif;}
-    p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
-        {margin:0in;
-        margin-bottom:.0001pt;
-        font-size:8.0pt;
-        font-family:"Tahoma",sans-serif;}
-    .MsoChpDefault
-        {font-size:10.0pt;}
-     /* Page Definitions */
-     @page WordSection1
-        {size:8.5in 11.0in;
-        margin:1.0in 1.25in 1.0in 1.25in;}
-    div.WordSection1
-        {page:WordSection1;}
-    -->
+      @media (min-width: 992px) { .modal .modal-huge { max-width: 95% !important; width: 95% !important;; } }      
+
+
+      .fullheight {height: 100vh}
+      .fastscroll {overflow-y:scroll; -webkit-overflow-scrolling: touch;}
+      p {font-weight: bold; color: green; }
+
+      
+      .collapsed > .when-opened,
+      .not-collapsed > .when-closed {
+        display: none;
+      }
+
+      .tabulator .tabulator-header .tabulator-col .tabulator-col-content .tabulator-col-title{
+        white-space: pre-wrap;
+        text-overflow: clip;
+      }      
+
     </style>
-    </head>
-    <body onload="window.print();setTimeForSubmit()">
-    <div class=WordSection1>
-    
-    <p class=MsoNormal align=center style='text-align:center'><img width=221
-    height=136 id="Picture 1"
-    src="/spaceage.jpg"
-    alt="SpaceAge"></p>
-    
-    <p class=MsoNormal align=center style='text-align:center'><b><span
-    style='font-size:30.0pt'>Glass Pallet Label</span></b></p>
-    
-    <p class=MsoNormal><span style='font-size:16.0pt'>&nbsp;</span></p>
-    
-    <p class=MsoNormal><span style='font-size:30.0pt'><b>Batch #:</b> <?php echo $_POST['batch']; ?></span></p>
-    
-    <?php while($rows=mysqli_fetch_array($result)){ ?>
-    
-    <p class=MsoNormal><span style='font-size:16.0pt'>&nbsp;</span></p>
-    
-    <p class=MsoNormal><span style='font-size:30.0pt'><b>Customer:</b> <?php echo $rows['company']; ?></span></p>
-    
-    <p class=MsoNormal><span style='font-size:16.0pt'>&nbsp;</span></p>
-    
-    <p class=MsoNormal><span style='font-size:30.0pt'><b>Description:</b> <?php $bottom = $rows['glass']; $bottomresult = substr($bottom, strpos($bottom, '-') + 1); echo $bottomresult; ?>oz <?php if ($rows['woven'] == 0) {} else {if ($rows['woven'] == 4) {echo '10oz';} else {if ($rows['woven'] == 5) {echo '18oz';}  else {if ($rows['woven'] == 6) {echo '24oz';}}}} ?></span></p>
-    
-    <p class=MsoNormal><span style='font-size:16.0pt'>&nbsp;</span></p>
-    
-    <p class=MsoNormal><span style='font-size:30.0pt'><b>Off-Press Dimensions:</b> <?php if ($rows['sand']==1 || $rows['sand']==4) {echo $rows['thickness']+.04;} else {if ($rows['sand']==2) {echo $rows['thickness']+.08;} else {echo $rows['thickness'];}} ?>X<?php echo $rows['width']; ?>X<?php echo $rows['length']; ?></span></p>
-    
-    <p class=MsoNormal><span style='font-size:16.0pt'>&nbsp;</span></p>
-    
-    <?php } ?>
-    
-    <p class=MsoNormal><span style='font-size:30.0pt'><b>Quantity:</b> <?php echo $_POST['quantity']; ?></span></p>
-    
-    <p class=MsoNormal><span style='font-size:16.0pt'>&nbsp;</span></p>
-    
-    <p class=MsoNormal><span style='font-size:30.0pt'><b>Cut By:</b> <?php $name = $_POST['operator']; list ($first, $last) = explode(' ', $name);  echo $first[0]; echo $last[0]; ?></span></p>
-    
-    <p class=MsoNormal><span style='font-size:16.0pt'>&nbsp;</span></p>
-    
-    <p class=MsoNormal><span style='font-size:30.0pt'><b>Date:</b> <?php echo $todaydate; ?></span></p>
-    
-    </div>
-    
-    <form name="insert" method="post" action="<?php $back = $_POST['back']; echo $back; ?>.php">
-    <input type="hidden" name="operator" value="<?php $operator = $_POST['operator']; echo $operator; ?>">
-    <input type="hidden" name="startdate" value="<?php $startdate = $_POST['startdate']; echo $startdate; ?>">
-    <input type="hidden" name="shift" value="<?php $shift = $_POST['shift']; echo $shift.''; ?>">
+
+
+    <!--Global scripts-->
+    <script nomodule>
+        document.getElementById("thapp").innerHTML = "This application will not work with your browser because your browser doesn"t support JavaScript modules.";
+    </script>
+
+    <script src="{{ "/cdn/axios/axios.min.js"|theasResource }}"></script>
+    <script src="{{ "/cdn/hammerjs/hammer.min.js"|theasResource }}"></script>
+    <script src="{{ "/cdn/moment/moment.js"|theasResource }}"></script>
+    <script src="{{ "/cdn/screenfull/screenfull.js"|theasResource }}"></script>
+
+    <script src="{{ "/cdn/vuejs/vue.js"|theasResource }}"></script>
+
+    <script src="{{ "/cdn/popper/popper.min.js"|theasResource }}"></script>
+    <script src="{{ "/cdn/portal-vue/portal-vue.umd.min.js"|theasResource }}"></script>
+    <script src="{{ "/cdn/bootstrap-vue/bootstrap-vue.js"|theasResource }}"></script>
+    <script src="{{ "/cdn/TheasVue.js"|theasResource }}"></script>
+
+
+
+    <style type="text/css">
+      @media print { html, body { height: 99%; overflow: hidden; } }
+      </style>
+      <style>
+
+
+      <!--
+       /* Font Definitions */
+       @font-face
+          {font-family:"Cambria Math";
+          panose-1:2 4 5 3 5 4 6 3 2 4;}
+      @font-face
+          {font-family:Tahoma;
+          panose-1:2 11 6 4 3 5 4 4 2 4;}
+       /* Style Definitions */
+       p.MsoNormal, li.MsoNormal, div.MsoNormal
+          {margin:0in;
+          margin-bottom:.0001pt;
+          font-size:12.0pt;
+          font-family:"Times New Roman",serif;}
+      p.MsoHeader, li.MsoHeader, div.MsoHeader
+          {margin:0in;
+          margin-bottom:.0001pt;
+          font-size:12.0pt;
+          font-family:"Times New Roman",serif;}
+      p.MsoFooter, li.MsoFooter, div.MsoFooter
+          {margin:0in;
+          margin-bottom:.0001pt;
+          font-size:12.0pt;
+          font-family:"Times New Roman",serif;}
+      p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+          {margin:0in;
+          margin-bottom:.0001pt;
+          font-size:8.0pt;
+          font-family:"Tahoma",sans-serif;}
+      .MsoChpDefault
+          {font-size:10.0pt;}
+       /* Page Definitions */
+       @page WordSection1
+          {size:8.5in 11.0in;
+          margin:1.0in 1.25in 1.0in 1.25in;}
+      div.WordSection1
+          {page:WordSection1;}
+      -->
+      </style>    
+
+    <script language="javascript">
+      function setTimeForSubmit(){
+      window.setTimeout("submitForm()",100);
+      }
+      function submitForm(){
+      document.insert.submit();
+      }
+    </script>
+
+  </head>
+
+  <body onload="window.print();setTimeForSubmit()">
+
+    <!--This form is used internally by Theas for session tracking et al.  It must have id="theasForm"-->
+    <form method="post" class="form-horizontal" id="theasForm">
+        {{ "__th"|theasXSRF }}
+        {{ "__th"|theasSessionToken(vuejs=True) }}
+    </form>
+
+        
+    <form name="insert" method="post" action="<?php $back = $_POST["back"]; echo $back; ?>.php">
+      <input type="hidden" name="operator" value="<?php $operator = $_POST["operator"]; echo $operator; ?>">
+      <input type="hidden" name="startdate" value="<?php $startdate = $_POST["startdate"]; echo $startdate; ?>">
+      <input type="hidden" name="shift" value="<?php $shift = $_POST["shift"]; echo $shift.""; ?>">
     </form>
     
-    </body>
-    </html>
+    
+
+    <main class="fullheight">
+        <div style="height: 100%">
+
+
+          <p align=center style="text-align:center">
+            <img width=221 height=136 id="Picture 1" src="/spaceage.jpg" alt="SpaceAge">
+          </p>
+          
+          <p align=center style="text-align:center">
+              <h2 style="font-weight: bold">Glass Pallet Label</h2>
+          </p>
+          
+          <p><span style="font-size:16.0pt">&nbsp;</span></p>
+          
+          <p><span style="font-size:30.0pt"><b>Batch #:</b> <?php echo $_POST["batch"]; ?></span></p>
+
+            
+          <p><span style="font-size:16.0pt">&nbsp;</span></p>
+          
+          <p><span style="font-size:30.0pt"><b>Customer:</b> <?php echo $rows["company"]; ?></span></p>
+          
+          <p><span style="font-size:16.0pt">&nbsp;</span></p>
+          
+          <p><span style="font-size:30.0pt"><b>Description:</b> <?php $bottom = $rows["glass"]; $bottomresult = substr($bottom, strpos($bottom, "-") + 1); echo $bottomresult; ?>oz <?php if ($rows["woven"] == 0) {} else {if ($rows["woven"] == 4) {echo "10oz";} else {if ($rows["woven"] == 5) {echo "18oz";}  else {if ($rows["woven"] == 6) {echo "24oz";}}}} ?></span></p>
+          
+          <p><span style="font-size:16.0pt">&nbsp;</span></p>
+          
+          <p><span style="font-size:30.0pt"><b>Off-Press Dimensions:</b> <?php if ($rows["sand"]==1 || $rows["sand"]==4) {echo $rows["thickness"]+.04;} else {if ($rows["sand"]==2) {echo $rows["thickness"]+.08;} else {echo $rows["thickness"];}} ?>X<?php echo $rows["width"]; ?>X<?php echo $rows["length"]; ?></span></p>
+          
+          <p><span style="font-size:16.0pt">&nbsp;</span></p>
+          
+
+            
+            <p><span style="font-size:30.0pt"><b>Quantity:</b> <?php echo $_POST["quantity"]; ?></span></p>
+            
+            <p><span style="font-size:16.0pt">&nbsp;</span></p>
+            
+            <p><span style="font-size:30.0pt"><b>Cut By:</b> <?php $name = $_POST["operator"]; list ($first, $last) = explode(" ", $name);  echo $first[0]; echo $last[0]; ?></span></p>
+            
+            <p><span style="font-size:16.0pt">&nbsp;</span></p>
+            
+            <p><span style="font-size:30.0pt"><b>Date:</b> <?php echo $todaydate; ?></span></p>          
+
+        </div>
+    </main>
+
+
+    
+
+  </body>
+</html>
     
