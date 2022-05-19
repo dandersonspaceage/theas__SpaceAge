@@ -1,0 +1,108 @@
+<html>
+    <head>
+    <script language="javascript">
+    function setTimeForSubmit(){
+    window.setTimeout("submitForm()",100);
+    }
+    function submitForm(){
+    document.insert.submit();
+    }
+    </script>
+    <style type="text/css">
+    @media print { html, body { height: 99%; overflow: hidden; } }
+    </style>
+    <style>
+    <!--
+     /* Font Definitions */
+     @font-face
+        {font-family:"Cambria Math";
+        panose-1:2 4 5 3 5 4 6 3 2 4;}
+    @font-face
+        {font-family:Tahoma;
+        panose-1:2 11 6 4 3 5 4 4 2 4;}
+     /* Style Definitions */
+     p.MsoNormal, li.MsoNormal, div.MsoNormal
+        {margin:0in;
+        margin-bottom:.0001pt;
+        font-size:12.0pt;
+        font-family:"Times New Roman",serif;}
+    p.MsoHeader, li.MsoHeader, div.MsoHeader
+        {margin:0in;
+        margin-bottom:.0001pt;
+        font-size:12.0pt;
+        font-family:"Times New Roman",serif;}
+    p.MsoFooter, li.MsoFooter, div.MsoFooter
+        {margin:0in;
+        margin-bottom:.0001pt;
+        font-size:12.0pt;
+        font-family:"Times New Roman",serif;}
+    p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+        {margin:0in;
+        margin-bottom:.0001pt;
+        font-size:8.0pt;
+        font-family:"Tahoma",sans-serif;}
+    .MsoChpDefault
+        {font-size:10.0pt;}
+     /* Page Definitions */
+     @page WordSection1
+        {size:8.5in 11.0in;
+        margin:1.0in 1.25in 1.0in 1.25in;}
+    div.WordSection1
+        {page:WordSection1;}
+    -->
+    </style>
+    </head>
+    <body onload="window.print();setTimeForSubmit()">
+    <div class=WordSection1>
+    
+    <p class=MsoNormal align=center style='text-align:center'><img width=221
+    height=136 id="Picture 1"
+    src="/spaceage.jpg"
+    alt="SpaceAge"></p>
+    
+    <p class=MsoNormal align=center style='text-align:center'><b><span
+    style='font-size:30.0pt'>Glass Pallet Label</span></b></p>
+    
+    <p class=MsoNormal><span style='font-size:16.0pt'>&nbsp;</span></p>
+    
+    <p class=MsoNormal><span style='font-size:30.0pt'><b>Batch #:</b> <?php echo $_POST['batch']; ?></span></p>
+    
+    <?php while($rows=mysqli_fetch_array($result)){ ?>
+    
+    <p class=MsoNormal><span style='font-size:16.0pt'>&nbsp;</span></p>
+    
+    <p class=MsoNormal><span style='font-size:30.0pt'><b>Customer:</b> <?php echo $rows['company']; ?></span></p>
+    
+    <p class=MsoNormal><span style='font-size:16.0pt'>&nbsp;</span></p>
+    
+    <p class=MsoNormal><span style='font-size:30.0pt'><b>Description:</b> <?php $bottom = $rows['glass']; $bottomresult = substr($bottom, strpos($bottom, '-') + 1); echo $bottomresult; ?>oz <?php if ($rows['woven'] == 0) {} else {if ($rows['woven'] == 4) {echo '10oz';} else {if ($rows['woven'] == 5) {echo '18oz';}  else {if ($rows['woven'] == 6) {echo '24oz';}}}} ?></span></p>
+    
+    <p class=MsoNormal><span style='font-size:16.0pt'>&nbsp;</span></p>
+    
+    <p class=MsoNormal><span style='font-size:30.0pt'><b>Off-Press Dimensions:</b> <?php if ($rows['sand']==1 || $rows['sand']==4) {echo $rows['thickness']+.04;} else {if ($rows['sand']==2) {echo $rows['thickness']+.08;} else {echo $rows['thickness'];}} ?>X<?php echo $rows['width']; ?>X<?php echo $rows['length']; ?></span></p>
+    
+    <p class=MsoNormal><span style='font-size:16.0pt'>&nbsp;</span></p>
+    
+    <?php } ?>
+    
+    <p class=MsoNormal><span style='font-size:30.0pt'><b>Quantity:</b> <?php echo $_POST['quantity']; ?></span></p>
+    
+    <p class=MsoNormal><span style='font-size:16.0pt'>&nbsp;</span></p>
+    
+    <p class=MsoNormal><span style='font-size:30.0pt'><b>Cut By:</b> <?php $name = $_POST['operator']; list ($first, $last) = explode(' ', $name);  echo $first[0]; echo $last[0]; ?></span></p>
+    
+    <p class=MsoNormal><span style='font-size:16.0pt'>&nbsp;</span></p>
+    
+    <p class=MsoNormal><span style='font-size:30.0pt'><b>Date:</b> <?php echo $todaydate; ?></span></p>
+    
+    </div>
+    
+    <form name="insert" method="post" action="<?php $back = $_POST['back']; echo $back; ?>.php">
+    <input type="hidden" name="operator" value="<?php $operator = $_POST['operator']; echo $operator; ?>">
+    <input type="hidden" name="startdate" value="<?php $startdate = $_POST['startdate']; echo $startdate; ?>">
+    <input type="hidden" name="shift" value="<?php $shift = $_POST['shift']; echo $shift.''; ?>">
+    </form>
+    
+    </body>
+    </html>
+    
