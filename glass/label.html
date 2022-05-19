@@ -170,27 +170,29 @@
           </p>
           
           <p align=center style="text-align:center">
-              <h2 style="font-weight: bold">Glass Pallet Label</h2>
+            <b>
+              <span style="font-size:30.0pt">Glass Pallet Label</span>
+          </b>
           </p>
           
           <p><span style="font-size:16.0pt">&nbsp;</span></p>
           
-          <p><span style="font-size:30.0pt"><b>Batch #:</b> <?php echo $_POST["batch"]; ?></span></p>
+            <p><span style="font-size:30.0pt"><b>Batch #:</b> <?php echo $_POST["batch"]; ?></span></p>
 
+              
+            <p><span style="font-size:16.0pt">&nbsp;</span></p>
             
-          <p><span style="font-size:16.0pt">&nbsp;</span></p>
-          
-          <p><span style="font-size:30.0pt"><b>Customer:</b> <?php echo $rows["company"]; ?></span></p>
-          
-          <p><span style="font-size:16.0pt">&nbsp;</span></p>
-          
-          <p><span style="font-size:30.0pt"><b>Description:</b> <?php $bottom = $rows["glass"]; $bottomresult = substr($bottom, strpos($bottom, "-") + 1); echo $bottomresult; ?>oz <?php if ($rows["woven"] == 0) {} else {if ($rows["woven"] == 4) {echo "10oz";} else {if ($rows["woven"] == 5) {echo "18oz";}  else {if ($rows["woven"] == 6) {echo "24oz";}}}} ?></span></p>
-          
-          <p><span style="font-size:16.0pt">&nbsp;</span></p>
-          
-          <p><span style="font-size:30.0pt"><b>Off-Press Dimensions:</b> <?php if ($rows["sand"]==1 || $rows["sand"]==4) {echo $rows["thickness"]+.04;} else {if ($rows["sand"]==2) {echo $rows["thickness"]+.08;} else {echo $rows["thickness"];}} ?>X<?php echo $rows["width"]; ?>X<?php echo $rows["length"]; ?></span></p>
-          
-          <p><span style="font-size:16.0pt">&nbsp;</span></p>
+            <p><span style="font-size:30.0pt"><b>Customer:</b> <?php echo $rows["company"]; ?></span></p>
+            
+            <p><span style="font-size:16.0pt">&nbsp;</span></p>
+            
+            <p><span style="font-size:30.0pt"><b>Description:</b> <?php $bottom = $rows["glass"]; $bottomresult = substr($bottom, strpos($bottom, "-") + 1); echo $bottomresult; ?>oz <?php if ($rows["woven"] == 0) {} else {if ($rows["woven"] == 4) {echo "10oz";} else {if ($rows["woven"] == 5) {echo "18oz";}  else {if ($rows["woven"] == 6) {echo "24oz";}}}} ?></span></p>
+            
+            <p><span style="font-size:16.0pt">&nbsp;</span></p>
+            
+            <p><span style="font-size:30.0pt"><b>Off-Press Dimensions:</b> <?php if ($rows["sand"]==1 || $rows["sand"]==4) {echo $rows["thickness"]+.04;} else {if ($rows["sand"]==2) {echo $rows["thickness"]+.08;} else {echo $rows["thickness"];}} ?>X<?php echo $rows["width"]; ?>X<?php echo $rows["length"]; ?></span></p>
+            
+            <p><span style="font-size:16.0pt">&nbsp;</span></p>
           
 
             
