@@ -876,7 +876,7 @@
       },
 
       isNumQty : function(thisVal) {
-        let isValid = (!this.isQARequired() && !thisVal) || (this.isQARequired() && thisVal && !isNaN(thisVal) && thisVal > 0 && thisVal < 5000);
+        let isValid = (thisVal && !isNaN(thisVal) && thisVal > 0 && thisVal < 5000);
         return isValid;
       }      
   
