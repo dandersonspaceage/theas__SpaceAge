@@ -118,7 +118,7 @@
             {{ "__th"|theasSessionToken }}               
             <input required name="quantity" type="text" id="quantity" size="5" maxlength="3" placeholder="Quantity">
             <input type="hidden" name="qguidWO" :value="curWO.qguid">
-            <input v-if="curWorker" type="hidden" name="qguidWorker" :value="curWorker.qguid">            
+            <!--input v-if="curWorker" type="hidden" name="qguidWorker" :value="curWorker.qguid">            -->
             <input type="submit" name="Print Label" value="Print Label">
           </form>
 
