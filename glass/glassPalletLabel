@@ -67,6 +67,7 @@
 
     <!--Global scripts-->
 
+    <script src="{{ "/cdn/jquery/jquery.min.js"|theasResource }}"></script>
     <script src="{{ "/cdn/axios/axios.min.js"|theasResource }}"></script>
     <script src="{{ "/cdn/hammerjs/hammer.min.js"|theasResource }}"></script>
     <script src="{{ "/cdn/moment/moment.js"|theasResource }}"></script>
