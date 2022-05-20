@@ -108,21 +108,21 @@
             <img width=221 height=136 id="Picture 1" src="/resources/spaceage.jpg" alt="SpaceAge">
           </p>
 
-          <h1 class="pb-4" style="text-align:center">Glass Pallet Label</h1>
+          <h1 class="pb-5" style="text-align:center">Glass Pallet Label</h1>
           
-            <h2 class="py-4">WO #: {{ data.GlassCut.WONumber }}</h2>
+            <h2 class="py-4">WO #: <span class="font-weight-bold">{{ data.GlassCut.WONumber }}</span></h2>
             
-            <h2 class="py-4">Customer: {{ data.GlassCut.Customer }}</h2>
+            <h2 class="py-4">Customer: <span class="font-weight-bold"></span>{{ data.GlassCut.Customer }}</span></h2>
 
-            <h2 class="py-4">Description: {{ data.GlassCut.GlassSpecs }}</h2>
+            <h2 class="py-4">Description: <span class="font-weight-bold"></span>{{ data.GlassCut.GlassSpecs }}</span></h2>
             
-            <h2 class="py-4">Off-Press Dimensions: {{ data.GlassCut.OPDimensions }}</h2>
+            <h2 class="py-4">Off-Press Dimensions: <span class="font-weight-bold"></span>{{ data.GlassCut.OPDimensions }}</span></h2>
                           
-            <h2 class="py-4">Quantity: {{ data.GlassCut.Quantity }}</h2>
+            <h2 class="py-4">Quantity: <span class="font-weight-bold"></span>{{ data.GlassCut.Quantity }}</span></h2>
                         
-            <h2 class="py-4">Cut By: {{ data.GlassCut.Worker }}</h2>                         
+            <h2 class="py-4">Cut By: <span class="font-weight-bold"></span>{{ data.GlassCut.Worker }}</span></h2>                         
             
-            <h2 class="py-4">Date: {{ data.GlassCut.DateFinished|friendlydate(formatstr='%a %m/%d/%Y %H:%M') }}</h2>        
+            <h2 class="py-4">Date: <span class="font-weight-bold"></span>{{ data.GlassCut.DateFinished|friendlydate(formatstr='%a %m/%d/%Y %H:%M') }}</span></h2>        
 
         </div>
     </main>
