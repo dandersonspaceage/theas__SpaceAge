@@ -113,6 +113,8 @@
 
           <h4>Print Label</h4>
 
+          <b-button @click="window.print()" variant="success">Print 2</b-button>
+
           <form name="label" method="post" action="glassPalletLabel">
             {{ "__th"|theasXSRF }}
             {{ "__th"|theasSessionToken }}               
