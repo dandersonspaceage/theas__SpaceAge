@@ -115,7 +115,8 @@
 
           <form name="label" method="post" action="glassPalletLabel">
             <input required name="quantity" type="text" id="quantity" size="5" maxlength="3" placeholder="Quantity">
-            <input type="hidden" name="qguild" :value="curWO.qguid">
+            <input type="hidden" name="qguid" :value="curWO.qguid">
+            <input type="submit" name="Print Label" value="Print Label">
           </form>
 
         </b-col>
