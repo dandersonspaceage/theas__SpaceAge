@@ -328,7 +328,7 @@
 
         asyncResource_WOs: 'sched/sched_App.vue',
         asyncCmd_WOs: 'fetchWOsForPress',
-        asyncCmd_Operators: 'fetchWorkers',
+        asyncCmd_Workers: 'fetchWorkers',
 
         pressCodes: ['N', 'NW', 'S', 'W'],
 
