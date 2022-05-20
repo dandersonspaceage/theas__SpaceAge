@@ -119,7 +119,7 @@
             {{ "__th"|theasXSRF }}
             {{ "__th"|theasSessionToken }}               
             <input required name="Quantity" type="text" id="Quantity" size="5" maxlength="3" placeholder="Quantity">
-            <input type="hidden" name="qguidWO" :value="curWO.qguid">
+            <input type="hidden" name="qguidWO" :value="curWOqguid_Table1">
             <!--input v-if="curWorker" type="hidden" name="qguidWorker" :value="curWorker.qguid">            -->
             <input type="submit" name="Print Label" value="Print Label">
           </form>
