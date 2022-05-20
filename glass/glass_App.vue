@@ -117,7 +117,8 @@
             {{ "__th"|theasXSRF }}
             {{ "__th"|theasSessionToken }}               
             <input required name="quantity" type="text" id="quantity" size="5" maxlength="3" placeholder="Quantity">
-            <input type="hidden" name="qguid" :value="curWO.qguid">
+            <input type="hidden" name="qguidWO" :value="curWO.qguid">
+            <input type="hidden" name="qguidWorker" :value="curWorker.qguid">            
             <input type="submit" name="Print Label" value="Print Label">
           </form>
 
