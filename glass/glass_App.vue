@@ -115,7 +115,7 @@
 
           <b-button @click="window.print()" variant="success">Print 2</b-button>
 
-          <form name="label" method="post" action="glassPalletLabel">
+          <form name="label" method="get" action="glass/glassPalletLabel">
             {{ "__th"|theasXSRF }}
             {{ "__th"|theasSessionToken }}               
             <input required name="Quantity" type="text" id="Quantity" size="5" maxlength="3" placeholder="Quantity">
