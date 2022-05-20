@@ -11,12 +11,12 @@
 
       <div style="max-width: 225px">   
 
-        <b-form-group label="Operator"
-                    :label-for="'selOperator'">
+        <b-form-group label="Worker"
+                    :label-for="'selWorker'">
 
-          <b-form-select :id="'selOperator'"
-                        :options="data_Operators"
-                        v-model="curOperator"
+          <b-form-select :id="'selWorker'"
+                        :options="data_Workers"
+                        v-model="curWorker"
                         size="sm"                        
           >
           </b-form-select>
@@ -56,7 +56,7 @@
 
   <b-row>
     <b-col cols="2" offset="10">
-        <b-button class="mb-1" variant="outline-primary" @click="showHistory">Shot History</b-button>  
+        <b-button class="mb-1" variant="outline-primary" @click="showHistory">Cut History</b-button>  
     </b-col>
   </b-row>  
 
@@ -102,7 +102,7 @@
               <div style="height:32px">
               </div>
 
-              <b-button @click="completeShot('Table1')" variant="primary">Shot</b-button>
+              <b-button @click="completeCut('Table1')" variant="primary">Cut Complete</b-button>
             </b-col>            
 
           </b-row>
@@ -110,14 +110,19 @@
         </b-col>
 
         <b-col cols="6">
+          <b-form-group label="Quantity "
+                        :label-for="'cutQuantity'">
+            <b-form-input :id="'cutQuantity'" :state="validQuantity"
+                          v-model="curCut.cutQuantity" size="sm"></b-form-input>
+          </b-form-group>
+
+          <h4>Print Label</h4>
           <form name="label" method="post" action="label.html">
-            <input required name="batch" type="text" id="batch" size="5" maxlength="8" placeholder="Batch">
             <input required name="quantity" type="text" id="quantity" size="5" maxlength="3" placeholder="Quantity">
             <input type="submit" name="Label" value="Label">
             <input type="hidden" name="back" value="<?php $back = 'cutternpress'; echo $back; ?>">
             <input type="hidden" name="operator" value="<?php $operator = $_POST['operator']; echo $operator; ?>">
-            <input type="hidden" name="startdate" value="<?php $startdate = $_POST['startdate']; echo $startdate; ?>">
-            <input type="hidden" name="shift" value="<?php $shift = $_POST['shift']; echo $shift.''; ?>">
+            <input type="hidden" name="daateFinished" value="<?php $startdate = $_POST['startdate']; echo $startdate; ?>">
           </form>
         </b-col>
     </b-row>
@@ -134,93 +139,35 @@
   </b-modal>
 
 
-  <b-modal id="ShotHistoryModal" ref="ShotHistoryModal"  size="huge" @show="onShowShotHistory" @hide="onHideShotHistory($event)" hide-footer>
+  <b-modal id="CutHistoryModal" ref="CutHistoryModal"  size="huge" @show="onShowCutHistory" @hide="onHideCutHistory($event)" hide-footer>
     <template #modal-title>
-      <h4>Shot History</h4>
+      <h4>Cut History</h4>
     </template>
 
   
 
     <div class="d-block">
 
-      <Vue-Tabulator ref="tabuShotHistory" class="table-striped table-sm" v-model="data_Shots" :options="tabShotHistOpt" @row-click="onHistoryRowClick" />            
+      <Vue-Tabulator ref="tabuCutHistory" class="table-striped table-sm" v-model="data_Cuts" :options="tabCutHistOpt" @row-click="onHistoryRowClick" />            
 
     </div>
 
   </b-modal>
 
-  <b-modal id="WOQualityModal" ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality(curWO.qguid, $event)" hide-footer>
+  <b-modal id="WOCutModal" ref="WOCutModal" @show="onShowWOCut" @hide="onHideWOCut(curWO.qguid, $event)" hide-footer>
     <template #modal-title>
-      <h4>WO [[ curWO.WONumber ]] QA Measurements</h4>
+      <h4>WO [[ curWO.WONumber ]] Glass Cuts</h4>
     </template>
 
     <div class="d-block">
       
       <b-row>      
         <b-col>          
-          <b-form-group label="Caliper 1"
-                        :label-for="'qaCaliper1'">
-            <b-form-input :id="'qaCaliper1'" :state="validCaliper1"
-                          v-model="curShot.qaCaliper1" size="sm"></b-form-input>
+          <b-form-group label="Quantity"
+                        :label-for="'cutQuantity'">
+            <b-form-input :id="'cutQuantity'" :state="validQuantity"
+                          v-model="curCut.cutQuantity" size="sm"></b-form-input>
           </b-form-group>
-        </b-col>
-
-
-        <b-col>     
-          <b-form-group label="Caliper 2"
-                        :label-for="'qaCaliper2'">
-            <b-form-input :id="'qaCaliper2'" :state="validCaliper2"
-                          v-model="curShot.qaCaliper2" size="sm"></b-form-input>
-          </b-form-group>
-        </b-col>
-      </b-row>
-
-      <b-row>      
-        <b-col>   
-          <b-form-group label="Caliper Front"
-                        :label-for="'qaCaliperFront'">
-            <b-form-input :id="'qaCaliperFront'" :state="validCaliperFront"
-                          v-model="curShot.qaCaliperFront" size="sm"></b-form-input>
-          </b-form-group>
-        </b-col>
-
-
-        <b-col>                 
-          <b-form-group label="Caliper Back"
-                        :label-for="'qaCaliperBack'">
-            <b-form-input :id="'qaCaliperBack'" :state="validCaliperBack"
-                          v-model="curShot.qaCaliperBack" size="sm"></b-form-input>
-          </b-form-group>          
-        </b-col>
-      </b-row>
-
-      <b-row>      
-        <b-col>           
-          <b-form-group label="Actual Weight"
-                        :label-for="'qaActualWeight'">
-            <b-form-input :id="'qaActualWeight'" :state="validActualWeight"
-                          v-model="curShot.qaActualWeight" size="sm"></b-form-input>
-          </b-form-group>
-        </b-col>
-
-
-        <b-col>  
-          <b-form-group label="Actual Set Time"
-                        :label-for="'qaActualSetTime'">
-            <b-form-input :id="'qaActualSetTIme'" :state="validActualSetTime"
-                          v-model="curShot.qaActualSetTime" size="sm"></b-form-input>
-          </b-form-group>              
-        </b-col>
-      </b-row>
-
-      <b-row>      
-        <b-col>   
-          <b-form-group label="Quality"
-                        :label-for="'qaQuality'">
-            <b-form-select :id="'qaQuality'" :state="validQuality"
-                          :options="qualityLevels"                      
-                          v-model="curShot.qaQuality" size="sm"></b-form-select>
-          </b-form-group>           
         </b-col>
       </b-row>
 
@@ -229,7 +176,7 @@
           <b-form-group label="Notes"
                         :label-for="'qaNotes'">
             <b-form-textarea :id="'qaNotes'" debounce="300"
-                            v-model="curShot.qaNotes" rows="3" max-rows="3">   
+                            v-model="curCut.cutNotes" rows="3" max-rows="3">   
             </b-form-textarea>                                                   
           </b-form-group>           
         </b-col>
@@ -237,7 +184,7 @@
 
       <b-row>
         <b-col>
-          <h5>Operator: [[ curOperatorName() ]]</h5>
+          <h5>Worker: [[ curWorkerName() ]]</h5>
 
         </b-col>
       </b-row>
@@ -333,7 +280,7 @@
               ],
             },
 
-            tabShotHistOpt: {
+            tabCutHistOpt: {
 
               responsiveLayout: 'hide', // enable responsive layouts
               height: '40vh', //with responsiveCollapse we need to specify an absolute height
@@ -344,34 +291,19 @@
                                       
                 //{title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                                          
                 {title: 'WO', field: 'WONumber', responsive: 0, headerSort:false},
-                {title: 'Shot', field: 'ShotNumber', responsive: 0, headerSort:false},
+                {title: 'Cut', field: 'CutNumber', responsive: 0, headerSort:false},
                 
                 {title: 'Time', field: 'DateFinished', responsive: 0, headerSort:false, 
                   formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);},
                   formatterParams: {formatStr: "dd MM/DD hh:mm"}
                 },
 
-                {title: 'Quality', field: 'Quality', responsive: 0, headerSort:false},
-
-                {title: 'Set Time', field: 'qaActualSetTime', responsive: 0, headerSort:false},
-                {title: 'Weight', field: 'qaActualWeight', responsive: 0, headerSort:false},
-                {title: 'Caliper 1', field: 'qaCaliper1', responsive: 0, headerSort:false},
-                {title: 'Caliper 2', field: 'qaCaliper2', responsive: 0, headerSort:false},
-                {title: 'Caliper Back ', field: 'qaCaliperBack', responsive: 0, headerSort:false},
-                {title: 'Caliper Front', field: 'qaCaliperFront', responsive: 0, headerSort:false},
-                
                 {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175, headerSort:false},
 
                 {title: 'qguid', field: 'qguid', visible: false}                
                                                                  
               ],
             },
-
-        qualityLevels: [
-          { value: 'A', text: 'A' },
-          { value: 'B', text: 'B' },
-          { value: 'RW', text: 'RW' }
-        ],
 
         theasParams: {},
         theasLastError: {},
@@ -390,15 +322,15 @@
 
         // Dynamic data will be fetched asynchronously
         data_WOs: [],
-        data_Shots: [],
-        data_Operators: [],
+        data_Cuts: [],
+        data_Workers: [],
 
         lastFetch_WOs: null,
-        lastFetch_Operators: null,
+        lastFetch_Workers: null,
 
         asyncResource_WOs: 'sched/sched_App.vue',
         asyncCmd_WOs: 'fetchWOsForPress',
-        asyncCmd_Operators: 'fetchOperators',
+        asyncCmd_Operators: 'fetchWorkers',
 
         pressCodes: ['N', 'NW', 'S', 'W'],
 
@@ -413,7 +345,7 @@
         curWOTable1: {},
         curWOTable2: {},
 
-        curShot: {},
+        curCut: {},
         thisWO_CommitDate: null, // object for datepicker
       };
     },
@@ -457,28 +389,9 @@
         return this.busyCount > 0;
       }, 
 
-      validCaliper1 : function() {
-        return this.isNumPress(this.curShot.qaCaliper1);
-      },
-      validCaliper2 : function() {
-        return this.isNumPress(this.curShot.qaCaliper2);
-      },
-      validCaliperFront : function() {
-        return this.isNumPress(this.curShot.qaCaliperFront);
-      },
-      validCaliperBack : function() {
-        return this.isNumPress(this.curShot.qaCaliperBack);
-      },
-      validActualWeight : function() {
-        return this.isNumPress(this.curShot.qaActualWeight);
-      },
-      validActualSetTime : function() {
-        return this.isNumPress(this.curShot.qaActualSetTime);
-      },                        
-      validQuality : function() {
-        return ((!this.isQARequired() & !this.curShot.qaQuality) || (this.isQARequired() && ['A', 'B', 'RW'].includes(this.curShot.qaQuality)));
+      validCutQuantity : function() {
+        return this.isNumPress(this.curCut.cutQuantity);
       }
-
     },
 
     methods: {
@@ -489,26 +402,26 @@
         }
       }, 
 
-      onShowShotHistory: function() {
+      onShowCutHistory: function() {
         let thatVue = this;
       },
 
-      onHideShotHistory: function(qguid, evt) {
+      onHideCutHistory: function(qguid, evt) {
         let thatVue = this; 
       },
 
-      onShowWOQuality: function() {
+      onShowWOCut: function() {
         let thatVue = this;
       },
 
-      onHideWOQuality: function(qguid, evt) {
+      onHideWOCut: function(qguid, evt) {
         let thatVue = this;
 
         //Call setDirty if you want to defer the submit for a few seconds.
         //thatVue.setDirty(qguid); 
 
-        //Or call saveShot if you want to immediately submit.
-        thatVue.saveShot(qguid);      
+        //Or call saveCut if you want to immediately submit.
+        thatVue.saveCut(qguid);      
       },
 
       onthModalHide: function() {
@@ -551,7 +464,7 @@
         let thisDirty = thatVue.dirtyQGUIDs.find((el) => el === qguid);
         if (!thisDirty) {
           thatVue.dirtyQGUIDs.push(qguid);
-          thatVue.dirtyTimers.push({timer: setTimeout(thatVue.saveShot, 3000, qguid), qguid: qguid});
+          thatVue.dirtyTimers.push({timer: setTimeout(thatVue.saveCut, 3000, qguid), qguid: qguid});
           //note:  timeout of 3000 must be longer than debounce of 1000 in textarea       
         }    
       },
@@ -560,16 +473,9 @@
       onHistoryRowClick: function(e, row) {
         let thatVue = this;
 
-        thatVue.curShot = thatVue.data_Shots.find((el) => el.qguid === row.getData().qguid);
-        
-        //for testing only
-        //let thisIndex = thatVue.data_Shots.findIndex((el) => el.qguid === thatVue.curShot.qguid)
-        //if (thisIndex >= 0) {
-        //  thatVue.data_Shots[thisIndex] = thatVue.curShot;
-        //}
-                            
-        //thatVue.$bvModal.hide('ShotHistoryModal');     
-        thatVue.$bvModal.show('WOQualityModal'); 
+        thatVue.curCut = thatVue.data_Cuts.find((el) => el.qguid === row.getData().qguid);
+                              
+        thatVue.$bvModal.show('WOCutModal'); 
       },
 
       switchWOList: function() {
@@ -577,7 +483,7 @@
         
         if (thatVue.dirtyQGUIDs.length) {
           thatVue.dirtyTimers.forEach(o => clearTimeout(o.timer)); // clear out any pending dirty timers
-          thatVue.saveShot(); // save any panding qguids
+          thatVue.saveCut(); // save any panding qguids
         }
         
         thatVue.data_WOs = [];
@@ -585,7 +491,7 @@
         thatVue.fetchWOs();
       },
 
-      fetchOperators: function () {
+      fetchWorkers: function () {
         // save reference to Vue object
         let thatVue = this;
 
@@ -593,8 +499,8 @@
 
         thatVue.$th.sendAsync({
           url: "/async/" + thatVue.asyncResource_WOs,
-          asyncCmd: thatVue.asyncCmd_Operators,
-          lastFetchDate: thatVue.lastFetch_Operators,
+          asyncCmd: thatVue.asyncCmd_Workers,
+          lastFetchDate: thatVue.lastFetch_Workers,
           data: {}, //note: passes to @FormParams
 
           onResponse: function (rd, response, config) {
@@ -616,8 +522,8 @@
            if (!thatVue.$th.haveError(true)) {
 
               //  WOs
-              if (rd["Operators"]) {
-                thisObj = JSON.parse(rd["Operators"])[0];
+              if (rd["Workers"]) {
+                thisObj = JSON.parse(rd["Workers"])[0];
                 thisData = thisObj["JSONData"];
                 thisFetchDate = thisObj["FetchDate"];
 
@@ -628,26 +534,26 @@
                           "qguid",
                           // string (optional): key value to exclude from merge (i.e. currently-displayed rows)
                           //'someIDValue'
-                          thatVue.data_Operators,
+                          thatVue.data_Workers,
                           thisData
                   );
                 }
                 thatVue.data_Operators = thatVue.$th.sortArray(
-                        thatVue.data_Operators,
+                        thatVue.data_Workers,
                         "Seq",
                         false //false=ascending, true=descending
                 );
 
                 //copy some properties so data_WOs can be used as options for selects
-                thatVue.data_Operators.forEach(op => {
+                thatVue.data_Workers.forEach(op => {
                   op.value = op.qguid;
-                  op.text = op.Operator;
+                  op.text = op.Worker;
                 });                         
 
                 if (thatVue.lastFetch_WOs) {
-                  thatVue.lastFetch_Operators = thisFetchDate;
+                  thatVue.lastFetch_Workers = thisFetchDate;
                 } else {
-                  thatVue.lastFetch_Operators = "1/1/1900";
+                  thatVue.lastFetch_Workers = "1/1/1900";
                 }           
 
               }
@@ -747,32 +653,32 @@
               }
 
 
-              //  Shots
-              if (1==1 && rd["Shots"]) {
-                thisObj = JSON.parse(rd["Shots"])[0];
+              //  Cuts
+              if (1==1 && rd["Cuts"]) {
+                thisObj = JSON.parse(rd["Cuts"])[0];
                 thisData = thisObj["JSONData"];
                 thisFetchDate = thisObj["FetchDate"];
 
                 if (config.reFetch) {
-                  thatVue.data_Shots.length = 0; //clear out WO      
+                  thatVue.data_Cuts.length = 0; //clear out WO      
                 }          
 
                 if (thisData) {
-                  thatVue.data_Shots = thatVue.$th.merge(
+                  thatVue.data_Cuts = thatVue.$th.merge(
                           // string (optional): key field name with unique values to merge on
                           "qguid",
                           // string (optional): key value to exclude from merge (i.e. currently-displayed rows)
                           //'someIDValue'
-                          thatVue.data_Shots,
+                          thatVue.data_Cuts,
                           thisData
                   );
 
-                  // remove any shots that don't have a qguid (i.e. recently-added temporary shots that should now have been received with a qguid
-                  thatVue.data_Shots = thatVue.data_Shots.filter((qguid) => true ? qguid : false)
+                  // remove any cuts that don't have a qguid (i.e. recently-added temporary cuts that should now have been received with a qguid
+                  thatVue.data_Cuts = thatVue.data_Cuts.filter((qguid) => true ? qguid : false)
 
                 }
-                thatVue.data_Shots = thatVue.$th.sortArray(
-                        thatVue.data_Shots,
+                thatVue.data_Cuts = thatVue.$th.sortArray(
+                        thatVue.data_Cuts,
                         "DateStarted",
                         true //false=ascending, true=descending
                 );
@@ -803,7 +709,7 @@
 
           if (thatVue.enableFetching === true) {
             thatVue.fetchWOs();
-            thatVue.fetchOperators();
+            thatVue.fetchWorkers();
             // can add additional fetches here
           }
         }
@@ -836,19 +742,19 @@
       showHistory: function() {        
         let thatVue = this;
 
-        thatVue.$bvModal.show('ShotHistoryModal');         
-        //thatVue.$refs.tabuShotHistory.redraw(true);       
-        //thatVue.$refs.tabuShotHistory.setSort({column:"DateFinished", dir:"desc"});
+        thatVue.$bvModal.show('CutHistoryModal');         
+        //thatVue.$refs.tabuCutHistory.redraw(true);       
+        //thatVue.$refs.tabuCutHistory.setSort({column:"DateFinished", dir:"desc"});
 
         setTimeout(function(){
         //Vue.nextTick(function () {     
             //need to refdraw the table after the modal is shown.  nextTick does not work, but setTimeout does work.     
-            thatVue.$refs.tabuShotHistory.tabulatorInstance.redraw(true);
+            thatVue.$refs.tabuCutHistory.tabulatorInstance.redraw(true);
         //});            
         }, 100);        
       },
 
-      completeShot: function(tableCode) {
+      completeCut: function(tableCode) {
           var thatVue = this;
 
           if (tableCode == 'Table1') {
@@ -858,20 +764,20 @@
             thatVue.curWO = thatVue.curWOTable2
           }
 
-          if (!thatVue.curOperator) {
+          if (!thatVue.curWorker) {
             //TechnicalMessage|FriendlyMessage|ShowTech?|Title
-            thatVue.$th.raiseError('|Please select the operator that is working on this press.|1|No operator selected!');
+            thatVue.$th.raiseError('|Please select the worker that is currently cutting glass.|1|No operator selected!');
           }
           else {
-            thatVue.$bvModal.show('WOQualityModal');            
+            thatVue.$bvModal.show('WOCutModal');            
           }
       },
 
-      saveShot: function (qguid, event) {
+      saveCut: function (qguid, event) {
           // save reference to Vue object that can be used in async callbacks
           var thatVue = this;
 
-          //note that qguid is for the WO (not the shot)
+          //note that qguid is for the WO (not the cut)
           
           if (qguid) {
             // qguid was specified.  We will save it, but first we remove any entries in the queue.
@@ -894,12 +800,12 @@
             // we loop, to save all qguids in the queue
 
             let thisWO = thatVue.data_WOs.find((el) => el.qguid === qguid)
-            thatVue.curShot.Operator = thatVue.curOperator;
+            thatVue.curCut.Worker = thatVue.curWorker;
 
             thatVue.$th.sendAsync({
               url: "/async/" + thatVue.asyncResource_WOs,
-              asyncCmd: 'completeShot',              
-              data: {WO: thisWO, Shot: thatVue.curShot}, //note: passes to @FormParams
+              asyncCmd: 'completeCut',              
+              data: {WO: thisWO, Cut: thatVue.curCut}, //note: passes to @FormParams
 
               onResponse: function (rd, response) {
                   // rd contains the response data split into an object (of name/value pairs)
@@ -909,28 +815,28 @@
                   // response contains the complete response object, in which .data contains
                   // the raw data that was received.              
 
-                  /*
+                  
                   let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === qguid)
                   if (thisIndex >= 0) {
-                    thatVue.curShot = thatVue.data_Shots[thisIndex];
+                    thatVue.curCut = thatVue.data_Cuts[thisIndex];
                   }
-                  */
+                  
 
-                  if (thatVue.curShot.qguid) {
-                    // updating existing shot
+                  if (thatVue.curCut.qguid) {
+                    // updating existing cut
 
-                    let thisIndex = thatVue.data_Shots.findIndex((el) => el.qguid === thatVue.curShot.qguid)
+                    let thisIndex = thatVue.data_Cuts.findIndex((el) => el.qguid === thatVue.curCut.qguid)
                     if (thisIndex >= 0) {
-                      thatVue.data_Shots[thisIndex] = thatVue.curShot;
+                      thatVue.data_Cuts[thisIndex] = thatVue.curCut;
                     }
 
                   }
                   else {
-                    // new shot
-                    thatVue.data_Shots.unshift(thatVue.curShot);
+                    // new cut
+                    thatVue.data_Cuts.unshift(thatVue.curCut);
                   }
 
-                 thatVue.curShot = {};
+                 thatVue.curCut = {};
 
                 }
             });
@@ -938,6 +844,7 @@
             qguid = thatVue.dirtyQGUIDs.pop();
           
           }
+      
       },
 
       formatDate: function (thisDate, thisFormatStr) {
@@ -948,13 +855,13 @@
         return result;
       },
 
-      curOperatorName: function() {
-        let thisOperator = this.data_Operators.find((el) => el.qguid == this.curOperator);
+      curWorkerName: function() {
+        let thisWorker = this.data_Workers.find((el) => el.qguid == this.curWorker);
 
         let thisName = null;
 
-        if (thisOperator) {
-          thisName = thisOperator.Operator;
+        if (thisWorkerr) {
+          thisName = thisWorker.Worker;
         }
         
         return thisName
@@ -974,26 +881,8 @@
         };
       },
 
-      isQARequired : function() {
-        //let isNewShot = (!Boolean(this.curShot.qugid));
-
-        //if (!isNewShot) {
-        //  return false
-        //}
-
-        //else {
-
-        //  let isRequired = false;
-
-          // Required on first, last and each 10th
-        //  return (thisSeq == 1 || thisSeq == this.curWO.Quantity || (curWO.ShotSeq % 10) == 0)
-
-       // }
-       return false;
-      },
-
-      isNumPress : function(thisVal) {
-        let isValid = (!this.isQARequired() && !thisVal) || (this.isQARequired() && thisVal && !isNaN(thisVal) && thisVal > 0 && thisVal < 200);
+      isNumCut : function(thisVal) {
+        let isValid = (!this.isQARequired() && !thisVal) || (this.isQARequired() && thisVal && !isNaN(thisVal) && thisVal > 0 && thisVal < 5000);
         return isValid;
       }      
   
