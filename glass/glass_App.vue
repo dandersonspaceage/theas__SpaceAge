@@ -115,7 +115,7 @@
 
           <b-button @click="window.print()" variant="success">Print 2</b-button>
 
-          <form name="label" method="get" action="/glass/glassPalletLabel">
+          <form name="label" method="post" action="glassPalletLabel">
             {{ "__th"|theasXSRF }}
             {{ "__th"|theasSessionToken }}               
             <input required name="Quantity" type="text" id="Quantity" size="5" maxlength="3" placeholder="Quantity">
@@ -529,7 +529,7 @@
 
                 
                 if (thisData) {
-                  thatVue.data_Operators = thatVue.$th.merge(
+                  thatVue.data_Workers = thatVue.$th.merge(
                           // string (optional): key field name with unique values to merge on
                           "qguid",
                           // string (optional): key value to exclude from merge (i.e. currently-displayed rows)
@@ -538,7 +538,7 @@
                           thisData
                   );
                 }
-                thatVue.data_Operators = thatVue.$th.sortArray(
+                thatVue.data_Workers = thatVue.$th.sortArray(
                         thatVue.data_Workers,
                         "Seq",
                         false //false=ascending, true=descending
@@ -766,7 +766,7 @@
 
           if (!thatVue.curWorker) {
             //TechnicalMessage|FriendlyMessage|ShowTech?|Title
-            thatVue.$th.raiseError('|Please select the worker that is currently cutting glass.|1|No operator selected!');
+            thatVue.$th.raiseError('|Please select the worker that is currently cutting glass.|1|No worker selected!');
           }
           else {
             thatVue.$bvModal.show('WOCutModal');            
