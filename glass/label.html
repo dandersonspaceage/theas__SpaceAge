@@ -98,9 +98,7 @@
     <!--This form is used internally by Theas for session tracking et al.  It must have id="theasForm"-->
     <form method="post" class="form-horizontal" id="theasForm">
         {{ "__th"|theasXSRF }}
-        {{ "__th"|theasSessionToken(vuejs=True) }}
-        {{ ""|theasHidden(name="th:WONumber") }}
-        {{ ""|theasHidden(name="th:WONumber") }}        
+        {{ "__th"|theasSessionToken }}    
     </form>
 
     <main class="fullheight">
@@ -112,19 +110,19 @@
 
           <h1 style="text-align:center">Glass Pallet Label</h1>
           
-            <h2 class="pb-3">WO #: {{ data.GlassCut.WONumber }}</h2>
+            <h2 class="px-5">WO #: {{ data.GlassCut.WONumber }}</h2>
             
-            <h2>Customer: {{ data.GlassCut.Customer }}</h2>
+            <h2 class="px-5">Customer: {{ data.GlassCut.Customer }}</h2>
 
-            <h2>Description: {{ data.GlassCut.GlassSpecs }}</h2>
+            <h2 class="px-5">Description: {{ data.GlassCut.GlassSpecs }}</h2>
             
-            <h2>Off-Press Dimensions: {{ data.GlassCut.OPDimensions }}</h2>
+            <h2 class="px-5">Off-Press Dimensions: {{ data.GlassCut.OPDimensions }}</h2>
                           
-            <h2>Quantity: {{ data.GlassCut.Quantity }} </h2>
+            <h2 class="px-5">Quantity: {{ data.GlassCut.Quantity }}</h2>
                         
-            <h2>Cut By: {{ data.GlassCut.Worker }}                          
+            <h2 class="px-5">Cut By: {{ data.GlassCut.Worker }}</h2>                         
             
-            <h2>Date: {{ data._Theas.theasParams.DateFinished }}           
+            <h2 class="px-5">Date: {{ data.GlassCut.DateFinished }}</h2>        
 
         </div>
     </main>
