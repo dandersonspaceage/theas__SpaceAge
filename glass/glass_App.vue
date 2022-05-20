@@ -384,7 +384,7 @@
       }, 
 
       validCutQuantity : function() {
-        return this.isNumPress(this.curCut.cutQuantity);
+        return this.isNumQty(this.curCut.cutQuantity);
       }
     },
 
@@ -875,7 +875,7 @@
         };
       },
 
-      isNumCut : function(thisVal) {
+      isNumQty : function(thisVal) {
         let isValid = (!this.isQARequired() && !thisVal) || (this.isQARequired() && thisVal && !isNaN(thisVal) && thisVal > 0 && thisVal < 5000);
         return isValid;
       }      
