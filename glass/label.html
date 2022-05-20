@@ -108,21 +108,21 @@
             <img width=221 height=136 id="Picture 1" src="/resources/spaceage.jpg" alt="SpaceAge">
           </p>
 
-          <h1 style="text-align:center">Glass Pallet Label</h1>
+          <h1 class="pb-4" style="text-align:center">Glass Pallet Label</h1>
           
-            <h2 class="py-5">WO #: {{ data.GlassCut.WONumber }}</h2>
+            <h2 class="py-4">WO #: {{ data.GlassCut.WONumber }}</h2>
             
-            <h2 class="py-5">Customer: {{ data.GlassCut.Customer }}</h2>
+            <h2 class="py-4">Customer: {{ data.GlassCut.Customer }}</h2>
 
-            <h2 class="py-5">Description: {{ data.GlassCut.GlassSpecs }}</h2>
+            <h2 class="py-4">Description: {{ data.GlassCut.GlassSpecs }}</h2>
             
-            <h2 class="py-5">Off-Press Dimensions: {{ data.GlassCut.OPDimensions }}</h2>
+            <h2 class="py-4">Off-Press Dimensions: {{ data.GlassCut.OPDimensions }}</h2>
                           
-            <h2 class="py-5">Quantity: {{ data.GlassCut.Quantity }}</h2>
+            <h2 class="py-4">Quantity: {{ data.GlassCut.Quantity }}</h2>
                         
-            <h2 class="py-5">Cut By: {{ data.GlassCut.Worker }}</h2>                         
+            <h2 class="py-4">Cut By: {{ data.GlassCut.Worker }}</h2>                         
             
-            <h2 class="py-5">Date: {{ data.GlassCut.DateFinished }}</h2>        
+            <h2 class="py-4">Date: {{ data.GlassCut.DateFinished|friendlyDate('%a %m/%d/%y &H:&M') }}</h2>        
 
         </div>
     </main>
