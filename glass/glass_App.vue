@@ -110,20 +110,14 @@
         </b-col>
 
         <b-col cols="6">
-          <b-form-group label="Quantity "
-                        :label-for="'cutQuantity'">
-            <b-form-input :id="'cutQuantity'" :state="validQuantity"
-                          v-model="curCut.cutQuantity" size="sm"></b-form-input>
-          </b-form-group>
 
           <h4>Print Label</h4>
-          <form name="label" method="post" action="label.html">
+
+          <form name="label" method="post" action="glassPalletLabel">
             <input required name="quantity" type="text" id="quantity" size="5" maxlength="3" placeholder="Quantity">
-            <input type="submit" name="Label" value="Label">
-            <input type="hidden" name="back" value="<?php $back = 'cutternpress'; echo $back; ?>">
-            <input type="hidden" name="operator" value="<?php $operator = $_POST['operator']; echo $operator; ?>">
-            <input type="hidden" name="daateFinished" value="<?php $startdate = $_POST['startdate']; echo $startdate; ?>">
+            <input type="hidden" name="qguild" value="[[ curWO.qguid ]]">
           </form>
+
         </b-col>
     </b-row>
   </div>
@@ -339,7 +333,7 @@
 
         curWOqguid_Table1: null,
         curWOqguid_Table2: null,   
-        curOperator: null,     
+        curWorker: null,     
 
         curWO: {},
         curWOTable1: {},
@@ -860,7 +854,7 @@
 
         let thisName = null;
 
-        if (thisWorkerr) {
+        if (thisWorker) {
           thisName = thisWorker.Worker;
         }
         
