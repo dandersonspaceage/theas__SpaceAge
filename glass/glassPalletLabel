@@ -82,19 +82,9 @@
       @media print { html, body { height: 99%; overflow: hidden; } }
       </style>
 
-
-    <script language="javascript">
-      function setTimeForSubmit(){
-      window.setTimeout("submitForm()",100);
-      }
-      function submitForm(){
-      document.insert.submit();
-      }
-    </script>
-
   </head>
 
-  <body onload="window.print();setTimeForSubmit()">
+  <body onload="window.print()">
 
     <!--This form is used internally by Theas for session tracking et al.  It must have id="theasForm"-->
     <form method="post" class="form-horizontal" id="theasForm">
