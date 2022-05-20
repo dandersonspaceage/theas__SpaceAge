@@ -115,7 +115,7 @@
 
           <form name="label" method="post" action="glassPalletLabel">
             <input required name="quantity" type="text" id="quantity" size="5" maxlength="3" placeholder="Quantity">
-            <input type="hidden" name="qguild" value="[[ curWO.qguid ]]">
+            <input type="hidden" name="qguild" :value="curWO.qguid">
           </form>
 
         </b-col>
@@ -159,7 +159,7 @@
         <b-col>          
           <b-form-group label="Quantity"
                         :label-for="'cutQuantity'">
-            <b-form-input :id="'cutQuantity'" :state="validQuantity"
+            <b-form-input :id="'cutQuantity'" :state="validCutQuantity"
                           v-model="curCut.cutQuantity" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
