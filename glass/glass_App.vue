@@ -185,7 +185,7 @@
 
       <b-row>
         <b-col>
-          <h5>Cut By: [[ curCut.CutByName ]]</h5>
+          <h5>Cut By: [[ curCut.WorkerName ]]</h5>
 
         </b-col>
       </b-row>
@@ -777,8 +777,8 @@
             thatVue.curCut = {};
             thatVue.curCut.qguidWO = thatVue.curWO.qguid;
             thatVue.curCut.WONumber = thatVue.curWO.WONumber;            
-            thatVue.curCut.CutBy = thatVue.curWorker;        
-            thatVue.curCut.CutByName =  thatVue.workerName(thatVue.curWorker);
+            thatVue.curCut.Worker = thatVue.curWorker;        
+            thatVue.curCut.WorkerName =  thatVue.workerName(thatVue.curWorker);
             thatVue.$bvModal.show('WOCutModal');            
           }
       },
@@ -861,7 +861,8 @@
                         thatVue.curCut.WONumber = cutResp.WONumber
                       }
                       thatVue.curCut.GlassCutSeq = cutResp.GlassCutSeq
-                      thatVue.curCut.CutBy = cutResp.CutBy
+                      thatVue.curCut.Worker = cutResp.Worker
+                      thatVue.curCut.WorkerName = cutResp.WorkerName
                       thatVue.curCut.Shift = cutResp.Shift
 
                       thatVue.data_Cuts.unshift(thatVue.curCut);
