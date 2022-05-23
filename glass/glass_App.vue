@@ -115,9 +115,10 @@
 
           <b-button @click="window.print()" variant="success">Print 2</b-button>
 
-          <form name="label" method="post" action="glassPalletLabel">
+          <form name="label" method="get" action="glassPalletLabel">
             {{ "__th"|theasXSRF }}
-            {{ "__th"|theasSessionToken }}               
+            {{ "__th"|theasSessionToken }}    
+            
             <input required name="Quantity" type="text" id="Quantity" size="5" maxlength="3" placeholder="Quantity">
             <input type="hidden" name="qguidWO" :value="curWOqguid_Table1">
             <!--input v-if="curWorker" type="hidden" name="qguidWorker" :value="curWorker.qguid">            -->
