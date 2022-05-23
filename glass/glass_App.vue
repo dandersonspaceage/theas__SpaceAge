@@ -774,6 +774,7 @@
             thatVue.$th.raiseError('|Please select the worker that is currently cutting glass.|1|No worker selected!');
           }
           else {
+            thatVue.curCut = {};
             thatVue.$bvModal.show('WOCutModal');            
           }
       },
