@@ -79,7 +79,7 @@
 
             <b-col>     
               <h5 style="font-size:calc(0.6em + 1.4vmin)">WO [[ curWOTable1.WONumber ]]</h5>
-              <h6 style="font-size:calc(0.6em + 1vmin)">#[[ 'to do' ]] of [[ curWOTable1.Quantity ]]</h6>
+              <h6 style="font-size:calc(0.6em + 1vmin)">#[[ curWOTable1.GlassCutQuantity ]] of [[ curWOTable1.Quantity ]]</h6>
             </b-col>      
           </b-row>      
 
