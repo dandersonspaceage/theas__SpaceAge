@@ -849,9 +849,9 @@
                     else {
                       // new cut
                       thatVue.curCut.qguid = cutResp.qguidCut
-                      thatVue.WONumber = cutResp.WONumber
-                      thatVue.GlassCutSeq = cutResp.GlassCutSeq
-                      thatVue.CutBy = cutResp.CutBy
+                      thatVue.curCut.WONumber = cutResp.WONumber
+                      thatVue.curCut.GlassCutSeq = cutResp.GlassCutSeq
+                      thatVue.curCut.CutBy = cutResp.CutBy
 
                       thatVue.data_Cuts.unshift(thatVue.curCut);
                     }                    
