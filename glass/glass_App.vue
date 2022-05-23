@@ -844,7 +844,7 @@
                     }
                     else {
                       // new cut
-                      thatVue.curCut.qguid = cutResp.guidCut
+                      thatVue.curCut.qguid = cutResp.qguidCut
                       thatVue.data_Cuts.unshift(thatVue.curCut);
                     }                    
 
