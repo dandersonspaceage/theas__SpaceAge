@@ -804,6 +804,7 @@
 
             let thisWO = thatVue.data_WOs.find((el) => el.qguid === qguid)
             thatVue.curCut.Worker = thatVue.curWorker;
+            thatVue.curCut.WONumber = thisWO.WONumber;
 
             thatVue.$th.sendAsync({
               url: "/async/" + thatVue.asyncResource_WOs,
