@@ -849,7 +849,7 @@
 
           if (thatVue.enableFetching === true) {
             thatVue.fetchWOs();
-            thatVue.fetchWorkers();
+            thatVue.fetchWorkers('');
             // can add additional fetches here
           }
         }
