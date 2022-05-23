@@ -293,7 +293,8 @@
                 //{title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                                          
                 {title: 'WO', field: 'WONumber', responsive: 0, headerSort:false},
                 {title: 'Cut', field: 'GlassCutSeq', responsive: 0, headerSort:false},
-                {title: 'Cut By', field: 'CutBy', responsive: 0, headerSort:false},                
+                {title: 'Cut By', field: 'CutBy', responsive: 0, headerSort:false}, 
+                {title: 'Shift', field: 'Shift,', responsive: 0, headerSort:false},                                
                 
                 {title: 'Time', field: 'DateFinished', responsive: 0, headerSort:false, 
                   formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);},
@@ -852,6 +853,7 @@
                       thatVue.curCut.WONumber = cutResp.WONumber
                       thatVue.curCut.GlassCutSeq = cutResp.GlassCutSeq
                       thatVue.curCut.CutBy = cutResp.CutBy
+                      thatVue.curCut.Shift = cutResp.Shift
 
                       thatVue.data_Cuts.unshift(thatVue.curCut);
                     }                    
