@@ -33,13 +33,14 @@
         <b-form-group label="Press"
                       :label-for="'ListName'" class="mb-0 pb-2">
           <b-form-select :id="'listName'"
-                        v-model="curWOList" :options="woListNames" @change="switchWOList()"
+                        :disabled="lockPressSelection"
+                        v-model="curWOListCode" :options="woListNames" @change="switchWOList()"
                         size="sm"
                         >
           </b-form-select>
         </b-form-group>
 
-          <h6 class="ml-1">[[ curWOList ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>        
+          <h6 class="ml-1">[[ curWOListCode ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>        
 
       </div>      
     </b-col>
@@ -431,12 +432,13 @@
 
         asyncResource_WOs: 'sched/sched_App.vue',
         asyncCmd_WOs: 'fetchWOsForPress',
-        asyncCmd_Operators: 'fetchOperators',
+        asyncCmd_Operators: 'fetchWorkers',
 
         pressCodes: ['N', 'NW', 'S', 'W'],
 
         woListNames: ['N', 'NW', 'S', 'W'],
-        curWOList: 'N',
+        curWOListCode: 'N',
+        lockPressSelection: true,
 
         curWOqguid_Table1: null,
         curWOqguid_Table2: null,   
@@ -618,7 +620,7 @@
         thatVue.fetchWOs();
       },
 
-      fetchOperators: function () {
+      fetchWorkers: function (workerType) {
         // save reference to Vue object
         let thatVue = this;
 
@@ -628,7 +630,7 @@
           url: "/async/" + thatVue.asyncResource_WOs,
           asyncCmd: thatVue.asyncCmd_Operators,
           lastFetchDate: thatVue.lastFetch_Operators,
-          data: {}, //note: passes to @FormParams
+          data: {workerType: workerType}, //note: passes to @FormParams
 
           onResponse: function (rd, response, config) {
             // rd contains the response data split into an object (of name/value pairs)
@@ -649,8 +651,8 @@
            if (!thatVue.$th.haveError(true)) {
 
               //  WOs
-              if (rd["Operators"]) {
-                thisObj = JSON.parse(rd["Operators"])[0];
+              if (rd["Workers"]) {
+                thisObj = JSON.parse(rd["Workers"])[0];
                 thisData = thisObj["JSONData"];
                 thisFetchDate = thisObj["FetchDate"];
 
@@ -706,7 +708,7 @@
           url: "/async/" + thatVue.asyncResource_WOs,
           asyncCmd: thatVue.asyncCmd_WOs,
           lastFetchDate: thatVue.lastFetch_WOs,
-          data: {listName: thatVue.curWOList}, //note: passes to @FormParams
+          data: {listName: thatVue.curWOListCode}, //note: passes to @FormParams
           qguid: qguid,
           reFetch: reFetch,
 
@@ -727,6 +729,16 @@
             thisFetchDate = null;            
 
            if (!thatVue.$th.haveError(true)) {
+
+              if (rd["General"]) {
+                thisObj = JSON.parse(rd["General"]);
+                if (thisObj.PressCode) {
+                  thatVue.lockPressSelection = false;
+                  curWOListCode = thisObj.PressCode;
+                }
+                else {
+                  thatVue.lockPressSelection = true;
+                }
 
               //  WOs
               if (rd["WOs"]) {
@@ -836,7 +848,7 @@
 
           if (thatVue.enableFetching === true) {
             thatVue.fetchWOs();
-            thatVue.fetchOperators();
+            thatVue.fetchWorkers();
             // can add additional fetches here
           }
         }
