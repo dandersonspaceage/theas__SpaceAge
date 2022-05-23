@@ -293,7 +293,7 @@
                 //{title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                                          
                 {title: 'WO', field: 'WONumber', responsive: 0, headerSort:false},
                 {title: 'Cut', field: 'GlassCutSeq', responsive: 0, headerSort:false},
-                {title: 'Cut By', field: 'CutBy', responsive: 0, headerSort:false}, 
+                {title: 'Cut By', field: 'WorkerName', responsive: 0, headerSort:false}, 
                 {title: 'Shift', field: 'Shift,', responsive: 0, headerSort:false},                                
                 
                 {title: 'Time', field: 'DateFinished', responsive: 0, headerSort:false, 
