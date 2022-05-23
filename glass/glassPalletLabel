@@ -88,7 +88,7 @@
     <form method="post" class="form-horizontal" id="theasForm">
         {{ "__th"|theasXSRF }}
         {{ "__th"|theasSessionToken }}      
-        {{ "1"|theasHidden(name="theas:InhibitRedir") }}
+        {{ "1"|theasHidden(name="th:InhibitRedir") }}
     </form>
 
     <main class="fullheight">
