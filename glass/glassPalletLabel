@@ -87,9 +87,8 @@
     <!--This form is used internally by Theas for session tracking et al.  It must have id="theasForm"-->
     <form method="post" class="form-horizontal" id="theasForm">
         {{ "__th"|theasXSRF }}
-        {{ "__th"|theasSessionToken }}    
-        {{ "__th"|theasHidden }}    
-        {{ "1"|hidden(name="theas:InhibitRedir") }}
+        {{ "__th"|theasSessionToken }}      
+        {{ "1"|theasHidden(name="theas:InhibitRedir") }}
     </form>
 
     <main class="fullheight">
