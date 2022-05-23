@@ -175,8 +175,8 @@
       <b-row>      
         <b-col>   
           <b-form-group label="Notes"
-                        :label-for="'qaNotes'">
-            <b-form-textarea :id="'qaNotes'" debounce="300"
+                        :label-for="'cutNotes'">
+            <b-form-textarea :id="'cutNotes'" debounce="300"
                             v-model="curCut.cutNotes" rows="3" max-rows="3">   
             </b-form-textarea>                                                   
           </b-form-group>           
@@ -299,7 +299,9 @@
                   formatterParams: {formatStr: "dd MM/DD hh:mm"}
                 },
 
-                {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175, headerSort:false},
+                {title: 'Quantity', field: 'CutQuantity', responsive: 0, headerSort:false},                
+
+                {title: 'Notes', field: 'CutNotes', responsive: 0, minWidth: 175, headerSort:false},
 
                 {title: 'qguid', field: 'qguid', visible: false}                
                                                                  
