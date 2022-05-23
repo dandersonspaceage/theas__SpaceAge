@@ -733,12 +733,13 @@
               if (rd["General"]) {
                 thisObj = JSON.parse(rd["General"]);
                 if (thisObj.PressCode) {
-                  thatVue.lockPressSelection = false;
+                  thatVue.lockPressSelection = true;
                   curWOListCode = thisObj.PressCode;
                 }
                 else {
-                  thatVue.lockPressSelection = true;
+                  thatVue.lockPressSelection = false;
                 }
+              }
 
               //  WOs
               if (rd["WOs"]) {
