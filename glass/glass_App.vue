@@ -820,29 +820,33 @@
 
                 if (!thatVue.$th.haveError(true)) {
 
-                    //  WOs
-                    if (rd["CutResponse"]) {
-                      cutResp = JSON.parse(rd["CutResponse"]);
-
-
-                  let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === cutResp.qguidWO)
-                  if (thisIndex >= 0) {
-                    data_WOs[thisIndex].GlassCutQuantity = cutResp.GlassCutQuantity;
+                  //  CutResponse
+                  if (rd["CutResponse"]) {
+                    cutResp = JSON.parse(rd["CutResponse"]);
                   }
-                  
 
-                  if (thatVue.curCut.qguid) {
-                    // updating existing cut
+                  if (cutResp) {
 
-                    let thisIndex = thatVue.data_Cuts.findIndex((el) => el.qguid === cutResp.qguidCut)
+                    let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === cutResp.qguidWO)
                     if (thisIndex >= 0) {
-                      thatVue.data_Cuts[thisIndex] = thatVue.curCut;
+                      data_WOs[thisIndex].GlassCutQuantity = cutResp.GlassCutQuantity;
                     }
+                    
 
-                  }
-                  else {
-                    // new cut
-                    thatVue.data_Cuts.unshift(thatVue.curCut);
+                    if (thatVue.curCut.qguid) {
+                      // updating existing cut
+
+                      let thisIndex = thatVue.data_Cuts.findIndex((el) => el.qguid === cutResp.qguidCut)
+                      if (thisIndex >= 0) {
+                        thatVue.data_Cuts[thisIndex] = thatVue.curCut;
+                      }
+
+                    }
+                    else {
+                      // new cut
+                      thatVue.data_Cuts.unshift(thatVue.curCut);
+                    }                    
+
                   }
 
                  thatVue.curCut = {};
