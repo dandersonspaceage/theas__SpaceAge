@@ -671,7 +671,7 @@
                 if (thisData) {
                   thatVue.data_Cuts = thatVue.$th.merge(
                           // string (optional): key field name with unique values to merge on
-                          "qguidCut",
+                          "qguid",
                           // string (optional): key value to exclude from merge (i.e. currently-displayed rows)
                           //'someIDValue'
                           thatVue.data_Cuts,
@@ -845,10 +845,10 @@
                     }
                     
 
-                    if (cutResp.qguidCut == thatVue.curCut.qguid) {
+                    if (cutResp.qguid == thatVue.curCut.qguid) {
                       // updating existing cut
 
-                      let thisIndex = thatVue.data_Cuts.findIndex((el) => el.qguid === cutResp.qguidCut)
+                      let thisIndex = thatVue.data_Cuts.findIndex((el) => el.qguid === cutResp.qgui)
                       if (thisIndex >= 0) {
                         thatVue.data_Cuts[thisIndex] = thatVue.curCut;
                       }
@@ -857,7 +857,7 @@
                     else {
                       // new cut
                       if (!thatVue.curCut.qguid) {
-                        thatVue.curCut.qguid = cutResp.qguidCut
+                        thatVue.curCut.qguid = cutResp.qguid
                         thatVue.curCut.WONumber = cutResp.WONumber
                       }
                       thatVue.curCut.GlassCutSeq = cutResp.GlassCutSeq
