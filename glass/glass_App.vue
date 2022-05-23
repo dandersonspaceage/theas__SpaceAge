@@ -167,7 +167,7 @@
           <b-form-group label="Quantity"
                         :label-for="'cutQuantity'">
             <b-form-input :id="'cutQuantity'" :state="validCutQuantity"
-                          v-model="curCut.cutQuantity" size="sm"></b-form-input>
+                          v-model="curCut.Quantity" size="sm"></b-form-input>
           </b-form-group>
         </b-col>
       </b-row>
@@ -177,7 +177,7 @@
           <b-form-group label="Notes"
                         :label-for="'cutNotes'">
             <b-form-textarea :id="'cutNotes'" debounce="300"
-                            v-model="curCut.cutNotes" rows="3" max-rows="3">   
+                            v-model="curCut.Notes" rows="3" max-rows="3">   
             </b-form-textarea>                                                   
           </b-form-group>           
         </b-col>
@@ -299,9 +299,9 @@
                   formatterParams: {formatStr: "dd MM/DD hh:mm"}
                 },
 
-                {title: 'Quantity', field: 'CutQuantity', responsive: 0, headerSort:false},                
+                {title: 'Quantity', field: 'Quantity', responsive: 0, headerSort:false},                
 
-                {title: 'Notes', field: 'CutNotes', responsive: 0, minWidth: 175, headerSort:false},
+                {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175, headerSort:false},
 
                 {title: 'qguid', field: 'qguid', visible: false}                
                                                                  
@@ -393,7 +393,7 @@
       }, 
 
       validCutQuantity : function() {
-        return this.isNumQty(this.curCut.cutQuantity);
+        return this.isNumQty(this.curCut.Quantity);
       }
     },
 
