@@ -775,6 +775,8 @@
           }
           else {
             thatVue.curCut = {};
+            thatVue.curCut.Worker = thatVue.curWorker;
+            thatVue.curCut.WONumber = thatVue.curWO.WONumber;            
             thatVue.$bvModal.show('WOCutModal');            
           }
       },
@@ -806,8 +808,6 @@
             // we loop, to save all qguids in the queue
 
             let thisWO = thatVue.data_WOs.find((el) => el.qguid === qguid)
-            thatVue.curCut.Worker = thatVue.curWorker;
-            thatVue.curCut.WONumber = thisWO.WONumber;
 
             thatVue.$th.sendAsync({
               url: "/async/" + thatVue.asyncResource_WOs,
