@@ -315,7 +315,7 @@
         busyCount: 1,
         curCursor: 'progress',
         dirtyQGUIDs: [], // list of qguids that need to be saved
-        dirtyTimers: [], // timers for pending saves of qugids
+        dirtyTimers: [], // timers for pending saves of qguids
 
         overlayVisible: false,
 
@@ -844,7 +844,7 @@
                     }
                     else {
                       // new cut
-                      thatVue.curCut.qugid = cutResp.guidCut
+                      thatVue.curCut.qguid = cutResp.guidCut
                       thatVue.data_Cuts.unshift(thatVue.curCut);
                     }                    
 
