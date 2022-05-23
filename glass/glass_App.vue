@@ -829,7 +829,7 @@
 
                     let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === cutResp.qguidWO)
                     if (thisIndex >= 0) {
-                      data_WOs[thisIndex].GlassCutQuantity = cutResp.GlassCutQuantity;
+                      thatVue.data_WOs[thisIndex].GlassCutQuantity = cutResp.GlassCutQuantity;
                     }
                     
 
