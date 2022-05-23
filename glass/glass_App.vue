@@ -659,8 +659,8 @@
 
 
               //  Cuts
-              if (1==1 && rd["GlassCuts"]) {
-                thisObj = JSON.parse(rd["GlassCuts"])[0];
+              if (1==1 && rd["WOGlassCuts"]) {
+                thisObj = JSON.parse(rd["WOGlassCuts"])[0];
                 thisData = thisObj["JSONData"];
                 thisFetchDate = thisObj["FetchDate"];
 
