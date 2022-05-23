@@ -76,8 +76,6 @@
     <script src="{{ "/cdn/popper/popper.min.js"|theasResource }}"></script>
     <script src="{{ "/cdn/Theas.js"|theasResource }}"></script>
 
-
-
     <style type="text/css">
       @media print { html, body { height: 99%; overflow: hidden; } }
       </style>
@@ -90,6 +88,7 @@
     <form method="post" class="form-horizontal" id="theasForm">
         {{ "__th"|theasXSRF }}
         {{ "__th"|theasSessionToken }}    
+        <input type="hidden" name = 'th:InhibitRedir" value="1"'> 
     </form>
 
     <main class="fullheight">
