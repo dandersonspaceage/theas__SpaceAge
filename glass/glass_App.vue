@@ -816,17 +816,25 @@
                   // response contains the complete response object, in which .data contains
                   // the raw data that was received.              
 
-                  
-                  let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === qguid)
+                let cutResp= {};         
+
+                if (!thatVue.$th.haveError(true)) {
+
+                    //  WOs
+                    if (rd["CutResponse"]) {
+                      cutResp = JSON.parse(rd["CutResponse"]);
+
+
+                  let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === cutResp.qguidWO)
                   if (thisIndex >= 0) {
-                    thatVue.curCut = thatVue.data_Cuts[thisIndex];
+                    data_WOs[thisIndex].GlassCutQuantity = cutResp.GlassCutQuantity;
                   }
                   
 
                   if (thatVue.curCut.qguid) {
                     // updating existing cut
 
-                    let thisIndex = thatVue.data_Cuts.findIndex((el) => el.qguid === thatVue.curCut.qguid)
+                    let thisIndex = thatVue.data_Cuts.findIndex((el) => el.qguid === cutResp.qguidCut)
                     if (thisIndex >= 0) {
                       thatVue.data_Cuts[thisIndex] = thatVue.curCut;
                     }
