@@ -626,6 +626,10 @@
 
         thatVue.incBusy();        
 
+        if (!workerType) {
+          workerType = '';
+        }
+
         thatVue.$th.sendAsync({
           url: "/async/" + thatVue.asyncResource_WOs,
           asyncCmd: thatVue.asyncCmd_Operators,
@@ -734,7 +738,7 @@
                 thisObj = JSON.parse(rd["General"]);
                 if (thisObj.PressCode) {
                   thatVue.lockPressSelection = true;
-                  curWOListCode = thisObj.PressCode;
+                  thatVue.curWOListCode = thisObj.PressCode;
                 }
                 else {
                   thatVue.lockPressSelection = false;
@@ -849,7 +853,7 @@
 
           if (thatVue.enableFetching === true) {
             thatVue.fetchWOs();
-            thatVue.fetchWorkers('');
+            thatVue.fetchWorkers();
             // can add additional fetches here
           }
         }
