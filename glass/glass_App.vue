@@ -775,8 +775,9 @@
           }
           else {
             thatVue.curCut = {};
-            thatVue.curCut.Worker = thatVue.curWorker;
+            thatVue.curCut.qguidWO = thatVue.curWO.qguid;
             thatVue.curCut.WONumber = thatVue.curWO.WONumber;            
+            thatVue.curCut.Worker = thatVue.curWorker;        
             thatVue.$bvModal.show('WOCutModal');            
           }
       },
@@ -802,6 +803,10 @@
           else {
             // qguid not specified.  See if there is a qguid in queue awaiting saving.
             qguid = thatVue.dirtyQGUIDs.pop()
+          }
+
+          if (!qguid && thatVue.curCut.qguidWO) {
+            qguid = thatVue.curCut.qguidWO
           }
 
           while (qguid) {
@@ -850,8 +855,10 @@
                     }
                     else {
                       // new cut
-                      thatVue.curCut.qguid = cutResp.qguidCut
-                      thatVue.curCut.WONumber = cutResp.WONumber
+                      if (!thatVue.curCut.qguid) {
+                        thatVue.curCut.qguid = cutResp.qguidCut
+                        thatVue.curCut.WONumber = cutResp.WONumber
+                      }
                       thatVue.curCut.GlassCutSeq = cutResp.GlassCutSeq
                       thatVue.curCut.CutBy = cutResp.CutBy
                       thatVue.curCut.Shift = cutResp.Shift
