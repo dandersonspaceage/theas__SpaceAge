@@ -155,7 +155,7 @@
 
   </b-modal>
 
-  <b-modal id="WOCutModal" ref="WOCutModal" @show="onShowWOCut" @hide="onHideWOCut(curWO.qguid, $event)" hide-footer>
+  <b-modal id="WOCutModal" ref="WOCutModal" @show="onShowWOCut" @ok="onCloseWOCut(curWO.qguid, $event)" hide-footer>
     <template #modal-title>
       <h4>WO [[ curWO.WONumber ]] Glass Cuts</h4>
     </template>
@@ -417,7 +417,7 @@
         let thatVue = this;
       },
 
-      onHideWOCut: function(qguid, evt) {
+      onCloseWOCut: function(qguid, evt) {
         let thatVue = this;
 
         //Call setDirty if you want to defer the submit for a few seconds.
@@ -657,8 +657,8 @@
 
 
               //  Cuts
-              if (1==1 && rd["Cuts"]) {
-                thisObj = JSON.parse(rd["Cuts"])[0];
+              if (1==1 && rd["GlassCuts"]) {
+                thisObj = JSON.parse(rd["GlassCuts"])[0];
                 thisData = thisObj["JSONData"];
                 thisFetchDate = thisObj["FetchDate"];
 
