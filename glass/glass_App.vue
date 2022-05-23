@@ -833,7 +833,7 @@
                     }
                     
 
-                    if (thatVue.curCut.qguid) {
+                    if (cutResp.qguidCut == thatVue.curCut.qguid) {
                       // updating existing cut
 
                       let thisIndex = thatVue.data_Cuts.findIndex((el) => el.qguid === cutResp.qguidCut)
@@ -844,6 +844,7 @@
                     }
                     else {
                       // new cut
+                      thatVue.curCut.qugid = cutResp.guidCut
                       thatVue.data_Cuts.unshift(thatVue.curCut);
                     }                    
 
