@@ -492,7 +492,7 @@
         thatVue.fetchWOs();
       },
 
-      fetchWorkers: function () {
+      fetchWorkers: function (workerType) {
         // save reference to Vue object
         let thatVue = this;
 
@@ -502,7 +502,7 @@
           url: "/async/" + thatVue.asyncResource_WOs,
           asyncCmd: thatVue.asyncCmd_Workers,
           lastFetchDate: thatVue.lastFetch_Workers,
-          data: {}, //note: passes to @FormParams
+          data: {workerType: workerType}, //note: passes to @FormParams
 
           onResponse: function (rd, response, config) {
             // rd contains the response data split into an object (of name/value pairs)
@@ -710,7 +710,7 @@
 
           if (thatVue.enableFetching === true) {
             thatVue.fetchWOs();
-            thatVue.fetchWorkers();
+            thatVue.fetchWorkers('GlassCutter');
             // can add additional fetches here
           }
         }
