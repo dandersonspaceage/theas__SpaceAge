@@ -185,7 +185,7 @@
 
       <b-row>
         <b-col>
-          <h5>Cut By: [[ curCut.CutBy ]]</h5>
+          <h5>Cut By: [[ workerName(curCut.CutBy) ]]</h5>
 
         </b-col>
       </b-row>
@@ -888,8 +888,12 @@
         return result;
       },
 
-      curWorkerName: function() {
-        let thisWorker = this.data_Workers.find((el) => el.qguid == this.curWorker);
+      workerName: function(qguid) {
+        if (!qguid) {
+          qguid = this.curWorker;
+        }
+
+        let thisWorker = this.data_Workers.find((el) => el.qguid == qguid);
 
         let thisName = null;
 
