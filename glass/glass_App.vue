@@ -185,7 +185,7 @@
 
       <b-row>
         <b-col>
-          <h5>Worker: [[ curWorkerName() ]]</h5>
+          <h5>Cut By: [[ curCut.CutBy ]]</h5>
 
         </b-col>
       </b-row>
