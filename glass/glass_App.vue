@@ -113,16 +113,36 @@
 
           <h4>Print Label</h4>
 
-    <div id="printMe" style="display: none">
-      <h1>Print me!</h1>
-    </div>
-         
+          <div id="printMe" style="display: none">
+
+              <p style="text-align:center">
+                <img width=221 height=136 id="Picture 1" src="/resources/spaceage.jpg" alt="SpaceAge">
+              </p>
+
+              <h1 class="pb-5" style="text-align:center">Glass Pallet Label</h1>
+              
+                <h2 class="py-4">WO #: <span class="font-weight-bold">[[ curWO.WONumber ]]</span></h2>
+                
+                <h2 class="py-4">Customer: <span class="font-weight-bold">[[ curWO.Customer ]]</span></h2>
+
+                <h2 class="py-4">Description: <span class="font-weight-bold">[[ curWO.GlassSpecs ]]</span></h2>
+                
+                <h2 class="py-4">Off-Press Dimensions: <span class="font-weight-bold">[[ curWO.OPDimensions ]]</span></h2>
+                              
+                <h2 class="py-4">Quantity: <span class="font-weight-bold">[[ curWO.Quantity ]]</span></h2>
+                            
+                <h2 class="py-4">Cut By: <span class="font-weight-bold">[[ curWO.Worker ]]</span></h2>                         
+                
+                <h2 class="py-4">Date: <span class="font-weight-bold">[[ formatDate(null, 'dd MM/DD hh:mm') ]]</span></h2>        
+
+          </div>         
 
           <b-button @click="print" variant="success">Print 2</b-button>
 
+
           <form name="label" method="get" action="glassPalletLabel">
-            {{ "__th"|theasXSRF }}
-            {{ "__th"|theasSessionToken }}    
+            [[ "__th"|theasXSRF ]]
+            [[ "__th"|theasSessionToken ]]    
             
             <input required name="Quantity" type="text" id="Quantity" size="5" maxlength="3" placeholder="Quantity">
             <input type="hidden" name="qguidWO" :value="curWOqguid_Table1">
@@ -418,6 +438,10 @@
       },
 
       formatDate: function(dt, fmt) {
+        if (!dt) {
+          dt = moment();
+        }
+
         if (!fmt) {
           fmt = 'MM/DD/YYYY'
         }
