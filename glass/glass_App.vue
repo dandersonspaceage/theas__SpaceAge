@@ -186,7 +186,7 @@
       <b-row>
         <b-col>
           <h5>Cut By: [[ curCut.WorkerName ]]</h5>
-
+          <p class="font-italic">[[ moment(curCut.DateFinished, 'dd MM/DD hh:mm') ]] </p>
         </b-col>
       </b-row>
 
