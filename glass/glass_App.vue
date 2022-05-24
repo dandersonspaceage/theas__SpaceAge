@@ -135,7 +135,7 @@
 
                 <h2 class="py-4">Description: <span class="font-weight-bold">[[ curWO.GlassSpecs ]]</span></h2>
                 
-                <h2 class="py-4">Off-Press Dimensions: <span class="font-weight-bold">[[ curWO.DimThickness_OffPress ]] X [[ curWO.DimLength_Width ]] X [[ curWO.DimLength_OffPress ]]</span></h2>
+                <h2 class="py-4">Off-Press Dimensions: <span class="font-weight-bold">[[ curWO.DimThickness_OffPress ]] X [[ curWO.DimWidth_OffPress ]] X [[ curWO.DimLength_OffPress ]]</span></h2>
                               
                 <h2 class="py-4">Quantity: <span class="font-weight-bold">[[ printQuantity ]]</span></h2>
                             
@@ -443,10 +443,18 @@
       async print () {
         var thatVue = this;
 
-        thatVue.curWO = thatVue.curWOTable1;
+        if (!thatVue.curWorker) {
+            //TechnicalMessage|FriendlyMessage|ShowTech?|Title
+            thatVue.$th.raiseError('|Please select the worker that is currently cutting glass.|1|No worker selected!');
+        }
+        
+        else {
 
-        // Pass the element id here
-        await this.$htmlToPaper('printMe');
+          thatVue.curWO = thatVue.curWOTable1;
+
+          // Pass the element id here
+          await this.$htmlToPaper('printMe');
+        }
       },
 
       formatDate: function(dt, fmt) {
