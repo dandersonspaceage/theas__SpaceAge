@@ -121,7 +121,7 @@
 
           <b-button @click="print" variant="success" class="mt-3">Print Pallet Label</b-button>
 
-          <div id="printMe" style="display: hidden">
+          <div id="printMe" style="visibility: hidden">
 
               <p style="text-align:center">
                 <img width=221 height=136 id="Picture 1" src="/resources/spaceage.jpg" alt="SpaceAge">
