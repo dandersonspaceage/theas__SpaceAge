@@ -112,11 +112,11 @@
         <b-col cols="6">
 
           <h4>Print Label</h4>
-<template>
-    <div id="printMe">
+
+    <div id="printMe" style="display: none">
       <h1>Print me!</h1>
     </div>
-</template>              
+         
 
           <b-button @click="print" variant="success">Print 2</b-button>
 
