@@ -131,15 +131,15 @@
               
                 <h2 class="py-4">WO #: <span class="font-weight-bold">[[ curWO.WONumber ]]</span></h2>
                 
-                <h2 class="py-4">Customer: <span class="font-weight-bold">[[ curWO.Customer ]]</span></h2>
+                <h2 class="py-4">Customer: <span class="font-weight-bold">[[ curWO.CustomerName ]]</span></h2>
 
                 <h2 class="py-4">Description: <span class="font-weight-bold">[[ curWO.GlassSpecs ]]</span></h2>
                 
-                <h2 class="py-4">Off-Press Dimensions: <span class="font-weight-bold">[[ curWO.OPDimensions ]]</span></h2>
+                <h2 class="py-4">Off-Press Dimensions: <span class="font-weight-bold">[[ curWO.DimLength_OffPress ]]</span></h2>
                               
-                <h2 class="py-4">Quantity: <span class="font-weight-bold">[[ curWO.Quantity ]]</span></h2>
+                <h2 class="py-4">Quantity: <span class="font-weight-bold">[[ printQuantity ]]</span></h2>
                             
-                <h2 class="py-4">Cut By: <span class="font-weight-bold">[[ curWO.Worker ]]</span></h2>                         
+                <h2 class="py-4">Cut By: <span class="font-weight-bold">[[ workerName(curWorker) ]]</span></h2>                         
                 
                 <h2 class="py-4">Date: <span class="font-weight-bold">[[ formatDate(null, 'dd MM/DD hh:mm') ]]</span></h2>        
 
