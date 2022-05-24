@@ -117,9 +117,7 @@
                           v-model="printQuantity" size="sm" style="max-width: 75px"></b-form-input>
           </b-form-group>
 
-        </b-col>
 
-        <b-col cols="2">
 
           <b-button @click="print" variant="success" class="mt-3">Print Pallet Label</b-button>
 
