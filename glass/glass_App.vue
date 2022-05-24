@@ -8,7 +8,7 @@
     </b-col>
 
     <b-col cols="4">
-<p>Test 123</p>
+  
       <div style="max-width: 225px">   
 
         <b-form-group label="Worker"
