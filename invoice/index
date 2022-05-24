@@ -43,8 +43,6 @@
     <style>
       .fullheight {height: 100%}
       .fastscroll {overflow-y:scroll; -webkit-overflow-scrolling: touch;}
-      p {font-weight: bold; color: green; }
-
       
       .collapsed > .when-opened,
       .not-collapsed > .when-closed {

@@ -474,14 +474,6 @@
 </script>
 
 <style>
-  h1 {
-    color: blue;
-  }
-
-  p {
-    color: green;
-  }
-
   .fastscroll {
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
