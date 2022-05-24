@@ -137,7 +137,14 @@
 
           </div>         
 
-          <b-button @click="print" variant="success">Print 2</b-button>
+
+          <b-form-group label="Quantity (to print)"
+                        :label-for="'printQuantity'">
+            <b-form-input :id="'printQuantity'" :state="validCutQuantity"
+                          v-model="printQuantity" size="sm"></b-form-input>
+          </b-form-group>
+
+          <b-button @click="print" variant="success">Print Pallet Label</b-button>
 
         </b-col>
     </b-row>
@@ -365,6 +372,9 @@
         curWOTable2: {},
 
         curCut: {},
+
+        printQuantity: 1,
+        
         thisWO_CommitDate: null, // object for datepicker
       };
     },
