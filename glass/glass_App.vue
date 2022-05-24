@@ -8,7 +8,11 @@
     </b-col>
 
     <b-col cols="4">
-  
+
+    <div id="printMe">
+      <h1>Print me!</h1>
+    </div>
+
       <div style="max-width: 225px">   
 
         <b-form-group label="Worker"
@@ -113,7 +117,7 @@
 
           <h4>Print Label</h4>
 
-          <!--b-button @click="window.print()" variant="success">Print 2</b-button  -->
+          <b-button @click="print" variant="success">Print 2</b-button>
 
           <form name="label" method="get" action="glassPalletLabel">
             {{ "__th"|theasXSRF }}
@@ -405,7 +409,12 @@
         if (screenfull.isEnabled) {
           screenfull.request();
         }
-      }, 
+      },
+
+      async print () {
+        // Pass the element id here
+        await this.$htmlToPaper('printMe');
+      },
 
       formatDate: function(dt, fmt) {
         if (!fmt) {
