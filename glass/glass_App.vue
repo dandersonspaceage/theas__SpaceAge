@@ -112,6 +112,11 @@
         <b-col cols="6">
 
           <h4>Print Label</h4>
+<template>
+    <div id="printMe">
+      <h1>Print me!</h1>
+    </div>
+</template>              
 
           <b-button @click="print" variant="success">Print 2</b-button>
 
@@ -139,11 +144,6 @@
     </div>
   </b-modal>
 
-  <b-modal id="PrintPane">
-    <div id="printMe">
-      <h1>Print me!</h1>
-    </div>
-  </b-modal>
 
   <b-modal id="CutHistoryModal" ref="CutHistoryModal"  size="huge" @show="onShowCutHistory" @hide="onHideCutHistory($event)" hide-footer>
     <template #modal-title>
