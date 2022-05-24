@@ -141,7 +141,7 @@
                             
                 <h2 class="py-4">Cut By: <span class="font-weight-bold">[[ workerName(curWorker) ]]</span></h2>                         
                 
-                <h2 class="py-4">Date: <span class="font-weight-bold">[[ formatDate(null, 'dd MM/DD hh:mm') ]]</span></h2>        
+                <h2 class="py-4">Date: <span class="font-weight-bold">[[ formatDate() ]]</span></h2>        
 
           </div>              
 
@@ -441,6 +441,7 @@
       },
 
       formatDate: function(dt, fmt) {
+
         if (!dt) {
           dt = moment();
         }
@@ -448,7 +449,7 @@
         if (!fmt) {
           fmt = 'MM/DD/YYYY'
         }
-        return moment(dt, fmt)
+        return moment(dt).format(fmt)
       },
 
       onShowCutHistory: function() {
