@@ -109,7 +109,7 @@
        
         </b-col>
 
-        <b-col cols="1">
+        <b-col cols="2">
      
           <b-form-group label="Quantity (to print)"
                         :label-for="'printQuantity'">
