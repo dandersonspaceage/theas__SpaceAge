@@ -109,7 +109,7 @@
        
         </b-col>
 
-        <b-col cols="3">
+        <b-col cols="2">
      
           <b-form-group label="Quantity (to print)"
                         :label-for="'printQuantity'">
@@ -119,9 +119,9 @@
 
         </b-col>
 
-        <b-col cols="3">
+        <b-col cols="1">
 
-          <b-button @click="print" variant="success">Print Pallet Label</b-button>
+          <b-button @click="print" variant="success" class="pt-3">Print Pallet Label</b-button>
 
           <div id="printMe" style="display: none">
 
@@ -433,14 +433,9 @@
       },
 
       async print () {
-          var thatVue = this;
+        var thatVue = this;
 
-          if (tableCode == 'Table1') {
-            thatVue.curWO = thatVue.curWOTable1
-          }
-          else if (tableCode == 'Table2') {
-            thatVue.curWO = thatVue.curWOTable2
-          }
+        thatVue.curWO = thatVue.curWOTable1;
 
         // Pass the element id here
         await this.$htmlToPaper('printMe');
