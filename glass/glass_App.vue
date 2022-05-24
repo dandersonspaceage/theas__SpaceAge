@@ -784,11 +784,11 @@
         thatVue.curWO = thatVue.data_WOs.find((el) => el.qguid === qguid);
 
         if (tableCode == 'Table1') {
-          thatVue.curWOTable1 = curWO;
+          thatVue.curWOTable1 = thatVue.curWO;
         }
 
         else if (tableCode == 'Table2') {
-          thatVue.curWOTable2 = curWO;    
+          thatVue.curWOTable2 = thatVue.curWO;    
         }
 
 
