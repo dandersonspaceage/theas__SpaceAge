@@ -135,7 +135,7 @@
 
                 <h2 class="py-4">Description: <span class="font-weight-bold">[[ curWO.GlassSpecs ]]</span></h2>
                 
-                <h2 class="py-4">Off-Press Dimensions: <span class="font-weight-bold">[[ curWO.DimLength_OffPress ]]</span></h2>
+                <h2 class="py-4">Off-Press Dimensions: <span class="font-weight-bold">[[ curWO.DimThickness_OffPress ]] X [[ curWO.DimLength_Width ]] X [[ curWO.DimLength_OffPress ]]</span></h2>
                               
                 <h2 class="py-4">Quantity: <span class="font-weight-bold">[[ printQuantity ]]</span></h2>
                             
