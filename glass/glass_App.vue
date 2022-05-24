@@ -690,7 +690,7 @@
                 }
 
                 if (thatVue.data_WOs.length > 0) {
-                  curWO = dat_WOs[0];
+                  curWO = data_WOs[0];
                 }
 
 
