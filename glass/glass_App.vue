@@ -109,7 +109,7 @@
        
         </b-col>
 
-        <b-col cols="2">
+        <b-col cols="1">
      
           <b-form-group label="Quantity (to print)"
                         :label-for="'printQuantity'">
@@ -119,9 +119,9 @@
 
         </b-col>
 
-        <b-col cols="1">
+        <b-col cols="2">
 
-          <b-button @click="print" variant="success" class="pt-3">Print Pallet Label</b-button>
+          <b-button @click="print" variant="success" class="mt-3">Print Pallet Label</b-button>
 
           <div id="printMe" style="display: none">
 
