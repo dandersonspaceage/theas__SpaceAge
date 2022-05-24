@@ -427,7 +427,7 @@
       },
 
       curDate : function() {
-        return this.formatDate(null, 'ddd MM/DD/YYY hh:mm');
+        return this.formatDate(null, 'ddd MM/DD/YYYY hh:mm');
       }
 
     },
