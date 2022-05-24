@@ -111,8 +111,6 @@
 
         <b-col cols="6">
 
-          <h4>Print Label</h4>
-
           <div id="printMe" style="display: none">
 
               <p style="text-align:center">
@@ -138,11 +136,13 @@
           </div>         
 
 
-          <b-form-group label="Quantity (to print)"
-                        :label-for="'printQuantity'">
-            <b-form-input :id="'printQuantity'" :state="validCutQuantity"
-                          v-model="printQuantity" size="sm"></b-form-input>
-          </b-form-group>
+          <div style="max-width: 75px">
+            <b-form-group label="Quantity (to print)"
+                          :label-for="'printQuantity'">
+              <b-form-input :id="'printQuantity'" :state="validCutQuantity"
+                            v-model="printQuantity" size="sm"></b-form-input>
+            </b-form-group>
+          </div>
 
           <b-button @click="print" variant="success">Print Pallet Label</b-button>
 
@@ -374,7 +374,7 @@
         curCut: {},
 
         printQuantity: 1,
-        
+
         thisWO_CommitDate: null, // object for datepicker
       };
     },
