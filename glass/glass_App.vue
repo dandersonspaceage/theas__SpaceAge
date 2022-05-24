@@ -443,7 +443,7 @@
       formatDate: function(dt, fmt) {
 
         if (!dt) {
-          dt = moment();
+          dt = moment().format();
         }
 
         if (!fmt) {
@@ -784,11 +784,11 @@
         thatVue.curWO = thatVue.data_WOs.find((el) => el.qguid === qguid);
 
         if (tableCode == 'Table1') {
-          thatVue.curWOTable1 = wo;
+          thatVue.curWOTable1 = curWO;
         }
 
         else if (tableCode == 'Table2') {
-          thatVue.curWOTable2 = wo;    
+          thatVue.curWOTable2 = curWO;    
         }
 
 
