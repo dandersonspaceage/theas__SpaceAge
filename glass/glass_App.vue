@@ -949,14 +949,6 @@
       
       },
 
-      formatDate: function (thisDate, thisFormatStr) {
-        //if (typeof thisDate === 'string' || thisDate instanceof String) {
-        //    thisDate = thisDate.replace('T', ' ');
-        //}
-        let result = moment(thisDate).format(thisFormatStr);
-        return result;
-      },
-
       workerName: function(qguid) {
         if (!qguid) {
           qguid = this.curWorker;
