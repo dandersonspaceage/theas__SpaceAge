@@ -8,10 +8,11 @@
     </b-col>
 
     <b-col cols="4">
-
+<template>
     <div id="printMe">
       <h1>Print me!</h1>
     </div>
+</template>
 
       <div style="max-width: 225px">   
 
