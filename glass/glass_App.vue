@@ -186,7 +186,7 @@
       <b-row>
         <b-col>
           <h5>Cut By: [[ curCut.WorkerName ]]</h5>
-          <p class="font-italic">[[ formatDate(curCut.DateFinished, 'dd MM/DD hh:mm') ]] </p>
+          <p class="ital">[[ formatDate(curCut.DateFinished, 'dd MM/DD hh:mm') ]] </p>
         </b-col>
       </b-row>
 
@@ -937,13 +937,6 @@
 </script>
 
 <style>
-  h1 {
-    color: blue;
-  }
-
-  p {
-    color: green;
-  }
 
   .fastscroll {
     overflow-y: scroll;
@@ -973,6 +966,11 @@
     padding-left: 10px;
     padding-right: 10px;
     background-color: #BDB76B;
+  }
+
+  .ital {
+    font-style:italic;
+    font-size:smaller;
   }
 
 </style>
