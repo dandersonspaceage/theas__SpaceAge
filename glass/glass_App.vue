@@ -109,7 +109,19 @@
        
         </b-col>
 
-        <b-col cols="6">
+        <b-col cols="3">
+     
+          <b-form-group label="Quantity (to print)"
+                        :label-for="'printQuantity'">
+            <b-form-input :id="'printQuantity'" :state="validCutQuantity"
+                          v-model="printQuantity" size="sm" style="max-width: 75px"></b-form-input>
+          </b-form-group>
+
+        </b-col>
+
+        <b-col cols="3">
+
+          <b-button @click="print" variant="success">Print Pallet Label</b-button>
 
           <div id="printMe" style="display: none">
 
@@ -133,18 +145,7 @@
                 
                 <h2 class="py-4">Date: <span class="font-weight-bold">[[ formatDate(null, 'dd MM/DD hh:mm') ]]</span></h2>        
 
-          </div>         
-
-
-          <div style="max-width: 75px">
-            <b-form-group label="Quantity (to print)"
-                          :label-for="'printQuantity'">
-              <b-form-input :id="'printQuantity'" :state="validCutQuantity"
-                            v-model="printQuantity" size="sm"></b-form-input>
-            </b-form-group>
-          </div>
-
-          <b-button @click="print" variant="success">Print Pallet Label</b-button>
+          </div>              
 
         </b-col>
     </b-row>
@@ -432,6 +433,15 @@
       },
 
       async print () {
+          var thatVue = this;
+
+          if (tableCode == 'Table1') {
+            thatVue.curWO = thatVue.curWOTable1
+          }
+          else if (tableCode == 'Table2') {
+            thatVue.curWO = thatVue.curWOTable2
+          }
+
         // Pass the element id here
         await this.$htmlToPaper('printMe');
       },
