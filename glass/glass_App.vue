@@ -408,6 +408,7 @@
       //const tabulatorInstance = this.$refs.tabulator.getInstance();
 
       // perform the initial fetch of data
+
       this.decBusy();
     },    
 
@@ -687,6 +688,11 @@
                   thatVue.lastFetch_WOs = "1/1/1900";
                 }
 
+                if (thatVue.data_WOs.length > 0) {
+                  curWO = dat_WOs[0];
+                }
+
+
                 if (thatVue && thatVue.data_WOs && thatVue.data_WOs.length > 0) {
                     thatVue.curWOTable1= thatVue.data_WOs[0];
                     thatVue.curWOTable1.TableNo = 'Table1';
@@ -774,7 +780,7 @@
       changeActiveWO: function (tableCode, qguid) {
         let thatVue = this; 
 
-        let wo = thatVue.data_WOs.find((el) => el.qguid === qguid);
+        thatVue.curWO = thatVue.data_WOs.find((el) => el.qguid === qguid);
 
         if (tableCode == 'Table1') {
           thatVue.curWOTable1 = wo;
