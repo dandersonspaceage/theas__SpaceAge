@@ -17,10 +17,14 @@
   function openWindow (url, name, props) {
     let windowRef = null;
     windowRef = window.open(url, name, props);
-    if (!windowRef.opener) {
-      windowRef.opener = self;
+
+    if (windowRef) {
+      if (!windowRef.opener) {
+        windowRef.opener = self;
+      }
+      windowRef.focus();
     }
-    windowRef.focus();
+
     return windowRef;
   }
     
