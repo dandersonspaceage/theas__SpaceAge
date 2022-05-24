@@ -139,9 +139,9 @@
                               
                 <h2 class="py-4">Quantity: <span class="font-weight-bold">[[ printQuantity ]]</span></h2>
                             
-                <h2 class="py-4">Cut By: <span class="font-weight-bold">[[ workerName(curWorker) ]]</span></h2>                         
+                <h2 class="py-4">Cut By: <span class="font-weight-bold">[[ curWorkerName ]]</span></h2>                         
                 
-                <h2 class="py-4">Date: <span class="font-weight-bold">[[ formatDate() ]]</span></h2>        
+                <h2 class="py-4">Date: <span class="font-weight-bold">[[ curDate ]]</span></h2>        
 
           </div>              
 
@@ -420,7 +420,16 @@
 
       validCutQuantity : function() {
         return this.isNumQty(this.curCut.Quantity);
+      },
+
+      curWorkerName : function() {
+        return this.workerName(this.curWorker);
+      },
+
+      curDate : function() {
+        return this.formatDate();
       }
+
     },
 
     methods: {
