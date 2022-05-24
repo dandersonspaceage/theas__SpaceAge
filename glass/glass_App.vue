@@ -8,11 +8,6 @@
     </b-col>
 
     <b-col cols="4">
-<template>
-    <div id="printMe">
-      <h1>Print me!</h1>
-    </div>
-</template>
 
       <div style="max-width: 225px">   
 
@@ -144,6 +139,11 @@
     </div>
   </b-modal>
 
+  <b-modal id="PrintPane">
+    <div id="printMe">
+      <h1>Print me!</h1>
+    </div>
+  </b-modal>
 
   <b-modal id="CutHistoryModal" ref="CutHistoryModal"  size="huge" @show="onShowCutHistory" @hide="onHideCutHistory($event)" hide-footer>
     <template #modal-title>
