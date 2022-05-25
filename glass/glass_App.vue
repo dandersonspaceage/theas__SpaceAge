@@ -271,7 +271,7 @@
                 {title: 'Thick', field: 'DimThickness_Finished'},
                 {title: 'Thick OP', field: 'DimThickness_OffPress'},
                 {title: 'Width OP', field: 'DimWidth_OffPress'},
-                {title: 'Length OP', field: 'DimLength_OffPress'},
+                {title: 'Length Glass', field: 'GlassCutLength'},
 
                 {title: 'Glass', field: 'GlassSpecs', width: '5em', formatter: 'textarea'},  
                 {title: 'Shim Layup', field: 'ShimLayup', width: '7em', formatter: 'textarea'},
