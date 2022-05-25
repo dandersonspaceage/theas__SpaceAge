@@ -425,7 +425,7 @@
       curWorkerName : function() {
         return this.workerName(this.curWorker);
       },
-      curWorkerName : function() {
+      curWorkerAbbrev: function() {
         return this.workerAbbrev(this.curWorker);
       },      
 
