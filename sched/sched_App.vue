@@ -87,7 +87,7 @@
                           </b-col>
 
                           <b-col>
-                            <h6>Press Hours in front: [[ wo.PressTimeHoursInFrontStr ]]</h6>
+                            <h6>Press Hours in front: [[ wo.PressHoursInFrontStr ]]</h6>
                           </b-col>                      
 
                         </b-row>
