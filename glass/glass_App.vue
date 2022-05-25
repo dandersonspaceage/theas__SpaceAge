@@ -139,7 +139,7 @@
                               
                 <h2 class="py-4">Quantity: <span class="font-weight-bold">[[ printQuantity ]]</span></h2>
                             
-                <h2 class="py-4">Cut By: <span class="font-weight-bold">[[ curWorkerName ]]</span></h2>                         
+                <h2 class="py-4">Cut By: <span class="font-weight-bold">[[ curWorkerAbbrev]]</span></h2>                         
                 
                 <h2 class="py-4">Date: <span class="font-weight-bold">[[ curDate ]]</span></h2>        
 
@@ -425,6 +425,9 @@
       curWorkerName : function() {
         return this.workerName(this.curWorker);
       },
+      curWorkerName : function() {
+        return this.workerAbbrev(this.curWorker);
+      },      
 
       curDate : function() {
         return this.formatDate(null, 'ddd MM/DD/YYYY hh:mm');
@@ -964,6 +967,23 @@
         
         return thisName
       },
+
+      workerAbbrev: function(qguid) {
+        if (!qguid) {
+          qguid = this.curWorker;
+        }
+
+        let thisWorker = this.data_Workers.find((el) => el.qguid == qguid);
+
+        let thisAbbrev = null;
+
+        if (thisWorker) {
+          thisAbbrev = thisWorker.WorkerAbbreviation;
+        }
+        
+        return thisAbbrev
+      },
+
 
       add: function () {
         this.list.push({name: "Juan"});
