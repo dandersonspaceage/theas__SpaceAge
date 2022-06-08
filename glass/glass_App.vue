@@ -444,7 +444,7 @@
       },
 
       async print () {
-        var thatVue = this;
+        let thatVue = this;
 
         if (!thatVue.curWorker) {
             //TechnicalMessage|FriendlyMessage|ShowTech?|Title
@@ -814,7 +814,7 @@
 
       },
 
-      showHistory: function() {        
+       nction() {        
         let thatVue = this;
 
         thatVue.$bvModal.show('CutHistoryModal');         
