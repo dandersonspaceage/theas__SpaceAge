@@ -511,7 +511,7 @@
         return this.isNumPress(this.curShot.qaActualSetTime);
       },                        
       validQuality : function() {
-        return ((!this.isQARequired() & !this.curShot.qaQuality) || (this.isQARequired() && ['A', 'B', 'RW'].includes(this.curShot.qaQuality)));
+        return ((!this.isQARequired() || ['A', 'B', 'RW'].includes(this.curShot.qaQuality)));
       }
 
     },
