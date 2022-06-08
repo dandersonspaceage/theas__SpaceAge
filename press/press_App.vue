@@ -12,11 +12,11 @@
       <div style="max-width: 225px">   
 
         <b-form-group label="Operator"
-                    :label-for="'selOperator'">
+                    :label-for="'selWorker'">
 
-          <b-form-select :id="'selOperator'"
-                        :options="data_Operators"
-                        v-model="curOperator"
+          <b-form-select :id="'selWorker'"
+                        :options="data_Workers"
+                        v-model="curWorker"
                         size="sm"                        
           >
           </b-form-select>
@@ -271,7 +271,7 @@
 
       <b-row>
         <b-col>
-          <h5>Operator: [[ curOperatorName() ]]</h5>
+          <h5>Operator: [[ curWorkerName() ]]</h5>
 
         </b-col>
       </b-row>
@@ -425,14 +425,14 @@
         // Dynamic data will be fetched asynchronously
         data_WOs: [],
         data_Shots: [],
-        data_Operators: [],
+        data_Workers: [],
 
         lastFetch_WOs: null,
-        lastFetch_Operators: null,
+        lastFetch_Workers: null,
 
         asyncResource_WOs: 'sched/sched_App.vue',
         asyncCmd_WOs: 'fetchWOsForPress',
-        asyncCmd_Operators: 'fetchWorkers',
+        asyncCmd_Workers: 'fetchWorkers',
 
         pressCodes: ['N', 'NW', 'S', 'W'],
 
@@ -442,7 +442,7 @@
 
         curWOqguid_Table1: null,
         curWOqguid_Table2: null,   
-        curOperator: null,     
+        curWorker: null,     
 
         curWO: {},
         curWOTable1: {},
@@ -632,8 +632,8 @@
 
         thatVue.$th.sendAsync({
           url: "/async/" + thatVue.asyncResource_WOs,
-          asyncCmd: thatVue.asyncCmd_Operators,
-          lastFetchDate: thatVue.lastFetch_Operators,
+          asyncCmd: thatVue.asyncCmd_Workers,
+          lastFetchDate: thatVue.lastFetch_Workers,
           data: {workerType: workerType}, //note: passes to @FormParams
 
           onResponse: function (rd, response, config) {
@@ -662,31 +662,31 @@
 
                 
                 if (thisData) {
-                  thatVue.data_Operators = thatVue.$th.merge(
+                  thatVue.data_Workers = thatVue.$th.merge(
                           // string (optional): key field name with unique values to merge on
                           "qguid",
                           // string (optional): key value to exclude from merge (i.e. currently-displayed rows)
                           //'someIDValue'
-                          thatVue.data_Operators,
+                          thatVue.data_Workers,
                           thisData
                   );
                 }
-                thatVue.data_Operators = thatVue.$th.sortArray(
-                        thatVue.data_Operators,
+                thatVue.data_Workers = thatVue.$th.sortArray(
+                        thatVue.data_Workers,
                         "Seq",
                         false //false=ascending, true=descending
                 );
 
                 //copy some properties so data_WOs can be used as options for selects
-                thatVue.data_Operators.forEach(op => {
-                  op.value = op.qguid;
-                  op.text = op.Operator;
+                thatVue.data_Workers.forEach(wrk => {
+                  wrk.value = wrk.qguid;
+                  wrk.text = wrk.Worker;
                 });                         
 
                 if (thatVue.lastFetch_WOs) {
-                  thatVue.lastFetch_Operators = thisFetchDate;
+                  thatVue.lastFetch_Workers = thisFetchDate;
                 } else {
-                  thatVue.lastFetch_Operators = "1/1/1900";
+                  thatVue.lastFetch_Workers = "1/1/1900";
                 }           
 
               }
@@ -908,7 +908,7 @@
             thatVue.curWO = thatVue.curWOTable2
           }
 
-          if (!thatVue.curOperator) {
+          if (!thatVue.curWorker) {
             //TechnicalMessage|FriendlyMessage|ShowTech?|Title
             thatVue.$th.raiseError('|Please select the operator that is working on this press.|1|No operator selected!');
           }
@@ -944,7 +944,7 @@
             // we loop, to save all qguids in the queue
 
             let thisWO = thatVue.data_WOs.find((el) => el.qguid === qguid)
-            thatVue.curShot.Operator = thatVue.curOperator;
+            thatVue.curShot.Operator = thatVue.curWorker;
 
             thatVue.$th.sendAsync({
               url: "/async/" + thatVue.asyncResource_WOs,
@@ -998,13 +998,13 @@
         return result;
       },
 
-      curOperatorName: function() {
-        let thisOperator = this.data_Operators.find((el) => el.qguid == this.curOperator);
+      curWorkerName: function() {
+        let thisWorker = this.data_Workers.find((el) => el.qguid == this.curWorker);
 
         let thisName = null;
 
-        if (thisOperator) {
-          thisName = thisOperator.Operator;
+        if (thisWorker) {
+          thisName = thisWorker.Worker;
         }
         
         return thisName
