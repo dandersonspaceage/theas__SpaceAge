@@ -87,7 +87,7 @@
         <!--Any static content you want-->
         <a href="javascript:if (screenfull.isEnabled) { screenfull.request(); }">
 
-        <img src="/theas/resources/TheasLogo_wTag.jpg"></img>
+        <img src="/resources/SpaceAgeLogo.png"></img>
 
         </a>
 
