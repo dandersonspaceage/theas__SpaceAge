@@ -437,8 +437,8 @@
         pressCodes: ['N', 'NW', 'S', 'W'],
 
         woListNames: ['N', 'NW', 'S', 'W'],
-        curWOListCode: '',
-        lockPressSelection: false,
+        curWOListCode: 'N',
+        lockPressSelection: true,
 
         curWOqguid_Table1: null,
         curWOqguid_Table2: null,   
@@ -776,12 +776,6 @@
                   wo.value = wo.qguid;
                   wo.text = wo.WONumber;
                 });                
-
-                if thatVue.data_WOs.length > 0 {
-                  //make sure select for Press Code matches the actual work order data.
-                  //(this allows the default to be controlled in SQL)
-                  curWOListCode = thatVue.data_WOs[0].PressCode;
-                }
 
                 if (thatVue.lastFetch_WOs) {
                   thatVue.lastFetch_WOs = thisFetchDate;
