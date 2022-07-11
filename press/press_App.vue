@@ -787,7 +787,7 @@
                 if (thatVue.data_WOs.length > 0) {
                   //make sure select for Press Code matches the actual work order data.
                   //(this allows the default to be controlled in SQL)
-                  curWOListCode = thatVue.data_WOs[0].PressCode;
+                  thatVue.curWOListCode = thatVue.data_WOs[0].PressCode;
                 }
 
                 if (thatVue && thatVue.data_WOs && thatVue.data_WOs.length > 0) {
