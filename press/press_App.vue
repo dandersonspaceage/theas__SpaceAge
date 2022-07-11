@@ -437,8 +437,8 @@
         pressCodes: ['N', 'NW', 'S', 'W'],
 
         woListNames: ['N', 'NW', 'S', 'W'],
-        curWOListCode: 'N',
-        lockPressSelection: true,
+        curWOListCode: '',
+        lockPressSelection: false,
 
         curWOqguid_Table1: null,
         curWOqguid_Table2: null,   
