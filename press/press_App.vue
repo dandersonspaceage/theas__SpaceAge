@@ -1000,6 +1000,7 @@
                 }
 
                 thatVue.curShot = {};     
+              }
             });
 
             qguid = thatVue.dirtyQGUIDs.pop();
