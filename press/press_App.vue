@@ -1046,7 +1046,8 @@
         let thisValLen = thisVal.length;          
         let thisValNum = +(thisVal);
      
-        let isValid = (this.isQARequired() === false && thisValLen === 0) || (isNaN(thisValNum) === false && thisValNum > 0 && thisValNum < 200);
+        //let isValid = (this.isQARequired() === false && thisValLen === 0) || (isNaN(thisValNum) === false && thisValNum > 0 && thisValNum < 200);
+        let isValid = true;
 
         return isValid;
       }      
