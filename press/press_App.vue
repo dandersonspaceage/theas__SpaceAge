@@ -966,13 +966,10 @@
                   }
                   */
 
-
-                  //currently trusting client-side data...not receiving shot data in response
-
                   if (thatVue.curShot.qguid) {
                     // updating existing shot
 
-                    let thisIndex = thatVue.data_Shots.findIndex((el) => el.qguid === thatVue.curShot.qguid)
+                    let thisIndex = thatVue.data_Shots.findIndex((el) => el.qguid === thatVue.curShot.qguid);
                     if (thisIndex >= 0) {
                       thatVue.data_Shots[thisIndex] = thatVue.curShot;
                     }
@@ -980,9 +977,8 @@
                   }
                   else {
                     // new shot
-                    thatVue.data_Shots.unshift(thatVue.curShot);               
+                    thatVue.data_Shots.unshift(thatVue.curShot);
                   }
-
 
                 let shottResp= {};         
 
@@ -995,7 +991,7 @@
 
                   if (shotResp) {
 
-                    let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === cutResp.qguidWO)
+                    let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === cutResp.qguidWO);
                     if (thisIndex >= 0) {
                       thatVue.data_WOs[thisIndex].CurrentShotCount = shotResp.CurrentShotCount;
                     }                
@@ -1003,7 +999,7 @@
 
                 }
 
-                thatVue.curShot = {};                
+                thatVue.curShot = {};     
             });
 
             qguid = thatVue.dirtyQGUIDs.pop();
