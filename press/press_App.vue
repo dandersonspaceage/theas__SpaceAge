@@ -783,6 +783,13 @@
                   thatVue.lastFetch_WOs = "1/1/1900";
                 }
 
+
+                if (thatVue.data_WOs.length > 0) {
+                  //make sure select for Press Code matches the actual work order data.
+                  //(this allows the default to be controlled in SQL)
+                  curWOListCode = thatVue.data_WOs[0].PressCode;
+                }
+
                 if (thatVue && thatVue.data_WOs && thatVue.data_WOs.length > 0) {
                     thatVue.curWOTable1= thatVue.data_WOs[0];
                     thatVue.curWOTable1.TableNo = 'Table1';
