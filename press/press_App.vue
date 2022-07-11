@@ -966,6 +966,9 @@
                   }
                   */
 
+
+                  //currently trusting client-side data...not receiving shot data in response
+
                   if (thatVue.curShot.qguid) {
                     // updating existing shot
 
@@ -977,12 +980,30 @@
                   }
                   else {
                     // new shot
-                    thatVue.data_Shots.unshift(thatVue.curShot);
+                    thatVue.data_Shots.unshift(thatVue.curShot);               
                   }
 
-                 thatVue.curShot = {};
+
+                let shottResp= {};         
+
+                if (!thatVue.$th.haveError(true)) {
+
+                  //  CutResponse
+                  if (rd["ShotResponse"]) {
+                    shotResp = JSON.parse(rd["ShotResponse"]);
+                  }
+
+                  if (shotResp) {
+
+                    let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === cutResp.qguidWO)
+                    if (thisIndex >= 0) {
+                      thatVue.data_WOs[thisIndex].CurrentShotCount = shotResp.CurrentShotCount;
+                    }                
+                  }               
 
                 }
+
+                thatVue.curShot = {};                
             });
 
             qguid = thatVue.dirtyQGUIDs.pop();
