@@ -944,7 +944,7 @@
           thatVue.$th.sendAsync({
             url: "/async/" + thatVue.asyncResource_WOs,
             asyncCmd: 'selectWO',              
-            data: {qguid: thisWO, tableCode: tableCode}, //note: passes to @FormParams
+            data: {qguid: qguid, tableCode: tableCode}, //note: passes to @FormParams
 
             onResponse: function (rd, response) {
               let noop;
