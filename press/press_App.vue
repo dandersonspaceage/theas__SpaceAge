@@ -1045,7 +1045,7 @@
       isNumPress : function(thisVal) {
         let thisValNum = +(thisVal)
 
-        let isValid = (!this.isQARequired() && !thisValNum) || (thisValNum && !isNaN(thisValNum) && thisValNum > 0 && thisValNum < 200);
+        let isValid = (!this.isQARequired() && !thisValNum) || (!isNaN(thisValNum) && thisValNum > 0 && thisValNum < 200);
 
         return isValid;
       }      
