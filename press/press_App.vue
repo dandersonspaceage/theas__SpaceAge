@@ -880,13 +880,26 @@
         let wo = thatVue.data_WOs.find((el) => el.qguid === qguid);
 
         if (tableCode == 'Table1') {
-          thatVue.curWOTable1 = wo;
+          if (thatVue.curWOTable1 != wo) {
+            thatVue.curWOTable1 = wo;
+
+            if (thatVue.lockPressSelection) {
+              thatVue.saveSelectWO(qguid, tableCode);
+            }
+
+          }
         }
 
         else if (tableCode == 'Table2') {
-          thatVue.curWOTable2 = wo;    
-        }
+          if (thatVue.curWOTable2 != wo) {          
+            thatVue.curWOTable2 = wo;    
 
+            if (thatVue.lockPressSelection) {
+              thatVue.saveSelectWO(qguid, tableCode);
+            }
+
+          }          
+        }
 
       },
 
@@ -923,6 +936,23 @@
             thatVue.$bvModal.show('WOQualityModal');            
           }
       },
+
+      saveSelectWO: function (qguid, tableCode, event) {
+          // save reference to Vue object that can be used in async callbacks
+          var thatVue = this;
+
+          thatVue.$th.sendAsync({
+            url: "/async/" + thatVue.asyncResource_WOs,
+            asyncCmd: 'selectWO',              
+            data: {qguid: thisWO, tableCode: tableCode}, //note: passes to @FormParams
+
+            onResponse: function (rd, response) {
+              let noop;
+            }
+          });
+
+      },
+
 
       saveShot: function (qguid, event) {
           // save reference to Vue object that can be used in async callbacks
