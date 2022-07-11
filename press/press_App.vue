@@ -984,14 +984,14 @@
 
                 if (!thatVue.$th.haveError(true)) {
 
-                  //  CutResponse
+                  //  ShotResponse
                   if (rd["ShotResponse"]) {
                     shotResp = JSON.parse(rd["ShotResponse"]);
                   }
 
                   if (shotResp) {
 
-                    let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === cutResp.qguidWO);
+                    let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === shotResp.qguidWO);
                     if (thisIndex >= 0) {
                       thatVue.data_WOs[thisIndex].CurrentShotCount = shotResp.CurrentShotCount;
                     }                
