@@ -1045,12 +1045,11 @@
       isNumPress : function(thisVal) {
         let thisValLen = 0;
 
-        if (typeof myVar === 'string') {
+        if (typeof thisVal === 'string') {
           thisValLen = thisVal.length;
         }
-
      
-        let isValid = (this.isQARequired() === false && thisValLen === 0) || (Number(thisValNum) === true && thisValNum > 0 && thisValNum < 200);
+        let isValid = (this.isQARequired() === false && thisValLen === 0) || (Number(thisVal) === true && thisValNum > 0 && thisValNum < 200);
 
         return isValid;
       }      
