@@ -1049,7 +1049,7 @@
           thisValLen = thisVal.length;
         }
      
-        let isValid = (this.isQARequired() === false && thisValLen === 0) || (Number(thisVal) >= 0 && thisVal > 0 && thisVal < 200);
+        let isValid = (this.isQARequired() === false && thisValLen === 0) || (Number(thisVal) >= 0 && Number(thisVal) < 200);
 
         return isValid;
       }      
