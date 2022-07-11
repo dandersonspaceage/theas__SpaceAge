@@ -980,7 +980,7 @@
                     thatVue.data_Shots.unshift(thatVue.curShot);
                   }
 
-                let shottResp= {};         
+                let shotResp= {};         
 
                 if (!thatVue.$th.haveError(true)) {
 
