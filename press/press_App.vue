@@ -1043,7 +1043,10 @@
       },
 
       isNumPress : function(thisVal) {
-        let isValid = (!this.isQARequired() && !thisVal) || (this.isQARequired() && thisVal && !isNaN(thisVal) && thisVal > 0 && thisVal < 200);
+        let thisValNum = +(thisVal)
+
+        let isValid = (!this.isQARequired() && !thisVal) || (this.isQARequired() && thisVal && !isNaN(thisValNum) && thisValNum > 0 && thisValNum < 200);
+
         return isValid;
       }      
   
