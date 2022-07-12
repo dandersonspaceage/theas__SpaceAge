@@ -535,11 +535,6 @@
       onShowWOQuality: function() {
         let thatVue = this;
 
-        if (!thatVue.curShot.qguid) {
-          thatVue.curShot.qguidWO = curWO.qguid          
-          thatVue.curShot.WONumber = curWO.WONumber
-          thatVue.curShot.PressOperator = curWorkerName()
-        }
       },
 
       onHideWOQuality: function(qguid, evt) {
@@ -932,6 +927,12 @@
 
       completeShot: function(tableCode) {
           var thatVue = this;
+
+          if (!thatVue.curShot.qguid) {
+            thatVue.curShot.qguidWO = curWO.qguid          
+            thatVue.curShot.WONumber = curWO.WONumber
+            thatVue.curShot.PressOperator = curWorkerName()
+          }          
 
           if (tableCode == 'Table1') {
             thatVue.curWO = thatVue.curWOTable1
