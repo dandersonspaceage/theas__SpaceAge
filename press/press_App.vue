@@ -545,11 +545,14 @@
       onHideWOQuality: function(qguid, evt) {
         let thatVue = this;
 
-        //Call setDirty if you want to defer the submit for a few seconds.
-        //thatVue.setDirty(qguid); 
+        if (evt.trigger === 'ok') {
 
-        //Or call saveShot if you want to immediately submit.
-        thatVue.saveShot(qguid);      
+          //Call setDirty if you want to defer the submit for a few seconds.
+          //thatVue.setDirty(qguid); 
+
+          //Or call saveShot if you want to immediately submit.
+          thatVue.saveShot(qguid);    
+        }          
       },
 
       onthModalHide: function() {
