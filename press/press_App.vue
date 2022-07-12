@@ -271,7 +271,7 @@
 
       <b-row>
         <b-col>
-          <h5>Operator: [[ curWorkerName() ]]</h5>
+          <h5>Operator: [[ curShot.PressOperator ]]</h5>
 
         </b-col>
       </b-row>
@@ -538,6 +538,7 @@
         if (!thatVue.curShot.qguid) {
           thatVue.curShot.qguidWO = curWO.qguid          
           thatVue.curShot.WONumber = curWO.WONumber
+          thatVue.curShot.PressOperator = curWorkerName()
         }
       },
 
