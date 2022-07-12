@@ -906,7 +906,7 @@
       },
 
       completeShot: function(tableCode) {
-          var thatVue = this;
+          let thatVue = this;
 
           if (!thatVue.curShot.qguid) {
             thatVue.curShot.qguidWO = thatVue.curWO.qguid          
@@ -932,7 +932,12 @@
 
       saveSelectWO: function (qguid, tableCode, event) {
           // save reference to Vue object that can be used in async callbacks
-          var thatVue = this;
+          let thatVue = this;
+
+          thatVue.data_WOs.forEach((item, index, arr) => {
+            arr[index].ActiveTable1 = (value.qguid = qguid) ? '1' : '';
+            arr[index].ActiveTable2 = (value.qguid = qguid) ? '2' : '';            
+          });
 
           thatVue.$th.sendAsync({
             url: "/async/" + thatVue.asyncResource_WOs,
@@ -949,7 +954,7 @@
 
       saveShot: function() {
           // save reference to Vue object that can be used in async callbacks
-          var thatVue = this;
+          let thatVue = this;
 
           // make sure curShot has been saved to data_Shots
 
