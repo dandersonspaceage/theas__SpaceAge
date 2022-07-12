@@ -52,8 +52,8 @@
                               </b-col>
 
                               <b-col cols="6">
-                                <h3><span class="badge badge-secondary" v-if="!wo.LastToMove" @click="doRepeatMove(wo.qguid, $event)">Repeat Move</span></h3>
-                                <h3><span class="badge badge-secondary" @click="doMoveLast(wo.qguid, $event)">Move Last</span></h3>
+                                <h5><span class="badge badge-secondary" v-if="!wo.LastToMove" @click="doRepeatMove(wo.qguid, $event)">Repeat Move</span></h5>
+                                <h5><span class="badge badge-secondary" @click="doMoveLast(wo.qguid, $event)">Move Last</span></h5>
                               </b-col>
                             </b-row>
 
