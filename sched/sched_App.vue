@@ -26,7 +26,7 @@
                 </b-form-group>                
               </b-col>         
 
-              <b-col cols="4">
+              <b-col cols="4" v-if="false">
                 <b-textarea id="soSeqText" debounce="300"
                       v-model="soSeqText" rows="5" max-rows="5">
                 </b-textarea>
