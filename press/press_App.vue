@@ -506,10 +506,10 @@
         return this.isNumPress(this.curShot.qaActualWeight);
       },
       validActualSetTime : function() {
-        return this.isNumPress(this.curShot.qaActualSetTime);
+        return this.isNumPress(this.curShot.qaActualSetTime, 3600);
       },                        
       validQuality : function() {
-        return ((!this.isQARequired() || ['A', 'B', 'RW'].includes(this.curShot.qaQuality)));
+        return ((['A', 'B', 'RW'].includes(this.curShot.qaQuality)));
       }
 
     },
@@ -1066,14 +1066,18 @@
        return false;
       },
 
-      isNumPress : function(thisVal) {
+      isNumPress : function(thisVal, maxValue) {
         let thisValLen = 0;
 
         if (typeof thisVal === 'string') {
-          thisValLen = thisVal.length;
+          thisValLen = thisVal.length;          
+        }
+
+        if (!maxValue) {
+          maxValue = 200;
         }
      
-        let isValid = (this.isQARequired() === false && thisValLen === 0) || (Number(thisVal) >= 0 && Number(thisVal) < 200);
+        let isValid = (this.isQARequired() === false && thisValLen === 0) || (Number(thisVal) >= 0 && Number(thisVal) <= maxValue);
 
         return isValid;
       }      
