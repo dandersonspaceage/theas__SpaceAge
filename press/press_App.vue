@@ -183,7 +183,7 @@
 
   </b-modal>
 
-  <b-modal id="WOQualityModal" ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality(curShot.qguidWO, $event)" hide-footer>
+  <b-modal id="WOQualityModal" ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality(curShot.qguid, $event)" hide-footer>
     <template #modal-title>
       <h4>WO [[ curShot.WONumber ]] QA Measurements</h4>
     </template>
@@ -970,7 +970,7 @@
           // save reference to Vue object that can be used in async callbacks
           var thatVue = this;
 
-          //note that qguid is for the WO (not the shot)
+          //note that qguid is for the shot, not the WO
           
           if (qguid) {
             // qguid was specified.  We will save it, but first we remove any entries in the queue.
@@ -983,6 +983,23 @@
                 thatVue.$delete(thatVue.dirtyTimers, thisTimerIndex);
               }
             }            
+
+            // make sure curShot has been saved to data_Shots
+
+            if (thatVue.curShot.qguid) {
+              // updating existing shot
+
+              let thisIndex = thatVue.data_Shots.findIndex((el) => el.qguid === thatVue.curShot.qguid);
+              if (thisIndex >= 0) {
+                thatVue.data_Shots[thisIndex] = thatVue.curShot;
+              }
+
+            }
+            else {
+              // new shot
+              thatVue.data_Shots.unshift(thatVue.curShot);
+            }
+            
           }
           else {
             // qguid not specified.  See if there is a qguid in queue awaiting saving.
@@ -992,13 +1009,12 @@
           while (qguid) {
             // we loop, to save all qguids in the queue
 
-            let thisWO = thatVue.data_WOs.find((el) => el.qguid === qguid)
-            thatVue.curShot.Operator = thatVue.curWorker;
+            //let thisShot = thatVue.data_Shots.find((el) => el.qguid === qguid)
 
             thatVue.$th.sendAsync({
               url: "/async/" + thatVue.asyncResource_WOs,
               asyncCmd: 'completeShot',              
-              data: {WO: thisWO, Shot: thatVue.curShot}, //note: passes to @FormParams
+              data: {Shot: thatVue.curShot}, //note: passes to @FormParams
 
               onResponse: function (rd, response) {
                   // rd contains the response data split into an object (of name/value pairs)
@@ -1014,20 +1030,6 @@
                     thatVue.curShot = thatVue.data_Shots[thisIndex];
                   }
                   */
-
-                  if (thatVue.curShot.qguid) {
-                    // updating existing shot
-
-                    let thisIndex = thatVue.data_Shots.findIndex((el) => el.qguid === thatVue.curShot.qguid);
-                    if (thisIndex >= 0) {
-                      thatVue.data_Shots[thisIndex] = thatVue.curShot;
-                    }
-
-                  }
-                  else {
-                    // new shot
-                    thatVue.data_Shots.unshift(thatVue.curShot);
-                  }
 
                 let shotResp= {};         
 
