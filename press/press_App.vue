@@ -992,7 +992,14 @@
                   if (thisIndex >= 0) {
                     thatVue.data_WOs[thisIndex].CurrentShotCount = shotResp.CurrentShotCount;
                   }                
-                }               
+                }     
+                
+                setTimeout(function(){
+                //Vue.nextTick(function () {     
+                    //need to refdraw the table after the modal is shown.  nextTick does not work, but setTimeout does work.     
+                    thatVue.$refs.tabuShotHistory.tabulatorInstance.redraw(true);
+                //});            
+                }, 100); 
 
               }
 
