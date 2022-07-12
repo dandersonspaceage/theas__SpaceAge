@@ -935,8 +935,12 @@
           let thatVue = this;
 
           thatVue.data_WOs.forEach((el, index, arr) => {
-            arr[index].ActiveTable1 = (el.qguid == qguid && tableCode == 'Table1') ? '1' : '';
-            arr[index].ActiveTable2 = (el.qguid == qguid && tableCode == 'Table2') ? '2' : '';            
+            if (tableCode == 'Table1') {
+              arr[index].ActiveTable1 = (el.qguid == qguid) ? '1' : '';
+            }
+            else if (tableCode == 'Table2') {
+              arr[index].ActiveTable2 = (el.qguid == qguid) ? '2' : '';                 
+            }         
           });
 
           thatVue.$th.sendAsync({
