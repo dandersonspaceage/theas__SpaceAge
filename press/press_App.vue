@@ -183,9 +183,9 @@
 
   </b-modal>
 
-  <b-modal id="WOQualityModal" ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality(curWO.qguid, $event)" hide-footer>
+  <b-modal id="WOQualityModal" ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality(curShot.qguidWO, $event)" hide-footer>
     <template #modal-title>
-      <h4>WO [[ curWO.WONumber ]] QA Measurements</h4>
+      <h4>WO [[ curShot.WONumber ]] QA Measurements</h4>
     </template>
 
     <div class="d-block">
@@ -534,6 +534,11 @@
 
       onShowWOQuality: function() {
         let thatVue = this;
+
+        if (!thatVue.curShot.qguid) {
+          thatVue.curShot.qguidWO = curWO.qguid          
+          thatVue.curShot.WONumber = curWO.WONumber
+        }
       },
 
       onHideWOQuality: function(qguid, evt) {
