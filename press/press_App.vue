@@ -988,10 +988,15 @@
 
                 if (shotResp) {
 
-                  let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === shotResp.qguidWO);
-                  if (thisIndex >= 0) {
-                    thatVue.data_WOs[thisIndex].CurrentShotCount = shotResp.CurrentShotCount;
-                  }                
+                  let thisIndexWO = thatVue.data_WOs.findIndex((el) => el.qguid === shotResp.qguidWO);
+                  if (thisIndexWO >= 0) {
+                    thatVue.data_WOs[thisIndexWO].CurrentShotCount = shotResp.CurrentShotCount;
+                  }
+                  
+                  let thisIndexShot = thatVue.data_Shots.findIndex((el) => el.qguid === shotResp.qguid);
+                  if (thisIndexShot >= 0) {
+                    thatVue.data_Shots[thisIndexWShot].ShotNumber = shotResp.ShotNumber;
+                  }                        
                 }     
                 
                 setTimeout(function(){
