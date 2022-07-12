@@ -493,7 +493,7 @@
       }, 
 
       haveTwoTables : function () {
-        return (this.curWOListCode === 'N');
+        return true;
       },
 
       validCaliper1 : function() {
