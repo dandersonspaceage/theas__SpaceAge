@@ -989,7 +989,7 @@
                 if (shotResp) {
 
                   for (const [key, value] of Object.entries(shotResp)) {
-                    curShot[key] = value;
+                    thatVue.curShot[key] = value;
                   }                                
 
                   let thisIndexWO = thatVue.data_WOs.findIndex((el) => el.qguid === shotResp.qguidWO);
