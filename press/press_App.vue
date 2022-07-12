@@ -113,7 +113,7 @@
        
         </b-col>
 
-        <b-col cols="6" v-if="haveTwoTables">
+        <b-col cols="6">
 
           <b-row>
             <b-col>
@@ -492,10 +492,6 @@
         return this.busyCount > 0;
       }, 
 
-      haveTwoTables : function () {
-        return true;
-      },
-
       validCaliper1 : function() {
         return this.isNumPress(this.curShot.qaCaliper1);
       },
@@ -800,7 +796,7 @@
                     thatVue.curWOqguid_Table1 = thatVue.curWOTable1.qguid                    
                     thatVue.saveSelectWO(thatVue.curWOTable1.qguid, thatVue.curWOTable1.TableNo);              
 
-                    if (thatVue.haveTwoTables() && thatVue.data_WOs.length > 1 && !thatVue.curWOqguid_Table2) {
+                    if (thatVue.data_WOs.length > 1 && !thatVue.curWOqguid_Table2) {
                       thatVue.curWOTable2= thatVue.data_WOs[1]; 
                       thatVue.curWOTable2.TableNo = 'Table2';
                       thatVue.curWOqguid_Table2 = thatVue.curWOTable2.qguid;                                           
