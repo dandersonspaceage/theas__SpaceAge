@@ -929,9 +929,9 @@
           var thatVue = this;
 
           if (!thatVue.curShot.qguid) {
-            thatVue.curShot.qguidWO = curWO.qguid          
-            thatVue.curShot.WONumber = curWO.WONumber
-            thatVue.curShot.PressOperator = curWorkerName()
+            thatVue.curShot.qguidWO = thatVue.curWO.qguid          
+            thatVue.curShot.WONumber = thatVue.curWO.WONumber
+            thatVue.curShot.PressOperator = thatVue.curWorkerName()
           }          
 
           if (tableCode == 'Table1') {
