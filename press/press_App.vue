@@ -935,8 +935,8 @@
           let thatVue = this;
 
           thatVue.data_WOs.forEach((el, index, arr) => {
-            arr[index].ActiveTable1 = (el.qguid = qguid) ? '1' : '';
-            arr[index].ActiveTable2 = (el.qguid = qguid) ? '2' : '';            
+            arr[index].ActiveTable1 = (el.qguid == qguid) ? '1' : '';
+            arr[index].ActiveTable2 = (el.qguid == qguid) ? '2' : '';            
           });
 
           thatVue.$th.sendAsync({
