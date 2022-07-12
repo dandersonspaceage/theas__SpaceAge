@@ -53,7 +53,6 @@
 
                               <b-col cols="6">
                             &nbsp;&nbsp;&nbsp;&nbsp;<span class="badge badge-secondary" v-if="!wo.LastToMove" @click="doRepeatMove(wo.qguid, $event)">Repeat Move</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge badge-secondary" @click="doMoveLast(wo.qguid, $event)">Move Last</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <b-checkbox v-model="wo.ReleasedToPress" @change="onReleaseClick(wo.qguid, $event)"></b-checkbox>  
                               </b-col>
                             </b-row>
 
@@ -62,6 +61,7 @@
 
                           <b-col>
                             <h6>WO: [[ wo.WONumber ]]</h6>
+                            <b-checkbox v-model="wo.ReleasedToPress" @change="onReleaseClick(wo.qguid, $event)"></b-checkbox>  
                           </b-col>
                           <b-col>
                             <h6>SO: [[ wo.LinkedSONumber ]]</h6>
