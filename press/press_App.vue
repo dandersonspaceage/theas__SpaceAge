@@ -800,7 +800,7 @@
                     thatVue.curWOqguid_Table1 = thatVue.curWOTable1.qguid                    
                     thatVue.saveSelectWO(thatVue.curWOTable1.qguid, thatVue.curWOTable1.TableNo);              
 
-                    if (thatVue.data_WOs.length > 1 && !thatVue.curWOqguid_Table2) {
+                    if (thatVue.haveTwoTables() && thatVue.data_WOs.length > 1 && !thatVue.curWOqguid_Table2) {
                       thatVue.curWOTable2= thatVue.data_WOs[1]; 
                       thatVue.curWOTable2.TableNo = 'Table2';
                       thatVue.curWOqguid_Table2 = thatVue.curWOTable2.qguid;                                           
