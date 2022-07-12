@@ -415,8 +415,6 @@
         today: moment().toDate(),
         busyCount: 1,
         curCursor: 'progress',
-        dirtyQGUIDs: [], // list of qguids that need to be saved
-        dirtyTimers: [], // timers for pending saves of qugids
 
         overlayVisible: false,
 
@@ -540,13 +538,8 @@
       onHideWOQuality: function(qguid, evt) {
         let thatVue = this;
 
-        if (evt.trigger === 'ok') {
-
-          //Call setDirty if you want to defer the submit for a few seconds.
-          //thatVue.setDirty(qguid); 
-
-          //Or call saveShot if you want to immediately submit.
-          thatVue.saveShot(qguid);    
+        if (evt.trigger === 'ok') {          
+          thatVue.saveShot();    
         }          
       },
 
@@ -582,20 +575,6 @@
         }
       },      
 
-      setDirty: function(qguid) {
-        // Enqueues a speific record (via qguid) for saving.
-        // Needed for textarea autosave:  lets us debounce saving, while still triggering save on KeyUp
-        let thatVue = this;
-
-        let thisDirty = thatVue.dirtyQGUIDs.find((el) => el === qguid);
-        if (!thisDirty) {
-          thatVue.dirtyQGUIDs.push(qguid);
-          thatVue.dirtyTimers.push({timer: setTimeout(thatVue.saveShot, 3000, qguid), qguid: qguid});
-          //note:  timeout of 3000 must be longer than debounce of 1000 in textarea       
-        }    
-      },
-
-
       onHistoryRowClick: function(e, row) {
         let thatVue = this;
 
@@ -613,11 +592,6 @@
 
       switchWOList: function() {
         let thatVue = this;    
-        
-        if (thatVue.dirtyQGUIDs.length) {
-          thatVue.dirtyTimers.forEach(o => clearTimeout(o.timer)); // clear out any pending dirty timers
-          thatVue.saveShot(); // save any panding qguids
-        }
         
         thatVue.data_WOs = [];
         thatVue.lastFetch_WOs = null;
@@ -876,11 +850,6 @@
       },
     
 
-      onChangePlan: function (qguid, event) {
-          let thatVue = this;  
-          thatVue.setDirty(qguid);                         
-      },
-
       changeActiveWO: function (tableCode, qguid) {
         let thatVue = this; 
 
@@ -967,97 +936,70 @@
       },
 
 
-      saveShot: function (qguid, event) {
+      saveShot: function() {
           // save reference to Vue object that can be used in async callbacks
           var thatVue = this;
 
-          //note that qguid is for the shot, not the WO
-          
-          if (qguid) {
-            // qguid was specified.  We will save it, but first we remove any entries in the queue.
-            let thisIndex = thatVue.dirtyQGUIDs.findIndex((el) => el === qguid);          
+          // make sure curShot has been saved to data_Shots
+
+          if (thatVue.curShot.qguid) {
+            // updating existing shot
+
+            let thisIndex = thatVue.data_Shots.findIndex((el) => el.qguid === thatVue.curShot.qguid);
             if (thisIndex >= 0) {
-                thatVue.$delete(thatVue.dirtyQGUIDs, thisIndex);  
-                            
-              let thisTimerIndex = thatVue.dirtyTimers.findIndex((el) => el.qguid === qguid);
-              if (thisTimerIndex >= 0) {
-                thatVue.$delete(thatVue.dirtyTimers, thisTimerIndex);
-              }
-            }            
-
-            // make sure curShot has been saved to data_Shots
-
-            if (thatVue.curShot.qguid) {
-              // updating existing shot
-
-              let thisIndex = thatVue.data_Shots.findIndex((el) => el.qguid === thatVue.curShot.qguid);
-              if (thisIndex >= 0) {
-                thatVue.data_Shots[thisIndex] = thatVue.curShot;
-              }
-
+              thatVue.data_Shots[thisIndex] = thatVue.curShot;
             }
-            else {
-              // new shot
-              thatVue.data_Shots.unshift(thatVue.curShot);
-            }
-            
+
           }
           else {
-            // qguid not specified.  See if there is a qguid in queue awaiting saving.
-            qguid = thatVue.dirtyQGUIDs.pop()
+            // new shot
+            thatVue.data_Shots.unshift(thatVue.curShot);
           }
 
-          while (qguid) {
-            // we loop, to save all qguids in the queue
 
-            //let thisShot = thatVue.data_Shots.find((el) => el.qguid === qguid)
+          thatVue.$th.sendAsync({
+            url: "/async/" + thatVue.asyncResource_WOs,
+            asyncCmd: 'completeShot',              
+            data: {Shot: thatVue.curShot}, //note: passes to @FormParams
 
-            thatVue.$th.sendAsync({
-              url: "/async/" + thatVue.asyncResource_WOs,
-              asyncCmd: 'completeShot',              
-              data: {Shot: thatVue.curShot}, //note: passes to @FormParams
+            onResponse: function (rd, response) {
+                // rd contains the response data split into an object (of name/value pairs)
+                // (might have been returned as either a string of URL-encoded name/value
+                // pairs, or as a JSON strong)
 
-              onResponse: function (rd, response) {
-                  // rd contains the response data split into an object (of name/value pairs)
-                  // (might have been returned as either a string of URL-encoded name/value
-                  // pairs, or as a JSON strong)
+                // response contains the complete response object, in which .data contains
+                // the raw data that was received.              
 
-                  // response contains the complete response object, in which .data contains
-                  // the raw data that was received.              
+                /*
+                let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === qguid)
+                if (thisIndex >= 0) {
+                  thatVue.curShot = thatVue.data_Shots[thisIndex];
+                }
+                */
 
-                  /*
-                  let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === qguid)
-                  if (thisIndex >= 0) {
-                    thatVue.curShot = thatVue.data_Shots[thisIndex];
-                  }
-                  */
+              let shotResp= {};         
 
-                let shotResp= {};         
+              if (!thatVue.$th.haveError(true)) {
 
-                if (!thatVue.$th.haveError(true)) {
-
-                  //  ShotResponse
-                  if (rd["ShotResponse"]) {
-                    shotResp = JSON.parse(rd["ShotResponse"]);
-                  }
-
-                  if (shotResp) {
-
-                    let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === shotResp.qguidWO);
-                    if (thisIndex >= 0) {
-                      thatVue.data_WOs[thisIndex].CurrentShotCount = shotResp.CurrentShotCount;
-                    }                
-                  }               
-
+                //  ShotResponse
+                if (rd["ShotResponse"]) {
+                  shotResp = JSON.parse(rd["ShotResponse"]);
                 }
 
-                thatVue.curShot = {};     
-              }
-            });
+                if (shotResp) {
 
-            qguid = thatVue.dirtyQGUIDs.pop();
-          
-          }
+                  let thisIndex = thatVue.data_WOs.findIndex((el) => el.qguid === shotResp.qguidWO);
+                  if (thisIndex >= 0) {
+                    thatVue.data_WOs[thisIndex].CurrentShotCount = shotResp.CurrentShotCount;
+                  }                
+                }               
+
+              }
+
+              thatVue.curShot = {};     
+            }
+          });
+
       },
 
       formatDate: function (thisDate, thisFormatStr) {
