@@ -113,7 +113,7 @@
        
         </b-col>
 
-        <b-col cols="6">
+        <b-col cols="6" v-if="haveTwoTables">
 
           <b-row>
             <b-col>
@@ -491,6 +491,10 @@
       busy : function () {
         return this.busyCount > 0;
       }, 
+
+      haveTwoTables : function () {
+        return (this.curWOListCode === 'N');
+      },
 
       validCaliper1 : function() {
         return this.isNumPress(this.curShot.qaCaliper1);
