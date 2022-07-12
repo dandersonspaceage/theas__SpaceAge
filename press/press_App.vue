@@ -302,16 +302,31 @@
               columns: [
                 {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
                 //{title: '', field:"StatusColor", formatter:"color"},
-                {title: '', field:"TableNo",
+
+                {title: '', field:"ActiveTable1",
                   formatter: function(cell, formatterParams, onRendered){
                     let thisVal = cell.getValue();
                     let thisColor = '#FFFFFF'
 
-                    if (thisVal == 'Table1') {
+                    if (thisVal == '1') {
                       // primary
                       thisColor = "#007bff";
                     }                           
-                    else if (thisVal == 'Table2') {
+
+                    cell.getElement().style.backgroundColor = thisColor;
+
+                    return thisVal;
+                    },
+
+                  formatterParams: {formatStr: "dd MM/DD"}
+                },                            
+
+                {title: '', field:"ActiveTable2",
+                  formatter: function(cell, formatterParams, onRendered){
+                    let thisVal = cell.getValue();
+                    let thisColor = '#FFFFFF'
+                        
+                    if (thisVal == '2') {
                       // warning
                       thisColor = "#ffc107";
                     }
@@ -319,9 +334,11 @@
                     cell.getElement().style.backgroundColor = thisColor;
 
                     return thisVal;
-                    },
+                  },
+
                   formatterParams: {formatStr: "dd MM/DD"}
-                },                              
+                },     
+
                 {title: 'WO', field: 'WONumber', responsive: 0},        
                 {title: 'Qty Remain', field: 'QtyRemaining', responsive: 0},
                 {title: 'Qty Needed', field: 'Quantity', responsive: 3},                
