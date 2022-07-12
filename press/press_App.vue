@@ -303,7 +303,7 @@
                 {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
                 //{title: '', field:"StatusColor", formatter:"color"},
 
-                {title: '', field:"ActiveTable1",
+                {title: '', field:"ActiveTable1", hozAlign:"center",
                   formatter: function(cell, formatterParams, onRendered){
                     let thisVal = cell.getValue();
                     let thisColor = '#FFFFFF'
@@ -321,7 +321,7 @@
                   formatterParams: {formatStr: "dd MM/DD"}
                 },                            
 
-                {title: '', field:"ActiveTable2",
+                {title: '', field:"ActiveTable2", hozAlign:"center",
                   formatter: function(cell, formatterParams, onRendered){
                     let thisVal = cell.getValue();
                     let thisColor = '#FFFFFF'
@@ -936,10 +936,10 @@
 
           thatVue.data_WOs.forEach((el, index, arr) => {
             if (tableCode == 'Table1') {
-              arr[index].ActiveTable1 = (el.qguid == qguid) ? '1' : '';
+              arr[index].ActiveTable1 = (el.qguid == qguid) ? '<h5 class="badge badge-secondary">1</h5>': '';
             }
             else if (tableCode == 'Table2') {
-              arr[index].ActiveTable2 = (el.qguid == qguid) ? '2' : '';                 
+              arr[index].ActiveTable2 = (el.qguid == qguid) ? '<h5 class="badge badge-secondary">2</h5>' : '';                 
             }         
           });
 
