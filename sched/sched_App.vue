@@ -46,10 +46,9 @@
                         <b-row>
 
                           <b-col>
-                            <h5 class="dragHandle" ><span class="h3 badge badge-secondary">[[ wo.Seq ]]</span>
+                            <h1 class="dragHandle" ><span class="badge badge-secondary">[[ wo.Seq ]]</span></h1>
                             &nbsp;&nbsp;&nbsp;&nbsp;<span class="badge badge-secondary" v-if="!wo.LastToMove" @click="doRepeatMove(wo.qguid, $event)">Repeat Move</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge badge-secondary" @click="doMoveLast(wo.qguid, $event)">Move Last</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <b-checkbox v-model="wo.ReleasedToPress" @change="onReleaseClick(wo.qguid, $event)"></b-checkbox>
-                            </h5>
+                            <b-checkbox v-model="wo.ReleasedToPress" @change="onReleaseClick(wo.qguid, $event)"></b-checkbox>                            
                           </b-col>          
 
                           <b-col>
