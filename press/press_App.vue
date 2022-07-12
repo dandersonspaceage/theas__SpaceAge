@@ -934,9 +934,9 @@
           // save reference to Vue object that can be used in async callbacks
           let thatVue = this;
 
-          thatVue.data_WOs.forEach((item, index, arr) => {
-            arr[index].ActiveTable1 = (value.qguid = qguid) ? '1' : '';
-            arr[index].ActiveTable2 = (value.qguid = qguid) ? '2' : '';            
+          thatVue.data_WOs.forEach((el, index, arr) => {
+            arr[index].ActiveTable1 = (el.qguid = qguid) ? '1' : '';
+            arr[index].ActiveTable2 = (el.qguid = qguid) ? '2' : '';            
           });
 
           thatVue.$th.sendAsync({
