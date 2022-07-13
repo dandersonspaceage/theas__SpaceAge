@@ -179,7 +179,7 @@
 
   </b-modal>
 
-  <b-modal id="WOQualityModal" key:curShot ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality(curShot.qguid, $event)" hide-footer>
+  <b-modal id="WOQualityModal" key:curShot ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality(curShot.qguid, $event)" hide-footer no-stacking>
     <template #modal-title>
       <h4>WO [[ curShot.WONumber ]] Shot [[ curShot.ShotNumber ]]</h4>
     </template>
