@@ -603,9 +603,8 @@
         //  thatVue.data_Shots[thisIndex] = thatVue.curShot;
         //}
                             
-        //thatVue.$bvModal.hide('ShotHistoryModal');           
-        //thatVue.$bvModal.show('WOQualityModal'); 
-        alert('Row clicked');
+        thatVue.$bvModal.hide('ShotHistoryModal');           
+        thatVue.$bvModal.show('WOQualityModal'); 
       },
 
       switchWOList: function() {
