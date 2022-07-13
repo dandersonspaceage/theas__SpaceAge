@@ -393,13 +393,15 @@
               columns: [
                                       
                 //{title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                                          
-                {title: 'WO', field: 'WONumber', responsive: 0, headerSort:false},
-                {title: 'Shot', field: 'ShotNumber', responsive: 0, headerSort:false},
+                {title: 'WO', field: 'WONumber', responsive: 0, headerSort:true},
+                {title: 'Shot', field: 'ShotNumber', responsive: 0, headerSort:true},
                 
-                {title: 'Time', field: 'DateFinished', responsive: 0, headerSort:false, 
+                {title: 'Time', field: 'DateFinished', responsive: 0, headerSort:true, 
                   formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);},
-                  formatterParams: {formatStr: "dd MM/DD hh:mm"}
+                  formatterParams: {formatStr: "MM/DD hh:mm dd"}
                 },
+
+                {title: 'OperatorName', field: 'OperatorName', responsive: 0, headerSort:true},                
 
                 {title: 'Quality', field: 'Quality', responsive: 0, headerSort:false},
 
@@ -915,9 +917,10 @@
           let thatVue = this;
 
           if (!thatVue.curShot.qguid) {
+            //a new shot:  assign values
             thatVue.curShot.qguidWO = thatVue.curWO.qguid;
             thatVue.curShot.WONumber = thatVue.curWO.WONumber;
-            thatVue.curShot.PressOperatorQGUID = thatVue.curWorkerQGUID;
+            thatVue.curShot.qguidPressOperator = thatVue.curWorkerQGUID;
             thatVue.curShot.PressOperatorName = thatVue.curWorkerName();
           }          
 
