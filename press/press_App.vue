@@ -789,11 +789,17 @@
                 //apply server-side WO table assignments
                 if (thatVue && thatVue.data_WOs && thatVue.data_WOs.length > 0) {
                     thatVue.curWOTable1 = thatVue.data_WOs.find((el) => el.ActiveTable1 === '1');
-                    thatVue.curWOqguid_Table1 = thatVue.curWOTable1.qguid                             
-
+                    thatVue.curWOqguid_Table1 = null;
+                    if (thatVue.curWOTable1) {
+                      thatVue.curWOqguid_Table1 = thatVue.curWOTable1.qguid                       
+                    }
+                          
                     if (thatVue.data_WOs.length > 1) {
                       thatVue.curWOTable2 = thatVue.data_WOs.find((el) => el.ActiveTable2 === '2');
-                      thatVue.curWOqguid_Table2 = thatVue.curWOTable2.qguid;                                                              
+                      thatVue.curWOqguid_Table2 = null;                      
+                      if (thatVue.curWOTable2) {
+                        thatVue.curWOqguid_Table2 = thatVue.curWOTable2.qguid;   
+                      }                                                           
                     }
                 }             
                 
