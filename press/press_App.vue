@@ -82,8 +82,8 @@
             </b-col>
 
             <b-col>     
-              <h5 style="font-size:calc(0.6em + 1.4vmin)">WO [[ (curWOTable2) ? curWOTable2.WONumber : 'none']]</h5>
-              <h6 style="font-size:calc(0.6em + 1vmin)">#[[ (curWOTable2) ? Number(curWOTable2.CurrentShotCount) + 1 : '0']] of [[ (curWOTable2) ? curWOTable2.Quantity : '0']]</h6>
+              <h5 style="font-size:calc(0.6em + 1.4vmin)">WO [[ (curWOTable1) ? curWOTable1.WONumber : 'none']]</h5>
+              <h6 style="font-size:calc(0.6em + 1vmin)">#[[ (curWOTable1) ? Number(curWOTable1.CurrentShotCount) + 1 : '0']] of [[ (curWOTable1) ? curWOTable1.Quantity : '0']]</h6>
             </b-col>      
           </b-row>      
 
@@ -91,11 +91,11 @@
             <b-col cols="6">     
               <div style="max-width: 150px">          
               <b-form-group label="Active WO"
-                            :label-for="'woTable2'">
-                <b-form-select :id="'woTable2'"
+                            :label-for="'woTable1'">
+                <b-form-select :id="'woTable1'"
                               :options="data_WOs"
-                              v-model="curWOqguid_Table2"
-                              @change="changeActiveWO('Table2', curWOqguid_Table2)"
+                              v-model="curWOqguid_Table1"
+                              @change="changeActiveWO('Table1', curWOqguid_Table1)"
                 >
                 </b-form-select>
               </b-form-group>
@@ -106,7 +106,7 @@
               <div style="height:32px">
               </div>
 
-              <b-button @click="completeShot('Table2')" variant="primary">Shot</b-button>
+              <b-button @click="completeShot('Table1')" variant="primary">Shot</b-button>
             </b-col>            
 
           </b-row>
@@ -121,8 +121,8 @@
             </b-col>
 
             <b-col>     
-              <h5 style="font-size:calc(0.6em + 1.4vmin)">WO [[ (curWOTable1) ? curWOTable1.WONumber : 'none']]</h5>
-              <h6 style="font-size:calc(0.6em + 1vmin)">#[[ (curWOTable1) ? Number(curWOTable1.CurrentShotCount) + 1 : '0']] of [[ (curWOTable1) ? curWOTable1.Quantity : '0']]</h6>              
+              <h5 style="font-size:calc(0.6em + 1.4vmin)">WO [[ (curWOTable2) ? curWOTable2.WONumber : 'none']]</h5>
+              <h6 style="font-size:calc(0.6em + 1vmin)">#[[ (curWOTable2) ? Number(curWOTable2.CurrentShotCount) + 1 : '0']] of [[ (curWOTable2) ? curWOTable2.Quantity : '0']]</h6>              
             </b-col>      
           </b-row>      
 
@@ -130,12 +130,12 @@
             <b-col cols="6">
               <div style="max-width: 150px">                                
                 <b-form-group label="Active WO"
-                            :label-for="'woTable1'">
+                            :label-for="'woTable2'">
 
-                <b-form-select :id="'woTable1'"
+                <b-form-select :id="'woTable2'"
                               :options="data_WOs"
-                              v-model="curWOqguid_Table1"
-                              @change="changeActiveWO('Table1', curWOqguid_Table1)"
+                              v-model="curWOqguid_Table2"
+                              @change="changeActiveWO('Table2', curWOqguid_Table2)"
                               >
                 </b-form-select>                              
               </b-form-group>
@@ -146,7 +146,7 @@
               <div style="height:32px">
               </div>
 
-              <b-button @click="completeShot('Table1')" variant="warning">Shot</b-button>
+              <b-button @click="completeShot('Table2')" variant="warning">Shot</b-button>
             </b-col>            
 
           </b-row>
@@ -302,7 +302,7 @@
                 {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
                 //{title: '', field:"StatusColor", formatter:"color"},
 
-                {title: '', field:"ActiveTable2", hozAlign:"center",
+                {title: '', field:"ActiveTable1", hozAlign:"center",
                   formatter: function(cell, formatterParams, onRendered){
                     let thisVal = cell.getValue();
                     let thisColor = '#FFFFFF'
@@ -320,7 +320,7 @@
                   formatterParams: {formatStr: "dd MM/DD"}
                 },                            
 
-                {title: '', field:"ActiveTable1", hozAlign:"center",
+                {title: '', field:"ActiveTable2", hozAlign:"center",
                   formatter: function(cell, formatterParams, onRendered){
                     let thisVal = cell.getValue();
                     let thisColor = '#FFFFFF'
@@ -456,13 +456,13 @@
         curWOListCode: '',
         lockPressSelection: true,
 
-        curWOqguid_Table2: null,
-        curWOqguid_Table1: null,   
+        curWOqguid_Table1: null,
+        curWOqguid_Table2: null,   
         curWorkerQGUID: null,     
 
         curWO: {},
-        curWOTable2: {},
         curWOTable1: {},
+        curWOTable2: {},
 
         curShot: {},
         thisWO_CommitDate: null, // object for datepicker
@@ -793,17 +793,17 @@
 
                 //apply server-side WO table assignments
                 if (thatVue && thatVue.data_WOs && thatVue.data_WOs.length > 0) {
-                    thatVue.curWOTable2 = thatVue.data_WOs.find((el) => el.ActiveTable2 === '1');
-                    thatVue.curWOqguid_Table2 = null;
-                    if (thatVue.curWOTable2) {
-                      thatVue.curWOqguid_Table2 = thatVue.curWOTable2.qguid                       
+                    thatVue.curWOTable1 = thatVue.data_WOs.find((el) => el.ActiveTable1 === '1');
+                    thatVue.curWOqguid_Table1 = null;
+                    if (thatVue.curWOTable1) {
+                      thatVue.curWOqguid_Table1 = thatVue.curWOTable1.qguid                       
                     }
                           
                     if (thatVue.data_WOs.length > 1) {
-                      thatVue.curWOTable1 = thatVue.data_WOs.find((el) => el.ActiveTable1 === '2');
-                      thatVue.curWOqguid_Table1 = null;                      
-                      if (thatVue.curWOTable1) {
-                        thatVue.curWOqguid_Table1 = thatVue.curWOTable1.qguid;   
+                      thatVue.curWOTable2 = thatVue.data_WOs.find((el) => el.ActiveTable2 === '2');
+                      thatVue.curWOqguid_Table2 = null;                      
+                      if (thatVue.curWOTable2) {
+                        thatVue.curWOqguid_Table2 = thatVue.curWOTable2.qguid;   
                       }                                                           
                     }
                 }             
@@ -883,17 +883,17 @@
 
         let wo = thatVue.data_WOs.find((el) => el.qguid === qguid);
 
-        if (tableCode == 'Table2') {
-          if (thatVue.curWOTable2 != wo) {
-            thatVue.curWOTable2 = wo;
+        if (tableCode == 'Table1') {
+          if (thatVue.curWOTable1 != wo) {
+            thatVue.curWOTable1 = wo;
 
             thatVue.saveSelectWO(qguid, tableCode);
           }
         }
 
-        else if (tableCode == 'Table1') {
-          if (thatVue.curWOTable1 != wo) {          
-            thatVue.curWOTable1 = wo;    
+        else if (tableCode == 'Table2') {
+          if (thatVue.curWOTable2 != wo) {          
+            thatVue.curWOTable2 = wo;    
 
             thatVue.saveSelectWO(qguid, tableCode);
           }          
@@ -932,11 +932,11 @@
 
             if (!thatVue.curShot.qguidWO) {
               
-              if (tableCode == 'Table2') {
-                thisWO = thatVue.curWOTable2
-              }
-              else if (tableCode == 'Table1') {
+              if (tableCode == 'Table1') {
                 thisWO = thatVue.curWOTable1
+              }
+              else if (tableCode == 'Table2') {
+                thisWO = thatVue.curWOTable2
               }          
 
               if (!thisWO.qguid) {
@@ -949,6 +949,7 @@
               }
             }              
        
+
             thatVue.$bvModal.show('WOQualityModal');            
           }
       },
@@ -962,11 +963,11 @@
           }
 
           thatVue.data_WOs.forEach((el, index, arr) => {
-            if (tableCode == 'Table2') {
-              arr[index].ActiveTable2 = (el.qguid == qguid) ? '1': '';
+            if (tableCode == 'Table1') {
+              arr[index].ActiveTable1 = (el.qguid == qguid) ? '1': '';
             }
-            else if (tableCode == 'Table1') {
-              arr[index].ActiveTable1 = (el.qguid == qguid) ? '2' : '';                 
+            else if (tableCode == 'Table2') {
+              arr[index].ActiveTable2 = (el.qguid == qguid) ? '2' : '';                 
             }         
           });
 
