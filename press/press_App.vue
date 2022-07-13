@@ -16,7 +16,7 @@
 
           <b-form-select :id="'selWorker'"
                         :options="data_Workers"
-                        v-model="curWorker"
+                        v-model="curWorkerQGUID"
                         size="sm"                        
           >
           </b-form-select>
@@ -195,14 +195,7 @@
                           :options="qualityLevels"       
                           ref="qualitySelect"         
                           v-model="curShot.Quality" size="sm"></b-form-select>
-          </b-form-group>      
-          
-          <input v-model="curShot.Quality" />
-          <select v-model="curShot.Quality">
-            <option :value="'A'">A</option>
-            <option :value="'B'">B</option>
-            <option :value="'RW'">RW</option>                        
-          </select>
+          </b-form-group>                
         </b-col>
       </b-row>
 
@@ -277,7 +270,7 @@
 
       <b-row>
         <b-col>
-          <h5>Operator: [[ curShot.PressOperator ]]</h5>
+          <h5>Operator: [[ curShot.PressOperatorName ]]</h5>
 
         </b-col>
       </b-row>
@@ -463,7 +456,7 @@
 
         curWOqguid_Table1: null,
         curWOqguid_Table2: null,   
-        curWorker: null,     
+        curWorkerQGUID: null,     
 
         curWO: {},
         curWOTable1: {},
@@ -920,9 +913,10 @@
           let thatVue = this;
 
           if (!thatVue.curShot.qguid) {
-            thatVue.curShot.qguidWO = thatVue.curWO.qguid          
-            thatVue.curShot.WONumber = thatVue.curWO.WONumber
-            thatVue.curShot.PressOperator = thatVue.curWorkerName()
+            thatVue.curShot.qguidWO = thatVue.curWO.qguid;
+            thatVue.curShot.WONumber = thatVue.curWO.WONumber;
+            thatVue.curShot.PressOperatorQGUID = thatVue.curWorkerQGUID;
+            thatVue.curShot.PressOperatorName = thatVue.curWorkerName();
           }          
 
           if (tableCode == 'Table1') {
@@ -932,7 +926,7 @@
             thatVue.curWO = thatVue.curWOTable2
           }
 
-          if (!thatVue.curWorker) {
+          if (!thatVue.curWorkerQGUID) {
             //TechnicalMessage|FriendlyMessage|ShowTech?|Title
             thatVue.$th.raiseError('|Please select the operator that is working on this press.|1|No operator selected!');
           }
@@ -1057,7 +1051,7 @@
       },
 
       curWorkerName: function() {
-        let thisWorker = this.data_Workers.find((el) => el.qguid == this.curWorker);
+        let thisWorker = this.data_Workers.find((el) => el.qguid == this.curWorkerQGUID);
 
         let thisName = null;
 
