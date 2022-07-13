@@ -611,7 +611,7 @@
         //thatVue.$bvModal.hide('ShotHistoryModal');           
         thatVue.$bvModal.show('WOQualityModal'); 
         
-        setTimeout(thatVue.refreshShot, 100);
+        //setTimeout(thatVue.refreshShot, 100);
 
       },
 
@@ -1036,7 +1036,7 @@
 
               }
 
-              thatVue.curShot = {};     
+              thatVue.$set(thatVue.curShot, {});     
 
               let tab = thatVue.$refs.tabuShotHistory;
               if (tab) {
