@@ -197,7 +197,7 @@
                           v-model="curShot.qaQuality" size="sm"></b-form-select>
           </b-form-group>      
           -->
-          
+          <input v-model="curShot.qaQuality" />
           <select v-model="curShot.qaQuality">
             <option :value="'A'">A</option>
             <option :value="'B'">B</option>
