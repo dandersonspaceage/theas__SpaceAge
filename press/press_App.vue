@@ -945,10 +945,10 @@
 
           thatVue.data_WOs.forEach((el, index, arr) => {
             if (tableCode == 'Table1') {
-              arr[index].ActiveTable1 = (el.qguid == qguid) ? '<h5 class="badge badge-secondary">1</h5>': '';
+              arr[index].ActiveTable1 = (el.qguid == qguid) ? '1': '';
             }
             else if (tableCode == 'Table2') {
-              arr[index].ActiveTable2 = (el.qguid == qguid) ? '<h5 class="badge badge-secondary">2</h5>' : '';                 
+              arr[index].ActiveTable2 = (el.qguid == qguid) ? '2' : '';                 
             }         
           });
 
