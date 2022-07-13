@@ -604,8 +604,8 @@
         //}
                             
         //thatVue.$bvModal.hide('ShotHistoryModal');     
+        thatVue.$forceUpdate();        
         thatVue.$bvModal.show('WOQualityModal'); 
-        thatVue.$forceUpdate();
       },
 
       switchWOList: function() {
