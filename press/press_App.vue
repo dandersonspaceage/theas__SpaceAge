@@ -192,7 +192,8 @@
                         :label-for="'qaQuality'">
             <b-form-select :id="'qaQuality'" :state="validQuality"
                           :options="qualityLevels"       
-                          ref="qualitySelect"               
+                          ref="qualitySelect"
+                          key="curShot"            
                           v-model="curShot.qaQuality" size="sm"></b-form-select>
           </b-form-group>           
         </b-col>
@@ -589,6 +590,11 @@
         }
       },      
 
+      refreshShot: function() {
+        let noop;
+        //thatVue.$refs.qualitySelect.refresh
+      },
+      
       onHistoryRowClick: function(e, row) {
         let thatVue = this;
 
@@ -603,7 +609,8 @@
         //thatVue.$bvModal.hide('ShotHistoryModal');           
         thatVue.$bvModal.show('WOQualityModal'); 
         
-        setTimeout(thatVue.$refs.qualitySelect.refresh, 100);
+        setTimeout(thatVue.refreshShot, 100);
+
       },
 
       switchWOList: function() {
