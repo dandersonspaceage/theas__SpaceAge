@@ -593,7 +593,7 @@
 
       refreshShot: function() {
         let thatVue = this;
-        curShot.qaQuality = 'RW';
+        thatVue.curShot.qaQuality = 'RW';
         //thatVue.$refs.qualitySelect.refresh
       },
 
