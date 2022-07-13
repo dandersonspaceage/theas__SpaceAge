@@ -916,26 +916,33 @@
       completeShot: function(tableCode) {
           let thatVue = this;
 
-          if (!thatVue.curShot.qguid) {
-            //a new shot:  assign values
-            thatVue.curShot.qguidWO = thatVue.curWO.qguid;
-            thatVue.curShot.WONumber = thatVue.curWO.WONumber;
-            thatVue.curShot.qguidPressOperator = thatVue.curWorkerQGUID;
-            thatVue.curShot.PressOperatorName = thatVue.curWorkerName();
-          }          
-
-          if (tableCode == 'Table1') {
-            thatVue.curWO = thatVue.curWOTable1
-          }
-          else if (tableCode == 'Table2') {
-            thatVue.curWO = thatVue.curWOTable2
-          }
-
           if (!thatVue.curWorkerQGUID) {
             //TechnicalMessage|FriendlyMessage|ShowTech?|Title
             thatVue.$th.raiseError('|Please select the operator that is working on this press.|1|No operator selected!');
           }
           else {
+            let thisWO;
+
+            if (tableCode == 'Table1') {
+              thisWO = thatVue.curWOTable1
+            }
+            else if (tableCode == 'Table2') {
+              thisWO = thatVue.curWOTable2
+            }          
+
+            if (!thatVue.curWO.qguid) {
+              //TechnicalMessage|FriendlyMessage|ShowTech?|Title
+              thatVue.$th.raiseError('|No Work Order selected.  Cannot add a new shot.|1|No work order selected!');
+            }
+
+            if (!thatVue.curShot.qguid) {
+              //a new shot:  assign values
+              thatVue.curShot.qguidWO = thisWO.qguid;
+              thatVue.curShot.WONumber = thisWO.WONumber;
+              thatVue.curShot.qguidPressOperator = thatVue.curWorkerQGUID;
+              thatVue.curShot.PressOperatorName = thatVue.curWorkerName();
+            }          
+
             thatVue.$bvModal.show('WOQualityModal');            
           }
       },
