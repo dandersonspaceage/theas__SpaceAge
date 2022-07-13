@@ -932,6 +932,10 @@
       saveSelectWO: function (qguid, tableCode, event) {
           // save reference to Vue object that can be used in async callbacks
           let thatVue = this;
+          
+          if (!qguid) {
+            qguid = null;
+          }
 
           thatVue.data_WOs.forEach((el, index, arr) => {
             if (tableCode == 'Table1') {
