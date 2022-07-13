@@ -937,7 +937,7 @@
                   thisWO = thatVue.curWOTable2
                 }          
 
-                if (!thatVue.curWO.qguid) {
+                if (!thisWO.qguid) {
                   //TechnicalMessage|FriendlyMessage|ShowTech?|Title
                   thatVue.$th.raiseError('|No Work Order selected.  Cannot add a new shot.|1|No work order selected!');
                 }
