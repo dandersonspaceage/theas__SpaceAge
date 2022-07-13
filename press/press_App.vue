@@ -179,7 +179,7 @@
 
   </b-modal>
 
-  <b-modal id="WOQualityModal" ref="WOQualityModal" :key="curShot.qguid" @show="onShowWOQuality" @hide="onHideWOQuality(curShot.qguid, $event)" hide-footer :static="true" :lazy="true">
+  <b-modal id="WOQualityModal" key:curShot ref="WOQualityModal" :key="curShot.qguid" @show="onShowWOQuality" @hide="onHideWOQuality(curShot.qguid, $event)" hide-footer>
     <template #modal-title>
       <h4>WO [[ curShot.WONumber ]] Shot [[ curShot.ShotNumber ]]</h4>
     </template>
@@ -599,8 +599,8 @@
         //  thatVue.data_Shots[thisIndex] = thatVue.curShot;
         //}
                             
-        thatVue.$bvModal.hide('ShotHistoryModal');           
-        setTimeout(thatVue.$bvModal.show.bind(this, 'WOQualityModal'), 100);           
+        //thatVue.$bvModal.hide('ShotHistoryModal');           
+        thatVue.$bvModal.show.('WOQualityModal'); 
       },
 
       switchWOList: function() {
