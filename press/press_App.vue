@@ -549,23 +549,13 @@
 
       onShowWOQuality: function() {
         let thatVue = this;
-
       },
 
       onHideWOQuality: function(qguid, evt) {
         let thatVue = this;
 
         if (evt.trigger === 'ok') {          
-          thatVue.saveShot();    
-
-          
-          setTimeout(function(){
-            let thatVue = this;
-          //Vue.nextTick(function () {     
-              //need to refdraw the table after the modal is shown.  nextTick does not work, but setTimeout does work.     
-              thatVue.$refs.tabuShotHistory.tabulatorInstance.redraw(true);
-          //});            
-          }, 700); 
+          thatVue.saveShot();
         }          
       },
 
@@ -908,8 +898,6 @@
         let thatVue = this;
 
         thatVue.$bvModal.show('ShotHistoryModal');         
-        //thatVue.$refs.tabuShotHistory.redraw(true);       
-        //thatVue.$refs.tabuShotHistory.setSort({column:"DateFinished", dir:"desc"});
 
         setTimeout(function(){
         //Vue.nextTick(function () {     
@@ -1040,6 +1028,12 @@
               }
 
               thatVue.curShot = {};     
+
+              let tab = thatVue.$refs.tabuShotHistory.tabulatorInstance;
+              if (tab) {
+                tab.redraw(true);     
+              }
+
             }
           });
 
