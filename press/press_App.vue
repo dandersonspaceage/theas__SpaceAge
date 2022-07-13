@@ -188,6 +188,7 @@
 
       <b-row>      
         <b-col>   
+          <!--
           <b-form-group label="Quality"
                         :label-for="'qaQuality'">
             <b-form-select :id="'qaQuality'" :state="validQuality"
@@ -195,6 +196,7 @@
                           ref="qualitySelect"         
                           v-model="curShot.qaQuality" size="sm"></b-form-select>
           </b-form-group>      
+          -->
           
           <select v-model="curShot.qaQuality">
             <option>A</option>
