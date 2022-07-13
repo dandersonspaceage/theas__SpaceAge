@@ -192,8 +192,7 @@
                         :label-for="'qaQuality'">
             <b-form-select :id="'qaQuality'" :state="validQuality"
                           :options="qualityLevels"       
-                          ref="qualitySelect"
-                          key="keyQuality"            
+                          ref="qualitySelect"         
                           v-model="curShot.qaQuality" size="sm"></b-form-select>
           </b-form-group>           
         </b-col>
@@ -594,14 +593,14 @@
 
       refreshShot: function() {
         let thatVue = this;
-
+        curShot.qaQuality = 'RW';
         //thatVue.$refs.qualitySelect.refresh
       },
 
       onHistoryRowClick: function(e, row) {
         let thatVue = this;
 
-        thatVue.$set(thatVue.curShot, thatVue.data_Shots.find((el) => el.qguid === row.getData().qguid));
+        thatVue.curShot = thatVue.data_Shots.find((el) => el.qguid === row.getData().qguid);
         
         //for testing only
         //let thisIndex = thatVue.data_Shots.findIndex((el) => el.qguid === thatVue.curShot.qguid)
@@ -983,8 +982,7 @@
 
             let thisIndex = thatVue.data_Shots.findIndex((el) => el.qguid === thatVue.curShot.qguid);
             if (thisIndex >= 0) {
-              //thatVue.data_Shots[thisIndex] = thatVue.curShot;
-              thatVue.$set(thatVue.data_shots, thisIndex, thatVue.curShot);
+              thatVue.data_Shots[thisIndex] = thatVue.curShot;
             }
 
           }
@@ -1027,7 +1025,6 @@
 
                   for (const [key, value] of Object.entries(shotResp)) {
                     thatVue.curShot[key] = value;
-                    //thatVue.$set(thatVue.curShot[key], value);
                   }                                
 
                   let thisIndexWO = thatVue.data_WOs.findIndex((el) => el.qguid === shotResp.qguidWO);
@@ -1039,8 +1036,7 @@
 
               }
 
-              //thatVue.curShot = {};
-              thatTheas.$set(thatTheas.curShot, {});     
+              thatVue.curShot = {};     
 
               let tab = thatVue.$refs.tabuShotHistory;
               if (tab) {
