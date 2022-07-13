@@ -785,6 +785,7 @@
                   thatVue.curWOListCode = thatVue.data_WOs[0].PlannedPress;
                 }
 
+/*
                 if (thatVue && thatVue.data_WOs && thatVue.data_WOs.length > 0 && !thatVue.curWOqguid_Table1) {
                     thatVue.curWOTable1 = thatVue.data_WOs[0]; //assign first work order
                     thatVue.curWOTable1.TableNo = 'Table1';
@@ -798,6 +799,7 @@
                       thatVue.saveSelectWO(thatVue.curWOTable2.qguid, thatVue.curWOTable2.TableNo);                       
                     }
                 }             
+*/                
 
               }
 
