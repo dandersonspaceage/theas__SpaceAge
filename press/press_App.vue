@@ -599,8 +599,8 @@
         //  thatVue.data_Shots[thisIndex] = thatVue.curShot;
         //}
                             
-        //thatVue.$bvModal.hide('ShotHistoryModal');           
-        thatVue.$bvModal.show('WOQualityModal'); 
+        thatVue.$bvModal.hide('ShotHistoryModal');           
+        setTimeout(thatVue.$bvModal.show.bind(this, 'WOQualityModal'), 100);           
       },
 
       switchWOList: function() {
