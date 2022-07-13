@@ -191,7 +191,8 @@
           <b-form-group label="Quality"
                         :label-for="'qaQuality'">
             <b-form-select :id="'qaQuality'" :state="validQuality"
-                          :options="qualityLevels"                      
+                          :options="qualityLevels"       
+                          ref="qualitySelect"               
                           v-model="curShot.qaQuality" size="sm"></b-form-select>
           </b-form-group>           
         </b-col>
@@ -601,6 +602,7 @@
                             
         //thatVue.$bvModal.hide('ShotHistoryModal');           
         thatVue.$bvModal.show('WOQualityModal'); 
+        setTimer(thatVue.$refs.qualitySelect.refresh, 100);
       },
 
       switchWOList: function() {
