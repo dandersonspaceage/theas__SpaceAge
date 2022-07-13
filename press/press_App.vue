@@ -600,7 +600,8 @@
          thatVue.qualityLevels = [
           { value: 'A', text: 'A', key:thatVue.keyQuality },
           { value: 'B', text: 'B', key:thatVue.keyQuality },
-          { value: 'RW', text: 'RW', key:thatVue.keyQuality }
+          { value: 'RW', text: 'RW', key:thatVue.keyQuality },
+          { value: 'T', text: 'T', key:thatVue.keyQuality },
           ];    
         //thatVue.$refs.qualitySelect.refresh
       },
