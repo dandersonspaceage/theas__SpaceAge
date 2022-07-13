@@ -814,14 +814,15 @@
               }
 
 
-              //  Shots
+              // Shots
               if (1==1 && rd["Shots"]) {
                 thisObj = JSON.parse(rd["Shots"])[0];
                 thisData = thisObj["JSONData"];
                 thisFetchDate = thisObj["FetchDate"];
 
                 if (config.reFetch) {
-                  thatVue.data_Shots.length = 0; //clear out WO      
+                  //thatVue.data_Shots.length = 0; //clear out WO      
+                  thatVue.data_Shots = [];
                 }          
 
                 if (thisData) {
