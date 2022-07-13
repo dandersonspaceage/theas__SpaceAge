@@ -401,7 +401,7 @@
                   formatterParams: {formatStr: "MM/DD hh:mm dd"}
                 },
 
-                {title: 'OperatorName', field: 'OperatorName', responsive: 0, headerSort:true},                
+                {title: 'OperatorName', field: 'PressOperatorName', responsive: 0, headerSort:true},                
 
                 {title: 'Quality', field: 'Quality', responsive: 0, headerSort:false},
 
