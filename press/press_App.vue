@@ -168,22 +168,18 @@
   </b-modal>
 
 
-  <b-modal id="ShotHistoryModal" ref="ShotHistoryModal"  size="huge" @show="onShowShotHistory" @hide="onHideShotHistory($event)" hide-footer :static="true">
+  <b-modal id="ShotHistoryModal" ref="ShotHistoryModal"  size="huge" @show="onShowShotHistory" @hide="onHideShotHistory($event)" hide-footer>
     <template #modal-title>
       <h4>Shot History</h4>
     </template>
 
-  
-
     <div class="d-block">
-
       <Vue-Tabulator ref="tabuShotHistory" class="table-striped table-sm" v-model="data_Shots" :options="tabShotHistOpt" @row-click="onHistoryRowClick" />            
-
     </div>
 
   </b-modal>
 
-  <b-modal id="WOQualityModal" ref="WOQualityModal" :key="curShot.qguid" @show="onShowWOQuality" @hide="onHideWOQuality(curShot.qguid, $event)" hide-footer>
+  <b-modal id="WOQualityModal" ref="WOQualityModal" :key="curShot.qguid" @show="onShowWOQuality" @hide="onHideWOQuality(curShot.qguid, $event)" hide-footer :static="true" :lazy="true">
     <template #modal-title>
       <h4>WO [[ curShot.WONumber ]] Shot [[ curShot.ShotNumber ]]</h4>
     </template>
