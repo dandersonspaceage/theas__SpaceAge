@@ -603,8 +603,7 @@
         //  thatVue.data_Shots[thisIndex] = thatVue.curShot;
         //}
                             
-        //thatVue.$bvModal.hide('ShotHistoryModal');     
-        thatVue.$forceUpdate();        
+        //thatVue.$bvModal.hide('ShotHistoryModal');           
         thatVue.$bvModal.show('WOQualityModal'); 
       },
 
