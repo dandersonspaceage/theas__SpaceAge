@@ -596,6 +596,12 @@
         let thatVue = this;
 
         thatVue.keyQuality = thatVue.keyQuality + 1;
+
+         thatVue.qualityLevels = [
+          { value: 'A', text: 'A' },
+          { value: 'B', text: 'B' },
+          { value: 'RW', text: 'RW' }
+          ];    
         //thatVue.$refs.qualitySelect.refresh
       },
 
