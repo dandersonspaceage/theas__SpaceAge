@@ -193,7 +193,7 @@
             <b-form-select :id="'qaQuality'" :state="validQuality"
                           :options="qualityLevels"       
                           ref="qualitySelect"
-                          key="curShot"            
+                          key="keyQuality"            
                           v-model="curShot.qaQuality" size="sm"></b-form-select>
           </b-form-group>           
         </b-col>
@@ -464,6 +464,8 @@
 
         curShot: {},
         thisWO_CommitDate: null, // object for datepicker
+
+        keyQuality: 0,
       };
     },
 
@@ -591,10 +593,12 @@
       },      
 
       refreshShot: function() {
-        let noop;
+        let thatVue = this;
+
+        thatVue.keyQuality = thatVue.keyQuality + 1;
         //thatVue.$refs.qualitySelect.refresh
       },
-      
+
       onHistoryRowClick: function(e, row) {
         let thatVue = this;
 
