@@ -1029,9 +1029,9 @@
 
               thatVue.curShot = {};     
 
-              let tab = thatVue.$refs.tabuShotHistory.tabulatorInstance;
+              let tab = thatVue.$refs.tabuShotHistory;
               if (tab) {
-                tab.redraw(true);     
+                tab.tabulatorInstance.redraw(true);     
               }
 
             }
