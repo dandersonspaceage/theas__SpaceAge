@@ -157,7 +157,7 @@
     </b-row>
   </div>
 
-  <b-modal id="thModal" ref="thModal" @hide="onthModalHide" hide-footer>
+  <b-modal id="thModal" ref="thModal" @hide="onthModalHide">
     <template #modal-title>
       [[ theasLastError.msgTitle ]]
     </template>
@@ -168,7 +168,7 @@
   </b-modal>
 
 
-  <b-modal id="ShotHistoryModal" ref="ShotHistoryModal"  size="huge" @show="onShowShotHistory" @hide="onHideShotHistory($event)">
+  <b-modal id="ShotHistoryModal" ref="ShotHistoryModal"  size="huge" @show="onShowShotHistory" @hide="onHideShotHistory($event)" :static="true" :lazy="true">
     <template #modal-title>
       <h4>Shot History</h4>
     </template>
@@ -179,7 +179,7 @@
 
   </b-modal>
 
-  <b-modal id="WOQualityModal" key:curShot ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality(curShot.qguid, $event)">
+  <b-modal id="WOQualityModal" key:curShot ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality(curShot.qguid, $event)" :static="true" :lazy="true">
     <template #modal-title>
       <h4>WO [[ curShot.WONumber ]] Shot [[ curShot.ShotNumber ]]</h4>
     </template>
