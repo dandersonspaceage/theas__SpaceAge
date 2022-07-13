@@ -168,7 +168,7 @@
   </b-modal>
 
 
-  <b-modal id="ShotHistoryModal" ref="ShotHistoryModal"  size="huge" @show="onShowShotHistory" @hide="onHideShotHistory($event)" :hide-footer="true" :static="true" :lazy="true" >
+  <b-modal id="ShotHistoryModal" ref="ShotHistoryModal"  size="huge" @show="onShowShotHistory" @hide="onHideShotHistory($event)" hide-footer >
     <template #modal-title>
       <h4>Shot History</h4>
     </template>
@@ -179,7 +179,7 @@
 
   </b-modal>
 
-  <b-modal id="WOQualityModal" key:curShot ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality(curShot.qguid, $event)" :hide-footer="true" :static="true" :lazy="true">
+  <b-modal id="WOQualityModal" key:curShot ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality(curShot.qguid, $event)" hide-footer>
     <template #modal-title>
       <h4>WO [[ curShot.WONumber ]] Shot [[ curShot.ShotNumber ]]</h4>
     </template>
