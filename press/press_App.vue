@@ -602,7 +602,7 @@
       onHistoryRowClick: function(e, row) {
         let thatVue = this;
 
-        thatVue.curShot,thatVue.data_Shots.find((el) => el.qguid === row.getData().qguid);
+        thatVue.curShot = thatVue.data_Shots.find((el) => el.qguid === row.getData().qguid);
         
         //for testing only
         //let thisIndex = thatVue.data_Shots.findIndex((el) => el.qguid === thatVue.curShot.qguid)
