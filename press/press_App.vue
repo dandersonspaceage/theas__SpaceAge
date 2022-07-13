@@ -194,7 +194,13 @@
                           :options="qualityLevels"       
                           ref="qualitySelect"         
                           v-model="curShot.qaQuality" size="sm"></b-form-select>
-          </b-form-group>           
+          </b-form-group>      
+          
+          <select v-model="curShot.qaQuality">
+            <option>A</option>
+            <option>B</option>
+            <option>RW</option>                        
+          </select>
         </b-col>
       </b-row>
 
