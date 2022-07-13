@@ -605,6 +605,7 @@
                             
         //thatVue.$bvModal.hide('ShotHistoryModal');     
         thatVue.$bvModal.show('WOQualityModal'); 
+        thatVue.$forceUpdate();
       },
 
       switchWOList: function() {
