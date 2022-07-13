@@ -785,21 +785,18 @@
                   thatVue.curWOListCode = thatVue.data_WOs[0].PlannedPress;
                 }
 
-/*
-                if (thatVue && thatVue.data_WOs && thatVue.data_WOs.length > 0 && !thatVue.curWOqguid_Table1) {
-                    thatVue.curWOTable1 = thatVue.data_WOs[0]; //assign first work order
-                    thatVue.curWOTable1.TableNo = 'Table1';
-                    thatVue.curWOqguid_Table1 = thatVue.curWOTable1.qguid                    
-                    thatVue.saveSelectWO(thatVue.curWOTable1.qguid, thatVue.curWOTable1.TableNo);              
 
-                    if (thatVue.data_WOs.length > 1 && !thatVue.curWOqguid_Table2) {
-                      thatVue.curWOTable2= thatVue.data_WOs[1]; //assing second work order
-                      thatVue.curWOTable2.TableNo = 'Table2';
-                      thatVue.curWOqguid_Table2 = thatVue.curWOTable2.qguid;                                           
-                      thatVue.saveSelectWO(thatVue.curWOTable2.qguid, thatVue.curWOTable2.TableNo);                       
+                //apply server-side WO table assignments
+                if (thatVue && thatVue.data_WOs && thatVue.data_WOs.length > 0) {
+                    thatVue.curWOTable1 = thatVue.data_WOs.find((el) => el.ActiveTable1 === '1');
+                    thatVue.curWOqguid_Table1 = thatVue.curWOTable1.qguid                             
+
+                    if (thatVue.data_WOs.length > 1) {
+                      thatVue.curWOTable1 = thatVue.data_WOs.find((el) => el.ActiveTable1 === '2');
+                      thatVue.curWOqguid_Table2 = thatVue.curWOTable2.qguid;                                                              
                     }
                 }             
-*/                
+                
 
               }
 
