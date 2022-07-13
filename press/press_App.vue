@@ -179,7 +179,7 @@
 
   </b-modal>
 
-  <b-modal id="WOQualityModal" key:curShot ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality(curShot.qguid, $event)" :static="true">
+  <b-modal id="WOQualityModal" ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality(curShot.qguid, $event)" :static="true">
     <template #modal-title>
       <h4>WO [[ curShot.WONumber ]] Shot [[ curShot.ShotNumber ]]</h4>
     </template>
@@ -595,21 +595,13 @@
       refreshShot: function() {
         let thatVue = this;
 
-        thatVue.keyQuality = thatVue.keyQuality + 1;
-
-         thatVue.qualityLevels = [
-          { value: 'A', text: 'A', key:thatVue.keyQuality },
-          { value: 'B', text: 'B', key:thatVue.keyQuality },
-          { value: 'RW', text: 'RW', key:thatVue.keyQuality },
-          { value: 'T', text: 'T', key:thatVue.keyQuality },
-          ];    
         //thatVue.$refs.qualitySelect.refresh
       },
 
       onHistoryRowClick: function(e, row) {
         let thatVue = this;
 
-        thatVue.curShot = thatVue.data_Shots.find((el) => el.qguid === row.getData().qguid);
+        thatVue.$set(thatVue.curShot, thatVue.data_Shots.find((el) => el.qguid === row.getData().qguid));
         
         //for testing only
         //let thisIndex = thatVue.data_Shots.findIndex((el) => el.qguid === thatVue.curShot.qguid)
@@ -991,7 +983,8 @@
 
             let thisIndex = thatVue.data_Shots.findIndex((el) => el.qguid === thatVue.curShot.qguid);
             if (thisIndex >= 0) {
-              thatVue.data_Shots[thisIndex] = thatVue.curShot;
+              //thatVue.data_Shots[thisIndex] = thatVue.curShot;
+              thatVue.$set(thatVue.data_shots, thisIndex, thatVue.curShot);
             }
 
           }
@@ -1034,6 +1027,7 @@
 
                   for (const [key, value] of Object.entries(shotResp)) {
                     thatVue.curShot[key] = value;
+                    //thatVue.$set(thatVue.curShot[key], value);
                   }                                
 
                   let thisIndexWO = thatVue.data_WOs.findIndex((el) => el.qguid === shotResp.qguidWO);
@@ -1045,7 +1039,8 @@
 
               }
 
-              thatVue.curShot = {};     
+              //thatVue.curShot = {};
+              thatTheas.$set(thatTheas.curShot, {});     
 
               let tab = thatVue.$refs.tabuShotHistory;
               if (tab) {
