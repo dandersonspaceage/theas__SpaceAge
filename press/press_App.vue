@@ -558,6 +558,8 @@
         if (evt.trigger === 'ok') {          
           thatVue.saveShot();
         }          
+
+        thatVue.curShot = {};             
       },
 
       onthModalHide: function() {
@@ -1030,7 +1032,7 @@
 
               }
 
-              thatVue.$set(thatVue.curShot, {});     
+              thatVue.curShot = {};     
 
               let tab = thatVue.$refs.tabuShotHistory;
               if (tab) {
