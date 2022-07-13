@@ -185,7 +185,7 @@
 
   <b-modal id="WOQualityModal" ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality(curShot.qguid, $event)" hide-footer>
     <template #modal-title>
-      <h4>WO [[ curShot.WONumber ]] QA Measurements</h4>
+      <h4>WO [[ curShot.WONumber ]] Shot [[ curShot.ShotNumber ]]</h4>
     </template>
 
     <div class="d-block">
