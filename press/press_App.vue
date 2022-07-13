@@ -181,7 +181,7 @@
 
   <b-modal id="WOQualityModal" ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality(curShot.qguid, $event)" :static="true">
     <template #modal-title>
-      <h4>WO [[ curShot.WONumber ]] Shot [[ curShot.ShotNumber ]]</h4>
+      <h4>WO [[ curShot.WONumber ]] <span v-if="curShot.qguid">Shot# [[ curShot.ShotNumber ]] [[ formatDate(curShot.dateFinished, 'ddd MM/DD') ]]</span><span v-else>New Shot</span></h4>
     </template>
 
     <div class="d-block">
