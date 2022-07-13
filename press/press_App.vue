@@ -923,24 +923,29 @@
           else {
             let thisWO;
 
-            if (tableCode == 'Table1') {
-              thisWO = thatVue.curWOTable1
-            }
-            else if (tableCode == 'Table2') {
-              thisWO = thatVue.curWOTable2
-            }          
-
-            if (!thatVue.curWO.qguid) {
-              //TechnicalMessage|FriendlyMessage|ShowTech?|Title
-              thatVue.$th.raiseError('|No Work Order selected.  Cannot add a new shot.|1|No work order selected!');
-            }
-
             if (!thatVue.curShot.qguid) {
               //a new shot:  assign values
-              thatVue.curShot.qguidWO = thisWO.qguid;
-              thatVue.curShot.WONumber = thisWO.WONumber;
               thatVue.curShot.qguidPressOperator = thatVue.curWorkerQGUID;
               thatVue.curShot.PressOperatorName = thatVue.curWorkerName();
+
+              if (!thatVue.curShot.qguidWO) {
+                
+                if (tableCode == 'Table1') {
+                  thisWO = thatVue.curWOTable1
+                }
+                else if (tableCode == 'Table2') {
+                  thisWO = thatVue.curWOTable2
+                }          
+
+                if (!thatVue.curWO.qguid) {
+                  //TechnicalMessage|FriendlyMessage|ShowTech?|Title
+                  thatVue.$th.raiseError('|No Work Order selected.  Cannot add a new shot.|1|No work order selected!');
+                }
+                else {
+                  thatVue.curShot.qguidWO = thisWO.qguid;
+                  thatVue.curShot.WONumber = thisWO.WONumber;
+                }
+              }              
             }          
 
             thatVue.$bvModal.show('WOQualityModal');            
