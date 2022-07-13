@@ -183,12 +183,35 @@
 
   </b-modal>
 
-  <b-modal id="WOQualityModal" ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality(curShot.qguid, $event)" hide-footer>
+  <b-modal id="WOQualityModal" ref="WOQualityModal" :key="curShot.qguid" @show="onShowWOQuality" @hide="onHideWOQuality(curShot.qguid, $event)" hide-footer>
     <template #modal-title>
       <h4>WO [[ curShot.WONumber ]] Shot [[ curShot.ShotNumber ]]</h4>
     </template>
 
     <div class="d-block">
+
+      <b-row>      
+        <b-col>   
+          <b-form-group label="Quality"
+                        :label-for="'qaQuality'">
+            <b-form-select :id="'qaQuality'" :state="validQuality"
+                          :options="qualityLevels"                      
+                          v-model="curShot.qaQuality" size="sm"></b-form-select>
+          </b-form-group>           
+        </b-col>
+      </b-row>
+
+      <b-row>      
+        <b-col>   
+          <b-form-group label="Notes"
+                        :label-for="'qaNotes'">
+            <b-form-textarea :id="'qaNotes'" debounce="300"
+                            v-model="curShot.qaNotes" rows="3" max-rows="3">   
+            </b-form-textarea>                                                   
+          </b-form-group>           
+        </b-col>
+      </b-row>  
+
       
       <b-row>      
         <b-col>          
@@ -245,29 +268,7 @@
                           v-model="curShot.qaActualSetTime" size="sm"></b-form-input>
           </b-form-group>              
         </b-col>
-      </b-row>
-
-      <b-row>      
-        <b-col>   
-          <b-form-group label="Quality"
-                        :label-for="'qaQuality'">
-            <b-form-select :id="'qaQuality'" :state="validQuality"
-                          :options="qualityLevels"                      
-                          v-model="curShot.qaQuality" size="sm"></b-form-select>
-          </b-form-group>           
-        </b-col>
-      </b-row>
-
-      <b-row>      
-        <b-col>   
-          <b-form-group label="Notes"
-                        :label-for="'qaNotes'">
-            <b-form-textarea :id="'qaNotes'" debounce="300"
-                            v-model="curShot.qaNotes" rows="3" max-rows="3">   
-            </b-form-textarea>                                                   
-          </b-form-group>           
-        </b-col>
-      </b-row>      
+      </b-row>   
 
       <b-row>
         <b-col>
