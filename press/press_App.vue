@@ -599,16 +599,10 @@
         }
       },      
 
-      refreshShot: function() {
-        let thatVue = this;
-        thatVue.curShot.qaQuality = 'RW';
-        //thatVue.$refs.qualitySelect.refresh
-      },
-
       onHistoryRowClick: function(e, row) {
         let thatVue = this;
 
-        thatVue.curShot = thatVue.data_Shots.find((el) => el.qguid === row.getData().qguid);
+        thatVue.$set(thatVue.curShot,thatVue.data_Shots.find((el) => el.qguid === row.getData().qguid));
         
         //for testing only
         //let thisIndex = thatVue.data_Shots.findIndex((el) => el.qguid === thatVue.curShot.qguid)
@@ -618,9 +612,6 @@
                             
         //thatVue.$bvModal.hide('ShotHistoryModal');           
         thatVue.$bvModal.show('WOQualityModal'); 
-        
-        //setTimeout(thatVue.refreshShot, 100);
-
       },
 
       switchWOList: function() {
