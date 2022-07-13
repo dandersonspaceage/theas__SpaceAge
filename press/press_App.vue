@@ -83,7 +83,7 @@
 
             <b-col>     
               <h5 style="font-size:calc(0.6em + 1.4vmin)">WO [[ (curWOTable1) ? curWOTable1.WONumber : 'none']]</h5>
-              <h6 style="font-size:calc(0.6em + 1vmin)">#[[ (curWOTable1) ? Number(curWOTable1.CurrentShotCount) + 1 : '0']] of [[ (curWOTable1 ? curWOTable1.Quantity : '0']]</h6>
+              <h6 style="font-size:calc(0.6em + 1vmin)">#[[ (curWOTable1) ? Number(curWOTable1.CurrentShotCount) + 1 : '0']] of [[ (curWOTable1) ? curWOTable1.Quantity : '0']]</h6>
             </b-col>      
           </b-row>      
 
@@ -122,7 +122,7 @@
 
             <b-col>     
               <h5 style="font-size:calc(0.6em + 1.4vmin)">WO [[ (curWOTable2) ? curWOTable2.WONumber : 'none']]</h5>
-              <h6 style="font-size:calc(0.6em + 1vmin)">#[[ (curWOTable2) ? Number(curWOTable2.CurrentShotCount) + 1 : '0']] of [[ (curWOTable2 ? curWOTable2.Quantity : '0']]</h6>              
+              <h6 style="font-size:calc(0.6em + 1vmin)">#[[ (curWOTable2) ? Number(curWOTable2.CurrentShotCount) + 1 : '0']] of [[ (curWOTable2) ? curWOTable2.Quantity : '0']]</h6>              
             </b-col>      
           </b-row>      
 
