@@ -561,7 +561,8 @@
           thatVue.saveShot();
         }          
 
-        thatVue.curShot = {};             
+        //don't clear shot here:  saveShot will clear it on receipt of a response
+        //thatVue.curShot = {};             
       },
 
       onthModalHide: function() {
