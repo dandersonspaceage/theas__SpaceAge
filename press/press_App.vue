@@ -199,9 +199,9 @@
           -->
           
           <select v-model="curShot.qaQuality">
-            <option :value="A">A</option>
-            <option :value="B">B</option>
-            <option :value="RW">RW</option>                        
+            <option :value="'A'">A</option>
+            <option :value="'B'">B</option>
+            <option :value="'RW'">RW</option>                        
           </select>
         </b-col>
       </b-row>
