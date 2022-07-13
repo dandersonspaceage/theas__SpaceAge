@@ -179,7 +179,7 @@
 
   </b-modal>
 
-  <b-modal id="WOQualityModal" key:curShot ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality(curShot.qguid, $event)">
+  <b-modal id="WOQualityModal" key:curShot ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality(curShot.qguid, $event)" :static="true">
     <template #modal-title>
       <h4>WO [[ curShot.WONumber ]] Shot [[ curShot.ShotNumber ]]</h4>
     </template>
@@ -602,7 +602,8 @@
                             
         //thatVue.$bvModal.hide('ShotHistoryModal');           
         thatVue.$bvModal.show('WOQualityModal'); 
-        setTimer(thatVue.$refs.qualitySelect.refresh, 100);
+        
+        setTimeout(thatVue.$refs.qualitySelect.refresh, 100);
       },
 
       switchWOList: function() {
