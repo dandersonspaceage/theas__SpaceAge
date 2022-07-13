@@ -600,7 +600,7 @@
         //}
                             
         //thatVue.$bvModal.hide('ShotHistoryModal');           
-        thatVue.$bvModal.show.('WOQualityModal'); 
+        thatVue.$bvModal.show('WOQualityModal'); 
       },
 
       switchWOList: function() {
