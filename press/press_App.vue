@@ -188,17 +188,17 @@
 
       <b-row>      
         <b-col>   
-          <!--
+          
           <b-form-group label="Quality"
                         :label-for="'qaQuality'">
             <b-form-select :id="'qaQuality'" :state="validQuality"
                           :options="qualityLevels"       
                           ref="qualitySelect"         
-                          v-model="curShot.qaQuality" size="sm"></b-form-select>
+                          v-model="curShot.Quality" size="sm"></b-form-select>
           </b-form-group>      
-          -->
-          <input v-model="curShot.qaQuality" />
-          <select v-model="curShot.qaQuality">
+          
+          <input v-model="curShot.Quality" />
+          <select v-model="curShot.Quality">
             <option :value="'A'">A</option>
             <option :value="'B'">B</option>
             <option :value="'RW'">RW</option>                        
@@ -534,7 +534,7 @@
         return this.isNumPress(this.curShot.qaActualSetTime, 3600);
       },                        
       validQuality : function() {
-        return ((['A', 'B', 'RW'].includes(this.curShot.qaQuality)));
+        return ((['A', 'B', 'RW'].includes(this.curShot.Quality)));
       }
 
     },
