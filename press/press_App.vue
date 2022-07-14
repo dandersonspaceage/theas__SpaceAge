@@ -80,7 +80,6 @@
             </b-row>
             <b-row>
               <b-col>
-                <h6>Last Set Time: [[ curWOTable2.LastSetTime ]]</h6> 
               </b-col>
             </b-row>
           </b-col>
@@ -133,7 +132,6 @@
             </b-row>
             <b-row>
               <b-col>
-                <h6>Last Set Time: [[ curWOTable1.LastSetTime ]]</h6> 
               </b-col>
             </b-row>
           </b-col>
