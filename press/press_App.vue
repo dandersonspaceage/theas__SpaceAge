@@ -52,15 +52,11 @@
     </b-col>
 
     <b-col cols="1">
+      <b-button class="mb-1" variant="outline-primary" @click="showHistory">Shot History</b-button>
     </b-col>
   
   </b-row>  
 
-  <b-row>
-    <b-col cols="2" offset="10">
-        <b-button class="mb-1" variant="outline-primary" @click="showHistory">Shot History</b-button>  
-    </b-col>
-  </b-row>  
 
   <div class="ml-3" style="height:65%" :style="{cursor: curCursor}">
 
