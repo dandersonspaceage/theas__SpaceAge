@@ -302,12 +302,12 @@
                 {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
                 //{title: '', field:"StatusColor", formatter:"color"},
 
-                {title: '', field:"ActiveTable1", hozAlign:"center",
+                {title: '', field:"ActiveTable2", hozAlign:"center",
                   formatter: function(cell, formatterParams, onRendered){
                     let thisVal = cell.getValue();
                     let thisColor = '#FFFFFF'
 
-                    if (thisVal == '1') {
+                    if (thisVal == '2') {
                       // primary
                       thisColor = "#007bff";
                     }                           
@@ -320,12 +320,12 @@
                   formatterParams: {formatStr: "dd MM/DD"}
                 },                            
 
-                {title: '', field:"ActiveTable2", hozAlign:"center",
+                {title: '', field:"ActiveTable1", hozAlign:"center",
                   formatter: function(cell, formatterParams, onRendered){
                     let thisVal = cell.getValue();
                     let thisColor = '#FFFFFF'
                         
-                    if (thisVal == '2') {
+                    if (thisVal == '1') {
                       // warning
                       thisColor = "#ffc107";
                     }
