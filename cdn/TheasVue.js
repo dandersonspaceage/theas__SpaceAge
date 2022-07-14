@@ -324,6 +324,7 @@ Theas.prototype.sendAsync = function (config) {
 
    let requestID = thatTheas.uuidv4();
    let CancelToken = axios.CancelToken;
+   let thisEcho = config.echo; //config.echo can be used to echo an object on response
 
 
    let axiosConfig = {
@@ -360,6 +361,7 @@ Theas.prototype.sendAsync = function (config) {
    */
    ax.interceptors.request.use(function (config) {
        config.requestID = requestID;
+       config.echo = thisEcho;
 
        config.cancelToken = new CancelToken(function executor(c) {
          // An executor function receives a cancel function as a parameter
@@ -415,19 +417,19 @@ Theas.prototype.sendAsync = function (config) {
                }
 */               
 
-           }
+            }
 
-           thatTheas.updateAllTheasParams(rd);
+            thatTheas.updateAllTheasParams(rd);
 
-           if (config.onResponse) {
-               config.onResponse(rd, response, config);
-           }
+            if (response.config.onResponse) {
+              response.config.onResponse(rd, response);
+            }
 
 
            // Optionally, can navigate.
 
-           if (config.onSuccessURL) {
-               window.location = config.onSuccessURL;
+           if (response.config.onSuccessURL) {
+               window.location = response.config.onSuccessURL;
            }
 
            /*
