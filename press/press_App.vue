@@ -1,6 +1,6 @@
 <template>
 
-<div style="height:100vh" class="mr-3">
+div style="height:100vh" class="mr-3">
 
   <b-row style="height: 15%">
 
@@ -284,7 +284,7 @@
     </div>
   </b-modal>  
 
-</div>
+/div>
 </template>
 
 <script>
