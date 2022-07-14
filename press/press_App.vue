@@ -2,7 +2,7 @@
 
 <div style="height:100vh" class="mr-3">
 
-  <b-row style="height: 125px">
+  <b-row style="height: 15vh">
 
     <b-col cols="3">
       <img src="/resources/SpaceAgeLogo.png">
@@ -64,7 +64,7 @@
     </b-col>
   </b-row>
 
-  <b-row style="height: 150px" class="bottom">
+  <b-row style="height: 20vh" class="bottom">
 
       <b-col xs="*">
 
