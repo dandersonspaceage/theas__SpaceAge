@@ -1142,7 +1142,6 @@
 
   .bottom {
     position: fixed;
-    width: 100%;
     bottom: 0;
     padding-left: 10px;
     padding-right: 10px;
