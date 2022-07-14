@@ -1,7 +1,5 @@
 <template>
-
-<b-container>
-
+<div style="height:100vh" class="mr-3">
 
   <b-row style="height: 15%">
 
@@ -63,20 +61,20 @@
     </b-col>
   </b-row>  
 
-  <b-row>
-    <div class="ml-3" style="height:65%" :style="{cursor: curCursor}">    
+  <div class="ml-3" style="height:65%" :style="{cursor: curCursor}">
+
+    <b-row>
       <b-col>
           <Vue-Tabulator ref="tabulator" class="table-striped table-sm" v-model="data_WOs" :options="tab1Options" />
       </b-col>
-    </div>      
-  </b-row>
+    </b-row>
 
+  </div>
 
-  <div class="xbottom">
+  <div class="bottom">
     <b-row>
 
-        <!--Table 2-->
-        <b-col xs="6">
+        <b-col cols="6">
 
           <b-row>
             <b-col>
@@ -123,8 +121,7 @@
        
         </b-col>
 
-        <!--Table 1-->
-        <b-col xs="6">
+        <b-col cols="6">
 
           <b-row>
             <b-col>
@@ -289,8 +286,7 @@
     </div>
   </b-modal>  
 
-</b-container>
-
+</div>
 </template>
 
 <script>
