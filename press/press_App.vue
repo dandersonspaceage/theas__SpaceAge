@@ -72,7 +72,7 @@
   </b-row>
 
 
-  <div class="bottom">
+  <div class="xbottom">
     <b-row>
 
         <!--Table 2-->
