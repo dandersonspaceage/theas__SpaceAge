@@ -80,7 +80,7 @@
             </b-row>
             <b-row>
               <b-col>
-                <!--<h6 v-if="curWOTable2.LastSetTime">Last Set Time: [[ curWOTable2.LastSetTime ]]</h6>--> 
+                <h6>Last Set Time: [[ curWOTable2.LastSetTime ]]</h6> 
               </b-col>
             </b-row>
           </b-col>
@@ -120,9 +120,22 @@
 
       <b-col xs="*">
 
+
         <b-row>
           <b-col>
-            <h4 style="font-size:calc(1em + 1vmin)">Table 1</h4>
+            <b-row>
+              <b-col cols="4">
+                <h4 style="font-size:calc(1em + 1vmin)">Table 1</h4>
+              </b-col>
+              <b-col cols="8">
+                <!--<h5>[[ formatDate(curWOTable2.LastShotFinished, 'ddd hh:mm:ss') ]] Last Shot</h5>-->
+              </b-col>
+            </b-row>
+            <b-row>
+              <b-col>
+                <h6>Last Set Time: [[ curWOTable1.LastSetTime ]]</h6> 
+              </b-col>
+            </b-row>
           </b-col>
 
           <b-col>     
