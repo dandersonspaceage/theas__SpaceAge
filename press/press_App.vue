@@ -75,7 +75,7 @@ F
                 <h4 style="font-size:calc(1em + 1vmin)">Table 2</h4>
               </b-col>
               <b-col cols="8">
-                <h5 v-if="formatDate(curWOTable2.LastShotFinished)">[[ formatDate(curWOTable2.LastShotFinished, 'ddd HH:mm:ss') ]] Last Shot</h5>
+                <!----><h5 v-if="formatDate(curWOTable2.LastShotFinished)">[[ formatDate(curWOTable2.LastShotFinished, 'ddd HH:mm:ss') ]] Last Shot</h5> -->
               </b-col>
             </b-row>
             <b-row>
