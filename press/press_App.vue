@@ -80,7 +80,7 @@ F
             </b-row>
             <b-row>
               <b-col>
-                <h6 v-if="curWOTable2.LastSetTime">Last Set Time: [[ curWOTable2.LastSetTime ]]</h6>  
+                <!--<h6 v-if="curWOTable2.LastSetTime">Last Set Time: [[ curWOTable2.LastSetTime ]]</h6> -->
               </b-col>
             </b-row>
           </b-col>
