@@ -299,10 +299,10 @@
               resizableColumns: true,
 
               columns: [
-                {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
+                {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false,                   
                 //{title: '', field:"StatusColor", formatter:"color"},
 
-                {title: '', field:"ActiveTable2", hozAlign:"center",
+                {title: '', field:"ActiveTable2", hozAlign:"center", headerSort:false,
                   formatter: function(cell, formatterParams, onRendered){
                     let thisVal = cell.getValue();
                     let thisColor = '#FFFFFF'
@@ -320,7 +320,7 @@
                   formatterParams: {formatStr: "dd MM/DD"}
                 },                            
 
-                {title: '', field:"ActiveTable1", hozAlign:"center",
+                {title: '', field:"ActiveTable1", hozAlign:"center", headerSort:false,
                   formatter: function(cell, formatterParams, onRendered){
                     let thisVal = cell.getValue();
                     let thisColor = '#FFFFFF'
@@ -338,39 +338,39 @@
                   formatterParams: {formatStr: "dd MM/DD"}
                 },     
 
-                {title: 'WO', field: 'WONumber', responsive: 0},        
-                {title: 'Qty Remain', field: 'QtyRemaining', responsive: 0},
-                {title: 'Qty Needed', field: 'Quantity', responsive: 3},                
-                {title: 'Qty Shot', field: 'CurrentShotCount', responsive: 4},
+                {title: 'WO', field: 'WONumber', responsive: 0, headerSort:false},        
+                {title: 'Qty Remain', field: 'QtyRemaining', responsive: 0, headerSort:false},
+                {title: 'Qty Needed', field: 'Quantity', responsive: 3, headerSort:false},                
+                {title: 'Qty Shot', field: 'CurrentShotCount', responsive: 4, headerSort:false},
 
-                {title: 'Off Press Date', field: 'DateReqOffPress', 
+                {title: 'Off Press Date', field: 'DateReqOffPress', headerSort:false,
                   formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);},
                   formatterParams: {formatStr: "dd MM/DD"}
                 },
 
-                {title: 'Hours Remain', field: 'PressHoursRemain'},
+                {title: 'Hours Remain', field: 'PressHoursRemain', headerSort:false},
 
-                {title: 'Thick', field: 'DimThickness_Finished'},
-                {title: 'Thick OP', field: 'DimThickness_OffPress'},
-                {title: 'Width OP', field: 'DimWidth_OffPress'},
-                {title: 'Length OP', field: 'DimLength_OffPress'},
+                {title: 'Thick', field: 'DimThickness_Finished', headerSort:false},
+                {title: 'Thick OP', field: 'DimThickness_OffPress', headerSort:false},
+                {title: 'Width OP', field: 'DimWidth_OffPress', headerSort:false},
+                {title: 'Length OP', field: 'DimLength_OffPress', headerSort:false},
 
-                {title: 'Glass', field: 'GlassSpecs', width: '5em', formatter: 'textarea'},  
-                {title: 'Shim Layup', field: 'ShimLayup', width: '7em', formatter: 'textarea'},
+                {title: 'Glass', field: 'GlassSpecs', width: '5em', formatter: 'textarea', headerSort:false},  
+                {title: 'Shim Layup', field: 'ShimLayup', width: '7em', formatter: 'textarea', headerSort:false},
                 {title: 'Glass Layers', field: 'MoldGlassLayers', responsive: 2},        
 
-                {title: 'Foam', field: 'FoamSystem', responsive: 2},
-                {title: 'Foam Grams', field: 'Weight_Foam'},
-                {title: 'Set Time', field: 'SetTimeSeconds'},   
+                {title: 'Foam', field: 'FoamSystem', responsive: 2, headerSort:false},
+                {title: 'Foam Grams', field: 'Weight_Foam', headerSort:false},
+                {title: 'Set Time', field: 'SetTimeSeconds', headerSort:false},   
                 
-                {title: 'Weight OP', field: 'Weight_OffPress'},                
-                {title: 'Weight Sanded', field: 'Weight_Sanded'},                
+                {title: 'Weight OP', field: 'Weight_OffPress', headerSort:false},                
+                {title: 'Weight Sanded', field: 'Weight_Sanded', headerSort:false},                
 
-                {title: 'Item', field: 'ItemNumber', responsive: 3, minWidth: 150},
-                {title: 'Customer', field: 'CustomerName', responsive: 3, minWidth: 175},
-                {title: 'SO', field: 'LinkedSONumber', responsive: 3},                
+                {title: 'Item', field: 'ItemNumber', responsive: 3, minWidth: 150, headerSort:false},
+                {title: 'Customer', field: 'CustomerName', responsive: 3, minWidth: 175, headerSort:false},
+                {title: 'SO', field: 'LinkedSONumber', responsive: 3, headerSort:false},                
 
-                {title: 'Commit Date', field: 'CommitDate', responsive: 3,
+                {title: 'Commit Date', field: 'CommitDate', responsive: 3, headerSort:false,
                   formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);},
                   formatterParams: {formatStr: "MM/DD"}
                 },   
@@ -378,7 +378,7 @@
                 //{title: 'Finish', field: 'SurfaceFinish', responsive: 4, minWidth: 150},
 
 
-                {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175}
+                {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175, headerSort:false}
                                                                  
               ],
             },
