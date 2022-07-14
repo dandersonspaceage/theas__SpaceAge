@@ -80,7 +80,6 @@
             </b-row>
             <b-row>
               <b-col>
-                <h6>Last Set Time: [[ curWOTable2.LastSetTime ]]</h6> 
               </b-col>
             </b-row>
           </b-col>
@@ -133,7 +132,6 @@
             </b-row>
             <b-row>
               <b-col>
-                <h6>Last Set Time: [[ curWOTable1.LastSetTime ]]</h6> 
               </b-col>
             </b-row>
           </b-col>
@@ -1059,8 +1057,7 @@
 
                   let thisIndexWO = thatVue.data_WOs.findIndex((el) => el.qguid === shotResp.qguidWO);
                   if (thisIndexWO >= 0) {
-                    thatVue.data_WOs[thisIndexWO].CurrentShotCount = shotResp.CurrentShotCount;
-                    thatVue.data_WOs[thisIndexWO].LastSetTime = shotResp.LastSetTime;       
+                    thatVue.data_WOs[thisIndexWO].CurrentShotCount = shotResp.CurrentShotCount;    
                     thatVue.data_WOs[thisIndexWO].LastShotFinished = shotResp.LastShotFinished;    
                   }
 
