@@ -204,7 +204,7 @@
           <b-form-group label="Notes"
                         :label-for="'qaNotes'">
             <b-form-textarea :id="'qaNotes'" debounce="300"
-                            v-model="curShot.qaNotes" rows="3" max-rows="3">   
+                            v-model="curShot.Notes" rows="3" max-rows="3">   
             </b-form-textarea>                                                   
           </b-form-group>           
         </b-col>
