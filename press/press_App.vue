@@ -75,7 +75,7 @@
   <div class="bottom">
     <b-row>
 
-        <b-col cols="6">
+        <b-col xs="*">
 
           <b-row>
             <b-col>
@@ -122,7 +122,7 @@
        
         </b-col>
 
-        <b-col cols="6">
+        <b-col xs="*">
 
           <b-row>
             <b-col>
