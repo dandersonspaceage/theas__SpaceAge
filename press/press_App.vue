@@ -1,7 +1,7 @@
 <template>
 
 <b-container fluid="xl">
-<div style="height:100vh" class="mr-3">
+
 
   <b-row style="height: 15%">
 
@@ -290,7 +290,6 @@
     </div>
   </b-modal>  
 
-</div>
 </b-container>
 
 </template>
