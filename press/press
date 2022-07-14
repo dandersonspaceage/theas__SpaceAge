@@ -112,10 +112,10 @@
     </form>
 
     <main class="fullheight">
-        <div style="height: 100%">
+        div style="height: 100%">
           <!--The div with id="thapp" wiil be replaced by Vue-rendered content-->
           <div id="thapp">Please wait while this page is being loaded.  <a href="javascript:window.location.reload(true)">Click here to reload if the page does not load properly.</a></div>
-        </div>
+        /div>
     </main>
   
 </body>
