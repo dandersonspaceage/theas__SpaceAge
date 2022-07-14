@@ -58,13 +58,13 @@
   
   </b-row>  
 
-  <b-row style="height: 65%" :style="{cursor: curCursor}">
+  <b-row :style="{cursor: curCursor}">
     <b-col>
         <Vue-Tabulator ref="tabulator" class="table-striped table-sm" v-model="data_WOs" :options="tab1Options" />
     </b-col>
   </b-row>
 
-  <b-row style="height: 20vh" class="bottom">
+  <b-row style="height: 150px" class="bottom">
 
       <b-col xs="*">
 
