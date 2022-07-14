@@ -78,12 +78,12 @@
 
           <b-row>
             <b-col>
-              <h4 style="font-size:calc(1em + 1vmin)">Table 1</h4>
+              <h4 style="font-size:calc(1em + 1vmin)">Table 2</h4>
             </b-col>
 
             <b-col>     
-              <h5 style="font-size:calc(0.6em + 1.4vmin)">WO [[ (curWOTable1) ? curWOTable1.WONumber : 'none']]</h5>
-              <h6 style="font-size:calc(0.6em + 1vmin)">#[[ (curWOTable1) ? Number(curWOTable1.CurrentShotCount) + 1 : '0']] of [[ (curWOTable1) ? curWOTable1.Quantity : '0']]</h6>
+              <h5 style="font-size:calc(0.6em + 1.4vmin)">WO [[ (curWOTable2) ? curWOTable2.WONumber : 'none']]</h5>
+              <h6 style="font-size:calc(0.6em + 1vmin)">#[[ (curWOTable2) ? Number(curWOTable2.CurrentShotCount) + 1 : '0']] of [[ (curWOTable2) ? curWOTable2.Quantity : '0']]</h6>
             </b-col>      
           </b-row>      
 
@@ -91,11 +91,11 @@
             <b-col cols="6">     
               <div style="max-width: 150px">          
               <b-form-group label="Active WO"
-                            :label-for="'woTable1'">
-                <b-form-select :id="'woTable1'"
+                            :label-for="'woTable2'">
+                <b-form-select :id="'woTable2'"
                               :options="data_WOs"
-                              v-model="curWOqguid_Table1"
-                              @change="changeActiveWO('Table1', curWOqguid_Table1)"
+                              v-model="curWOqguid_Table2"
+                              @change="changeActiveWO('Table2', curWOqguid_Table2)"
                 >
                 </b-form-select>
               </b-form-group>
@@ -106,7 +106,7 @@
               <div style="height:32px">
               </div>
 
-              <b-button @click="completeShot('Table1')" variant="primary">Shot</b-button>
+              <b-button @click="completeShot('Table2')" variant="primary">Shot</b-button>
             </b-col>            
 
           </b-row>
@@ -117,12 +117,12 @@
 
           <b-row>
             <b-col>
-              <h4 style="font-size:calc(1em + 1vmin)">Table 2</h4>
+              <h4 style="font-size:calc(1em + 1vmin)">Table 1</h4>
             </b-col>
 
             <b-col>     
-              <h5 style="font-size:calc(0.6em + 1.4vmin)">WO [[ (curWOTable2) ? curWOTable2.WONumber : 'none']]</h5>
-              <h6 style="font-size:calc(0.6em + 1vmin)">#[[ (curWOTable2) ? Number(curWOTable2.CurrentShotCount) + 1 : '0']] of [[ (curWOTable2) ? curWOTable2.Quantity : '0']]</h6>              
+              <h5 style="font-size:calc(0.6em + 1.4vmin)">WO [[ (curWOTable1) ? curWOTable1.WONumber : 'none']]</h5>
+              <h6 style="font-size:calc(0.6em + 1vmin)">#[[ (curWOTable1) ? Number(curWOTable1.CurrentShotCount) + 1 : '0']] of [[ (curWOTable1) ? curWOTable1.Quantity : '0']]</h6>              
             </b-col>      
           </b-row>      
 
@@ -130,12 +130,12 @@
             <b-col cols="6">
               <div style="max-width: 150px">                                
                 <b-form-group label="Active WO"
-                            :label-for="'woTable2'">
+                            :label-for="'woTable1'">
 
-                <b-form-select :id="'woTable2'"
+                <b-form-select :id="'woTable1'"
                               :options="data_WOs"
-                              v-model="curWOqguid_Table2"
-                              @change="changeActiveWO('Table2', curWOqguid_Table2)"
+                              v-model="curWOqguid_Table1"
+                              @change="changeActiveWO('Table1', curWOqguid_Table1)"
                               >
                 </b-form-select>                              
               </b-form-group>
@@ -146,7 +146,7 @@
               <div style="height:32px">
               </div>
 
-              <b-button @click="completeShot('Table2')" variant="warning">Shot</b-button>
+              <b-button @click="completeShot('Table1')" variant="warning">Shot</b-button>
             </b-col>            
 
           </b-row>
