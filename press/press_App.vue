@@ -63,7 +63,7 @@
         <Vue-Tabulator ref="tabulator" class="table-striped table-sm" v-model="data_WOs" :options="tab1Options" />
     </b-col>
   </b-row>
-F
+
   <b-row style="height: 150px" class="bottom">
 
       <b-col xs="*">
