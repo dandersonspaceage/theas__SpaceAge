@@ -74,6 +74,7 @@
   <div class="bottom">
     <b-row>
 
+        <!--Table 2-->
         <b-col cols="6" sm="6">
 
           <b-row>
@@ -121,7 +122,8 @@
        
         </b-col>
 
-        <b-col cols="6">
+        <!--Table 1-->
+        <b-col cols="6" sm="6">
 
           <b-row>
             <b-col>
