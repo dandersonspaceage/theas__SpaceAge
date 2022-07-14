@@ -1,6 +1,6 @@
 <template>
 
-<b-container fluid="xl"></b-container>
+<b-container fluid="xl">
 <div style="height:100vh" class="mr-3">
 
   <b-row style="height: 15%">
