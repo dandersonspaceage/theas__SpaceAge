@@ -63,7 +63,7 @@
         <Vue-Tabulator ref="tabulator" class="table-striped table-sm" v-model="data_WOs" :options="tab1Options" />
     </b-col>
   </b-row>
-
+F
   <b-row style="height: 150px" class="bottom">
 
       <b-col xs="*">
@@ -75,7 +75,7 @@
                 <h4 style="font-size:calc(1em + 1vmin)">Table 2</h4>
               </b-col>
               <b-col cols="8">
-                <h5>00:22:00 elapsed</h5>
+                <h5>[[ curWOTable2.LastShotFinished ]] Elapsed</h5>
               </b-col>
             </b-row>
             <b-row>
@@ -1047,7 +1047,8 @@
                   let thisIndexWO = thatVue.data_WOs.findIndex((el) => el.qguid === shotResp.qguidWO);
                   if (thisIndexWO >= 0) {
                     thatVue.data_WOs[thisIndexWO].CurrentShotCount = shotResp.CurrentShotCount;
-                    thatVue.data_WOs[thisIndexWO].LastSetTime = shotResp.LastSetTime;          
+                    thatVue.data_WOs[thisIndexWO].LastSetTime = shotResp.LastSetTime;       
+                    thatVue.data_WOs[thisIndexWO].LastShotFinished = shotResp.LastShotFinished;    
                   }
 
                 }     
