@@ -357,7 +357,7 @@
 
                 {title: 'Glass', field: 'GlassSpecs', width: '5em', formatter: 'textarea', headerSort:false},  
                 {title: 'Shim Layup', field: 'ShimLayup', width: '7em', formatter: 'textarea', headerSort:false},
-                {title: 'Glass Layers', field: 'MoldGlassLayers', responsive: 2},        
+                {title: 'Glass Layers', field: 'MoldGlassLayers', responsive: 2, headerSort:false},        
 
                 {title: 'Foam', field: 'FoamSystem', responsive: 2, headerSort:false},
                 {title: 'Foam Grams', field: 'Weight_Foam', headerSort:false},
