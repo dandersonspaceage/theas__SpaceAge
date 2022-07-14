@@ -48,11 +48,12 @@
 
     <b-col cols="1">
       <br />
-      <b-button @click="fetchData()">Reload</b-button>
-    </b-col>
-
-    <b-col cols="1">
       <b-button class="mb-1" variant="outline-primary" @click="showHistory">Shot History</b-button>
+    </b-col>
+    
+    <b-col cols="1">
+      <br />
+      <b-button @click="fetchData()">Reload</b-button>
     </b-col>
   
   </b-row>  
