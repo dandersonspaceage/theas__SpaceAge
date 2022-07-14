@@ -1,6 +1,6 @@
 <template>
 
-<div style="height:100vh">
+<div style="height:100vh" class="mr-2">
 
   <b-row style="height: 15%">
 
@@ -58,7 +58,7 @@
   
   </b-row>  
 
-  <b-row style="height:65%" :style="{cursor: curCursor}">
+  <b-row class="ml-2" style="height:65%" :style="{cursor: curCursor}">
     <b-col>
         <Vue-Tabulator ref="tabulator" class="table-striped table-sm" v-model="data_WOs" :options="tab1Options" />
     </b-col>
