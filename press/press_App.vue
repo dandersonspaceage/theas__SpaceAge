@@ -63,7 +63,7 @@
     </b-col>
   </b-row>  
 
-  <div class="ml-3" style="height:65%" :style="{cursor: curCursor}">
+  div class="ml-3" style="height:65%" :style="{cursor: curCursor}">
 
     <b-row>
       <b-col>
@@ -71,7 +71,7 @@
       </b-col>
     </b-row>
 
-  </div>
+  /div>
 
   <div class="bottom">
     <b-row>
