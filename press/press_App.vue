@@ -79,11 +79,11 @@
           <b-row>
             <b-col>
               <b-row>
-                <b-col>
+                <b-col cols="4">
                   <h4 style="font-size:calc(1em + 1vmin)">Table 2</h4>
                 </b-col>
-                <b-col>
-                  <h5>00:22:00 since last shot</h5>
+                <b-col cols="8">
+                  <h5>00:22:00 elapsed</h5>
                 </b-col>
               </b-row>
             </b-col>
