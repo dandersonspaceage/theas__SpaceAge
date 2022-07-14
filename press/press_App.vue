@@ -63,15 +63,14 @@
     </b-col>
   </b-row>  
 
-  div class="ml-3" style="height:65%" :style="{cursor: curCursor}">
-
-    <b-row>
+  <b-row>
+    <div class="ml-3" style="height:65%" :style="{cursor: curCursor}">    
       <b-col>
           <Vue-Tabulator ref="tabulator" class="table-striped table-sm" v-model="data_WOs" :options="tab1Options" />
       </b-col>
-    </b-row>
+    </div>      
+  </b-row>
 
-  /div>
 
   <div class="bottom">
     <b-row>
