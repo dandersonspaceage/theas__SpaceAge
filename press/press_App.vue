@@ -2,7 +2,7 @@
 
 <div style="height:100vh" class="mr-3">
 
-  <b-row style="height: 15%">
+  <b-row style="height: 125px">
 
     <b-col cols="3">
       <img src="/resources/SpaceAgeLogo.png">
