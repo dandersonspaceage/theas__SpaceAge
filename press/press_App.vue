@@ -1057,8 +1057,7 @@
 
                   let thisIndexWO = thatVue.data_WOs.findIndex((el) => el.qguid === shotResp.qguidWO);
                   if (thisIndexWO >= 0) {
-                    thatVue.data_WOs[thisIndexWO].CurrentShotCount = shotResp.CurrentShotCount;
-                    thatVue.data_WOs[thisIndexWO].LastSetTime = shotResp.LastSetTime;       
+                    thatVue.data_WOs[thisIndexWO].CurrentShotCount = shotResp.CurrentShotCount;    
                     thatVue.data_WOs[thisIndexWO].LastShotFinished = shotResp.LastShotFinished;    
                   }
 
