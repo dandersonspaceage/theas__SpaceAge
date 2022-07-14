@@ -1,5 +1,7 @@
 <template>
+
 <div style="height:100vh" class="mr-3">
+<b-container>
 
   <b-row style="height: 15%">
 
@@ -286,6 +288,7 @@
     </div>
   </b-modal>  
 
+</b-container>
 </div>
 </template>
 
