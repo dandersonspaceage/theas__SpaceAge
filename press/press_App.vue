@@ -80,7 +80,8 @@
             </b-row>
           </b-col>
 
-          <b-col>     
+          <b-col>
+            <h5>Last Set Time:</h5>     
             <h5 style="font-size:calc(0.6em + 1.4vmin)">WO [[ (curWOTable2) ? curWOTable2.WONumber : 'none']]</h5>
             <h6 style="font-size:calc(0.6em + 1vmin)">#[[ (curWOTable2) ? Number(curWOTable2.CurrentShotCount) + 1 : '0']] of [[ (curWOTable2) ? curWOTable2.Quantity : '0']]</h6>
           </b-col>      
