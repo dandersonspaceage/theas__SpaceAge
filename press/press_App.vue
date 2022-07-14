@@ -79,6 +79,7 @@
           <b-row>
             <b-col>
               <h4 style="font-size:calc(1em + 1vmin)">Table 2</h4>
+              <h6>Since last shot:</h6>
             </b-col>
 
             <b-col>     
@@ -90,15 +91,16 @@
           <b-row>
             <b-col cols="6">     
               <div style="max-width: 150px">          
-              <b-form-group label="Active WO"
-                            :label-for="'woTable2'">
-                <b-form-select :id="'woTable2'"
-                              :options="data_WOs"
-                              v-model="curWOqguid_Table2"
-                              @change="changeActiveWO('Table2', curWOqguid_Table2)"
-                >
-                </b-form-select>
-              </b-form-group>
+                <b-form-group label="Active WO"
+                              :label-for="'woTable2'">
+                  <b-form-select :id="'woTable2'"
+                                :options="data_WOs"
+                                v-model="curWOqguid_Table2"
+                                @change="changeActiveWO('Table2', curWOqguid_Table2)"
+                  >
+                  </b-form-select>
+                </b-form-group>
+                <h6>Last set time:</h6>
               </div>
             </b-col>
 
