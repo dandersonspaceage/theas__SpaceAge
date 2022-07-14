@@ -1,7 +1,7 @@
 <template>
 
+<b-container fluid="xl"></b-container>
 <div style="height:100vh" class="mr-3">
-<b-container fluid="xl">
 
   <b-row style="height: 15%">
 
@@ -77,7 +77,7 @@
     <b-row>
 
         <!--Table 2-->
-        <b-col cols="6" sm="6">
+        <b-col xs="6">
 
           <b-row>
             <b-col>
@@ -125,7 +125,7 @@
         </b-col>
 
         <!--Table 1-->
-        <b-col cols="6" sm="6">
+        <b-col xs="6">
 
           <b-row>
             <b-col>
@@ -290,8 +290,8 @@
     </div>
   </b-modal>  
 
-</b-container>
 </div>
+</b-container>
 
 </template>
 
