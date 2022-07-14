@@ -78,8 +78,14 @@
 
           <b-row>
             <b-col>
-              <h4 style="font-size:calc(1em + 1vmin)">Table 2</h4>
-              <h6>Since last shot:</h6>
+              <b-row>
+                <b-col>
+                  <h4 style="font-size:calc(1em + 1vmin)">Table 2</h4>
+                </b-col>
+                <b-col>
+                  <h5>00:22:00 since last shot</h5>
+                </b-col>
+              </b-row>
             </b-col>
 
             <b-col>     
