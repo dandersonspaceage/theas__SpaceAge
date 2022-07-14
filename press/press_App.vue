@@ -74,7 +74,7 @@
   <div class="bottom">
     <b-row>
 
-        <b-col cols="6">
+        <b-col cols="6" sm="6">
 
           <b-row>
             <b-col>
