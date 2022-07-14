@@ -299,7 +299,7 @@
               resizableColumns: true,
 
               columns: [
-                {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false,                   
+                {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
                 //{title: '', field:"StatusColor", formatter:"color"},
 
                 {title: '', field:"ActiveTable2", hozAlign:"center", headerSort:false,
