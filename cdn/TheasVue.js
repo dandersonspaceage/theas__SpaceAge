@@ -253,11 +253,16 @@ Theas.prototype.cancelAsync = function (startedBefore) {
 };
 
 Theas.prototype.sendAsync = function (config) {
+   // Note:  the entire config object will be passed in to the response handler
+   // refereced in config.onResponse
+   // This means that the caller can add whatever they want to the config object,
+   // and the callback function will have access to it via the config (3rd) parameter
+   // passed into the onResponse function.
+
    // save reference to Theas object
    let thatTheas = this;
 
-   //Note: a mutated copy of some of config is returned with the response.
-   //Additionally, config can contain an object config.echo that is 
+   //Note: Axios passes
    //passed in the response handler.
 
    if (typeof(config) == 'string') {
@@ -330,8 +335,6 @@ Theas.prototype.sendAsync = function (config) {
 
    let requestID = thatTheas.uuidv4();
    let CancelToken = axios.CancelToken;
-   let thisEcho = config.echo;
-
 
    let axiosConfig = {
        method: 'post',
@@ -370,7 +373,6 @@ Theas.prototype.sendAsync = function (config) {
 
        config.cancelToken = new CancelToken(function executor(c) {
          // An executor function receives a cancel function as a parameter
-         //thatTheas.pendingAsyncs.push({startTime: moment(), requestID: requestID, cancelFunc: c, echo: thisEcho});
          thatTheas.pendingAsyncs.push({startTime: moment(), requestID: requestID, cancelFunc: c});         
        });
 
@@ -383,17 +385,13 @@ Theas.prototype.sendAsync = function (config) {
    });
 
 
-
     ax.request(axiosConfig)
       .then(function (response) {
           // handle success
 
-          //let responseEcho;
-
           // remove cancel entry
           for (let i=0; i < thatTheas.pendingAsyncs.length; i++ ) {
               if (thatTheas.pendingAsyncs[i].requestID == response.config.requestID) {
-                  //responseEcho =  thatTheas.pendingAsyncs[i].echo;
                   thatTheas.pendingAsyncs.splice(i, 1);
                   break;
               }
@@ -431,7 +429,6 @@ Theas.prototype.sendAsync = function (config) {
            thatTheas.updateAllTheasParams(rd);
 
            if (config.onResponse) {
-               //config.onResponse(rd, response, config, responseEcho);
                config.onResponse(rd, response, config);
            }
 
