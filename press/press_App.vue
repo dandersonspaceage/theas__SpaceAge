@@ -1047,7 +1047,8 @@
                 */
 
               let shotResp = {};
-              let thisShot = echo;         
+              //let thisShot = echo; 
+              let thisShot = config.echo;        
 
               if (!thatVue.$th.haveError(true)) {
 
