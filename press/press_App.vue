@@ -1029,7 +1029,7 @@
             data: {Shot: thatVue.curShot}, //note: passes to @FormParams
             echo: thatVue.curShot, //note: pased into onResponse
 
-            onResponse: function (rd, response, echo) {
+            onResponse: function (rd, response, config, echo) {
                 // rd contains the response data split into an object (of name/value pairs)
                 // (might have been returned as either a string of URL-encoded name/value
                 // pairs, or as a JSON strong)
