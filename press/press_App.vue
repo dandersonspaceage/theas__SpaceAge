@@ -201,94 +201,97 @@
 
     <div class="d-block">
 
-      <b-row>      
-        <b-col>   
-          
-          <b-form-group label="Quality"
-                        :label-for="'qaQuality'">
-            <b-form-select :id="'qaQuality'" :state="validQuality"
-                          :options="qualityLevels"       
-                          ref="qualitySelect"         
-                          v-model="curShot.Quality" size="sm"></b-form-select>
-          </b-form-group>                
-        </b-col>
-      </b-row>
+      <b-form ref="shotForm" validated="true">
 
-      <b-row>      
-        <b-col>   
-          <b-form-group label="Notes"
-                        :label-for="'qaNotes'">
-            <b-form-textarea :id="'qaNotes'" debounce="300"
-                            v-model="curShot.Notes" rows="3" max-rows="3">   
-            </b-form-textarea>                                                   
-          </b-form-group>           
-        </b-col>
-      </b-row>  
+        <b-row>      
+          <b-col>   
+            
+            <b-form-group label="Quality"
+                          :label-for="'qaQuality'">
+              <b-form-select :id="'qaQuality'" :state="validQuality"
+                            :options="qualityLevels"       
+                            ref="qualitySelect"         
+                            v-model="curShot.Quality" size="sm"></b-form-select>
+            </b-form-group>                
+          </b-col>
+        </b-row>
 
-      
-      <b-row>      
-        <b-col>          
-          <b-form-group label="Caliper 1"
-                        :label-for="'qaCaliper1'">
-            <b-form-input :id="'qaCaliper1'" :state="validCaliper1"
-                          v-model="curShot.qaCaliper1" size="sm"></b-form-input>
-          </b-form-group>
-        </b-col>
-
-
-        <b-col>     
-          <b-form-group label="Caliper 2"
-                        :label-for="'qaCaliper2'">
-            <b-form-input :id="'qaCaliper2'" :state="validCaliper2"
-                          v-model="curShot.qaCaliper2" size="sm"></b-form-input>
-          </b-form-group>
-        </b-col>
-      </b-row>
-
-      <b-row>      
-        <b-col>   
-          <b-form-group label="Caliper Front"
-                        :label-for="'qaCaliperFront'">
-            <b-form-input :id="'qaCaliperFront'" :state="validCaliperFront"
-                          v-model="curShot.qaCaliperFront" size="sm"></b-form-input>
-          </b-form-group>
-        </b-col>
+        <b-row>      
+          <b-col>   
+            <b-form-group label="Notes"
+                          :label-for="'qaNotes'">
+              <b-form-textarea :id="'qaNotes'" debounce="300"
+                              v-model="curShot.Notes" rows="3" max-rows="3">   
+              </b-form-textarea>                                                   
+            </b-form-group>           
+          </b-col>
+        </b-row>  
+        
+        <b-row>      
+          <b-col>          
+            <b-form-group label="Caliper 1"
+                          :label-for="'qaCaliper1'">
+              <b-form-input :id="'qaCaliper1'" :state="validCaliper1"
+                            v-model="curShot.qaCaliper1" size="sm"></b-form-input>
+            </b-form-group>
+          </b-col>
 
 
-        <b-col>                 
-          <b-form-group label="Caliper Back"
-                        :label-for="'qaCaliperBack'">
-            <b-form-input :id="'qaCaliperBack'" :state="validCaliperBack"
-                          v-model="curShot.qaCaliperBack" size="sm"></b-form-input>
-          </b-form-group>          
-        </b-col>
-      </b-row>
+          <b-col>     
+            <b-form-group label="Caliper 2"
+                          :label-for="'qaCaliper2'">
+              <b-form-input :id="'qaCaliper2'" :state="validCaliper2"
+                            v-model="curShot.qaCaliper2" size="sm"></b-form-input>
+            </b-form-group>
+          </b-col>
+        </b-row>
 
-      <b-row>      
-        <b-col>           
-          <b-form-group label="Actual Weight"
-                        :label-for="'qaActualWeight'">
-            <b-form-input :id="'qaActualWeight'" :state="validActualWeight"
-                          v-model="curShot.qaActualWeight" size="sm"></b-form-input>
-          </b-form-group>
-        </b-col>
+        <b-row>      
+          <b-col>   
+            <b-form-group label="Caliper Front"
+                          :label-for="'qaCaliperFront'">
+              <b-form-input :id="'qaCaliperFront'" :state="validCaliperFront"
+                            v-model="curShot.qaCaliperFront" size="sm"></b-form-input>
+            </b-form-group>
+          </b-col>
 
 
-        <b-col>  
-          <b-form-group label="Actual Set Time"
-                        :label-for="'qaActualSetTime'">
-            <b-form-input :id="'qaActualSetTIme'" :state="validActualSetTime"
-                          v-model="curShot.qaActualSetTime" size="sm"></b-form-input>
-          </b-form-group>              
-        </b-col>
-      </b-row>   
+          <b-col>                 
+            <b-form-group label="Caliper Back"
+                          :label-for="'qaCaliperBack'">
+              <b-form-input :id="'qaCaliperBack'" :state="validCaliperBack"
+                            v-model="curShot.qaCaliperBack" size="sm"></b-form-input>
+            </b-form-group>          
+          </b-col>
+        </b-row>
 
-      <b-row>
-        <b-col>
-          <h5>Operator: [[ curShot.PressOperatorName ]]</h5>
+        <b-row>      
+          <b-col>           
+            <b-form-group label="Actual Weight"
+                          :label-for="'qaActualWeight'">
+              <b-form-input :id="'qaActualWeight'" :state="validActualWeight"
+                            v-model="curShot.qaActualWeight" size="sm"></b-form-input>
+            </b-form-group>
+          </b-col>
 
-        </b-col>
-      </b-row>
+
+          <b-col>  
+            <b-form-group label="Actual Set Time"
+                          :label-for="'qaActualSetTime'">
+              <b-form-input :id="'qaActualSetTIme'" :state="validActualSetTime"
+                            v-model="curShot.qaActualSetTime" size="sm"></b-form-input>
+            </b-form-group>              
+          </b-col>
+        </b-row>   
+
+        <b-row>
+          <b-col>
+            <h5>Operator: [[ curShot.PressOperatorName ]]</h5>
+
+          </b-col>
+        </b-row>
+
+      </b-form>      
 
     </div>
   </b-modal>  
@@ -1006,6 +1009,12 @@
           // save reference to Vue object that can be used in async callbacks
           let thatVue = this;
 
+          let shotForm = thatVue.$refs.shotForm;
+          let isValid;
+          if (shotForm) {
+            isValid = shotForm.checkValidity();
+          }
+
           // make sure curShot has been saved to data_Shots
 
           if (thatVue.curShot.qguid) {
@@ -1064,8 +1073,11 @@
 
                   let thisIndexWO = thatVue.data_WOs.findIndex((el) => el.qguid === shotResp.qguidWO);
                   if (thisIndexWO >= 0) {
-                    thatVue.data_WOs[thisIndexWO].CurrentShotCount = shotResp.CurrentShotCount;    
-                    thatVue.data_WOs[thisIndexWO].LastShotFinished = shotResp.LastShotFinished;    
+                    let thisWO = thatVue.data_WOs[thisIndexWO];
+                    thisWO.CurrentShotCount = shotResp.CurrentShotCount;    
+                    thisWO.QtyRemaining = shotResp.QtyRemaining,
+                    thisWO.LastSetTime = shotResp.LastSetTime,                                      
+                    thisWO.LastShotFinished = shotResp.LastShotFinished;                    
                   }
 
                 }     
