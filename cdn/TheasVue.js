@@ -370,7 +370,8 @@ Theas.prototype.sendAsync = function (config) {
 
        config.cancelToken = new CancelToken(function executor(c) {
          // An executor function receives a cancel function as a parameter
-         thatTheas.pendingAsyncs.push({startTime: moment(), requestID: requestID, cancelFunc: c, echo: thisEcho});
+         //thatTheas.pendingAsyncs.push({startTime: moment(), requestID: requestID, cancelFunc: c, echo: thisEcho});
+         thatTheas.pendingAsyncs.push({startTime: moment(), requestID: requestID, cancelFunc: c});         
        });
 
        return config;
@@ -387,12 +388,12 @@ Theas.prototype.sendAsync = function (config) {
       .then(function (response) {
           // handle success
 
-          let responseEcho;
+          //let responseEcho;
 
           // remove cancel entry
           for (let i=0; i < thatTheas.pendingAsyncs.length; i++ ) {
               if (thatTheas.pendingAsyncs[i].requestID == response.config.requestID) {
-                  responseEcho =  thatTheas.pendingAsyncs[i].echo;
+                  //responseEcho =  thatTheas.pendingAsyncs[i].echo;
                   thatTheas.pendingAsyncs.splice(i, 1);
                   break;
               }
@@ -430,7 +431,8 @@ Theas.prototype.sendAsync = function (config) {
            thatTheas.updateAllTheasParams(rd);
 
            if (config.onResponse) {
-               config.onResponse(rd, response, config, responseEcho);
+               //config.onResponse(rd, response, config, responseEcho);
+               config.onResponse(rd, response, config);
            }
 
 
