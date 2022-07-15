@@ -1027,8 +1027,9 @@
             url: "/async/" + thatVue.asyncResource_WOs,
             asyncCmd: 'completeShot',              
             data: {Shot: thatVue.curShot}, //note: passes to @FormParams
+            echo: thatVue.curShot, //note: pased into onResponse
 
-            onResponse: function (rd, response) {
+            onResponse: function (rd, response, echo) {
                 // rd contains the response data split into an object (of name/value pairs)
                 // (might have been returned as either a string of URL-encoded name/value
                 // pairs, or as a JSON strong)
@@ -1043,7 +1044,8 @@
                 }
                 */
 
-              let shotResp= {};         
+              let shotResp = {};
+              let thisShot = echo;         
 
               if (!thatVue.$th.haveError(true)) {
 
@@ -1055,7 +1057,7 @@
                 if (shotResp) {
 
                   for (const [key, value] of Object.entries(shotResp)) {
-                    thatVue.curShot[key] = value;
+                    thisShot[key] = value;
                   }                                
 
                   let thisIndexWO = thatVue.data_WOs.findIndex((el) => el.qguid === shotResp.qguidWO);
@@ -1066,9 +1068,7 @@
 
                 }     
 
-              }
-
-              thatVue.curShot = {};     
+              }    
 
               let tab = thatVue.$refs.tabuShotHistory;
               if (tab) {
