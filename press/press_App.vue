@@ -297,7 +297,6 @@
 </template>
 
 <script>
-  "use strict";
 
   export default {
     delimiters: ["[[", "]]"],
@@ -1030,7 +1029,7 @@
             url: "/async/" + thatVue.asyncResource_WOs,
             asyncCmd: 'completeShot',              
             data: {Shot: thisShot}, //note: passes to @FormParams
-            echo: thatVue.curShot, //note: pased into onResponse
+            echo: thisShot, //note: pased into onResponse
 
             onResponse: function (rd, response, config, echo) {
                 // rd contains the response data split into an object (of name/value pairs)
