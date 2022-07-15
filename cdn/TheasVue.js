@@ -1,3 +1,5 @@
+"use strict";
+
 // iOS does not support FormData.set(), so we replace it with FormData.append()
 if (!FormData.prototype.set) {
   FormData.prototype.set = FormData.prototype.append;
