@@ -1022,14 +1022,11 @@
             thatVue.data_Shots.unshift(thatVue.curShot);
           }
 
-          
 
           thatVue.$th.sendAsync({
             url: "/async/" + thatVue.asyncResource_WOs,
             asyncCmd: 'completeShot',              
-            data: {Shot: thatVue.curShot}, //note: passes to @FormParams (as a string)
-
-            echo: {shotObj: thatVue.curShot}, //object will be echoed back in response object (along with rest of config)
+            data: {Shot: thatVue.curShot}, //note: passes to @FormParams
 
             onResponse: function (rd, response) {
                 // rd contains the response data split into an object (of name/value pairs)
@@ -1046,8 +1043,7 @@
                 }
                 */
 
-              let shotResp= {};       
-              let thisShot = response.config.echo.shotObj;
+              let shotResp= {};         
 
               if (!thatVue.$th.haveError(true)) {
 
@@ -1058,13 +1054,8 @@
 
                 if (shotResp) {
 
-                  // be careful:  this is an asynchronous response.  The user could be
-                  // on to other things, and curShot may now be associated with a different row.
-
-
-
                   for (const [key, value] of Object.entries(shotResp)) {
-                    thisShot[key] = value;
+                    thatVue.curShot[key] = value;
                   }                                
 
                   let thisIndexWO = thatVue.data_WOs.findIndex((el) => el.qguid === shotResp.qguidWO);
@@ -1076,7 +1067,8 @@
                 }     
 
               }
-   
+
+              thatVue.curShot = {};     
 
               let tab = thatVue.$refs.tabuShotHistory;
               if (tab) {
