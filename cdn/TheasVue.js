@@ -390,7 +390,7 @@ Theas.prototype.sendAsync = function (config) {
           // remove cancel entry
           for (let i=0; i < thatTheas.pendingAsyncs.length; i++ ) {
               if (thatTheas.pendingAsyncs[i].requestID == response.config.requestID) {
-                  responseEcho =  thatTheas.pendingAsyncs.echo;
+                  responseEcho =  thatTheas.pendingAsyncs[i].echo;
                   thatTheas.pendingAsyncs.splice(i, 1);
                   break;
               }
