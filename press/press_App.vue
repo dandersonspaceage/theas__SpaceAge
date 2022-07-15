@@ -1028,7 +1028,7 @@
           thatVue.$th.sendAsync({
             url: "/async/" + thatVue.asyncResource_WOs,
             asyncCmd: 'completeShot',              
-            data: {Shot: thisShot, //note: passes to @FormParams
+            data: {Shot: thisShot}, //note: passes to @FormParams
             echo: thisShot, //note: pased into onResponse
 
             onResponse: function (rd, response, config, echo) {
