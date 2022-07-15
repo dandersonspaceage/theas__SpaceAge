@@ -254,6 +254,10 @@ Theas.prototype.sendAsync = function (config) {
    // save reference to Theas object
    let thatTheas = this;
 
+   //Note: a mutated copy of some of config is returned with the response.
+   //Additionally, config can contain an object config.echo that is 
+   //passed in the response handler.
+
    if (typeof(config) == 'string') {
        // config actually just contains a string for cmd
 
@@ -324,6 +328,7 @@ Theas.prototype.sendAsync = function (config) {
 
    let requestID = thatTheas.uuidv4();
    let CancelToken = axios.CancelToken;
+   let thisEcho = config.echo;
 
 
    let axiosConfig = {
@@ -363,7 +368,7 @@ Theas.prototype.sendAsync = function (config) {
 
        config.cancelToken = new CancelToken(function executor(c) {
          // An executor function receives a cancel function as a parameter
-         thatTheas.pendingAsyncs.push({startTime: moment(), requestID: requestID, cancelFunc: c});
+         thatTheas.pendingAsyncs.push({startTime: moment(), requestID: requestID, cancelFunc: c, echo: thisEcho});
        });
 
        return config;
@@ -380,9 +385,12 @@ Theas.prototype.sendAsync = function (config) {
       .then(function (response) {
           // handle success
 
+          let responseEcho;
+
           // remove cancel entry
           for (let i=0; i < thatTheas.pendingAsyncs.length; i++ ) {
               if (thatTheas.pendingAsyncs[i].requestID == response.config.requestID) {
+                  responseEcho =  thatTheas.pendingAsyncs.echo;
                   thatTheas.pendingAsyncs.splice(i, 1);
                   break;
               }
@@ -420,7 +428,7 @@ Theas.prototype.sendAsync = function (config) {
            thatTheas.updateAllTheasParams(rd);
 
            if (config.onResponse) {
-               config.onResponse(rd, response, config);
+               config.onResponse(rd, response, config, responseEcho);
            }
 
 
