@@ -1029,9 +1029,9 @@
             url: "/async/" + thatVue.asyncResource_WOs,
             asyncCmd: 'completeShot',              
             data: {Shot: thisShot}, //note: passes to @FormParams
-            echo: thisShot, //note: pased into onResponse
+            thisShot: thisShot, //note: pased into onResponse as part of config
 
-            onResponse: function (rd, response, config, echo) {
+            onResponse: function (rd, response, config) {
                 // rd contains the response data split into an object (of name/value pairs)
                 // (might have been returned as either a string of URL-encoded name/value
                 // pairs, or as a JSON strong)
@@ -1047,8 +1047,7 @@
                 */
 
               let shotResp = {};
-              //let thisShot = echo; 
-              let thisShot = config.echo;        
+              let thisShot = config.thisShot;      
 
               if (!thatVue.$th.haveError(true)) {
 
