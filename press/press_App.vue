@@ -646,7 +646,7 @@
         
         let selShot = thatVue.curShot = thatVue.data_Shots.find((el) => el.qguid === row.getData().qguid);
 
-        thatVue.curShot = {};
+        thatVue.$set(thatVue.curShot, {});
         for (const [key, value] of Object.entries(selShot)) {
           thatVue.curShot[key] = value;
         }            
@@ -966,7 +966,7 @@
           else {
             let thisWO;
 
-            thatVue.curShot = {};
+            thatVue.$set(thatVue.curShot, {});            
 
             //a new shot:  assign values
             thatVue.curShot.qguidPressOperator = thatVue.curWorkerQGUID;
@@ -1047,7 +1047,7 @@
           }
 
           let thisShot = thatVue.curShot;
-          thatVue.curShot = {}
+          thatVue.$set(thatVue.curShot, {});          
 
           thatVue.$th.sendAsync({
             url: "/async/" + thatVue.asyncResource_WOs,
