@@ -460,7 +460,7 @@
         theasParams: {},
         theasLastError: {},
                 
-        dataRefreshInterval: 30, //15 * 60,  //auto-refresh, in seconds
+        dataRefreshInterval: 60, //auto-refresh, in seconds
         enableFetching: true,
         today: moment().toDate(),
         busyCount: 1,
