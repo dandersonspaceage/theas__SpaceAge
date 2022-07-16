@@ -62,7 +62,12 @@
 
                           <b-col>
                             <h6>WO: [[ wo.WONumber ]]</h6>
-                            <b-checkbox v-model="wo.ReleasedToPress" @change="onReleaseClick(wo.qguid, $event)"></b-checkbox>  
+
+                             <b-form-group label="Release to Press" :label-for="'releasePress'">
+                              <b-checkbox :id="'releasePress'" v-model="wo.ReleasedToPress" @change="onReleaseClick(wo.qguid, $event)"></b-checkbox>  
+                             </b-form-group>
+
+                            <b-button @click="onCompleteWOPressClick">Press Complete</b-button>
                           </b-col>
                           <b-col>
                             <h6>SO: [[ wo.LinkedSONumber ]]</h6>
@@ -478,6 +483,10 @@
         let thatVue = this;
         thatVue.saveWO(qguid);
       },
+
+      onCompleteWOPressClick: function(qguid, event) {
+        let thatVue = this;        
+      }
 
       fetchWOs: function (qguid, reFetch) {
         // save reference to Vue object
