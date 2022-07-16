@@ -1037,7 +1037,7 @@
 
             let thisIndex = thatVue.data_Shots.findIndex((el) => el.qguid === thatVue.curShot.qguid);
             if (thisIndex >= 0) {
-              thatVue.$set(thatVue.data_Shots[thisIndex], thatVue.curShot);
+              thatVue.$set(thatVue.data_Shots, thisIndex, thatVue.curShot);
             }
 
           }
