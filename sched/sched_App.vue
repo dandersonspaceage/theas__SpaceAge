@@ -67,10 +67,6 @@
                               <b-checkbox :id="'releasePress'" v-model="wo.ReleasedToPress" @change="onReleaseClick(wo.qguid, $event)" class="m-0 p-0"></b-checkbox>  
                              </b-form-group>
 
-                             <b-form-group label="Press Complete" :label-for="'completePress'" label-size="sm" label-cols="6" :label-align="'left'" class="m-0 p-0 pr-1">
-                              <b-checkbox :id="'completePress'" v-model="wo.PressCompleted" @change="onCompleteWOPressClick(wo.qguid, $event)" class="m-0 p-0"></b-checkbox>  
-                             </b-form-group>
-
                           </b-col>
                           <b-col>
                             <h6>SO: [[ wo.LinkedSONumber ]]</h6>
