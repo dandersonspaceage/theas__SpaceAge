@@ -460,7 +460,7 @@
         theasParams: {},
         theasLastError: {},
                 
-        dataRefreshInterval: 15 * 60,  //auto-refresh, in seconds
+        dataRefreshInterval: 30, //15 * 60,  //auto-refresh, in seconds
         enableFetching: true,
         today: moment().toDate(),
         busyCount: 1,
@@ -590,6 +590,11 @@
         let thatVue = this;
 
         if (evt.trigger === 'ok') {   
+
+          if (!thatVue.curWorkerQGUID) {
+            //TechnicalMessage|FriendlyMessage|ShowTech?|Title
+            thatVue.$th.raiseError('|Please select the operator that is working on this press.|1|No operator selected!');          
+          }
 
           let shotForm = thatVue.$refs.shotForm;
           let isValid = true;
@@ -841,7 +846,7 @@
                     thatVue.curWOTable1 = thatVue.data_WOs.find((el) => el.ActiveTable1 === '1');
                     thatVue.curWOqguid_Table1 = null;
                     if (thatVue.curWOTable1) {
-                      thatVue.curWOqguid_Table1 = thatVue.curWOTable1.qguid                       
+                      thatVue.curWOqguid_Table1 = thatVue.curWOTable1.qguid;                       
                     }
                           
                     if (thatVue.data_WOs.length > 1) {
