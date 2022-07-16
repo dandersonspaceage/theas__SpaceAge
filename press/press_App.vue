@@ -201,11 +201,11 @@
 
     <template #modal-footer="{ok, cancel}">
       <!-- Emulate built in modal footer ok and cancel button actions -->
-      <b-button size="sm" variant="primary" @click="ok()">
-        Save
-      </b-button>
-      <b-button size="sm" variant="secondary" @click="cancel()">
+      <b-button size="lg" variant="secondary" @click="cancel()">
         Cancel
+      </b-button>      
+      <b-button size="lg" variant="primary" @click="ok()">
+        Save
       </b-button>
     </template>    
 
