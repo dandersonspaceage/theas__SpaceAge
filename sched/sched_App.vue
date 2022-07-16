@@ -486,7 +486,7 @@
 
       onCompleteWOPressClick: function(qguid, event) {
         let thatVue = this;        
-      }
+      },
 
       fetchWOs: function (qguid, reFetch) {
         // save reference to Vue object
