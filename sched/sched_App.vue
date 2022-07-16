@@ -67,6 +67,10 @@
                               <b-checkbox :id="'releasePress'" v-model="wo.ReleasedToPress" @change="onReleaseClick(wo.qguid, $event)" class="m-0 p-0"></b-checkbox>  
                              </b-form-group>
 
+                             <b-form-group label="Press Complete" :label-for="'completePress'" label-size="sm" label-cols="6" :label-align="'left'" class="m-0 p-0 pr-1">
+                              <b-checkbox :id="'completePress'" v-model="wo.PressCompleted" @change="onCompleteWOPressClick(wo.qguid, $event)" class="m-0 p-0"></b-checkbox>  
+                             </b-form-group>
+
                           </b-col>
                           <b-col>
                             <h6>SO: [[ wo.LinkedSONumber ]]</h6>
@@ -145,7 +149,7 @@
                             <b-col offset-md="6">
 
                               
-                              <b-form-group v-for="n in 6" :label="'Qty Batch ' + n" :label-for="'SplitNoWOs' + n">
+                              <b-form-group v-for="n in 6" :label="'Qty Batch ' + n" :label-for="'SplitNoWOs' + n" :key="wo.qguid + '.' + n">
                                 <b-form-input :id="'SplitNoWOs' + n" size="sm" v-model="splitNoWOs[n]"></b-form-input>
                               </b-form-group>                     
 
