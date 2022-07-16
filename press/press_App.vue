@@ -187,6 +187,11 @@
     <template #modal-title>
       <h4>Shot History</h4>
     </template>
+    <template #modal-footer="{ok, cancel}">
+      <b-button size="md" variant="secondary" @click="cancel()">
+        Close
+      </b-button>      
+    </template>      
 
     <div class="d-block">
       <Vue-Tabulator ref="tabuShotHistory" class="table-striped table-sm" v-model="data_Shots" :options="tabShotHistOpt" @row-click="onHistoryRowClick" />            
@@ -194,13 +199,12 @@
 
   </b-modal>
 
-  <b-modal id="WOQualityModal" ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality(curShot.qguid, $event)" :static="true">
+  <b-modal id="WOQualityModal" ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality($event)" :static="true">
     <template #modal-title>
       <h4>WO [[ curShot.WONumber ]] <span v-if="curShot.qguid"><span class="text-decoration-underline">Shot #[[ curShot.ShotNumber ]] </span><span class="h6 font-italic">[[ formatDate(curShot.dateFinished, 'ddd MM/DD') ]]</span></span><span v-if="!curShot.qguid">New Shot</span></h4>
     </template>
 
     <template #modal-footer="{ok, cancel}">
-      <!-- Emulate built in modal footer ok and cancel button actions -->
       <b-button size="md" variant="secondary" @click="cancel()">
         Cancel
       </b-button>      
@@ -582,7 +586,7 @@
         let thatVue = this;
       },
 
-      onHideWOQuality: function(qguid, evt) {
+      onHideWOQuality: function(evt) {
         let thatVue = this;
 
         if (evt.trigger === 'ok') {   
@@ -639,18 +643,14 @@
       onHistoryRowClick: function(e, row) {
         let thatVue = this;
 
-                    
-        thatVue.curShot = {};
-
-        thatVue.curShot = thatVue.data_Shots.find((el) => el.qguid === row.getData().qguid);
         
-        //for testing only
-        //let thisIndex = thatVue.data_Shots.findIndex((el) => el.qguid === thatVue.curShot.qguid)
-        //if (thisIndex >= 0) {
-        //  thatVue.data_Shots[thisIndex] = thatVue.curShot;
-        //}
-                            
-        //thatVue.$bvModal.hide('ShotHistoryModal');           
+        let selShot = thatVue.curShot = thatVue.data_Shots.find((el) => el.qguid === row.getData().qguid);
+
+        thatVue.curShot = {};
+        for (const [key, value] of Object.entries(selShot)) {
+          curShot[key] = value;
+        }            
+          
         thatVue.$bvModal.show('WOQualityModal'); 
       },
 
