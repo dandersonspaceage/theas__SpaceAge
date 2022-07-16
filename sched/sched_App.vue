@@ -63,7 +63,7 @@
                           <b-col>
                             <h6>WO: [[ wo.WONumber ]]</h6>
 
-                             <b-form-group label="Release to Press" :label-for="'releasePress'" label-size="sm" label-cols="5" :label-align="'left'" class="p-0">
+                             <b-form-group label="Release to Press" :label-for="'releasePress'" label-size="sm" label-cols="5" :label-align="'left'" class="m-0 p-0">
                               <b-checkbox :id="'releasePress'" v-model="wo.ReleasedToPress" @change="onReleaseClick(wo.qguid, $event)"></b-checkbox>  
                              </b-form-group>
 
