@@ -53,7 +53,7 @@
 
                               <b-col cols="6">
                                 <h5><span class="badge badge-secondary" v-if="!wo.LastToMove" @click="doRepeatMove(wo.qguid, $event)">Repeat Move</span></h5>
-                                <h5><span class="badge badge-secondary" @click="doMoveLast(wo.qguid, $event)">Move Last</span></h5>
+                                <h5><span class="badge badge-secondary" @click="doMoveFirst(wo.qguid, $event)">Move First</span></h5>
                               </b-col>
                             </b-row>
 
@@ -63,7 +63,7 @@
                           <b-col>
                             <h6>WO: [[ wo.WONumber ]]</h6>
 
-                             <b-form-group label="Release to Press" :label-for="'releasePress'" label-size="sm" label-cols="4" :label-align="true">
+                             <b-form-group label="Release to Press" :label-for="'releasePress'" label-size="sm" label-cols="6" :label-align="true">
                               <b-checkbox :id="'releasePress'" v-model="wo.ReleasedToPress" @change="onReleaseClick(wo.qguid, $event)"></b-checkbox>  
                              </b-form-group>
 
@@ -755,13 +755,13 @@
         }
       },
       
-      doMoveLast: function (qguid, evt) {
+      doMoveFirst: function (qguid, evt) {
         let thatVue = this;
 
         thatVue.data_ThisWO = thatVue.data_WOs.find((el) => el.qguid === qguid);
 
         if (thatVue.data_ThisWO) {
-          thatVue.data_ThisWO['MoveLast'] = 1;
+          thatVue.data_ThisWO['MoveFirst'] = 1;
 
           thatVue.setDirty(qguid, 0, true, evt);
         }
