@@ -199,6 +199,16 @@
       <h4>WO [[ curShot.WONumber ]] <span v-if="curShot.qguid"><span class="text-decoration-underline">Shot #[[ curShot.ShotNumber ]] </span><span class="h6 font-italic">[[ formatDate(curShot.dateFinished, 'ddd MM/DD') ]]</span></span><span v-if="!curShot.qguid">New Shot</span></h4>
     </template>
 
+    <template #modal-footer="{ok, cancel}">
+      <!-- Emulate built in modal footer ok and cancel button actions -->
+      <b-button size="sm" variant="success" @click="ok()">
+        Save
+      </b-button>
+      <b-button size="sm" variant="danger" @click="cancel()">
+        Cancel
+      </b-button>
+    </template>    
+
     <div class="d-block">
 
       <b-form ref="shotForm">
