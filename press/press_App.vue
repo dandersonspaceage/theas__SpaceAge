@@ -1010,10 +1010,11 @@
           let thatVue = this;
 
           let shotForm = thatVue.$refs.shotForm;
-          let isValid;
-          if (shotForm) {
-            isValid = shotForm.checkValidity();
-          }
+          let isValid = true;
+
+          Array.from(shotForm.elements).forEach(i => {
+            isValid = isValid && i.checkValidity();
+          });
 
           // make sure curShot has been saved to data_Shots
 
