@@ -575,12 +575,23 @@
       onHideWOQuality: function(qguid, evt) {
         let thatVue = this;
 
-        if (evt.trigger === 'ok') {          
-          thatVue.saveShot();
-        }          
+        if (evt.trigger === 'ok') {   
 
-        //don't clear shot here:  saveShot will clear it on receipt of a response
-        //thatVue.curShot = {};             
+          let shotForm = thatVue.$refs.shotForm;
+          let isValid = true;
+
+          Array.from(shotForm.elements).forEach(i => {
+            isValid = isValid && !i.ariaInvalid;
+          });
+
+          if (isValid) {
+            thatVue.saveShot();
+          }
+          else {
+            evt.preventDefault();
+            thatVue.$th.raiseError('|Please correct the data entry errors.|1|Invalid or missing data!');            
+          }
+        }                          
       },
 
       onthModalHide: function() {
@@ -1008,13 +1019,6 @@
       saveShot: function() {
           // save reference to Vue object that can be used in async callbacks
           let thatVue = this;
-
-          let shotForm = thatVue.$refs.shotForm;
-          let isValid = true;
-
-          Array.from(shotForm.elements).forEach(i => {
-            isValid = isValid && !i.ariaInvalid;
-          });
 
           // make sure curShot has been saved to data_Shots
 
