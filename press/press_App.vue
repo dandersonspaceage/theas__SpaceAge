@@ -201,7 +201,7 @@
 
     <div class="d-block">
 
-      <b-form ref="shotForm">
+      <b-form ref="shotForm" :validated="true">
 
         <b-row>      
           <b-col>   
