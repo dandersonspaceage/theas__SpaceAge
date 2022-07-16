@@ -648,7 +648,7 @@
 
         thatVue.curShot = {};
         for (const [key, value] of Object.entries(selShot)) {
-          curShot[key] = value;
+          thatVuecurShot[key] = value;
         }            
           
         thatVue.$bvModal.show('WOQualityModal'); 
