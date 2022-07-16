@@ -63,11 +63,11 @@
                           <b-col>
                             <h6>WO: [[ wo.WONumber ]]</h6>
 
-                             <b-form-group label="Release to Press" :label-for="'releasePress'">
+                             <b-form-group label="Release to Press" :label-for="'releasePress'" label-cols="1">
                               <b-checkbox :id="'releasePress'" v-model="wo.ReleasedToPress" @change="onReleaseClick(wo.qguid, $event)"></b-checkbox>  
                              </b-form-group>
 
-                            <b-button @click="onCompleteWOPressClick">Press Complete</b-button>
+                            <b-button variant="info" size="sm" @click="onCompleteWOPressClick">Press Complete</b-button>
                           </b-col>
                           <b-col>
                             <h6>SO: [[ wo.LinkedSONumber ]]</h6>
