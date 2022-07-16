@@ -1013,7 +1013,7 @@
           let isValid = true;
 
           Array.from(shotForm.elements).forEach(i => {
-            isValid = isValid && i.ariaInvalid;
+            isValid = isValid && !i.ariaInvalid;
           });
 
           // make sure curShot has been saved to data_Shots
