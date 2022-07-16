@@ -642,13 +642,16 @@
 
       onHistoryRowClick: function(e, row) {
         let thatVue = this;
-
         
-        let selShot = thatVue.curShot = thatVue.data_Shots.find((el) => el.qguid === row.getData().qguid);
 
-        thatVue.$set(thatVue.curShot, {});
+        // Copy values from the selected shot to curShot.  (If user cancels editing 
+        // we want the original values to be preserved.)
+
+        let selShot = thatVue.curShot = thatVue.data_Shots.find((el) => el.qguid === row.getData().qguid);
+        thatVue.curShot ={};
+
         for (const [key, value] of Object.entries(selShot)) {
-          thatVue.curShot[key] = value;
+          thatVue.$set(thatVue.curShot, key, value);          
         }            
           
         thatVue.$bvModal.show('WOQualityModal'); 
@@ -966,7 +969,7 @@
           else {
             let thisWO;
 
-            thatVue.$set(thatVue.curShot, {});            
+            thatVue.curShot = {};
 
             //a new shot:  assign values
             thatVue.curShot.qguidPressOperator = thatVue.curWorkerQGUID;
@@ -1047,7 +1050,7 @@
           }
 
           let thisShot = thatVue.curShot;
-          thatVue.$set(thatVue.curShot, {});          
+          thatVue.curShot = {}
 
           thatVue.$th.sendAsync({
             url: "/async/" + thatVue.asyncResource_WOs,
