@@ -71,15 +71,25 @@
         <b-row>
           <b-col>
             <b-row>
+
               <b-col>
-                <h4 style="font-size:calc(1em + .5vmin)">Table&nbsp;2</h4>
-              </b-col>
-              <b-col>
-                <!--<h5>[[ formatDate(curWOTable2.LastShotFinished, 'ddd hh:mm:ss') ]] Last Shot</h5>-->
-              </b-col>
-            </b-row>
-            <b-row>
-              <b-col>
+                <h4 class="p-0 m-0" style="font-size:calc(1em + .4vmin)">Table&nbsp;2</h4>
+
+                  <b-form-group label="Active WO"
+                              :label-for="'woTable2'"
+                              style="max-width: 150px"
+                              class="p-0 m-0">
+
+                    <b-form-select :id="'woTable2'"
+                                  :options="data_WOs"
+                                  v-model="curWOqguid_Table2"
+                                  size="sm"
+                                  class="p-0 m-0"
+                                  @change="changeActiveWO('Table2', curWOqguid_Table2)"
+                                  >
+                    </b-form-select>                          
+                  </b-form-group>
+
               </b-col>
             </b-row>
           </b-col>
@@ -126,7 +136,6 @@
               <b-col>
                 <h4 class="p-0 m-0" style="font-size:calc(1em + .4vmin)">Table&nbsp;1</h4>
 
-
                   <b-form-group label="Active WO"
                               :label-for="'woTable1'"
                               style="max-width: 150px"
@@ -141,7 +150,6 @@
                                   >
                     </b-form-select>                          
                   </b-form-group>
-
 
               </b-col>
 
