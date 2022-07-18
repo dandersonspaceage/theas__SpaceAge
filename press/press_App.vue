@@ -124,7 +124,7 @@
           <b-col>
             <b-row>
               <b-col>
-                <h4 class="p-0" style="font-size:calc(1em + .4vmin)">Table&nbsp;1</h4>
+                <h4 class="p-0 m-0" style="font-size:calc(1em + .4vmin)">Table&nbsp;1</h4>
 
                 <div style="max-width: 150px">                                
                   <b-form-group label="Active WO"
