@@ -1177,6 +1177,19 @@
 
 <style>
 
+* {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+
   .fastscroll {
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
