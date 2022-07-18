@@ -1167,13 +1167,17 @@
 
       },
 
-      formatDate: function (thisDate, thisFormatStr) {
-        //if (typeof thisDate === 'string' || thisDate instanceof String) {
-        //    thisDate = thisDate.replace('T', ' ');
-        //}
-        let result = moment(thisDate).format(thisFormatStr);
-        return result;
-      },
+      formatDate: function(dt, fmt) {
+
+        if (!dt) {
+          dt = moment().format();
+        }
+
+        if (!fmt) {
+          fmt = 'MM/DD/YYYY'
+        }
+        return moment(dt).format(fmt)
+      },      
 
       workerName: function(qguid) {
         if (!qguid) {
