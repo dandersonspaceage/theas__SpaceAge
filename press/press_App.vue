@@ -71,10 +71,10 @@
         <b-row>
           <b-col>
             <b-row>
-              <b-col cols="4">
+              <b-col>
                 <h4 style="font-size:calc(1em + .5vmin)">Table&nbsp;2</h4>
               </b-col>
-              <b-col cols="8">
+              <b-col>
                 <!--<h5>[[ formatDate(curWOTable2.LastShotFinished, 'ddd hh:mm:ss') ]] Last Shot</h5>-->
               </b-col>
             </b-row>
@@ -91,7 +91,7 @@
         </b-row>      
 
         <b-row>
-          <b-col cols="6">     
+          <b-col>     
             <div style="max-width: 150px">          
               <b-form-group label="Active WO"
                             :label-for="'woTable2'">
@@ -106,7 +106,7 @@
             </div>
           </b-col>
 
-          <b-col cols="6">
+          <b-col>
             <div style="height:32px">
             </div>
 
