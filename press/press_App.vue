@@ -91,15 +91,7 @@
                 </b-form-group>
 
 <div>
-                <b-form-group label="Quantity (to print)"
-                              :label-for="'printQuantity'"
-                              size="sm">
-                  <b-form-input :id="'printQuantity'" :state="validCutQuantity"
-                                v-model="printQuantity" size="sm" style="max-width: 75px">
-                  </b-form-input>
-                </b-form-group>
-
-                <b-button @click="print" variant="success" size="sm" class="mt-3">Print Pallet Label</b-button>
+                <b-button @click="print" variant="success" size="sm" class="p-0 m-0">Print Pallet Label</b-button>
 
                 <div id="printMe" style="visibility: hidden">
 
