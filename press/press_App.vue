@@ -126,7 +126,8 @@
               <b-col>
                 <h4 class="p-0 m-0" style="font-size:calc(1em + .4vmin)">Table&nbsp;1</h4>
 
-                <div style="max-width: 150px">                                
+                <div style="max-width: 150px">    
+                  <form role="form" class="form-horizontal">
                   <b-form-group label="Active WO"
                               :label-for="'woTable1'"
                               class="p-0 m-0">
@@ -138,8 +139,9 @@
                                 class="p-0 m-0"
                                 @change="changeActiveWO('Table1', curWOqguid_Table1)"
                                 >
-                  </b-form-select>                              
-                </b-form-group>
+                  </b-form-select>                          
+                  </b-form-group>
+                  </form>    
                 </div>
 
               </b-col>
