@@ -43,18 +43,18 @@
           </b-form-select>
         </b-form-group>
 
-        <h6 class="ml-1">[[ curWOListCode ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>        
+        <h6 class="ml-1">[[ curWOListCode ]] (<span class="caption3" v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>        
  
     </b-col>
 
     <b-col>
       <br />
-      <b-button class="mb-1" variant="outline-primary" @click="showHistory">Shot History</b-button>
+      <b-button class="mb-1" variant="outline-primary" size="sm" @click="showHistory">Shot History</b-button>
     </b-col>
     
     <b-col>
       <br />
-      <b-button @click="fetchData()">Reload</b-button>
+      <b-button size="sm" @click="fetchData()">Reload</b-button>
     </b-col>
   
   </b-row>  
@@ -74,7 +74,7 @@
             <b-row>
 
               <b-col>
-                <h4 class="p-0 m-0" style="font-size:calc(1em + .4vmin)">Table&nbsp;2</h4>
+                <h4 class="p-0 m-0 caption3">Table&nbsp;2</h4>
 
                 <b-form-group label="Active WO"
                             :label-for="'woTable2'"
@@ -132,7 +132,7 @@
           <b-col>
             <b-row>
               <b-col>
-                <h4 class="p-0 m-0" style="font-size:calc(1em + .4vmin)">Table&nbsp;1</h4>
+                <h4 class="p-0 m-0 caption3" >Table&nbsp;1</h4>
 
                 <b-form-group label="Active WO"
                             :label-for="'woTable1'"
@@ -1244,18 +1244,22 @@
 
 <style>
 
-* {
-  -webkit-box-sizing: content-box;
-     -moz-box-sizing: content-box;
-          box-sizing: content-box;
-}
-*:before,
-*:after {
-  -webkit-box-sizing: content-box;
-     -moz-box-sizing: content-box;
-          box-sizing: content-box;
-}
+  * {
+    -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+            box-sizing: content-box;
+  }
+  *:before,
+  *:after {
+    -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+            box-sizing: content-box;
+  }
 
+
+  .caption3 {
+    font-size:calc(1em + .4vmin);
+  }
 
   .fastscroll {
     overflow-y: scroll;
