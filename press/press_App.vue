@@ -151,7 +151,7 @@
                 <div>
                   <b-button @click="print('printBoardLabel1')" variant="success" size="sm" class="p-0 m-0 mt-1">Print Pallet Label</b-button>
 
-                  <div id="printBoardLabe1" style="visibility: hidden">
+                  <div id="printBoardLabel1" style="visibility: hidden">
 
                       <p style="text-align:center">
                         <img width=221 height=136 id="Picture1" src="/resources/spaceage.jpg" alt="SpaceAge">
