@@ -231,7 +231,7 @@
 
     <div class="p-4" style="width: 380px">
 
-      <b-form ref="shotForm">
+      <b-form ref="shotForm" class="p-4">
 
         <b-row>      
           <b-col>   
