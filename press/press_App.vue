@@ -47,14 +47,14 @@
  
     </b-col>
 
-    <b-col-xs>
+    <b-col xs="2">
       <b-button size="sm" class="p-0 m-0 mt-1" variant="outline-primary" @click="showHistory">Shot History</b-button>
-    </b-col-xs>
+    </b-col>
 
     
-    <b-col-xs>
+    <b-col xs="2">
       <b-button size="sm" @click="fetchData()">Reload</b-button>
-    </b-col-xs>
+    </b-col>
   
   </b-row>  
 
