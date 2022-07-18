@@ -250,7 +250,7 @@
         </b-row>
 
         <b-row>      
-          <b-col>
+          <b-col claas="pr-0">
             <b-form-group label="Notes"
                           :label-for="'qaNotes'"
                           label-size="sm"                            
