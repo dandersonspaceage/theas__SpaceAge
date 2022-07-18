@@ -91,7 +91,7 @@
                 </b-form-group>
 
 <div>
-                <b-button @click="print" variant="success" size="sm" class="p-0 m-0">Print Pallet Label</b-button>
+                <b-button @click="print" variant="success" size="sm" class="p-0 m-0 mt-1">Print Pallet Label</b-button>
 
                 <div id="printMe" style="visibility: hidden">
 
