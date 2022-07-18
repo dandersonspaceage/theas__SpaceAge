@@ -234,7 +234,7 @@
       <b-form ref="shotForm">
 
         <b-row>      
-          <b-col>   
+          <b-col class="p-1">   
             
             <b-form-group label="Quality"
                           :label-for="'qaQuality'"
@@ -250,7 +250,7 @@
         </b-row>
 
         <b-row>      
-          <b-col>
+          <b-col class="p-1">
             <b-form-group label="Notes"
                           :label-for="'qaNotes'"
                           label-size="sm"                            
@@ -263,7 +263,7 @@
         </b-row>  
         
         <b-row>      
-          <b-col>          
+          <b-col class="p-1">          
             <b-form-group label="Caliper 1"
                           :label-for="'qaCaliper1'"
                           label-size="sm"                            
@@ -275,7 +275,7 @@
           </b-col>
 
 
-          <b-col>     
+          <b-col class="p-1">     
             <b-form-group label="Caliper 2"
                           :label-for="'qaCaliper2'"
                           label-size="sm"                            
@@ -288,7 +288,7 @@
         </b-row>
 
         <b-row>      
-          <b-col>   
+          <b-col class="p-1">   
             <b-form-group label="Caliper Front"
                           :label-for="'qaCaliperFront'"
                           label-size="sm"                            
@@ -300,7 +300,7 @@
           </b-col>
 
 
-          <b-col>                 
+          <b-col class="p-1">                 
             <b-form-group label="Caliper Back"
                           :label-for="'qaCaliperBack'"
                           label-size="sm"                            
@@ -313,7 +313,7 @@
         </b-row>
 
         <b-row>      
-          <b-col>           
+          <b-col class="p-1">           
             <b-form-group label="Actual Weight"
                           :label-for="'qaActualWeight'"
                           label-size="sm"                            
@@ -325,7 +325,7 @@
           </b-col>
 
 
-          <b-col>  
+          <b-col class="p-1">  
             <b-form-group label="Actual Set Time"
                           :label-for="'qaActualSetTime'"
                           label-size="sm"                            
@@ -338,7 +338,7 @@
         </b-row>   
 
         <b-row>
-          <b-col>
+          <b-col class="p-1">
             <h5>Operator: [[ curShot.PressOperatorName ]]</h5>
 
           </b-col>
