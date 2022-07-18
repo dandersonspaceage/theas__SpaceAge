@@ -9,6 +9,24 @@ import vueNewPage1 from "{{ '/press/press_App.vue'|theasResource }}"
     Vue.config.productionTip = false
     Vue.use(BootstrapVue);
 
+    const paperOptions = {
+      name: '_blank',
+      specs: [
+        'fullscreen=yes',
+        'titlebar=yes',
+        'scrollbars=yes'
+      ],
+      styles: [
+        //'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css',
+        //'https://unpkg.com/kidlat-css/css/kidlat.css'
+      ],
+      timeout: 1000, // default timeout before the print window appears
+      autoClose: true, // if false, the window will not close after printing
+      windowTitle: window.document.title, // override the window title
+    }
+    
+    Vue.use(VueHtmlToPaper, paperOptions);
+
     Vue.prototype.$th = new Theas()
 
    //use Axios instead of vue-resource for HTTP calls as per https://medium.com/the-vue-point/retiring-vue-resource-871a82880af4
