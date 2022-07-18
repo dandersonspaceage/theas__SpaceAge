@@ -99,7 +99,21 @@
                       <img width=221 height=136 id="Picture 1" src="/resources/spaceage.jpg" alt="SpaceAge">
                     </p>
 
-                    <h1 class="pb-5" style="text-align:center">Board Pallet Label</h1>                    
+                  <h1 class="pb-5" style="text-align:center">Board Pallet Label</h1>
+                  
+                  <h2 class="py-4">WO #: <span class="font-weight-bold">[[ curWOTable1.WONumber ]]</span></h2>
+                  
+                  <h2 class="py-4">Customer: <span class="font-weight-bold">[[ curWOTable1.CustomerName ]]</span></h2>
+
+                  <h2 class="py-4">Description: <span class="font-weight-bold">[[ curWOTable1.GlassSpecs ]]</span></h2>
+                  
+                  <h2 class="py-4">Off-Press Dimensions: <span class="font-weight-bold">[[ curWOTable1.DimThickness_OffPress ]] X [[ curWOTable1.DimWidth_OffPress ]] X [[ curWOTable1.DimLength_OffPress ]]</span></h2>
+                                
+                  <h2 class="py-4">Quantity: <span class="font-weight-bold">[[ printQuantity ]]</span></h2>
+                              
+                  <h2 class="py-4">Cut By: <span class="font-weight-bold">[[ curWorkerAbbrev]]</span></h2>                         
+                  
+                  <h2 class="py-4">Date: <span class="font-weight-bold">[[ curDate ]]</span></h2>                      
 
                 </div>  
 </div>                
@@ -567,7 +581,19 @@
       },                        
       validQuality : function() {
         return ((['A', 'B', 'RW'].includes(this.curShot.Quality)));
-      }
+      },
+
+      curWorkerName : function() {
+        return this.workerName(this.curWorkerQGUID);
+      },
+
+      curWorkerAbbrev: function() {
+        return this.workerAbbrev(this.curWorkerQGUID);
+      },      
+
+      curDate : function() {
+        return this.formatDate(null, 'ddd MM/DD/YYYY hh:mm');
+      }      
 
     },
 
@@ -1001,7 +1027,7 @@
 
             //a new shot:  assign values
             thatVue.curShot.qguidPressOperator = thatVue.curWorkerQGUID;
-            thatVue.curShot.PressOperatorName = thatVue.curWorkerName();
+            thatVue.curShot.PressOperatorName = thatVue.workerName();
 
             if (!thatVue.curShot.qguidWO) {
               
@@ -1149,8 +1175,12 @@
         return result;
       },
 
-      curWorkerName: function() {
-        let thisWorker = this.data_Workers.find((el) => el.qguid == this.curWorkerQGUID);
+      workerName: function(qguid) {
+        if (!qguid) {
+          qguid = this.curWorkerQGUID;
+        }
+
+        let thisWorker = this.data_Workers.find((el) => el.qguid == qguid);
 
         let thisName = null;
 
@@ -1159,6 +1189,22 @@
         }
         
         return thisName
+      },
+
+      workerAbbrev: function(qguid) {
+        if (!qguid) {
+          qguid = this.curWorkerQGUID;
+        }
+
+        let thisWorker = this.data_Workers.find((el) => el.qguid == qguid);
+
+        let thisAbbrev = null;
+
+        if (thisWorker) {
+          thisAbbrev = thisWorker.WorkerAbbreviation;
+        }
+        
+        return thisAbbrev
       },
 
       isQARequired : function() {
