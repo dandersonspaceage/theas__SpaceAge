@@ -269,7 +269,7 @@
                           label-size="sm"                            
                           >
               <b-form-input :id="'qaCaliper1'" :state="validCaliper1"
-                            size="sm"                
+                            size="sm"        
                             v-model="curShot.qaCaliper1"></b-form-input>
             </b-form-group>
           </b-col>
@@ -281,7 +281,8 @@
                           label-size="sm"                            
                           >
               <b-form-input :id="'qaCaliper2'" :state="validCaliper2"
-                            size="sm"                
+                            size="sm" 
+                            class="ml-2"                                                 
                             v-model="curShot.qaCaliper2"></b-form-input>
             </b-form-group>
           </b-col>
@@ -306,7 +307,8 @@
                           label-size="sm"                            
                           >
               <b-form-input :id="'qaCaliperBack'" :state="validCaliperBack"
-                            size="sm"                
+                            size="sm"           
+                            class="ml-2"                                       
                             v-model="curShot.qaCaliperBack"></b-form-input>
             </b-form-group>          
           </b-col>
@@ -332,6 +334,7 @@
                           >
               <b-form-input :id="'qaActualSetTIme'" :state="validActualSetTime"
                             size="sm"                
+                            class="ml-2"                                  
                             v-model="curShot.qaActualSetTime"></b-form-input>
             </b-form-group>              
           </b-col>
