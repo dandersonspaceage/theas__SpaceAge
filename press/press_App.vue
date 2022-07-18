@@ -106,7 +106,7 @@
           </b-col>
 
           <b-col>
-            <b-button @click="completeShot('Table2')" variant="warning">Shot</b-button>
+            <b-button @click="completeShot('Table2')" variant="primary">Shot</b-button>
           </b-col>            
 
         </b-row>
