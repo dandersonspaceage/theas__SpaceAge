@@ -237,9 +237,12 @@
           <b-col>   
             
             <b-form-group label="Quality"
-                          :label-for="'qaQuality'">
+                          :label-for="'qaQuality'"
+                          label-size="sm"                          
+                          >
               <b-form-select :id="'qaQuality'" :state="validQuality"
-                            :options="qualityLevels"       
+                            :options="qualityLevels"
+                            size="sm"                                  
                             ref="qualitySelect"         
                             v-model="curShot.Quality"></b-form-select>
             </b-form-group>                
@@ -249,7 +252,9 @@
         <b-row>      
           <b-col>
             <b-form-group label="Notes"
-                          :label-for="'qaNotes'">
+                          :label-for="'qaNotes'"
+                          label-size="sm"                            
+                          >
               <b-form-textarea :id="'qaNotes'" debounce="300"
                               v-model="curShot.Notes" rows="3" max-rows="3">   
               </b-form-textarea>                                                   
@@ -260,8 +265,11 @@
         <b-row>      
           <b-col>          
             <b-form-group label="Caliper 1"
-                          :label-for="'qaCaliper1'">
+                          :label-for="'qaCaliper1'"
+                          label-size="sm"                            
+                          >
               <b-form-input :id="'qaCaliper1'" :state="validCaliper1"
+                            size="sm"                
                             v-model="curShot.qaCaliper1"></b-form-input>
             </b-form-group>
           </b-col>
@@ -269,8 +277,11 @@
 
           <b-col>     
             <b-form-group label="Caliper 2"
-                          :label-for="'qaCaliper2'">
+                          :label-for="'qaCaliper2'"
+                          label-size="sm"                            
+                          >
               <b-form-input :id="'qaCaliper2'" :state="validCaliper2"
+                            size="sm"                
                             v-model="curShot.qaCaliper2"></b-form-input>
             </b-form-group>
           </b-col>
@@ -279,8 +290,11 @@
         <b-row>      
           <b-col>   
             <b-form-group label="Caliper Front"
-                          :label-for="'qaCaliperFront'">
+                          :label-for="'qaCaliperFront'"
+                          label-size="sm"                            
+                          >
               <b-form-input :id="'qaCaliperFront'" :state="validCaliperFront"
+                            size="sm"                
                             v-model="curShot.qaCaliperFront"></b-form-input>
             </b-form-group>
           </b-col>
@@ -288,8 +302,11 @@
 
           <b-col>                 
             <b-form-group label="Caliper Back"
-                          :label-for="'qaCaliperBack'">
+                          :label-for="'qaCaliperBack'"
+                          label-size="sm"                            
+                          >
               <b-form-input :id="'qaCaliperBack'" :state="validCaliperBack"
+                            size="sm"                
                             v-model="curShot.qaCaliperBack"></b-form-input>
             </b-form-group>          
           </b-col>
@@ -298,8 +315,11 @@
         <b-row>      
           <b-col>           
             <b-form-group label="Actual Weight"
-                          :label-for="'qaActualWeight'">
+                          :label-for="'qaActualWeight'"
+                          label-size="sm"                            
+                          >
               <b-form-input :id="'qaActualWeight'" :state="validActualWeight"
+                            size="sm"                
                             v-model="curShot.qaActualWeight"></b-form-input>
             </b-form-group>
           </b-col>
@@ -307,8 +327,11 @@
 
           <b-col>  
             <b-form-group label="Actual Set Time"
-                          :label-for="'qaActualSetTime'">
+                          :label-for="'qaActualSetTime'"
+                          label-size="sm"                            
+                          >
               <b-form-input :id="'qaActualSetTIme'" :state="validActualSetTime"
+                            size="sm"                
                             v-model="curShot.qaActualSetTime"></b-form-input>
             </b-form-group>              
           </b-col>
