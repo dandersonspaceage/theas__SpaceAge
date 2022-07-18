@@ -123,27 +123,25 @@
         <b-row>
           <b-col>
             <b-row>
-              <b-col cols="4">
+              <b-col>
                 <h4 class="p-0" style="font-size:calc(1em + .4vmin)">Table&nbsp;1</h4>
 
-            <div style="max-width: 150px">                                
-              <b-form-group label="Active WO"
-                          :label-for="'woTable1'">
+                <div style="max-width: 150px">                                
+                  <b-form-group label="Active&nbsp;WO"
+                              :label-for="'woTable1'">
 
-              <b-form-select :id="'woTable1'"
-                            :options="data_WOs"
-                            v-model="curWOqguid_Table1"
-                            size="sm"
-                            @change="changeActiveWO('Table1', curWOqguid_Table1)"
-                            >
-              </b-form-select>                              
-            </b-form-group>
-            </div>
+                  <b-form-select :id="'woTable1'"
+                                :options="data_WOs"
+                                v-model="curWOqguid_Table1"
+                                size="sm"
+                                @change="changeActiveWO('Table1', curWOqguid_Table1)"
+                                >
+                  </b-form-select>                              
+                </b-form-group>
+                </div>
 
               </b-col>
-              <b-col cols="8">
-                <!--<h5>[[ formatDate(curWOTable2.LastShotFinished, 'ddd hh:mm:ss') ]] Last Shot</h5>-->
-              </b-col>
+
             </b-row>
           </b-col>
 
@@ -154,11 +152,11 @@
         </b-row>      
 
         <b-row>
-          <b-col cols="6">
+          <b-col>
 
           </b-col>
 
-          <b-col cols="6">
+          <b-col>
             <b-button @click="completeShot('Table1')" variant="warning">Shot</b-button>
           </b-col>            
 
