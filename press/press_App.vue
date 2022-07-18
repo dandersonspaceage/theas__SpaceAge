@@ -140,43 +140,6 @@
             <h5 style="font-size:calc(0.6em + 1.4vmin)">WO [[ (curWOTable1) ? curWOTable1.WONumber : 'none']]</h5>
             <h6 style="font-size:calc(0.6em + 1vmin)">#[[ (curWOTable1) ? Number(curWOTable1.CurrentShotCount) + 1 : '0']] of [[ (curWOTable1) ? curWOTable1.Quantity : '0']]</h6>              
           </b-col>      
-
-          <b-col>
-
-   
-                <b-form-group label="Quantity (to print)"
-                              :label-for="'printQuantity'">
-                  <b-form-input :id="'printQuantity'" :state="validCutQuantity"
-                                v-model="printQuantity" size="sm" style="max-width: 75px"></b-form-input>
-                </b-form-group>
-
-                <b-button @click="print" variant="success" class="mt-3">Print Pallet Label</b-button>
-
-                <div id="printMe" size="sm" style="visibility: hidden">
-
-                    <p style="text-align:center">
-                      <img width=221 height=136 id="Picture 1" src="/resources/spaceage.jpg" alt="SpaceAge">
-                    </p>
-
-                    <h1 class="pb-5" style="text-align:center">Glass Pallet Label</h1>
-                    
-                      <h2 class="py-4">WO #: <span class="font-weight-bold">[[ curWO.WONumber ]]</span></h2>
-                      
-                      <h2 class="py-4">Customer: <span class="font-weight-bold">[[ curWO.CustomerName ]]</span></h2>
-
-                      <h2 class="py-4">Description: <span class="font-weight-bold">[[ curWO.GlassSpecs ]]</span></h2>
-                      
-                      <h2 class="py-4">Off-Press Dimensions: <span class="font-weight-bold">[[ curWO.DimThickness_OffPress ]] X [[ curWO.DimWidth_OffPress ]] X [[ curWO.DimLength_OffPress ]]</span></h2>
-                                    
-                      <h2 class="py-4">Quantity: <span class="font-weight-bold">[[ printQuantity ]]</span></h2>
-                                  
-                      <h2 class="py-4">Cut By: <span class="font-weight-bold">[[ curWorkerAbbrev]]</span></h2>                         
-                      
-                      <h2 class="py-4">Date: <span class="font-weight-bold">[[ curDate ]]</span></h2>        
-
-                </div>              
-
-          </b-col>
         </b-row>      
 
         <b-row>
@@ -196,20 +159,10 @@
           </b-col>
 
           <b-col cols="6">
+            <div style="height:32px">
+            </div>
 
-            <b-row>
-              <div style="height:32px">
-              </div>
-
-              <b-button @click="completeShot('Table1')" variant="warning">Shot</b-button>
-            </b-row>
-
-
-            <b-row>
-
-
-            </b-row>
-
+            <b-button @click="completeShot('Table1')" variant="warning">Shot</b-button>
           </b-col>            
 
         </b-row>
