@@ -214,7 +214,7 @@
 
   </b-modal>
 
-  <b-modal id="WOQualityModal" ref="WOQualityModal" class="container-fluid" @show="onShowWOQuality" @hide="onHideWOQuality($event)" :static="true">
+  <b-modal id="WOQualityModal" ref="WOQualityModal" class="modal-md m-3 p-3" @show="onShowWOQuality" @hide="onHideWOQuality($event)" :static="true">
 
     <template #modal-title>
       <h4>WO [[ curShot.WONumber ]] <span v-if="curShot.qguid"><span class="text-decoration-underline">Shot #[[ curShot.ShotNumber ]] </span><span class="h6 font-italic">[[ formatDate(curShot.dateFinished, 'ddd MM/DD') ]]</span></span><span v-if="!curShot.qguid">New Shot</span></h4>
@@ -229,7 +229,7 @@
       </b-button>
     </template>    
 
-    <div class="d-block modal-md m-3 p-3">
+    <div class="d-block">
 
       <b-form ref="shotForm">
 
