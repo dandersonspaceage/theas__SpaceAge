@@ -229,7 +229,7 @@
       </b-button>
     </template>    
 
-    <div class="p-4" style="width: 380px">
+    <div class="p-4" style="width: 400px">
 
       <b-form ref="shotForm">
 
@@ -253,11 +253,11 @@
           <b-col claas="pr-0">
             <b-form-group label="Notes"
                           :label-for="'qaNotes'"
-                          label-size="sm"                            
+                          label-size="sm"                           
                           >
               <b-form-textarea :id="'qaNotes'" debounce="300"
                               v-model="curShot.Notes" rows="3" max-rows="3"
-                              class="m-0"
+                              class="mr-4"
                               style="width:100%">   
               </b-form-textarea>                                                   
             </b-form-group>           
