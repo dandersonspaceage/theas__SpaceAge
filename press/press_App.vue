@@ -231,7 +231,6 @@
     <div class="d-block">
 
       <b-form ref="shotForm">
-        <b-container>
 
           <b-row>
             <b-form-group label="Quality"
@@ -329,9 +328,7 @@
               <b-col>
               <h5>Operator: [[ curShot.PressOperatorName ]]</h5>
               </b-col>
-          </b-row>
-
-        </b-container>        
+          </b-row> 
 
       </b-form>      
 
