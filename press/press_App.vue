@@ -49,7 +49,7 @@
     </b-col>
 
     <b-col>
-      <b-button size="md" variant="outline-primary" @click="showHistory">Shot History</b-button>
+      <b-button size="md" variant="outline-primary" @click="showHistory">Shot&nbsp;History</b-button>
     </b-col>
 
     
