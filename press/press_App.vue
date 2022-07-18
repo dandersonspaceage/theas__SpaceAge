@@ -229,7 +229,7 @@
       </b-button>
     </template>    
 
-    <div class="d-block" style="width: 360px">
+    <div class="d-block mr-2 pr-2" style="width: 380px">
 
       <b-form ref="shotForm">
 
@@ -281,8 +281,7 @@
                           label-size="sm"                            
                           >
               <b-form-input :id="'qaCaliper2'" :state="validCaliper2"
-                            size="sm" 
-                            class="ml-2"                                                 
+                            size="sm"                
                             v-model="curShot.qaCaliper2"></b-form-input>
             </b-form-group>
           </b-col>
@@ -307,8 +306,7 @@
                           label-size="sm"                            
                           >
               <b-form-input :id="'qaCaliperBack'" :state="validCaliperBack"
-                            size="sm"           
-                            class="ml-2"                                       
+                            size="sm"                
                             v-model="curShot.qaCaliperBack"></b-form-input>
             </b-form-group>          
           </b-col>
@@ -334,7 +332,6 @@
                           >
               <b-form-input :id="'qaActualSetTIme'" :state="validActualSetTime"
                             size="sm"                
-                            class="ml-2"                                  
                             v-model="curShot.qaActualSetTime"></b-form-input>
             </b-form-group>              
           </b-col>
