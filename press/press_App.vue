@@ -100,35 +100,21 @@
           </b-col>      
         </b-row>      
 
+
         <b-row>
-          <b-col>     
-            <div style="max-width: 150px">          
-              <b-form-group label="Active WO"
-                            :label-for="'woTable2'">
-                <b-form-select :id="'woTable2'"
-                              :options="data_WOs"
-                              v-model="curWOqguid_Table2"
-                              @change="changeActiveWO('Table2', curWOqguid_Table2)"
-                >
-                </b-form-select>
-              </b-form-group>
-              <h6>Last set time:</h6>
-            </div>
+          <b-col>
           </b-col>
 
           <b-col>
-            <div style="height:32px">
-            </div>
-
-            <b-button @click="completeShot('Table2')" variant="primary">Shot</b-button>
+            <b-button @click="completeShot('Table2')" variant="warning">Shot</b-button>
           </b-col>            
 
         </b-row>
       
       </b-col>
 
-      <b-col xs="*">
 
+      <b-col xs="*">
 
         <b-row>
           <b-col>
@@ -164,7 +150,6 @@
 
         <b-row>
           <b-col>
-
           </b-col>
 
           <b-col>
