@@ -256,7 +256,8 @@
                           label-size="sm"                            
                           >
               <b-form-textarea :id="'qaNotes'" debounce="300"
-                              v-model="curShot.Notes" rows="3" max-rows="3">   
+                              v-model="curShot.Notes" rows="3" max-rows="3"
+                              style="width:100%">   
               </b-form-textarea>                                                   
             </b-form-group>           
           </b-col>
