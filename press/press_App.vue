@@ -99,21 +99,7 @@
                       <img width=221 height=136 id="Picture 1" src="/resources/spaceage.jpg" alt="SpaceAge">
                     </p>
 
-                    <h1 class="pb-5" style="text-align:center">Board Pallet Label</h1>
-                    
-                      <h2 class="py-4">WO #: <span class="font-weight-bold">[[ curWO.WONumber ]]</span></h2>
-                      
-                      <h2 class="py-4">Customer: <span class="font-weight-bold">[[ curWO.CustomerName ]]</span></h2>
-
-                      <h2 class="py-4">Description: <span class="font-weight-bold">[[ curWO.GlassSpecs ]]</span></h2>
-                      
-                      <h2 class="py-4">Off-Press Dimensions: <span class="font-weight-bold">[[ curWO.DimThickness_OffPress ]] X [[ curWO.DimWidth_OffPress ]] X [[ curWO.DimLength_OffPress ]]</span></h2>
-                                    
-                      <h2 class="py-4">Quantity: <span class="font-weight-bold">[[ printQuantity ]]</span></h2>
-                                  
-                      <h2 class="py-4">Cut By: <span class="font-weight-bold">[[ curWorkerAbbrev]]</span></h2>                         
-                      
-                      <h2 class="py-4">Date: <span class="font-weight-bold">[[ curDate ]]</span></h2>        
+                    <h1 class="pb-5" style="text-align:center">Board Pallet Label</h1>                    
 
                 </div>  
 </div>                
@@ -518,7 +504,7 @@
         curShot: {},
         thisWO_CommitDate: null, // object for datepicker
 
-        keyQuality: 0,
+        printQuantity: 1,        
       };
     },
 
@@ -592,6 +578,24 @@
           screenfull.request();
         }
       }, 
+
+
+      async print () {
+        let thatVue = this;
+
+        if (!thatVue.curWorker) {
+            //TechnicalMessage|FriendlyMessage|ShowTech?|Title
+            thatVue.$th.raiseError('|Please select the worker that is currently cutting glass.|1|No worker selected!');
+        }
+        
+        else {
+
+          thatVue.curWO = thatVue.curWOTable1;
+
+          // Pass the element id here
+          await this.$htmlToPaper('printMe');
+        }
+      },
 
       onShowShotHistory: function() {
         let thatVue = this;
