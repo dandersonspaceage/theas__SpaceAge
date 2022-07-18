@@ -75,20 +75,56 @@
               <b-col>
                 <h4 class="p-0 m-0" style="font-size:calc(1em + .4vmin)">Table&nbsp;2</h4>
 
-                  <b-form-group label="Active WO"
-                              :label-for="'woTable2'"
-                              style="max-width: 150px"
-                              class="p-0 m-0">
+                <b-form-group label="Active WO"
+                            :label-for="'woTable2'"
+                            style="max-width: 150px"
+                            class="p-0 m-0">
 
-                    <b-form-select :id="'woTable2'"
-                                  :options="data_WOs"
-                                  v-model="curWOqguid_Table2"
-                                  size="sm"
-                                  class="p-0 m-0"
-                                  @change="changeActiveWO('Table2', curWOqguid_Table2)"
-                                  >
-                    </b-form-select>                          
-                  </b-form-group>
+                  <b-form-select :id="'woTable2'"
+                                :options="data_WOs"
+                                v-model="curWOqguid_Table2"
+                                size="sm"
+                                class="p-0 m-0"
+                                @change="changeActiveWO('Table2', curWOqguid_Table2)"
+                                >
+                  </b-form-select>                          
+                </b-form-group>
+
+<div>
+                <b-form-group label="Quantity (to print)"
+                              :label-for="'printQuantity'"
+                              size="sm">
+                  <b-form-input :id="'printQuantity'" :state="validCutQuantity"
+                                v-model="printQuantity" size="sm" style="max-width: 75px">
+                  </b-form-input>
+                </b-form-group>
+
+                <b-button @click="print" variant="success" size="sm" class="mt-3">Print Pallet Label</b-button>
+
+                <div id="printMe" style="visibility: hidden">
+
+                    <p style="text-align:center">
+                      <img width=221 height=136 id="Picture 1" src="/resources/spaceage.jpg" alt="SpaceAge">
+                    </p>
+
+                    <h1 class="pb-5" style="text-align:center">Board Pallet Label</h1>
+                    
+                      <h2 class="py-4">WO #: <span class="font-weight-bold">[[ curWO.WONumber ]]</span></h2>
+                      
+                      <h2 class="py-4">Customer: <span class="font-weight-bold">[[ curWO.CustomerName ]]</span></h2>
+
+                      <h2 class="py-4">Description: <span class="font-weight-bold">[[ curWO.GlassSpecs ]]</span></h2>
+                      
+                      <h2 class="py-4">Off-Press Dimensions: <span class="font-weight-bold">[[ curWO.DimThickness_OffPress ]] X [[ curWO.DimWidth_OffPress ]] X [[ curWO.DimLength_OffPress ]]</span></h2>
+                                    
+                      <h2 class="py-4">Quantity: <span class="font-weight-bold">[[ printQuantity ]]</span></h2>
+                                  
+                      <h2 class="py-4">Cut By: <span class="font-weight-bold">[[ curWorkerAbbrev]]</span></h2>                         
+                      
+                      <h2 class="py-4">Date: <span class="font-weight-bold">[[ curDate ]]</span></h2>        
+
+                </div>  
+</div>                
 
               </b-col>
             </b-row>
