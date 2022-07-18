@@ -127,13 +127,15 @@
                 <h4 class="p-0" style="font-size:calc(1em + .4vmin)">Table&nbsp;1</h4>
 
                 <div style="max-width: 150px">                                
-                  <b-form-group label="Active&nbsp;WO"
-                              :label-for="'woTable1'">
+                  <b-form-group label="Active WO"
+                              :label-for="'woTable1'"
+                              class="p-0">
 
                   <b-form-select :id="'woTable1'"
                                 :options="data_WOs"
                                 v-model="curWOqguid_Table1"
                                 size="sm"
+                                class="p-0"
                                 @change="changeActiveWO('Table1', curWOqguid_Table1)"
                                 >
                   </b-form-select>                              
