@@ -10,8 +10,6 @@
 
     <b-col>
 
-      <div style="max-width: 225px">   
-
         <b-form-group label="Operator"
                     :label-for="'selWorker'"
                     style="max-width: 150px"
@@ -25,15 +23,13 @@
           >
           </b-form-select>
 
-        </b-form-group>            
-      </div>         
+        </b-form-group>               
       
     </b-col>
 
     <b-col>
-      <div style="max-width: 200px">   
 
-        <b-form-group label="Press"
+<b-form-group label="Press"
                       :label-for="'ListName'"
                       style="max-width: 150px"
                       class="p-0 m-0">                          
@@ -47,9 +43,8 @@
           </b-form-select>
         </b-form-group>
 
-          <h6 class="ml-1">[[ curWOListCode ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>        
-
-      </div>      
+        <h6 class="ml-1">[[ curWOListCode ]] (<span v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>        
+ 
     </b-col>
 
     <b-col>
