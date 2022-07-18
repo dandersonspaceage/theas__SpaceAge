@@ -214,9 +214,7 @@
 
   </b-modal>
 
-  <b-modal id="WOQualityModal" ref="WOQualityModal" @show="onShowWOQuality" @hide="onHideWOQuality($event)" :static="true">
-
-    <b-container>
+  <b-modal id="WOQualityModal" ref="WOQualityModal" class="container-fluid" @show="onShowWOQuality" @hide="onHideWOQuality($event)" :static="true">
 
     <template #modal-title>
       <h4>WO [[ curShot.WONumber ]] <span v-if="curShot.qguid"><span class="text-decoration-underline">Shot #[[ curShot.ShotNumber ]] </span><span class="h6 font-italic">[[ formatDate(curShot.dateFinished, 'ddd MM/DD') ]]</span></span><span v-if="!curShot.qguid">New Shot</span></h4>
@@ -236,7 +234,7 @@
       <b-form ref="shotForm">
 
         <b-row>      
-          <b-col>   
+          <b-col col="4">   
             
             <b-form-group label="Quality"
                           :label-for="'qaQuality'">
@@ -249,7 +247,7 @@
         </b-row>
 
         <b-row>      
-          <b-col>   
+          <b-col col="4">
             <b-form-group label="Notes"
                           :label-for="'qaNotes'">
               <b-form-textarea :id="'qaNotes'" debounce="300"
@@ -260,7 +258,7 @@
         </b-row>  
         
         <b-row>      
-          <b-col>          
+          <b-col col="2">          
             <b-form-group label="Caliper 1"
                           :label-for="'qaCaliper1'">
               <b-form-input :id="'qaCaliper1'" :state="validCaliper1"
@@ -269,7 +267,7 @@
           </b-col>
 
 
-          <b-col>     
+          <b-col col="2">     
             <b-form-group label="Caliper 2"
                           :label-for="'qaCaliper2'">
               <b-form-input :id="'qaCaliper2'" :state="validCaliper2"
@@ -279,7 +277,7 @@
         </b-row>
 
         <b-row>      
-          <b-col>   
+          <b-col col="2">   
             <b-form-group label="Caliper Front"
                           :label-for="'qaCaliperFront'">
               <b-form-input :id="'qaCaliperFront'" :state="validCaliperFront"
@@ -288,7 +286,7 @@
           </b-col>
 
 
-          <b-col>                 
+          <b-col col="2">                 
             <b-form-group label="Caliper Back"
                           :label-for="'qaCaliperBack'">
               <b-form-input :id="'qaCaliperBack'" :state="validCaliperBack"
@@ -298,7 +296,7 @@
         </b-row>
 
         <b-row>      
-          <b-col>           
+          <b-col col="2">           
             <b-form-group label="Actual Weight"
                           :label-for="'qaActualWeight'">
               <b-form-input :id="'qaActualWeight'" :state="validActualWeight"
@@ -307,7 +305,7 @@
           </b-col>
 
 
-          <b-col>  
+          <b-col col="2">  
             <b-form-group label="Actual Set Time"
                           :label-for="'qaActualSetTime'">
               <b-form-input :id="'qaActualSetTIme'" :state="validActualSetTime"
@@ -317,7 +315,7 @@
         </b-row>   
 
         <b-row>
-          <b-col>
+          <b-col col="4">
             <h5>Operator: [[ curShot.PressOperatorName ]]</h5>
 
           </b-col>
@@ -326,8 +324,7 @@
       </b-form>      
 
     </div>
-      
-    </b-container>    
+
   </b-modal>  
 
 
