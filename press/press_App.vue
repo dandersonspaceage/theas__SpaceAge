@@ -228,7 +228,7 @@
       </b-button>
     </template>    
 
-    <div class="d-block">
+    <div>
 
       <b-form ref="shotForm">
 
