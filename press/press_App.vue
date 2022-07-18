@@ -151,6 +151,7 @@
               <b-form-select :id="'woTable1'"
                             :options="data_WOs"
                             v-model="curWOqguid_Table1"
+                            size="sm"
                             @change="changeActiveWO('Table1', curWOqguid_Table1)"
                             >
               </b-form-select>                              
@@ -159,8 +160,6 @@
           </b-col>
 
           <b-col cols="6">
-            <div style="height:32px">
-            </div>
 
             <b-button @click="completeShot('Table1')" variant="warning">Shot</b-button>
           </b-col>            
