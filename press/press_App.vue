@@ -72,7 +72,7 @@
           <b-col>
             <b-row>
               <b-col cols="4">
-                <h4 style="font-size:calc(1em + .5vmin)">Table 2</h4>
+                <h4 style="font-size:calc(1em + .5vmin)">Table&nbsp;2</h4>
               </b-col>
               <b-col cols="8">
                 <!--<h5>[[ formatDate(curWOTable2.LastShotFinished, 'ddd hh:mm:ss') ]] Last Shot</h5>-->
@@ -125,25 +125,7 @@
             <b-row>
               <b-col cols="4">
                 <h4 class="p-0" style="font-size:calc(1em + .4vmin)">Table&nbsp;1</h4>
-              </b-col>
-              <b-col cols="8">
-                <!--<h5>[[ formatDate(curWOTable2.LastShotFinished, 'ddd hh:mm:ss') ]] Last Shot</h5>-->
-              </b-col>
-            </b-row>
-            <b-row>
-              <b-col>
-              </b-col>
-            </b-row>
-          </b-col>
 
-          <b-col>     
-            <h5 class="p-0" style="font-size:calc(1em + .5vmin)">WO [[ (curWOTable1) ? curWOTable1.WONumber : 'none']]</h5>
-            <h6 class="p-0" style="font-size:calc(1em + .2vmin)">#[[ (curWOTable1) ? Number(curWOTable1.CurrentShotCount) + 1 : '0']] of [[ (curWOTable1) ? curWOTable1.Quantity : '0']]</h6>              
-          </b-col>      
-        </b-row>      
-
-        <b-row>
-          <b-col cols="6">
             <div style="max-width: 150px">                                
               <b-form-group label="Active WO"
                           :label-for="'woTable1'">
@@ -157,6 +139,23 @@
               </b-form-select>                              
             </b-form-group>
             </div>
+
+              </b-col>
+              <b-col cols="8">
+                <!--<h5>[[ formatDate(curWOTable2.LastShotFinished, 'ddd hh:mm:ss') ]] Last Shot</h5>-->
+              </b-col>
+            </b-row>
+          </b-col>
+
+          <b-col>     
+            <h5 class="p-0" style="font-size:calc(1em + .5vmin)">WO [[ (curWOTable1) ? curWOTable1.WONumber : 'none']]</h5>
+            <h6 class="p-0" style="font-size:calc(1em + .2vmin)">#[[ (curWOTable1) ? Number(curWOTable1.CurrentShotCount) + 1 : '0']] of [[ (curWOTable1) ? curWOTable1.Quantity : '0']]</h6>              
+          </b-col>      
+        </b-row>      
+
+        <b-row>
+          <b-col cols="6">
+
           </b-col>
 
           <b-col cols="6">
