@@ -229,7 +229,7 @@
       </b-button>
     </template>    
 
-    <div class="m-4 p-4" style="width: 380px">
+    <div class="p-4" style="width: 380px">
 
       <b-form ref="shotForm">
 
