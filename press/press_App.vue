@@ -117,20 +117,11 @@
           <b-col>  
             <h5 style="font-size:calc(1em + .5vmin)">WO [[ (curWOTable2) ? curWOTable2.WONumber : 'none']]</h5>
             <h6 style="font-size:calc(1em + .2vmin)">#[[ (curWOTable2) ? Number(curWOTable2.CurrentShotCount) + 1 : '0']] of [[ (curWOTable2) ? curWOTable2.Quantity : '0']]</h6>
-          </b-col>      
-        </b-row>      
-
-
-        <b-row>
-          <b-col>
-          </b-col>
-
-          <b-col>
-            <b-button @click="completeShot('Table2')" variant="primary">Shot</b-button>
-          </b-col>            
+            <b-button @click="completeShot('Table2')" variant="primary">Shot</b-button>            
+          </b-col>     
 
         </b-row>
-      
+
       </b-col>
 
 
@@ -185,19 +176,11 @@
           <b-col>     
             <h5 class="p-0" style="font-size:calc(1em + .5vmin)">WO [[ (curWOTable1) ? curWOTable1.WONumber : 'none']]</h5>
             <h6 class="p-0" style="font-size:calc(1em + .2vmin)">#[[ (curWOTable1) ? Number(curWOTable1.CurrentShotCount) + 1 : '0']] of [[ (curWOTable1) ? curWOTable1.Quantity : '0']]</h6>              
+
+            <b-button @click="completeShot('Table1')" variant="warning">Shot</b-button>            
           </b-col>      
         </b-row>      
-
-        <b-row>
-          <b-col>
-          </b-col>
-
-          <b-col>
-            <b-button @click="completeShot('Table1')" variant="warning">Shot</b-button>
-          </b-col>            
-
-        </b-row>
-      
+     
       </b-col>
 
   </b-row>
