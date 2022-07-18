@@ -140,37 +140,10 @@
             <h5 style="font-size:calc(0.6em + 1.4vmin)">WO [[ (curWOTable1) ? curWOTable1.WONumber : 'none']]</h5>
             <h6 style="font-size:calc(0.6em + 1vmin)">#[[ (curWOTable1) ? Number(curWOTable1.CurrentShotCount) + 1 : '0']] of [[ (curWOTable1) ? curWOTable1.Quantity : '0']]</h6>              
           </b-col>      
-        </b-row>      
 
-        <b-row>
-          <b-col cols="6">
-            <div style="max-width: 150px">                                
-              <b-form-group label="Active WO"
-                          :label-for="'woTable1'">
+          <b-col>
 
-              <b-form-select :id="'woTable1'"
-                            :options="data_WOs"
-                            v-model="curWOqguid_Table1"
-                            @change="changeActiveWO('Table1', curWOqguid_Table1)"
-                            >
-              </b-form-select>                              
-            </b-form-group>
-            </div>
-          </b-col>
-
-          <b-col cols="6">
-
-            <b-row>
-              <div style="height:32px">
-              </div>
-
-              <b-button @click="completeShot('Table1')" variant="warning">Shot</b-button>
-            </b-row>
-
-
-            <b-row>
-
-              <b-col cols="2">        
+   
                 <b-form-group label="Quantity (to print)"
                               :label-for="'printQuantity'">
                   <b-form-input :id="'printQuantity'" :state="validCutQuantity"
@@ -202,7 +175,39 @@
                       <h2 class="py-4">Date: <span class="font-weight-bold">[[ curDate ]]</span></h2>        
 
                 </div>              
-              </b-col>
+
+          </b-col>
+        </b-row>      
+
+        <b-row>
+          <b-col cols="6">
+            <div style="max-width: 150px">                                
+              <b-form-group label="Active WO"
+                          :label-for="'woTable1'">
+
+              <b-form-select :id="'woTable1'"
+                            :options="data_WOs"
+                            v-model="curWOqguid_Table1"
+                            @change="changeActiveWO('Table1', curWOqguid_Table1)"
+                            >
+              </b-form-select>                              
+            </b-form-group>
+            </div>
+          </b-col>
+
+          <b-col cols="6">
+
+            <b-row>
+              <div style="height:32px">
+              </div>
+
+              <b-button @click="completeShot('Table1')" variant="warning">Shot</b-button>
+            </b-row>
+
+
+            <b-row>
+
+
             </b-row>
 
           </b-col>            
