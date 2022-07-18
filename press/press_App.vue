@@ -583,10 +583,10 @@
       async print () {
         let thatVue = this;
 
-        if (!thatVue.curWorker) {
-            //TechnicalMessage|FriendlyMessage|ShowTech?|Title
-            thatVue.$th.raiseError('|Please select the worker that is currently cutting glass.|1|No worker selected!');
-        }
+        if (!thatVue.curWorkerQGUID) {
+          //TechnicalMessage|FriendlyMessage|ShowTech?|Title
+          thatVue.$th.raiseError('|Please select the operator that is working on this press.|1|No operator selected!');          
+        }        
         
         else {
 
