@@ -124,7 +124,7 @@
           <b-col>
             <b-row>
               <b-col cols="4">
-                <h4 class="p-0" style="font-size:calc(1em + .4vmin)">Table 1</h4>
+                <h4 class="p-0" style="font-size:calc(1em + .4vmin)">Table&nbsp;1</h4>
               </b-col>
               <b-col cols="8">
                 <!--<h5>[[ formatDate(curWOTable2.LastShotFinished, 'ddd hh:mm:ss') ]] Last Shot</h5>-->
