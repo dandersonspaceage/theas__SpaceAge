@@ -1,6 +1,6 @@
 <template>
 
-<div style="height:120px" class="mr-3">
+<div>
 
   <b-row style="height: 15vh">
 
