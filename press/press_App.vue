@@ -4,11 +4,11 @@
 
   <b-row style="height: 15vh">
 
-    <b-col cols="3">
+    <b-col>
       <img src="/resources/SpaceAgeLogo.png">
     </b-col>
 
-    <b-col cols="4">
+    <b-col>
 
       <div style="max-width: 225px">   
 
@@ -28,7 +28,7 @@
       
     </b-col>
 
-    <b-col cols="3">
+    <b-col>
       <div style="max-width: 200px">   
 
         <b-form-group label="Press"
@@ -46,12 +46,12 @@
       </div>      
     </b-col>
 
-    <b-col cols="1">
+    <b-col>
       <br />
       <b-button class="mb-1" variant="outline-primary" @click="showHistory">Shot History</b-button>
     </b-col>
     
-    <b-col cols="1">
+    <b-col>
       <br />
       <b-button @click="fetchData()">Reload</b-button>
     </b-col>
