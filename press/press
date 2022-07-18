@@ -97,7 +97,9 @@
 
 <script src="https://unpkg.com/vue-tabulator@latest"></script>
 
-    <script  type="module" src="{{ '/press/press.js'|theasResource }}"></script>
+<script src="{{ '/cdn/vue-html-to-paper/vue-html-to-paper.js'|theasResource }}"></script>
+
+<script  type="module" src="{{ '/press/press.js'|theasResource }}"></script>
 
 </head>
 <body style="height:85vh; width:100%">
