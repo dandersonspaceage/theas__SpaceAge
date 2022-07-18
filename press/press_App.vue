@@ -130,7 +130,7 @@
 
                   <b-form-group label="Active WO"
                               :label-for="'woTable1'"
-                              class="row p-0 m-0">
+                              class="p-0 m-0">
 
                   <b-form-select :id="'woTable1'"
                                 :options="data_WOs"
