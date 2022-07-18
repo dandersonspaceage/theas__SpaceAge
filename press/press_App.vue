@@ -85,8 +85,8 @@
           </b-col>
 
           <b-col>  
-            <h5 style="font-size:calc(0.6em + .5vmin)">WO [[ (curWOTable2) ? curWOTable2.WONumber : 'none']]</h5>
-            <h6 style="font-size:calc(0.6em + .2vmin)">#[[ (curWOTable2) ? Number(curWOTable2.CurrentShotCount) + 1 : '0']] of [[ (curWOTable2) ? curWOTable2.Quantity : '0']]</h6>
+            <h5 style="font-size:calc(1em + .5vmin)">WO [[ (curWOTable2) ? curWOTable2.WONumber : 'none']]</h5>
+            <h6 style="font-size:calc(1em + .2vmin)">#[[ (curWOTable2) ? Number(curWOTable2.CurrentShotCount) + 1 : '0']] of [[ (curWOTable2) ? curWOTable2.Quantity : '0']]</h6>
           </b-col>      
         </b-row>      
 
@@ -124,7 +124,7 @@
           <b-col>
             <b-row>
               <b-col cols="4">
-                <h4 style="font-size:calc(1em + .5vmin)">Table 1</h4>
+                <h4 class="p-0" style="font-size:calc(1em + .5vmin)">Table 1</h4>
               </b-col>
               <b-col cols="8">
                 <!--<h5>[[ formatDate(curWOTable2.LastShotFinished, 'ddd hh:mm:ss') ]] Last Shot</h5>-->
@@ -137,8 +137,8 @@
           </b-col>
 
           <b-col>     
-            <h5 style="font-size:calc(0.6em + .5vmin)">WO [[ (curWOTable1) ? curWOTable1.WONumber : 'none']]</h5>
-            <h6 style="font-size:calc(0.6em + .2vmin)">#[[ (curWOTable1) ? Number(curWOTable1.CurrentShotCount) + 1 : '0']] of [[ (curWOTable1) ? curWOTable1.Quantity : '0']]</h6>              
+            <h5 class="p-0" style="font-size:calc(1em + .5vmin)">WO [[ (curWOTable1) ? curWOTable1.WONumber : 'none']]</h5>
+            <h6 class="p-0" style="font-size:calc(1em + .2vmin)">#[[ (curWOTable1) ? Number(curWOTable1.CurrentShotCount) + 1 : '0']] of [[ (curWOTable1) ? curWOTable1.Quantity : '0']]</h6>              
           </b-col>      
         </b-row>      
 
