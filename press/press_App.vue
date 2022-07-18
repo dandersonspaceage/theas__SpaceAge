@@ -29,31 +29,32 @@
 
     <b-col>
 
-<b-form-group label="Press"
-                      :label-for="'ListName'"
-                      style="max-width: 150px"
-                      class="p-0 m-0">                          
+      <b-form-group label="Press"
+                            :label-for="'ListName'"
+                            style="max-width: 150px"
+                            class="p-0 m-0">                          
 
-          <b-form-select :id="'listName'"
-                        :disabled="lockPressSelection"
-                        v-model="curWOListCode" :options="woListNames" @change="switchWOList()"
-                        size="sm"    
-                        class="p-0 m-0"
-                        >
-          </b-form-select>
-        </b-form-group>
+        <b-form-select :id="'listName'"
+                      :disabled="lockPressSelection"
+                      v-model="curWOListCode" :options="woListNames" @change="switchWOList()"
+                      size="sm"    
+                      class="p-0 m-0"
+                      >
+        </b-form-select>
 
-        <h6 class="ml-1">[[ curWOListCode ]] (<span class="caption3" v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>        
+      </b-form-group>
+
+      <h6 class="ml-1">[[ curWOListCode ]] (<span class="caption3" v-if="busy">Loading</span><span v-if="!busy">[[ data_WOs.length ]]</span><span>orders</span>)</h6>        
  
     </b-col>
 
-    <b-col xs="2">
-      <b-button size="sm" class="p-0 m-0 mt-1" variant="outline-primary" @click="showHistory">Shot History</b-button>
+    <b-col>
+      <b-button size="md" variant="outline-primary" @click="showHistory">Shot History</b-button>
     </b-col>
 
     
-    <b-col xs="2">
-      <b-button size="sm" @click="fetchData()">Reload</b-button>
+    <b-col>
+      <b-button size="md" variant="secondary" @click="fetchData()">Reload</b-button>
     </b-col>
   
   </b-row>  
