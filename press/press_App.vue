@@ -13,17 +13,19 @@
       <div style="max-width: 225px">   
 
         <b-form-group label="Operator"
-                    :label-for="'selWorker'">
+                    :label-for="'selWorker'"
+                    style="max-width: 150px"
+                    class="p-0 m-0">                    
 
           <b-form-select :id="'selWorker'"
                         :options="data_Workers"
                         v-model="curWorkerQGUID"
-                        size="sm"                        
+                        size="sm"    
+                        class="p-0 m-0"                    
           >
           </b-form-select>
 
-        </b-form-group>   
-
+        </b-form-group>            
       </div>         
       
     </b-col>
@@ -32,11 +34,15 @@
       <div style="max-width: 200px">   
 
         <b-form-group label="Press"
-                      :label-for="'ListName'" class="mb-0 pb-2">
+                      :label-for="'ListName'"
+                      style="max-width: 150px"
+                      class="p-0 m-0">                          
+
           <b-form-select :id="'listName'"
                         :disabled="lockPressSelection"
                         v-model="curWOListCode" :options="woListNames" @change="switchWOList()"
-                        size="sm"
+                        size="sm"    
+                        class="p-0 m-0"
                         >
           </b-form-select>
         </b-form-group>
