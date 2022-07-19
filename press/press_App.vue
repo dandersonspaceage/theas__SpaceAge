@@ -255,10 +255,11 @@
         </b-row>
 
         <b-row>      
-          <b-col claas="mr-5">
+          <b-col>
             <b-form-group label="Notes"
                           :label-for="'qaNotes'"
-                          label-size="sm"                         
+                          label-size="sm"
+                          class="mr-4"                           
                           >
               <b-form-textarea :id="'qaNotes'" debounce="300"
                               v-model="curShot.Notes" rows="3" max-rows="3"
