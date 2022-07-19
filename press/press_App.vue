@@ -93,7 +93,7 @@
 
                 <div>
                   <b-button @click="print('printBoardLabel2')" variant="success" size="sm" class="p-0 m-0 mt-1">Print Pallet Label</b-button>
-<input name="qtyLabel2" style="background-color:darkgoldenrod" size="3">
+                  <input name="qtyLabel2" :value="printQtyLabel2" class="printqty" size="3">
 
                   <div id="printBoardLabel2" style="visibility: hidden">
 
@@ -106,7 +106,7 @@
                     <h2 class="py-4">Customer: <span class="font-weight-bold">[[ curWOTable2.CustomerName ]]</span></h2>
                     <h2 class="py-4">Description: <span class="font-weight-bold">[[ curWOTable2.GlassSpecs ]]</span></h2>                  
                     <h2 class="py-4">Off-Press Dimensions: <span class="font-weight-bold">[[ curWOTable2.DimThickness_OffPress ]] X [[ curWOTable2.DimWidth_OffPress ]] X [[ curWOTable2.DimLength_OffPress ]]</span></h2>                                
-                    <h2 class="py-4">Quantity: <span class="font-weight-bold">[[ printQuantity ]]</span></h2>                              
+                    <h2 class="py-4">Quantity: <span class="font-weight-bold">[[ printQuantityLabel2 ]]</span></h2>                              
                     <h2 class="py-4">Cut By: <span class="font-weight-bold">[[ curWorkerAbbrev]]</span></h2>                                           
                     <h2 class="py-4">Date: <span class="font-weight-bold">[[ curDate ]]</span></h2>                      
                   </div>  
@@ -152,6 +152,7 @@
 
                 <div>
                   <b-button @click="print('printBoardLabel1')" variant="success" size="sm" class="p-0 m-0 mt-1">Print Pallet Label</b-button>
+                  <input name="qtyLabel1" :value="printQtyLabel1" class="printqty" size="3"></input>                  
 
                   <div id="printBoardLabel1" style="visibility: hidden">
 
@@ -164,7 +165,7 @@
                     <h2 class="py-4">Customer: <span class="font-weight-bold">[[ curWOTable1.CustomerName ]]</span></h2>
                     <h2 class="py-4">Description: <span class="font-weight-bold">[[ curWOTable1.GlassSpecs ]]</span></h2>                  
                     <h2 class="py-4">Off-Press Dimensions: <span class="font-weight-bold">[[ curWOTable1.DimThickness_OffPress ]] X [[ curWOTable1.DimWidth_OffPress ]] X [[ curWOTable1.DimLength_OffPress ]]</span></h2>                                
-                    <h2 class="py-4">Quantity: <span class="font-weight-bold">[[ printQuantity ]]</span></h2>                              
+                    <h2 class="py-4">Quantity: <span class="font-weight-bold">[[ printQuantityLabel2 ]]</span></h2>                              
                     <h2 class="py-4">Cut By: <span class="font-weight-bold">[[ curWorkerAbbrev]]</span></h2>                                           
                     <h2 class="py-4">Date: <span class="font-weight-bold">[[ curDate ]]</span></h2>                      
                   </div>  
@@ -543,7 +544,8 @@
         curShot: {},
         thisWO_CommitDate: null, // object for datepicker
 
-        printQuantity: 1,        
+        printQtyLabel1: 1,  
+        printQtyLabel2: 1      
       };
     },
 
@@ -1319,6 +1321,10 @@
     padding-left: 10px;
     padding-right: 10px;
     background-color: #BDB76B;
+  }
+
+  .printqty {
+    background-color: #cecba1
   }
 
 </style>
