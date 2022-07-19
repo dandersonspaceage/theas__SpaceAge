@@ -238,7 +238,7 @@
       <b-form ref="shotForm">
 
         <b-row>      
-          <b-col>   
+          <b-col class="mr-5">   
             
             <b-form-group label="Quality"
                           :label-for="'qaQuality'"
@@ -254,7 +254,7 @@
         </b-row>
 
         <b-row>      
-          <b-col claas="pr-0">
+          <b-col claas="">
             <b-form-group label="Notes"
                           :label-for="'qaNotes'"
                           label-size="sm"                           
@@ -269,7 +269,7 @@
         </b-row>  
         
         <b-row>      
-          <b-col class="m-5">          
+          <b-col class="mr-5">          
             <b-form-group label="Caliper 1"
                           :label-for="'qaCaliper1'"
                           label-size="sm"                            
@@ -281,7 +281,7 @@
           </b-col>
 
 
-          <b-col class="pl-4 m-5">     
+          <b-col class="mr-5">     
             <b-form-group label="Caliper 2"
                           :label-for="'qaCaliper2'"
                           label-size="sm"                            
