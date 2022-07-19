@@ -1324,7 +1324,8 @@
   }
 
   .printqty {
-    background-color: #cecba1
+    background-color: #cecba1;
+    height: 18px;
   }
 
 </style>
