@@ -242,12 +242,11 @@
             <b-form-group label="Quality"
                           :label-for="'qaQuality'"
                           label-size="sm"  
-                          class="dlgfield"                        
+                          class="modalfield"                        
                           >
               <b-form-select :id="'qaQuality'" :state="validQuality"
                             :options="qualityLevels"
-                            size="sm"
-                            class="m4-5"                               
+                            size="sm"                             
                             ref="qualitySelect"         
                             v-model="curShot.Quality"></b-form-select>
             </b-form-group>                
@@ -1289,8 +1288,8 @@
             box-sizing: content-box;
   }
 
-  .dlgfield {
-    margin-right: 30px;
+  .modalfield {
+    margin-right: 60px;
   }
   .caption3 {
     font-size:calc(1em + .4vmin);
