@@ -269,7 +269,7 @@
         </b-row>  
         
         <b-row>      
-          <b-col class="pr-5">          
+          <b-col class="mr-4">          
             <b-form-group label="Caliper 1"
                           :label-for="'qaCaliper1'"
                           label-size="sm"                            
@@ -281,7 +281,7 @@
           </b-col>
 
 
-          <b-col class="pl-5">     
+          <b-col class="pl-4 mr-4">     
             <b-form-group label="Caliper 2"
                           :label-for="'qaCaliper2'"
                           label-size="sm"                            
