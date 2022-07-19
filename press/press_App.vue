@@ -217,7 +217,6 @@
   <b-modal id="WOQualityModal" ref="WOQualityModal"
     @show="onShowWOQuality"
     @hide="onHideWOQuality($event)"
-    class="m4-5"
     :static="true">
 
     <template #modal-title>
@@ -243,7 +242,7 @@
             <b-form-group label="Quality"
                           :label-for="'qaQuality'"
                           label-size="sm"  
-                          class="mr-5"                        
+                          class="dlgfield"                        
                           >
               <b-form-select :id="'qaQuality'" :state="validQuality"
                             :options="qualityLevels"
@@ -1290,7 +1289,9 @@
             box-sizing: content-box;
   }
 
-
+  .dlgfield {
+    margin-right: 30px;
+  }
   .caption3 {
     font-size:calc(1em + .4vmin);
   }
