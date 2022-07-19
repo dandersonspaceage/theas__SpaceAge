@@ -104,7 +104,7 @@
                     <h1 class="pb-5" style="text-align:center">Press Pallet Label</h1>                  
                     <h2 class="py-4">WO #: <span class="font-weight-bold">[[ curWOTable2.WONumber ]]</span></h2>                  
                     <h2 class="py-4">Customer: <span class="font-weight-bold">[[ curWOTable2.CustomerName ]]</span></h2>
-                    <h2 class="py-4">Description: <span class="font-weight-bold">[[ curWOTable2.ItemDescription ]]</span></h2>                  
+                    <h2 class="py-4">Description: <span class="font-weight-bold">[[ curWOTable2.ItemNumber ]]</span></h2>                  
                     <h2 class="py-4">Off-Press Dimensions: <span class="font-weight-bold">[[ curWOTable2.DimThickness_OffPress ]] X [[ curWOTable2.DimWidth_OffPress ]] X [[ curWOTable2.DimLength_OffPress ]]</span></h2>
                     <h2 class="py-4">Finished Thickness: <span class="font-weight-bold">[[ curWOTable1.DimThickness_Finished ]]</span></h2>                                                        
                     <h2 class="py-4">Quantity: <span class="font-weight-bold">[[ printQtyLabel2 ]]</span></h2>                              
@@ -164,7 +164,7 @@
                     <h1 class="pb-5" style="text-align:center">Pres Pallet Label</h1>                  
                     <h2 class="py-4">WO #: <span class="font-weight-bold">[[ curWOTable1.WONumber ]]</span></h2>                  
                     <h2 class="py-4">Customer: <span class="font-weight-bold">[[ curWOTable1.CustomerName ]]</span></h2>
-                    <h2 class="py-4">Description: <span class="font-weight-bold">[[ curWOTable1.ItemDescription ]]</span></h2>                  
+                    <h2 class="py-4">Description: <span class="font-weight-bold">[[ curWOTable1.ItemNumber]]</span></h2>                  
                     <h2 class="py-4">Off-Press Dimensions: <span class="font-weight-bold">[[ curWOTable1.DimThickness_OffPress ]] X [[ curWOTable1.DimWidth_OffPress ]] X [[ curWOTable1.DimLength_OffPress ]]</span></h2>                                
                     <h2 class="py-4">Finished Thickness: <span class="font-weight-bold">[[ curWOTable1.DimThickness_Finished ]]</span></h2>                        
                     <h2 class="py-4">Quantity: <span class="font-weight-bold">[[ printQtyLabel1 ]]</span></h2>                              
