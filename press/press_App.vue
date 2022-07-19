@@ -165,7 +165,7 @@
                     <h2 class="py-4">Customer: <span class="font-weight-bold">[[ curWOTable1.CustomerName ]]</span></h2>
                     <h2 class="py-4">Description: <span class="font-weight-bold">[[ curWOTable1.GlassSpecs ]]</span></h2>                  
                     <h2 class="py-4">Off-Press Dimensions: <span class="font-weight-bold">[[ curWOTable1.DimThickness_OffPress ]] X [[ curWOTable1.DimWidth_OffPress ]] X [[ curWOTable1.DimLength_OffPress ]]</span></h2>                                
-                    <h2 class="py-4">Quantity: <span class="font-weight-bold">[[ printQtyLabel2 ]]</span></h2>                              
+                    <h2 class="py-4">Quantity: <span class="font-weight-bold">[[ printQtyLabel1 ]]</span></h2>                              
                     <h2 class="py-4">Cut By: <span class="font-weight-bold">[[ curWorkerAbbrev]]</span></h2>                                           
                     <h2 class="py-4">Date: <span class="font-weight-bold">[[ curDate ]]</span></h2>                      
                   </div>  
