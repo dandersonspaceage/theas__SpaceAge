@@ -226,11 +226,11 @@
     <template #modal-title>
       <h4>WO [[ curShot.WONumber ]] 
       <span v-if="curShot.qguid">
-        <span class="text-decoration-underline">Shot #[[ curShot.ShotNumber ]] </span>
-        <span v-if="curShot.PressTable" class="text-decoration-underline">Table [[ curShot.PressTable ]]</span>        
+        <span class="text-decoration-underline">Shot #[[ curShot.ShotNumber ]] </span>     
         <span class="h6 font-italic">[[ formatDate(curShot.dateFinished, 'ddd MM/DD') ]]</span>
       </span>
       <span v-if="!curShot.qguid">New Shot</span>
+      <h5>[[ curShot.PressTable ]]</h5>      
       </h4>
     </template>
 
