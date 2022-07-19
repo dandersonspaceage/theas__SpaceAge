@@ -92,10 +92,8 @@
                 </b-form-group>
 
                 <div>
-                  <div style="width:150px">
                   <b-button @click="print('printBoardLabel2')" variant="success" size="sm" class="p-0 m-0 mt-1">Print Pallet Label</b-button>
-<input name="qtyLabel2">
-                  </div>
+<input name="qtyLabel2" width="40">
 
                   <div id="printBoardLabel2" style="visibility: hidden">
 
