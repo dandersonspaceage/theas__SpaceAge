@@ -269,7 +269,7 @@
         </b-row>  
         
         <b-row>      
-          <b-col class="mr-6">          
+          <b-col class="mr-5">          
             <b-form-group label="Caliper 1"
                           :label-for="'qaCaliper1'"
                           label-size="sm"                            
@@ -294,7 +294,7 @@
         </b-row>
 
         <b-row>      
-          <b-col class="mr-6">   
+          <b-col class="mr-5">   
             <b-form-group label="Caliper Front"
                           :label-for="'qaCaliperFront'"
                           label-size="sm"                            
@@ -306,7 +306,7 @@
           </b-col>
 
 
-          <b-col class="mr-6">                 
+          <b-col class="mr-5">                 
             <b-form-group label="Caliper Back"
                           :label-for="'qaCaliperBack'"
                           label-size="sm"                            
