@@ -258,7 +258,7 @@
             <b-form-group label="Notes"
                           :label-for="'qaNotes'"
                           label-size="sm"
-                          class="mr-4"                           
+                          class="modalfield"                               
                           >
               <b-form-textarea :id="'qaNotes'" debounce="300"
                               v-model="curShot.Notes" rows="3" max-rows="3"
@@ -273,7 +273,7 @@
             <b-form-group label="Caliper 1"
                           :label-for="'qaCaliper1'"
                           label-size="sm"
-                          class="mr-5"                            
+                          class="modalfield"                             
                           >
               <b-form-input :id="'qaCaliper1'" :state="validCaliper1"
                             size="sm"        
@@ -286,7 +286,7 @@
             <b-form-group label="Caliper 2"
                           :label-for="'qaCaliper2'"
                           label-size="sm"  
-                          class="mr-5"                          
+                          class="modalfield"                              
                           >
               <b-form-input :id="'qaCaliper2'" :state="validCaliper2"
                             size="sm"                
@@ -296,10 +296,11 @@
         </b-row>
 
         <b-row>      
-          <b-col class="mr-5">   
+          <b-col>   
             <b-form-group label="Caliper Front"
                           :label-for="'qaCaliperFront'"
-                          label-size="sm"                            
+                          label-size="sm" 
+                          class="modalfield"                                                         
                           >
               <b-form-input :id="'qaCaliperFront'" :state="validCaliperFront"
                             size="sm"                
@@ -308,10 +309,11 @@
           </b-col>
 
 
-          <b-col class="mr-5">                 
+          <b-col>                 
             <b-form-group label="Caliper Back"
                           :label-for="'qaCaliperBack'"
-                          label-size="sm"                            
+                          label-size="sm"
+                          class="modalfield"                                                  
                           >
               <b-form-input :id="'qaCaliperBack'" :state="validCaliperBack"
                             size="sm"                
@@ -321,10 +323,11 @@
         </b-row>
 
         <b-row>      
-          <b-col class="mr-5">           
+          <b-col>           
             <b-form-group label="Actual Weight"
                           :label-for="'qaActualWeight'"
-                          label-size="sm"                            
+                          label-size="sm"
+                          class="modalfield"                                                 
                           >
               <b-form-input :id="'qaActualWeight'" :state="validActualWeight"
                             size="sm"                
@@ -333,10 +336,11 @@
           </b-col>
 
 
-          <b-col class="mr-5">  
+          <b-col>  
             <b-form-group label="Actual Set Time"
                           :label-for="'qaActualSetTime'"
-                          label-size="sm"                            
+                          label-size="sm"
+                          class="modalfield"                                                     
                           >
               <b-form-input :id="'qaActualSetTIme'" :state="validActualSetTime"
                             size="sm"                
