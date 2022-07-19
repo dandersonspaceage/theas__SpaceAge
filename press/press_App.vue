@@ -93,7 +93,7 @@
 
                 <div>
                   <b-button @click="print('printBoardLabel2')" variant="success" size="sm" class="p-0 m-0 mt-1">Print Pallet Label</b-button>
-
+<input name="qtyLabel2" style="width 75px">
                   <div id="printBoardLabel2" style="visibility: hidden">
 
                       <p style="text-align:center">
