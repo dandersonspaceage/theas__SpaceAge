@@ -230,7 +230,7 @@
         <span class="h6 font-italic">[[ formatDate(curShot.dateFinished, 'ddd MM/DD') ]]</span>
       </span>
       <span v-if="!curShot.qguid">New Shot</span>
-      <h5>[[ curShot.PressTable ]]</h5>      
+      <h5>[[ curShot.PressTableCode ]]</h5>      
       </h4>
     </template>
 
@@ -488,7 +488,7 @@
                 },
 
                 {title: 'OperatorName', field: 'PressOperatorName', responsive: 0, headerSort:true},
-                {title: 'Table', field: 'PressTable', responsive: 0, headerSort:false},               
+                {title: 'Table', field: 'PressTableCode', responsive: 0, headerSort:false},               
 
                 {title: 'Quality', field: 'Quality', responsive: 0, headerSort:false},
 
@@ -1073,7 +1073,7 @@
               }          
 
               thisWO.ShotOnTable = tableCode; //used to upate that shot data record
-              thisWO.PressTable = tableCode;              
+              thisWO.PressTableCode = tableCode;              
 
               if (!thisWO.qguid) {
                 //TechnicalMessage|FriendlyMessage|ShowTech?|Title
@@ -1082,7 +1082,7 @@
               else {
                 thatVue.$set(thatVue.curShot, 'qguidWO', thisWO.qguid);
                 thatVue.$set(thatVue.curShot, 'WONumber', thisWO.WONumber);
-                thatVue.$set(thatVue.curShot, 'PressTable', thisWO.PressTable);                 
+                thatVue.$set(thatVue.curShot, 'PressTableCode', thisWO.PressTableCode);                 
               }
             }              
        
