@@ -217,7 +217,6 @@
   <b-modal id="WOQualityModal" ref="WOQualityModal"
     @show="onShowWOQuality"
     @hide="onHideWOQuality($event)"
-    size="lg"
     :static="true">
 
     <template #modal-title>
@@ -254,7 +253,7 @@
         </b-row>
 
         <b-row>      
-          <b-col claas="mr-5">
+          <b-col claas="mr-5 pr-5">
             <b-form-group label="Notes"
                           :label-for="'qaNotes'"
                           label-size="sm"                           
