@@ -92,22 +92,23 @@
                 </b-form-group>
 
                 <div>
-                  <b-button @click="print('printBoardLabel2')" variant="success" size="sm" class="p-0 m-0 mt-1">Print Pallet Label</b-button>
+                  <b-button @click="print('printPressLabel2')" variant="success" size="sm" class="p-0 m-0 mt-1">Print Pallet Label</b-button>
                   <input name="qtyLabel2" v-model="printQtyLabel2" class="printqty" size="2">
 
-                  <div id="printBoardLabel2" style="visibility: hidden">
+                  <div id="printPressLabel2" style="visibility: hidden">
 
                       <p style="text-align:center">
                         <img width=221 height=136 id="Picture2" src="/resources/spaceage.jpg" alt="SpaceAge">
                       </p>
 
-                    <h1 class="pb-5" style="text-align:center">Board Pallet Label</h1>                  
+                    <h1 class="pb-5" style="text-align:center">Press Pallet Label</h1>                  
                     <h2 class="py-4">WO #: <span class="font-weight-bold">[[ curWOTable2.WONumber ]]</span></h2>                  
                     <h2 class="py-4">Customer: <span class="font-weight-bold">[[ curWOTable2.CustomerName ]]</span></h2>
-                    <h2 class="py-4">Description: <span class="font-weight-bold">[[ curWOTable2.GlassSpecs ]]</span></h2>                  
-                    <h2 class="py-4">Off-Press Dimensions: <span class="font-weight-bold">[[ curWOTable2.DimThickness_OffPress ]] X [[ curWOTable2.DimWidth_OffPress ]] X [[ curWOTable2.DimLength_OffPress ]]</span></h2>                                
+                    <h2 class="py-4">Description: <span class="font-weight-bold">[[ curWOTable2.ItemDescription ]]</span></h2>                  
+                    <h2 class="py-4">Off-Press Dimensions: <span class="font-weight-bold">[[ curWOTable2.DimThickness_OffPress ]] X [[ curWOTable2.DimWidth_OffPress ]] X [[ curWOTable2.DimLength_OffPress ]]</span></h2>
+                    <h2 class="py-4">Finished Thickness: <span class="font-weight-bold">[[ curWOTable1.DimThickness_Finished ]]</span></h2>                                                        
                     <h2 class="py-4">Quantity: <span class="font-weight-bold">[[ printQtyLabel2 ]]</span></h2>                              
-                    <h2 class="py-4">Cut By: <span class="font-weight-bold">[[ curWorkerAbbrev]]</span></h2>                                           
+                    <h2 class="py-4">Shot By: <span class="font-weight-bold">[[ curWorkerAbbrev]]</span></h2>                                           
                     <h2 class="py-4">Date: <span class="font-weight-bold">[[ curDate ]]</span></h2>                      
                   </div>  
                 </div>                
@@ -151,22 +152,23 @@
                 </b-form-group>
 
                 <div>
-                  <b-button @click="print('printBoardLabel1')" variant="success" size="sm" class="p-0 m-0 mt-1">Print Pallet Label</b-button>
+                  <b-button @click="print('printPressLabel1')" variant="success" size="sm" class="p-0 m-0 mt-1">Print Pallet Label</b-button>
                   <input name="qtyLabel1" v-model="printQtyLabel1" class="printqty pt-1" size="1">             
 
-                  <div id="printBoardLabel1" style="visibility: hidden">
+                  <div id="printPressLabel1" style="visibility: hidden">
 
                       <p style="text-align:center">
                         <img width=221 height=136 id="Picture1" src="/resources/spaceage.jpg" alt="SpaceAge">
                       </p>
 
-                    <h1 class="pb-5" style="text-align:center">Board Pallet Label</h1>                  
+                    <h1 class="pb-5" style="text-align:center">Pres Pallet Label</h1>                  
                     <h2 class="py-4">WO #: <span class="font-weight-bold">[[ curWOTable1.WONumber ]]</span></h2>                  
                     <h2 class="py-4">Customer: <span class="font-weight-bold">[[ curWOTable1.CustomerName ]]</span></h2>
-                    <h2 class="py-4">Description: <span class="font-weight-bold">[[ curWOTable1.GlassSpecs ]]</span></h2>                  
+                    <h2 class="py-4">Description: <span class="font-weight-bold">[[ curWOTable1.ItemDescription ]]</span></h2>                  
                     <h2 class="py-4">Off-Press Dimensions: <span class="font-weight-bold">[[ curWOTable1.DimThickness_OffPress ]] X [[ curWOTable1.DimWidth_OffPress ]] X [[ curWOTable1.DimLength_OffPress ]]</span></h2>                                
+                    <h2 class="py-4">Finished Thickness: <span class="font-weight-bold">[[ curWOTable1.DimThickness_Finished ]]</span></h2>                        
                     <h2 class="py-4">Quantity: <span class="font-weight-bold">[[ printQtyLabel1 ]]</span></h2>                              
-                    <h2 class="py-4">Cut By: <span class="font-weight-bold">[[ curWorkerAbbrev]]</span></h2>                                           
+                    <h2 class="py-4">Shot By: <span class="font-weight-bold">[[ curWorkerAbbrev]]</span></h2>                                           
                     <h2 class="py-4">Date: <span class="font-weight-bold">[[ curDate ]]</span></h2>                      
                   </div>  
                 </div>                    
