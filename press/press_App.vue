@@ -242,8 +242,7 @@
             <b-form-group label="Quality"
                           :label-for="'qaQuality'"
                           label-size="sm"  
-                          class="modalfield"                        
-                          >
+                          class="modalfield">
               <b-form-select :id="'qaQuality'" :state="validQuality"
                             :options="qualityLevels"
                             size="sm"                             
@@ -258,8 +257,7 @@
             <b-form-group label="Notes"
                           :label-for="'qaNotes'"
                           label-size="sm"
-                          class="modalfield"                               
-                          >
+                          class="mr-2">
               <b-form-textarea :id="'qaNotes'" debounce="300"
                               v-model="curShot.Notes" rows="3" max-rows="3"
                               width:100%>   
@@ -273,8 +271,7 @@
             <b-form-group label="Caliper 1"
                           :label-for="'qaCaliper1'"
                           label-size="sm"
-                          class="modalfield"                             
-                          >
+                          class="modalfield">
               <b-form-input :id="'qaCaliper1'" :state="validCaliper1"
                             size="sm"        
                             v-model="curShot.qaCaliper1"></b-form-input>
@@ -286,8 +283,7 @@
             <b-form-group label="Caliper 2"
                           :label-for="'qaCaliper2'"
                           label-size="sm"  
-                          class="modalfield"                              
-                          >
+                          class="modalfield">
               <b-form-input :id="'qaCaliper2'" :state="validCaliper2"
                             size="sm"                
                             v-model="curShot.qaCaliper2"></b-form-input>
@@ -300,8 +296,7 @@
             <b-form-group label="Caliper Front"
                           :label-for="'qaCaliperFront'"
                           label-size="sm" 
-                          class="modalfield"                                                         
-                          >
+                          class="modalfield">
               <b-form-input :id="'qaCaliperFront'" :state="validCaliperFront"
                             size="sm"                
                             v-model="curShot.qaCaliperFront"></b-form-input>
@@ -313,8 +308,7 @@
             <b-form-group label="Caliper Back"
                           :label-for="'qaCaliperBack'"
                           label-size="sm"
-                          class="modalfield"                                                  
-                          >
+                          class="modalfield">
               <b-form-input :id="'qaCaliperBack'" :state="validCaliperBack"
                             size="sm"                
                             v-model="curShot.qaCaliperBack"></b-form-input>
@@ -327,8 +321,7 @@
             <b-form-group label="Actual Weight"
                           :label-for="'qaActualWeight'"
                           label-size="sm"
-                          class="modalfield"                                                 
-                          >
+                          class="modalfield">
               <b-form-input :id="'qaActualWeight'" :state="validActualWeight"
                             size="sm"                
                             v-model="curShot.qaActualWeight"></b-form-input>
@@ -340,8 +333,7 @@
             <b-form-group label="Actual Set Time"
                           :label-for="'qaActualSetTime'"
                           label-size="sm"
-                          class="modalfield"                                                     
-                          >
+                          class="modalfield">
               <b-form-input :id="'qaActualSetTIme'" :state="validActualSetTime"
                             size="sm"                
                             v-model="curShot.qaActualSetTime"></b-form-input>
