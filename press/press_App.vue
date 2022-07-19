@@ -217,6 +217,7 @@
   <b-modal id="WOQualityModal" ref="WOQualityModal"
     @show="onShowWOQuality"
     @hide="onHideWOQuality($event)"
+    class="m4-5"
     :static="true">
 
     <template #modal-title>
@@ -245,7 +246,8 @@
                           >
               <b-form-select :id="'qaQuality'" :state="validQuality"
                             :options="qualityLevels"
-                            size="sm"                                  
+                            size="sm"
+                            class="m4-5"                               
                             ref="qualitySelect"         
                             v-model="curShot.Quality"></b-form-select>
             </b-form-group>                
