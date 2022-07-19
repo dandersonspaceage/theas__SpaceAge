@@ -101,15 +101,15 @@
                         <img width=221 height=136 id="Picture2" src="/resources/spaceage.jpg" alt="SpaceAge">
                       </p>
 
-                    <h1 class="pb-5" style="text-align:center">Press Pallet Label</h1>                  
-                    <h2 class="py-4">WO #: <span class="font-weight-bold">[[ curWOTable2.WONumber ]]</span></h2>                  
-                    <h2 class="py-4">Customer: <span class="font-weight-bold">[[ curWOTable2.CustomerName ]]</span></h2>
-                    <h2 class="py-4">Description: <span class="font-weight-bold">[[ curWOTable2.ItemNumber ]]</span></h2>                  
-                    <h2 class="py-4">Off-Press Dimensions: <span class="font-weight-bold">[[ curWOTable2.DimThickness_OffPress ]] X [[ curWOTable2.DimWidth_OffPress ]] X [[ curWOTable2.DimLength_OffPress ]]</span></h2>
-                    <h2 class="py-4">Finished Thickness: <span class="font-weight-bold">[[ curWOTable1.DimThickness_Finished ]]</span></h2>                                                        
-                    <h2 class="py-4">Quantity: <span class="font-weight-bold">[[ printQtyLabel2 ]]</span></h2>                              
-                    <h2 class="py-4">Shot By: <span class="font-weight-bold">[[ curWorkerAbbrev]]</span></h2>                                           
-                    <h2 class="py-4">Date: <span class="font-weight-bold">[[ curDate ]]</span></h2>                      
+                    <h1 class="pb-5 printlabel" style="text-align:center">Press Pallet Label</h1>                  
+                    <h2 class="py-4 printlabel">WO #: <span class="font-weight-bold">[[ curWOTable2.WONumber ]]</span></h2>                  
+                    <h2 class="py-4 printlabel">Customer: <span class="font-weight-bold">[[ curWOTable2.CustomerName ]]</span></h2>
+                    <h2 class="py-4 printlabel">Description: <span class="font-weight-bold">[[ curWOTable2.ItemNumber ]]</span></h2>                  
+                    <h2 class="py-4 printlabel">Off-Press Dimensions: <span class="font-weight-bold">[[ curWOTable2.DimThickness_OffPress ]] X [[ curWOTable2.DimWidth_OffPress ]] X [[ curWOTable2.DimLength_OffPress ]]</span></h2>
+                    <h2 class="py-4 printlabel">Finished Thickness: <span class="font-weight-bold">[[ curWOTable1.DimThickness_Finished ]]</span></h2>                                                        
+                    <h2 class="py-4 printlabel">Quantity: <span class="font-weight-bold">[[ printQtyLabel2 ]]</span></h2>                              
+                    <h2 class="py-4 printlabel">Shot By: <span class="font-weight-bold">[[ curWorkerAbbrev]]</span></h2>                                           
+                    <h2 class="py-4 printlabel">Date: <span class="font-weight-bold">[[ curDate ]]</span></h2>                      
                   </div>  
                 </div>                
 
@@ -161,15 +161,15 @@
                         <img width=221 height=136 id="Picture1" src="/resources/spaceage.jpg" alt="SpaceAge">
                       </p>
 
-                    <h1 class="pb-5" style="text-align:center">Pres Pallet Label</h1>                  
-                    <h2 class="py-4">WO #: <span class="font-weight-bold">[[ curWOTable1.WONumber ]]</span></h2>                  
-                    <h2 class="py-4">Customer: <span class="font-weight-bold">[[ curWOTable1.CustomerName ]]</span></h2>
-                    <h2 class="py-4">Description: <span class="font-weight-bold">[[ curWOTable1.ItemNumber]]</span></h2>                  
-                    <h2 class="py-4">Off-Press Dimensions: <span class="font-weight-bold">[[ curWOTable1.DimThickness_OffPress ]] X [[ curWOTable1.DimWidth_OffPress ]] X [[ curWOTable1.DimLength_OffPress ]]</span></h2>                                
-                    <h2 class="py-4">Finished Thickness: <span class="font-weight-bold">[[ curWOTable1.DimThickness_Finished ]]</span></h2>                        
-                    <h2 class="py-4">Quantity: <span class="font-weight-bold">[[ printQtyLabel1 ]]</span></h2>                              
-                    <h2 class="py-4">Shot By: <span class="font-weight-bold">[[ curWorkerAbbrev]]</span></h2>                                           
-                    <h2 class="py-4">Date: <span class="font-weight-bold">[[ curDate ]]</span></h2>                      
+                    <h1 class="pb-5 printlabel" style="text-align:center">Pres Pallet Label</h1>                  
+                    <h2 class="py-4 printlabel">WO #: <span class="font-weight-bold">[[ curWOTable1.WONumber ]]</span></h2>                  
+                    <h2 class="py-4 printlabel">Customer: <span class="font-weight-bold">[[ curWOTable1.CustomerName ]]</span></h2>
+                    <h2 class="py-4 printlabel">Description: <span class="font-weight-bold">[[ curWOTable1.ItemNumber]]</span></h2>                  
+                    <h2 class="py-4 printlabel">Off-Press Dimensions: <span class="font-weight-bold">[[ curWOTable1.DimThickness_OffPress ]] X [[ curWOTable1.DimWidth_OffPress ]] X [[ curWOTable1.DimLength_OffPress ]]</span></h2>                                
+                    <h2 class="py-4 printlabel">Finished Thickness: <span class="font-weight-bold">[[ curWOTable1.DimThickness_Finished ]]</span></h2>                        
+                    <h2 class="py-4 printlabel">Quantity: <span class="font-weight-bold">[[ printQtyLabel1 ]]</span></h2>                              
+                    <h2 class="py-4 printlabel">Shot By: <span class="font-weight-bold">[[ curWorkerAbbrev]]</span></h2>                                           
+                    <h2 class="py-4 printlabel">Date: <span class="font-weight-bold">[[ curDate ]]</span></h2>                      
                   </div>  
                 </div>                    
 
@@ -1329,6 +1329,10 @@
     background-color: #cecba1;
     height: 18px;
     margin-top: 8px;
+  }
+
+  .printlabel {
+    font-size:larger;
   }
 
 </style>
