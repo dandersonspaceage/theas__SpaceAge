@@ -238,11 +238,12 @@
       <b-form ref="shotForm">
 
         <b-row>      
-          <b-col class="mr-5">   
+          <b-col>   
             
             <b-form-group label="Quality"
                           :label-for="'qaQuality'"
-                          label-size="sm"                          
+                          label-size="sm"  
+                          class="mr-5"                        
                           >
               <b-form-select :id="'qaQuality'" :state="validQuality"
                             :options="qualityLevels"
@@ -270,10 +271,11 @@
         </b-row>  
         
         <b-row>      
-          <b-col class="mr-5">          
+          <b-col>          
             <b-form-group label="Caliper 1"
                           :label-for="'qaCaliper1'"
-                          label-size="sm"                            
+                          label-size="sm"
+                          class="mr-5"                            
                           >
               <b-form-input :id="'qaCaliper1'" :state="validCaliper1"
                             size="sm"        
@@ -282,10 +284,11 @@
           </b-col>
 
 
-          <b-col class="mr-5">     
+          <b-col>     
             <b-form-group label="Caliper 2"
                           :label-for="'qaCaliper2'"
-                          label-size="sm"                            
+                          label-size="sm"  
+                          class="mr-5"                          
                           >
               <b-form-input :id="'qaCaliper2'" :state="validCaliper2"
                             size="sm"                
