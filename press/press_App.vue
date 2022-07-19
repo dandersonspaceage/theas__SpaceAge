@@ -1072,8 +1072,8 @@
                 thisWO = thatVue.curWOTable2
               }          
 
-              thisWO.ShotOnTable = tableCode; //used to upate that shot data record
-              thisWO.PressTableCode = tableCode;              
+              thisWO.PressTableCode = tableCode;
+              thisWO.ShotOnTable = tableCode; //used to upate that shot data record          
 
               if (!thisWO.qguid) {
                 //TechnicalMessage|FriendlyMessage|ShowTech?|Title
@@ -1083,6 +1083,7 @@
                 thatVue.$set(thatVue.curShot, 'qguidWO', thisWO.qguid);
                 thatVue.$set(thatVue.curShot, 'WONumber', thisWO.WONumber);
                 thatVue.$set(thatVue.curShot, 'PressTableCode', thisWO.PressTableCode);                 
+                thatVue.$set(thatVue.curShot, 'ShotOnTable', thisWO.ShotOnTable);                   
               }
             }              
        
