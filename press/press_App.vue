@@ -1326,6 +1326,7 @@
   .printqty {
     background-color: #cecba1;
     height: 18px;
+    margin-top: 2px;
   }
 
 </style>
