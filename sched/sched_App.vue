@@ -658,7 +658,8 @@
                       if
                         (
                           (thatVue.curWOList == 'Unscheduled' && thatVue.data_ThisWO.PlannedPress) ||
-                          (thatVue.curWOList != 'Unscheduled' && thatVue.curWOList != thatVue.data_ThisWO.PlannedPress)
+                          (thatVue.curWOList != 'Unscheduled' && thatVue.curWOList != thatVue.data_ThisWO.PlannedPress) ||
+                          (thatVue.data_ThisWO.PressCompleted)
                         ){
                           thatVue.$delete(thatVue.data_WOs, thisIndex);
                           thatVue.data_ThisWO = {};                    
