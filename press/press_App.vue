@@ -224,7 +224,14 @@
     :static="true">
 
     <template #modal-title>
-      <h4>WO [[ curShot.WONumber ]] <span v-if="curShot.qguid"><span class="text-decoration-underline">Shot #[[ curShot.ShotNumber ]] </span><span class="h6 font-italic">[[ formatDate(curShot.dateFinished, 'ddd MM/DD') ]]</span></span><span v-if="!curShot.qguid">New Shot</span></h4>
+      <h4>WO [[ curShot.WONumber ]] 
+      <span v-if="curShot.qguid">
+        <span class="text-decoration-underline">Shot #[[ curShot.ShotNumber ]] </span>
+        <span v-if="curShot.ShotOnTable" class="text-decoration-underline">Table [[ curShot.ShotOnTable ]]</span>        
+        <span class="h6 font-italic">[[ formatDate(curShot.dateFinished, 'ddd MM/DD') ]]</span>
+      </span>
+      <span v-if="!curShot.qguid">New Shot</span>
+      </h4>
     </template>
 
     <template #modal-footer="{ok, cancel}">
@@ -480,7 +487,8 @@
                   formatterParams: {formatStr: "MM/DD hh:mm dd"}
                 },
 
-                {title: 'OperatorName', field: 'PressOperatorName', responsive: 0, headerSort:true},                
+                {title: 'OperatorName', field: 'PressOperatorName', responsive: 0, headerSort:true},
+                {title: 'Table', field: 'ShotOnTable', responsive: 0, headerSort:false},               
 
                 {title: 'Quality', field: 'Quality', responsive: 0, headerSort:false},
 
@@ -1071,6 +1079,7 @@
               else {
                 thatVue.curShot.qguidWO = thisWO.qguid;
                 thatVue.curShot.WONumber = thisWO.WONumber;
+                thatVue.curShot.ShotOnTable = tableCode;
               }
             }              
        
