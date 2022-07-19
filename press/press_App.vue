@@ -93,7 +93,7 @@
 
                 <div>
                   <b-button @click="print('printBoardLabel2')" variant="success" size="sm" class="p-0 m-0 mt-1">Print Pallet Label</b-button>
-                  <input name="qtyLabel2" :value="printQtyLabel2" class="printqty pt-1" size="3">
+                  <input name="qtyLabel2" v-model="printQtyLabel2" class="printqty" size="2">
 
                   <div id="printBoardLabel2" style="visibility: hidden">
 
@@ -152,7 +152,7 @@
 
                 <div>
                   <b-button @click="print('printBoardLabel1')" variant="success" size="sm" class="p-0 m-0 mt-1">Print Pallet Label</b-button>
-                  <input name="qtyLabel1" :value="printQtyLabel1" class="printqty pt-1" size="3">             
+                  <input name="qtyLabel1" v-model="printQtyLabel1" class="printqty pt-1" size="1">             
 
                   <div id="printBoardLabel1" style="visibility: hidden">
 
