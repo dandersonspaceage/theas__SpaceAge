@@ -1072,8 +1072,8 @@
                 thisWO = thatVue.curWOTable2
               }          
 
-              thatVue.curShot.ShotOnTable = tableCode; //used to upate that shot data record
-              thatVue.curShot.PressTable = tableCode;              
+              thisWO.ShotOnTable = tableCode; //used to upate that shot data record
+              thisWO.PressTable = tableCode;              
 
               if (!thisWO.qguid) {
                 //TechnicalMessage|FriendlyMessage|ShowTech?|Title
@@ -1082,6 +1082,7 @@
               else {
                 thatVue.curShot.qguidWO = thisWO.qguid;
                 thatVue.curShot.WONumber = thisWO.WONumber;
+                thatVue.curShot.PressTable = thisWO.PressTable;                 
               }
             }              
        
