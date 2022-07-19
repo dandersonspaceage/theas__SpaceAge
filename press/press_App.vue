@@ -92,11 +92,11 @@
                 </b-form-group>
 
                 <div>
-                  <div style="width:75px">
+                  <div style="width:150px">
                   <b-button @click="print('printBoardLabel2')" variant="success" size="sm" class="p-0 m-0 mt-1">Print Pallet Label</b-button>
 <input name="qtyLabel2">
                   </div>
-                  
+
                   <div id="printBoardLabel2" style="visibility: hidden">
 
                       <p style="text-align:center">
