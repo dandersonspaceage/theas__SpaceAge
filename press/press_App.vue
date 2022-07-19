@@ -1080,9 +1080,9 @@
                 thatVue.$th.raiseError('|No Work Order selected.  Cannot add a new shot.|1|No work order selected!');
               }
               else {
-                thatVue.curShot.qguidWO = thisWO.qguid;
-                thatVue.curShot.WONumber = thisWO.WONumber;
-                thatVue.curShot.PressTable = thisWO.PressTable;                 
+                thatVue.$set(thatVue.curShot, 'qguidWO', thisWO.qguid);
+                thatVue.$set(thatVue.curShot, 'WONumber', thisWO.WONumber);
+                thatVue.$set(thatVue.curShot, 'PressTable', thisWO.PressTable);                 
               }
             }              
        
