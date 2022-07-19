@@ -1332,7 +1332,7 @@
   }
 
   .printlabel {
-    font-size:200%;
+    font-size: 100px;
   }
 
 </style>
