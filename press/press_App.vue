@@ -1072,6 +1072,9 @@
                 thisWO = thatVue.curWOTable2
               }          
 
+              thatVue.curShot.ShotOnTable = tableCode; //used to upate that shot data record
+              thatVue.curShot.PressTable = tableCode;              
+
               if (!thisWO.qguid) {
                 //TechnicalMessage|FriendlyMessage|ShowTech?|Title
                 thatVue.$th.raiseError('|No Work Order selected.  Cannot add a new shot.|1|No work order selected!');
@@ -1079,8 +1082,6 @@
               else {
                 thatVue.curShot.qguidWO = thisWO.qguid;
                 thatVue.curShot.WONumber = thisWO.WONumber;
-                thatVue.curShot.ShotOnTable = tableCode; //used to upate that shot data record
-                thatVue.curShot.PressTable = tableCode;
               }
             }              
        
