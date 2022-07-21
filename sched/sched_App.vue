@@ -439,7 +439,7 @@
         thatVue.disableDraggable = thatVue.busyCount > 0;
       },      
 
-      setDirty: function(qguid, debounceMS, reFetch, event) {
+      setDirty: function(qguid, debounceMS, reFetch, evt) {
         // Enqueues a speific record (via qguid) for saving.
         // Needed for textarea autosave:  lets us debounce saving, while still triggering save on KeyUp
         let thatVue = this;
@@ -456,7 +456,7 @@
         let thisDirty = thatVue.dirtyQGUIDs.find((el) => el === qguid);
         if (!thisDirty) {
           thatVue.dirtyQGUIDs.push(qguid);
-          thatVue.dirtyTimers.push({timer: setTimeout(thatVue.saveWO, debounceMS, qguid, reFetch, event), qguid: qguid});
+          thatVue.dirtyTimers.push({timer: setTimeout(thatVue.saveWO, debounceMS, qguid, reFetch, evt), qguid: qguid});
           //note:  timeout of 3000ms must be longer than debounce of 500ms in textarea       
         }    
       },
@@ -474,7 +474,7 @@
         thatVue.fetchWOs();
       },
 
-      toggleWODetail: function(qguid, event) {
+      toggleWODetail: function(qguid, evt) {
         // save reference to Vue object
         let thatVue = this;
         
@@ -485,12 +485,12 @@
         //multiple WO's could be expanded)
       },     
 
-      onReleaseClick: function(qguid, event) {
+      onReleaseClick: function(qguid, evt) {
         let thatVue = this;
         thatVue.saveWO(qguid);
       },
 
-      async onCompleteClick(qguid, event){
+      async onCompleteClick(qguid, evt){
         const boxResult = await this.$bvModal.msgBoxConfirm('Are you sure you want to complete this WO?  (This cannot be undone.)', {
           title: "Confirmation",
           size: "sm",
@@ -508,12 +508,13 @@
         }
         else {
           alert('Nope!');
+          let thisTest=evt;
         }
         //thatVue.saveWO(qguid);
 
       },
 
-      //onCompleteClick: function(qguid, event) {
+      //onCompleteClick: function(qguid, evt) {
       //  let thatVue = this;      
         //thatVue.$th.raiseError('|Are you sure you want to complete this WO?  (This cannot be undone.)|1|Confirm Completion');   
         //thatVue.saveWO(qguid);          
@@ -624,12 +625,12 @@
       },
     
 
-      onChangePlan: function (qguid, event) {
+      onChangePlan: function (qguid, evt) {
           let thatVue = this;  
           thatVue.setDirty(qguid);                         
       },
 
-      saveWO: function (qguid, reFetch, event) {
+      saveWO: function (qguid, reFetch, evt) {
           // save reference to Vue object that can be used in async callbacks
           var thatVue = this;     
           
@@ -705,7 +706,7 @@
 
             qguid = thatVue.dirtyQGUIDs.pop();
 
-            //if (event.type == 'keyup') {
+            //if (evt.type == 'keyup') {
               // Since event was keyup, this was for an autosave.  In the case of boostrapvue b-textarea
               // (and possibly other controls), a debounce is used.  This means that there may be additional
               // keystrokes that came in after the data in the model was updated by the control.
