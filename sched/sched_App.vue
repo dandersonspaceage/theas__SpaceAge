@@ -67,7 +67,7 @@
                               <b-checkbox :id="'releasePress' + wo.qguid" v-model="wo.ReleasedToPress" @change="onReleaseClick(wo.qguid, $event)" class="m-0 p-0"></b-checkbox>  
                              </b-form-group>
 
-                             <b-button size="sm" variant="priamary" @click="onCompleteClick(wo.qguid, $event)" class="m-0 p-0">Press Complete</b-button>
+                             <b-button size="sm" variant="outline-primary" @click="onCompleteClick(wo.qguid, $event)" class="m-0 p-0">Press Complete</b-button>
                           </b-col>
                           <b-col>
                             <h6>SO: [[ wo.LinkedSONumber ]]</h6>
@@ -501,15 +501,8 @@
         });
 
         if (boxResult) {
-          alert('YES!');
-          //thatVue.saveWO(qguid);          
+          thatVue.saveWO(qguid);          
         }
-        else {
-          alert('Nope!');
-          evt.stopPropagation();
-          //evt.srcElement.value = false;
-        }
-
       },
 
       //onCompleteClick: function(qguid, evt) {
