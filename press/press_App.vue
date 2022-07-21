@@ -61,7 +61,7 @@
 
   <b-row :style="{cursor: curCursor}">
     <b-col>
-        <Vue-Tabulator ref="tabulator" class="table-striped table-sm" v-model="data_WOs" :options="tabWOOptions" />
+        <Vue-Tabulator ref="tabulator" class="table-striped table-sm" v-model="data_WOs" :options="tab1Options" />
     </b-col>
   </b-row>
 
@@ -376,7 +376,7 @@
     data() {
       return {
 
-            tabWOOptions: {
+            tab1Options: {
               responsiveLayout: 'collapse', // enable responsive layouts
               height: '64vh', //with responsiveCollapse we need to specify an absolute height
               layout: 'fitDataFill',
@@ -535,8 +535,9 @@
 
         asyncResource_WOs: 'sched/sched_App.vue',
         asyncCmd_WOs: 'fetchWOsForPress',
-        asyncCmd_Shots: 'fetchShots',
         asyncCmd_Workers: 'fetchWorkers',
+
+        pressCodes: ['N', 'NW', 'S', 'W'],
 
         woListNames: ['N', 'NW', 'S', 'W'],
         curWOListCode: '',
@@ -943,59 +944,6 @@
 
               }
 
-            }
-            thatVue.decBusy();
-          },
-        });
-      },
-
-      fetchShots: function (qguid, reFetch) {
-        // save reference to Vue object
-        let thatVue = this;
-
-        //for now, force a full refresh (not incremental) so that
-        //we can remove stale WOs
-        thatVue.lastFetch_WOs = null;
-        reFetch = true;
-
-        thatVue.incBusy();        
-
-        thatVue.$th.sendAsync({
-          url: "/async/" + thatVue.asyncResource_WOs,
-          asyncCmd: thatVue.asyncCmd_Shots,
-          lastFetchDate: thatVue.lastFetch_WOs,
-          data: {listName: thatVue.curWOListCode}, //note: passes to @FormParams
-          qguid: qguid,
-          reFetch: reFetch,
-
-          onResponse: function (rd, response, config) {
-            // rd contains the response data split into an object (of name/value pairs)
-            // (might have been returned as either a string of URL-encoded name/value
-            // pairs, or as a JSON strong)
-
-            // response contains the complete response object, in which .data contains
-            // the raw data that was received.
-
-            let thisObj;
-            let thisData;
-            let thisFetchDate;
-
-            thisObj = {};
-            thisData = [];
-            thisFetchDate = null;            
-
-           if (!thatVue.$th.haveError(true)) {
-
-              if (rd["General"]) {
-                thisObj = JSON.parse(rd["General"]);
-                if (thisObj.PressCode) {
-                  thatVue.lockPressSelection = true;
-                  thatVue.curWOListCode = thisObj.PressCode;
-                }
-                else {
-                  thatVue.lockPressSelection = false;
-                }
-              }
 
               // Shots
               if (1==1 && rd["Shots"]) {
@@ -1033,7 +981,7 @@
             thatVue.decBusy();
           },
         });
-      },      
+      },
 
       fetchData: function (forceOnError) {
         let thatVue = this;
@@ -1053,38 +1001,35 @@
           }
 
           if (thatVue.enableFetching === true) {
-            thatVue.fetchWOs();            
+            thatVue.fetchWOs();
             thatVue.fetchWorkers();
-            thatVue.fetchShots();                        
             // can add additional fetches here
           }
         }
 
         thatVue.decBusy();        
-      },    
+      },
+    
 
       changeActiveWO: function (tableCode, qguid) {
         let thatVue = this; 
 
-        let okToSave = false;
-        let thisWO = thatVue.data_WOs.find((el) => el.qguid === qguid);
+        let wo = thatVue.data_WOs.find((el) => el.qguid === qguid);
 
         if (tableCode == 'Table1') {
-          if (thatVue.curWOTable1 != thisWO) {
-            thatVue.curWOTable1 = thisWO;
-            okToSave = true;
+          if (thatVue.curWOTable1 != wo) {
+            thatVue.curWOTable1 = wo;
+
+            thatVue.saveSelectWO(qguid, tableCode);
           }
         }
 
         else if (tableCode == 'Table2') {
-          if (thatVue.curWOTable2 != thisWO) {          
-            thatVue.curWOTable2 = thisWO;
-            okToSave = true;   
-          }          
-        }
+          if (thatVue.curWOTable2 != wo) {          
+            thatVue.curWOTable2 = wo;    
 
-        if (okToSave) {
-          thatVue.saveSelectWO(qguid, tableCode);
+            thatVue.saveSelectWO(qguid, tableCode);
+          }          
         }
 
       },
