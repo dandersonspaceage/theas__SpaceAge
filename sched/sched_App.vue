@@ -123,7 +123,7 @@
                           </b-col>
 
                           <b-col>
-                            <span class='bg-warning' v-if="!wo.CommitDate">No Commit Date</span>
+                            <span class='bg-warning' v-if="!wo.EstShipDate">No Commit Date</span>
                           </b-col>
 
                           <b-col>
@@ -190,7 +190,7 @@
 
                                       <b-form-datepicker :id="'dp' + [[ wo.qguid ]]"
                                                         :date-format-options="{year:undefined, month: '2-digit', day: '2-digit', weekday: 'short' }"
-                                                        v-model="wo.CommitDate"
+                                                        v-model="wo.EstShipDate"
                                                         :min="today" @input="setDirty(wo.qguid, 0)"
                                                         size="sm" :dark="true" locale="en">
                                       </b-form-datepicker>
@@ -316,7 +316,7 @@
 
         data_ThisWO: {},
 
-        thisWO_CommitDate: null, // object for datepicker
+        thisWO_EstShipDate: null, // object for datepicker
 
         splitNoWOs: []
 

@@ -456,7 +456,7 @@
                 {title: 'Customer', field: 'CustomerName', responsive: 3, minWidth: 175, headerSort:false},
                 {title: 'SO', field: 'LinkedSONumber', responsive: 3, headerSort:false},                
 
-                {title: 'Commit Date', field: 'CommitDate', responsive: 3, headerSort:false,
+                {title: 'Commit Date', field: 'EstShipDate', responsive: 3, headerSort:false,
                   formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);},
                   formatterParams: {formatStr: "MM/DD"}
                 },   
@@ -552,7 +552,7 @@
         curWOTable2: {},
 
         curShot: {},
-        thisWO_CommitDate: null, // object for datepicker
+        thisWO_EstShipDate: null, // object for datepicker
 
         printQtyLabel1: 1,  
         printQtyLabel2: 1      

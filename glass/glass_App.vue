@@ -288,7 +288,7 @@
                 {title: 'Customer', field: 'CustomerName', responsive: 3, minWidth: 175},
                 {title: 'SO', field: 'LinkedSONumber', responsive: 3},                
 
-                {title: 'Commit Date', field: 'CommitDate', responsive: 3,
+                {title: 'Commit Date', field: 'EstShipDate', responsive: 3,
                   formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);},
                   formatterParams: {formatStr: "MM/DD"}
                 },   
@@ -374,7 +374,7 @@
 
         printQuantity: 1,
 
-        thisWO_CommitDate: null, // object for datepicker
+        thisWO_EstShipDate: null, // object for datepicker
       };
     },
 
