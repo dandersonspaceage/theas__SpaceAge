@@ -501,6 +501,10 @@
         });
 
         if (boxResult) {
+          let thisWO = thatVue.data_WOs.find((el) => el.qguid === qguid);
+          if (thisWO) {
+            thisWO.CompletePress = 1;
+          }
           thatVue.saveWO(qguid);          
         }
       },
