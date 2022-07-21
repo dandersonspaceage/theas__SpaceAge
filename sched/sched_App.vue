@@ -491,9 +491,26 @@
       },
 
       async onCompleteClick(qguid, event){
-        const value  = await this.$bvModal.msgBoxOk('Are you sure you want to complete this WO?  (This cannot be undone.)');
+        const boxResult = await this.$bvModal.msgBoxConfirm('Are you sure you want to complete this WO?  (This cannot be undone.)', {
+          title: "Confirmation",
+          size: "sm",
+          buttonSize: "sm",
+          okVariant: "danger",
+          okTitle: "YES",
+          cancelTitle: "NO",
+          footerClass: "p-2",
+          hideHeaderClose: false,
+          centered: true
+        });
+
+        if (boxResult) {
+          alert('YES!');
+        }
+        else {
+          alert('Nope!');
+        }
         //thatVue.saveWO(qguid);
-        alert(qguid);
+
       },
 
       //onCompleteClick: function(qguid, event) {
