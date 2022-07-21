@@ -509,7 +509,8 @@
         }
         else {
           alert('Nope!');
-          evt.srcElement.value = false;
+          evt.stopPropagation();
+          //evt.srcElement.value = false;
         }
 
       },
