@@ -63,7 +63,7 @@
                           <b-col>
                             <h6>WO: [[ wo.WONumber ]]</h6>
 
-                             <b-form-group label="Release to Press" :label-for="'releasePress' + wo.qguid" label-size="sm" label-cols="6" :label-align="'left'" class="m-0 p-0">
+                             <b-form-group label="Release to Press" :label-for="'releasePress' + wo.qguid" label-size="sm" label-cols="6" :label-align="'left'" class="m-0 p-0" label-class="m-0 p-0">
                               <b-checkbox :id="'releasePress' + wo.qguid" v-model="wo.ReleasedToPress" @change="onReleaseClick(wo.qguid, $event)" class="m-0 p-0"></b-checkbox>  
                              </b-form-group>
 
@@ -506,8 +506,9 @@
           let thisWO = thatVue.data_WOs.find((el) => el.qguid === qguid);
           if (thisWO) {
             thisWO.do_PressCompleted = 1;
+            thatVue.saveWO(qguid);
+            thatVue.fetchWOs(null, true);
           }
-          thatVue.saveWO(qguid);          
         }
       },
 
