@@ -489,6 +489,7 @@
 
       onCompleteClick: function(qguid, event) {
         let thatVue = this;      
+        thatVue.$th.raiseError('|Are you sure you want to complete this WO?  (This cannot be undone.)|1|Confirm Completion');  
         thatVue.saveWO(qguid);          
       },
 
