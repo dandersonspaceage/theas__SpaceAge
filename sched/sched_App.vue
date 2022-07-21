@@ -68,7 +68,7 @@
                              </b-form-group>
 
                              <b-form-group label="Press Complete" :label-for="'completePress' + wo.qguid" label-size="sm" label-cols="6" :label-align="'left'" class="m-0 p-0">
-                              <b-checkbox :id="'completePress' + wo.qguid" v-model="wo.PressCompleted" @change.native="onCompleteClick(wo.qguid, $event)" class="m-0 p-0"></b-checkbox>  
+                              <b-checkbox :id="'completePress' + wo.qguid" v-model="wo.PressCompleted" @change.native.stop="onCompleteClick(wo.qguid, $event)" class="m-0 p-0"></b-checkbox>  
                              </b-form-group>
 
                           </b-col>
