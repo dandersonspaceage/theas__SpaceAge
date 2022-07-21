@@ -206,7 +206,7 @@
       <b-row>
         <b-col>
           <h5>Cut By: [[ curCut.WorkerName ]]</h5>
-          <p class="ital">[[ formatDate(curCut.DateFinished, 'dd MM/DD hh:mm') ]] </p>
+          <p class="ital">[[ formatDate(curCut.DateFinished, 'dd MM/DD HH:mm') ]] </p>
         </b-col>
       </b-row>
 
@@ -318,7 +318,7 @@
                 
                 {title: 'Time', field: 'DateFinished', responsive: 0, headerSort:false, 
                   formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);},
-                  formatterParams: {formatStr: "dd MM/DD hh:mm"}
+                  formatterParams: {formatStr: "dd MM/DD HH:mm"}
                 },
 
                 {title: 'Quantity', field: 'Quantity', responsive: 0, headerSort:false},                
@@ -430,7 +430,7 @@
       },      
 
       curDate : function() {
-        return this.formatDate(null, 'ddd MM/DD/YYYY hh:mm');
+        return this.formatDate(null, 'ddd MM/DD/YYYY HH:mm');
       }
 
     },

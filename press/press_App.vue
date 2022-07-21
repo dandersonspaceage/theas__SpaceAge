@@ -484,7 +484,7 @@
                 
                 {title: 'Time', field: 'DateFinished', responsive: 0, headerSort:true, 
                   formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);},
-                  formatterParams: {formatStr: "MM/DD hh:mm dd"}
+                  formatterParams: {formatStr: "MM/DD HH:mm dd"}
                 },
 
                 {title: 'OperatorName', field: 'PressOperatorName', responsive: 0, headerSort:true},
@@ -629,7 +629,7 @@
       },      
 
       curDate : function() {
-        return this.formatDate(null, 'ddd MM/DD/YYYY hh:mm');
+        return this.formatDate(null, 'ddd MM/DD/YYYY HH:mm');
       }      
 
     },
