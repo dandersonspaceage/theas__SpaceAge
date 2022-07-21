@@ -482,7 +482,7 @@
                 {title: 'WO', field: 'WONumber', responsive: 0, headerSort:true},
                 {title: 'Shot', field: 'ShotNumber', responsive: 0, headerSort:true},
                 
-                {title: 'Time', field: 'DateFinished', responsive: 0, headerSort:true, 
+                {title: 'Time', field: 'DateFinished', responsive: 0, headerSort:true, width:200,
                   formatter: function(cell, formatterParams, onRendered){return moment(cell.getValue()).format(formatterParams.formatStr);},
                   formatterParams: {formatStr: "MM/DD HH:mm dd"}
                 },
