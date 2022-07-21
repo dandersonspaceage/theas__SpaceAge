@@ -258,7 +258,7 @@
 
     </b-container>
 
-    <b-modal id="thModal" ref="thModal" @hide="onthModalHide" hide-footer>
+    <b-modal id="thModal" ref="thModal" @hide="onthModalHide($event)" hide-footer>
       <template #modal-title>
         [[ theasLastError.msgTitle ]]
       </template>
@@ -399,8 +399,11 @@
         }
       }, 
 
-      onthModalHide: function() {
+      onthModalHide: function(evt) {
         let thatVue = this;
+        
+        if (evt.trigger === 'ok') {   
+        }
 
         thatVue.$th.clearError();
       },
@@ -487,11 +490,17 @@
         thatVue.saveWO(qguid);
       },
 
-      onCompleteClick: function(qguid, event) {
-        let thatVue = this;      
-        thatVue.$th.raiseError('|Are you sure you want to complete this WO?  (This cannot be undone.)|1|Confirm Completion');  
-        //thatVue.saveWO(qguid);          
+      async onCompleteClick(qguid, event){
+        const value  = await this.$bvModal.msgBoxOk('Are you sure you want to complete this WO?  (This cannot be undone.)');
+        //thatVue.saveWO(qguid);
+        alert(qguid);
       },
+
+      //onCompleteClick: function(qguid, event) {
+      //  let thatVue = this;      
+        //thatVue.$th.raiseError('|Are you sure you want to complete this WO?  (This cannot be undone.)|1|Confirm Completion');   
+        //thatVue.saveWO(qguid);          
+      //},
 
       fetchWOs: function (qguid, reFetch) {
         // save reference to Vue object
