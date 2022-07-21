@@ -505,12 +505,12 @@
 
         if (boxResult) {
           alert('YES!');
+          //thatVue.saveWO(qguid);          
         }
         else {
           alert('Nope!');
-          let thisTest=evt;
+          evt.srcElement.value = false;
         }
-        //thatVue.saveWO(qguid);
 
       },
 
