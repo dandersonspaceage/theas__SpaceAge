@@ -488,6 +488,8 @@
       },
 
       async onCompleteClick(qguid, evt){
+        let thatVue = this;
+
         const boxResult = await this.$bvModal.msgBoxConfirm('Are you sure you want to complete this WO?  (This cannot be undone.)', {
           title: "Confirmation",
           size: "sm",
