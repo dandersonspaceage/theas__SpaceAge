@@ -106,7 +106,7 @@
                     <h2 class="py-4 printlabel" style="font-size:2em">Customer: <span class="font-weight-bold">[[ curWOTable2.CustomerName ]]</span></h2>
                     <h2 class="py-4 printlabel" style="font-size:2em">Description: <span class="font-weight-bold">[[ curWOTable2.ItemNumber ]]</span></h2>                  
                     <h2 class="py-4 printlabel" style="font-size:2em">Off-Press Dimensions: <span class="font-weight-bold">[[ curWOTable2.DimThickness_OffPress ]] X [[ curWOTable2.DimWidth_OffPress ]] X [[ curWOTable2.DimLength_OffPress ]]</span></h2>
-                    <h2 class="py-4 printlabel" style="font-size:2em">Finished Thickness: <span class="font-weight-bold">[[ curWOTable1.DimThickness_Finished ]]</span></h2>                                                        
+                    <h2 class="py-4 printlabel" style="font-size:2em">Finished Thickness: <span class="font-weight-bold">[[ curWOTable2.DimThickness_Finished ]]</span></h2>                                                        
                     <h2 class="py-4 printlabel" style="font-size:2em">Quantity: <span class="font-weight-bold">[[ printQtyLabel2 ]]</span></h2>                              
                     <h2 class="py-4 printlabel" style="font-size:2em">Shot By: <span class="font-weight-bold">[[ curWorkerAbbrev]]</span></h2>                                           
                     <h2 class="py-4 printlabel" style="font-size:2em">Date: <span class="font-weight-bold">[[ curDate ]]</span></h2>                      
