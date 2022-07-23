@@ -221,7 +221,7 @@
   <b-modal id="WOQualityModal" ref="WOQualityModal"
     @show="onShowWOQuality"
     @hide="onHideWOQuality($event)"
-    static>
+    :static="true">
 
     <template #modal-title>
       <h4>WO [[ curShot.WONumber ]] 
