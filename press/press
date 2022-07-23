@@ -95,12 +95,12 @@
 
 <script src="{{ '/cdn/screenfull/screenfull.js'|theasResource }}"></script>
 <!--sos -->
-<!--script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.9/dist/js/tabulator.min.js"></script-->
-<script src="{{ '/cdn/tabulator-tables/js/tabulator.min.js'|theasResource }}"></script>
+<script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.9/dist/js/tabulator.min.js"></script>
+<!--script src="{{ '/cdn/tabulator-tables/js/tabulator.min.js'|theasResource }}"></script-->
 
 <!--sos -->
-<script src="https://unpkg.com/vue-tabulator@latest"></script>
-<!--script src="{{ 'cdn/vue-tabulator/vue-tabulator.umd.min.js'|theasResource }}"></script-->
+<!--script src="https://unpkg.com/vue-tabulator@latest"></script-->
+<script src="{{ 'cdn/vue-tabulator/vue-tabulator.umd.min.js'|theasResource }}"></script>
 
 <script src="{{ '/cdn/vue-html-to-paper/vue-html-to-paper.js'|theasResource }}"></script>
 
