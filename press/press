@@ -89,8 +89,8 @@
 <!--link href="https://unpkg.com/tabulator-tables@4.9/dist/css/tabulator.min.css" rel="stylesheet"-->
 <!--link type="text/css" rel="stylesheet" href="{{ '/cdn/tabulator-tables/css/tabulator.min.css'|theasResource }}"-->
 <!--sos -->
-<!--link href="https://unpkg.com/tabulator-tables@4.9/dist/css/bootstrap/tabulator_bootstrap4.min.css" rel="stylesheet"-->
-<link type="text/css" rel="stylesheet" href="{{ '/cdn/tabulator-tables/css/tabulator_bootstrap4.min.css'|theasResource }}">   
+<link href="https://unpkg.com/tabulator-tables@4.9/dist/css/bootstrap/tabulator_bootstrap4.min.css" rel="stylesheet">
+<!--link type="text/css" rel="stylesheet" href="{{ '/cdn/tabulator-tables/css/tabulator_bootstrap4.min.css'|theasResource }}"-->   
 
 
 <script src="{{ '/cdn/screenfull/screenfull.js'|theasResource }}"></script>
