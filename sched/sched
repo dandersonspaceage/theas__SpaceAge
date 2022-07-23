@@ -71,9 +71,14 @@
 
 
 <!-- CDNJS :: Sortable (https://cdnjs.com/) -->
-<script src="//cdn.jsdelivr.net/npm/sortablejs@1.8.4/Sortable.min.js"></script>
+<!-- SOS -->
+<!--script src="//cdn.jsdelivr.net/npm/sortablejs@1.8.4/Sortable.min.js"></script-->
+<script src="{{ '/cdn/sortablejs/Sortable.js'|theasResource }}"></script>
+
+
 <!-- CDNJS :: Vue.Draggable (https://cdnjs.com/) -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.20.0/vuedraggable.umd.min.js"></script>
+<!--script src="//cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.20.0/vuedraggable.umd.min.js"></script-->
+<script src="{{ '/cdn/vuedraggable/vuedraggable.umd.min.js'|theasResource }}"></script>
 
     <script  type="module" src="{{ '/sched/sched.js'|theasResource }}"></script>
 
