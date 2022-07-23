@@ -85,13 +85,9 @@
 
 
 
-<!-- CDNJS :: Sortable (https://cdnjs.com/) -->
-<script src="//cdn.jsdelivr.net/npm/sortablejs@1.8.4/Sortable.min.js"></script>
-<!-- CDNJS :: Vue.Draggable (https://cdnjs.com/) -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.20.0/vuedraggable.umd.min.js"></script>
-
 <!--sos -->
-<link href="https://unpkg.com/tabulator-tables@4.9/dist/css/tabulator.min.css" rel="stylesheet">
+<!--link href="https://unpkg.com/tabulator-tables@4.9/dist/css/tabulator.min.css" rel="stylesheet"-->
+<!--link type="text/css" rel="stylesheet" href="{{ '/cdn/tabulator-tables/css/tabulator.min.css'|theasResource }}"-->
 <!--sos -->
 <link href="https://unpkg.com/tabulator-tables@4.9/dist/css/bootstrap/tabulator_bootstrap4.min.css" rel="stylesheet">
 <!--link type="text/css" rel="stylesheet" href="{{ '/cdn/tabulator-tables/css/tabulator_bootstrap4.min.css'|theasResource }}"-->   
