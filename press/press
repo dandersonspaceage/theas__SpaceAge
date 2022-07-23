@@ -92,19 +92,20 @@
 
 
 <!--link href="https://unpkg.com/tabulator-tables@4.9/dist/css/tabulator.min.css" rel="stylesheet" -->
-<!--sos-->
-<link href="https://unpkg.com/tabulator-tables@4.9/dist/css/bootstrap/tabulator_bootstrap4.min.css" rel="stylesheet">
-<!--link type="text/css" rel="stylesheet" href="{{ '/cdn/tabulator-tables/css/tabulator_bootstrap4.min.css'|theasResource }}"-->   
+<!--sos-
+link href="https://unpkg.com/tabulator-tables@4.9/dist/css/bootstrap/tabulator_bootstrap4.min.css" rel="stylesheet">
+-->
+<link type="text/css" rel="stylesheet" href="{{ '/cdn/tabulator-tables/css/tabulator_bootstrap4.min.css'|theasResource }}">   
 
 
 <script src="{{ '/cdn/screenfull/screenfull.js'|theasResource }}"></script>
-<!--sos-->
-<script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.9/dist/js/tabulator.min.js"></script>
-<!--script src="{{ '/cdn/tabulator-tables/js/tabulator.min.js'|theasResource }}"></script-->
+<!--sos
+script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.9/dist/js/tabulator.min.js"></script-->
+<script src="{{ '/cdn/tabulator-tables/js/tabulator.min.js'|theasResource }}"></script>
 
-<!--sos-->
-<script src="https://unpkg.com/vue-tabulator@latest"></script>
-<!--script src="{{ 'cdn/vue-tabulator/vue-tabulator.umd.min.js'|theasResource }}"></script-->
+<!--sos
+script src="https://unpkg.com/vue-tabulator@latest"></script-->
+<script src="{{ 'cdn/vue-tabulator/vue-tabulator.umd.min.js'|theasResource }}"></script>
 
 <script src="{{ '/cdn/vue-html-to-paper/vue-html-to-paper.js'|theasResource }}"></script>
 
