@@ -61,7 +61,7 @@
     <script src="{{ '/cdn/moment/moment.js'|theasResource }}"></script>
     <script src="{{ '/cdn/screenfull/screenfull.js'|theasResource }}"></script>
 
-    <script src="{{ '/cdn/vuejs/vue.js'|theasResource }}"></script>
+    <script src="{{ '/cdn/vue/vue.js'|theasResource }}"></script>
 
     <script src="{{ '/cdn/popper/popper.min.js'|theasResource }}"></script>
     <script src="{{ '/cdn/portal-vue/portal-vue.umd.min.js'|theasResource }}"></script>
