@@ -953,8 +953,7 @@
                       thatVue.curWOqguid_Table2 = thatVue.curWOTable2.qguid;                       
                     }
 
-                }             
-                
+                }                             
 
               }
 
