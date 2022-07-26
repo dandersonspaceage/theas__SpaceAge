@@ -1,26 +1,3 @@
-import { TrackJS } from "trackjs";
-
-Vue.config.errorHandler = (err, vm, info) => {
-
-    // Log properties passed to the component if there are any
-    if(vm.$options.propsData) {
-        TrackJS.console.log("Props passed to component", vm.$options.propsData);
-    }
-
-    // Emit component name and also the lifecycle hook the error occurred in if present
-    var infoMessage = `Error in component: <${vm.$options.name} />\n`;
-    if (info){
-        infoMessage += `Error occurred during lifecycle hook: ${info}\n`;
-    }
-
-    // This puts the additional error information in the Telemetry Timeline
-    TrackJS.console.log(infoMessage);
-
-    // Track the native JS error
-    TrackJS.track(err);
-}
-
-
 import vueNewPage1 from "{{ '/press/press_App.vue'|theasResource }}"
 
     // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
@@ -29,8 +6,7 @@ import vueNewPage1 from "{{ '/press/press_App.vue'|theasResource }}"
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 
 
-    Vue.config.productionTip = false;
-
+    Vue.config.productionTip = false
     Vue.use(BootstrapVue);
 
     const paperOptions = {
