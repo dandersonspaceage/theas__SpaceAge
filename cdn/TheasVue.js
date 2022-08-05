@@ -379,6 +379,7 @@ Theas.prototype.sendAsync = function (config) {
    */
    ax.interceptors.request.use(function (config) {
        config.requestID = requestID;
+       config.asyncCmd = config.asyncCmd;
 
        config.cancelToken = new CancelToken(function executor(c) {
          // An executor function receives a cancel function as a parameter
