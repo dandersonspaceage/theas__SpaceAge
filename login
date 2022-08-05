@@ -63,7 +63,7 @@
 
     <script src="{{ '/cdn/vuejs/vue.js'|theasResource }}"></script>
 
-    <script src="{{ '/cdn/popper/popper.min.js'|theasResource }}"></script>
+    <script src="{{ '/cdn/popper.js/umd/popper.js'|theasResource }}"></script>
     <script src="{{ '/cdn/portal-vue/portal-vue.umd.min.js'|theasResource }}"></script>
     <script src="{{ '/cdn/bootstrap-vue/bootstrap-vue.js'|theasResource }}"></script>
     <script src="{{ '/theas/TheasVue.js'|theasResource }}"></script>
