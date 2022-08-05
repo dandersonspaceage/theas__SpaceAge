@@ -257,25 +257,32 @@ Theas.prototype.cancelAsync = function (startedBefore) {
 };
 
 Theas.prototype.sendAsync = function (config) {
-   // Note:  the entire config object will be passed in to the response handler
-   // referenced in config.onResponse
-   // This means that the caller can add whatever they want to the config object,
-   // and the callback function will have access to it via the config (3rd) parameter
-   // passed into the onResponse function.
+  // Note:  the entire config object will be passed in to the response handler
+  // referenced in config.onResponse
+  // This means that the caller can add whatever they want to the config object,
+  // and the callback function will have access to it via the config (3rd) parameter
+  // passed into the onResponse function.
 
-   // save reference to Theas object
-   let thatTheas = this;
+  // save reference to Theas object
+  let thatTheas = this;
 
-   //Note: Axios passes
-   //passed in the response handler.
+  //Note: Axios passes
+  //passed in the response handler.
 
-   if (typeof(config) == 'string') {
-       // config actually just contains a string for cmd
+  let thisAsyncCmd;
 
-       config = {
-           url: 'async',
-           asyncCmd: config
-       }
+  if (typeof(config) == 'string') {
+    // config actually just contains a string for cmd
+
+    thisAsyncCmd = config;
+
+    config = {
+         url: 'async',
+         asyncCmd: thisAsyncCmd
+     }
+   }
+   else if (typeof(config) == 'object') {
+    thisAsyncCmd = config.asyncCmd;
    }
 
    // obtain current location
@@ -317,9 +324,7 @@ Theas.prototype.sendAsync = function (config) {
        }
    }
 
-   if (config && config.asyncCmd) {
-       theasFormData.set('cmd', config.asyncCmd);
-   }
+   theasFormData.set('cmd', thisAsyncCmd);
 
    theasFormData.set('theas:lastFetch', config.lastFetchDate);
 
@@ -341,8 +346,8 @@ Theas.prototype.sendAsync = function (config) {
    let CancelToken = axios.CancelToken;
 
    if (theasDebug) {
-      console.log(`Theas sendAsync URL=${config.url} cmd=${config.asyncCmd}`)
-      console.time(`sendAsync:${requestID}`)   
+      console.log(`Theas sendAsync URL=${config.url} cmd=${thisAsyncCmd}`);
+      console.time(`sendAsync:${requestID}`);       
    }
 
    let axiosConfig = {
@@ -379,7 +384,7 @@ Theas.prototype.sendAsync = function (config) {
    */
    ax.interceptors.request.use(function (config) {
        config.requestID = requestID;
-       config.asyncCmd = config.asyncCmd;
+       config.asyncCmd = thisAsyncCmd;
 
        config.cancelToken = new CancelToken(function executor(c) {
          // An executor function receives a cancel function as a parameter
