@@ -410,7 +410,7 @@ Theas.prototype.sendAsync = function (config) {
           // or it contain a JSON string
 
           if (theasDebug) { 
-            console.log(`Received data.length = ${response.data.length}`);
+            console.log(`Theas received from URL=${response.config.url} cmd=${response.config.asyncCmd}: data.length=${response.data.length}`)            
           }
 
           if (response.data.length > 0) {
