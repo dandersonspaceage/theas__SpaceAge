@@ -341,7 +341,8 @@ Theas.prototype.sendAsync = function (config) {
    let CancelToken = axios.CancelToken;
 
    if (theasDebug) {
-    console.log(`Theas sendAsync URL=${config.url} cmd=${config.asyncCmd}`)
+      console.log(`Theas sendAsync URL=${config.url} cmd=${config.asyncCmd}`)
+      console.time(`sendAsync:${config.url}`)   
    }
 
    let axiosConfig = {
@@ -412,7 +413,8 @@ Theas.prototype.sendAsync = function (config) {
           // or it contain a JSON string
 
           if (theasDebug) { 
-            console.log(`Theas received from URL=${response.config.url} cmd=${response.config.asyncCmd}: data.length=${response.data.length}`)            
+            console.log(`Theas received from URL=${response.config.url} cmd=${response.config.asyncCmd}: data.length=${response.data.length}`)       
+            console.time(`sendAsync:${config.url}`)                    
           }
 
           if (response.data.length > 0) {
