@@ -9,6 +9,8 @@ if (!FormData.prototype.set) {
 
 
 function Theas(vue) {
+   this.theasDebug = theasDebug;
+   
    // save reference to Vue object that can be used in async callbacks
    this.thatVue = vue;
    this.theasParams = {th$ErrorMessage: ''};

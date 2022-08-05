@@ -793,7 +793,10 @@
                 thisData = thisObj["JSONData"];
                 thisFetchDate = thisObj["FetchDate"];
 
-                
+                if (thatVue.$th.theasDebug) { 
+                  console.log(`fetchWorkers received ${thisData.length} Workers rows`);
+                }
+
                 if (thisData) {
                   thatVue.data_Workers = thatVue.$th.merge(
                           // string (optional): key field name with unique values to merge on
@@ -884,6 +887,11 @@
                 thisData = thisObj["JSONData"];
                 thisFetchDate = thisObj["FetchDate"];
 
+
+                if (thatVue.$th.theasDebug) { 
+                  console.log(`fetchWOs received ${thisData.length} WOs rows`);
+                }
+
                 if (config.reFetch) {
                   thatVue.data_WOs.length = 0; //clear out WO      
                 }          
@@ -963,6 +971,10 @@
                 thisObj = JSON.parse(rd["Shots"])[0];
                 thisData = thisObj["JSONData"];
                 thisFetchDate = thisObj["FetchDate"];
+
+                if (thatVue.$th.theasDebug) { 
+                  console.log(`fetchWOs received ${thisData.length} Shots rows`);
+                }                
 
                 if (config.reFetch) {
                   //thatVue.data_Shots.length = 0; //clear out WO      
