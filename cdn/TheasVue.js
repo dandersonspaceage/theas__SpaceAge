@@ -412,12 +412,12 @@ Theas.prototype.sendAsync = function (config) {
           // For example, response.data could contain URL-encoded name/value pairs
           // or it contain a JSON string
 
-          if (theasDebug) { 
-            console.log(`Theas received from URL=${response.config.url} cmd=${response.config.asyncCmd}: data.length=${response.data.length}`)       
-            console.timeEnd(`sendAsync:${config.requestID}`)                    
-          }
-
           if (response.data.length > 0) {
+
+              if (theasDebug) { 
+                console.log(`Theas received from URL=${response.config.url} cmd=${response.config.asyncCmd}: data.length=${response.data.length}`)       
+                console.timeEnd(`sendAsync:${config.requestID}`)                    
+              }
 
               rd = response.data;
               rd = thatTheas.splitToNV(rd);              
