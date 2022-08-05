@@ -793,11 +793,12 @@
                 thisData = thisObj["JSONData"];
                 thisFetchDate = thisObj["FetchDate"];
 
-                if (thatVue.$th.theasDebug) { 
-                  console.log(`fetchWorkers received ${thisData.length} Workers rows`);
-                }
-
                 if (thisData) {
+
+                  if (thatVue.$th.theasDebug) { 
+                    console.log(`fetchWorkers received ${thisData.length} Workers rows`);
+                  }
+
                   thatVue.data_Workers = thatVue.$th.merge(
                           // string (optional): key field name with unique values to merge on
                           "qguid",
@@ -888,15 +889,16 @@
                 thisFetchDate = thisObj["FetchDate"];
 
 
-                if (thatVue.$th.theasDebug) { 
-                  console.log(`fetchWOs received ${thisData.length} WOs rows`);
-                }
-
                 if (config.reFetch) {
                   thatVue.data_WOs.length = 0; //clear out WO      
                 }          
 
                 if (thisData) {
+
+                  if (thatVue.$th.theasDebug) { 
+                    console.log(`fetchWOs received ${thisData.length} WOs rows`);
+                  }
+
                   thatVue.data_WOs = thatVue.$th.merge(
                           // string (optional): key field name with unique values to merge on
                           "qguid",
@@ -972,16 +974,17 @@
                 thisData = thisObj["JSONData"];
                 thisFetchDate = thisObj["FetchDate"];
 
-                if (thatVue.$th.theasDebug) { 
-                  console.log(`fetchWOs received ${thisData.length} Shots rows`);
-                }                
-
                 if (config.reFetch) {
                   //thatVue.data_Shots.length = 0; //clear out WO      
                   thatVue.data_Shots = [];
                 }          
 
                 if (thisData) {
+
+                  if (thatVue.$th.theasDebug) { 
+                    console.log(`fetchWOs received ${thisData.length} Shots rows`);
+                  }                
+
                   thatVue.data_Shots = thatVue.$th.merge(
                           // string (optional): key field name with unique values to merge on
                           "qguid",
