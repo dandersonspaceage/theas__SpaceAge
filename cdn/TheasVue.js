@@ -342,7 +342,7 @@ Theas.prototype.sendAsync = function (config) {
 
    if (theasDebug) {
       console.log(`Theas sendAsync URL=${config.url} cmd=${config.asyncCmd}`)
-      console.time(`sendAsync:${config.url}`)   
+      console.time(`sendAsync:${requestID}`)   
    }
 
    let axiosConfig = {
@@ -414,7 +414,7 @@ Theas.prototype.sendAsync = function (config) {
 
           if (theasDebug) { 
             console.log(`Theas received from URL=${response.config.url} cmd=${response.config.asyncCmd}: data.length=${response.data.length}`)       
-            console.timeEnd(`sendAsync:${config.url}`)                    
+            console.timeEnd(`sendAsync:${config.requestID}`)                    
           }
 
           if (response.data.length > 0) {
