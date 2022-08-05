@@ -871,6 +871,11 @@
 
            if (!thatVue.$th.haveError(true)) {
 
+
+              if (thatVue.$th.theasDebug) { 
+                console.time('fetchWOs:onResponse')
+              }
+
               if (rd["General"]) {
                 thisObj = JSON.parse(rd["General"]);
                 if (thisObj.PressCode) {
@@ -1005,6 +1010,11 @@
                 );
 
               }
+
+              if (thatVue.$th.theasDebug) { 
+                console.timeEnd('fetchWOs:onResponse')
+              }
+
             }
             thatVue.decBusy();
           },
