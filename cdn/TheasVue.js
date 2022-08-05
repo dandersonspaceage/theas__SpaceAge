@@ -1,5 +1,7 @@
 "use strict";
 
+const theasDebug = true;
+
 // iOS does not support FormData.set(), so we replace it with FormData.append()
 if (!FormData.prototype.set) {
   FormData.prototype.set = FormData.prototype.append;
@@ -336,6 +338,10 @@ Theas.prototype.sendAsync = function (config) {
    let requestID = thatTheas.uuidv4();
    let CancelToken = axios.CancelToken;
 
+   if (theasDebug) {
+    console.log(`Theas sendAsync URL=${config.url} cmd=${config.asyncCmd}`)
+   }
+
    let axiosConfig = {
        method: 'post',
        url: config.url,
@@ -402,6 +408,10 @@ Theas.prototype.sendAsync = function (config) {
           // The server can return whatever it wants in response.data
           // For example, response.data could contain URL-encoded name/value pairs
           // or it contain a JSON string
+
+          if (theasDebug) { 
+            console.log(`Received data.length = ${response.data.length}`);
+          }
 
           if (response.data.length > 0) {
 
