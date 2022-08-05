@@ -254,7 +254,7 @@ Theas.prototype.cancelAsync = function (startedBefore) {
 
 Theas.prototype.sendAsync = function (config) {
    // Note:  the entire config object will be passed in to the response handler
-   // refereced in config.onResponse
+   // referenced in config.onResponse
    // This means that the caller can add whatever they want to the config object,
    // and the callback function will have access to it via the config (3rd) parameter
    // passed into the onResponse function.
