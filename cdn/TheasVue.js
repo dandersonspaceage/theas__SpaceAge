@@ -127,7 +127,7 @@ Theas.prototype.updateAllTheasParams = function (nv) {
 
       //Update all theas controls as per the updateStr
 
-      const pfx = 'theas:';
+      const pfx = 'theas:th:';
       const pfx2 = 'theas$';
 
       for (let n in nv) {
