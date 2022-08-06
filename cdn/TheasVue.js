@@ -129,16 +129,19 @@ Theas.prototype.updateAllTheasParams = function (nv) {
 
       const pfx = 'theas:th:';
       const pfx2 = 'theas$';
+      
+      let isTheasParam = false;
 
       for (let n in nv) {
           let k;
 
+
+          isTheasParam = false;
+
           if (nv.hasOwnProperty(n)) {
-              if (n.startsWith(pfx)) {
+              if (n.startsWith(pfx) || n.startsWith(pfx2)) {
                   k = n.substring(pfx.length);
-              }
-              else if (n.startsWith(pfx2)) {
-                  k = n.substring(pfx2.length);
+                  isTheasParam = true;
               }
               else {
                 k = n;
@@ -146,8 +149,10 @@ Theas.prototype.updateAllTheasParams = function (nv) {
 
               if (k) {
                   k = k.replace(':', '$');
-                  //thatTheas.theasParams[k] = nv[n];
-                  thatTheas.thatVue.$set(thatTheas.theasParams, k, nv[n]);
+                  if (isTheasParam) {
+                    //thatTheas.theasParams[k] = nv[n];
+                    thatTheas.thatVue.$set(thatTheas.theasParams, k, nv[n]);
+                  }
               }
           }
       }
