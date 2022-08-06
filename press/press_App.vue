@@ -535,7 +535,6 @@
 
         asyncResource_WOs: 'sched/sched_App.vue',
         asyncCmd_WOs: 'fetchWOsForPress',
-        asyncCmd_WOs: 'fetchShotsForPress',        
         asyncCmd_Workers: 'fetchWorkers',
 
         pressCodes: ['N', 'NW', 'S', 'W'],
@@ -750,7 +749,6 @@
         let thatVue = this;    
         
         thatVue.data_WOs = [];
-        thatVue.data_Shots = [];
         thatVue.lastFetch_WOs = null;
         thatVue.fetchWOs();
       },
@@ -974,69 +972,6 @@
 
               }
 
-              if (thatVue.$th.theasDebug) { 
-                console.timeEnd('fetchWOs:onResponse')
-              }
-
-            }
-            thatVue.decBusy();
-          },
-        });
-      },
-
-      fetchShots: function (qguid, reFetch) {
-        // save reference to Vue object
-        let thatVue = this;
-
-        //for now, force a full refresh (not incremental) so that
-        //we can remove stale WOs
-        thatVue.lastFetch_WOs = null;
-        reFetch = true;
-
-        thatVue.incBusy();        
-
-        thatVue.$th.sendAsync({
-          url: "/async/" + thatVue.asyncResource_WOs,
-          asyncCmd: thatVue.asyncCmd_Shots,
-          lastFetchDate: thatVue.lastFetch_WOs,
-          data: {listName: thatVue.curWOListCode}, //note: passes to @FormParams
-          qguid: qguid,
-          reFetch: reFetch,
-
-          onResponse: function (rd, response, config) {
-            // rd contains the response data split into an object (of name/value pairs)
-            // (might have been returned as either a string of URL-encoded name/value
-            // pairs, or as a JSON strong)
-
-            // response contains the complete response object, in which .data contains
-            // the raw data that was received.
-
-            let thisObj;
-            let thisData;
-            let thisFetchDate;
-
-            thisObj = {};
-            thisData = [];
-            thisFetchDate = null;            
-
-           if (!thatVue.$th.haveError(true)) {
-
-
-              if (thatVue.$th.theasDebug) { 
-                console.time('fetchShots:onResponse')
-              }
-
-              if (rd["General"]) {
-                thisObj = JSON.parse(rd["General"]);
-                if (thisObj.PressCode) {
-                  thatVue.lockPressSelection = true;
-                  thatVue.curWOListCode = thisObj.PressCode;
-                }
-                else {
-                  thatVue.lockPressSelection = false;
-                }
-              }
-
 
               // Shots
               if (1==1 && rd["Shots"]) {
@@ -1052,7 +987,7 @@
                 if (thisData) {
 
                   if (thatVue.$th.theasDebug) { 
-                    console.log(`fetcShots received ${thisData.length} Shots rows`);
+                    console.log(`fetchWOs received ${thisData.length} Shots rows`);
                   }                
 
                   thatVue.data_Shots = thatVue.$th.merge(
@@ -1077,7 +1012,7 @@
               }
 
               if (thatVue.$th.theasDebug) { 
-                console.timeEnd('fetchShots:onResponse')
+                console.timeEnd('fetchWOs:onResponse')
               }
 
             }
@@ -1139,8 +1074,6 @@
 
       showHistory: function() {        
         let thatVue = this;
-
-        thatVue.fetchShots();
 
         thatVue.$bvModal.show('ShotHistoryModal');         
 
