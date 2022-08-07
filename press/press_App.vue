@@ -516,6 +516,8 @@
         theasLastError: {},
                 
         dataRefreshInterval: 240, //auto-refresh, in seconds
+        refreshTimerSet: false,
+
         enableFetching: true,
         today: moment().toDate(),
         busyCount: 1,
@@ -722,8 +724,9 @@
           document.body.style.cursor = 'default';
 
           // set timer for auto-refresh
-          if (thatVue.dataRefreshInterval) {
-            setTimeout(thatVue.fetchData, thatVue.dataRefreshInterval * 1000);    
+          if (thatVue.dataRefreshInterval && ! refreshTimerSet) {
+            setTimeout(thatVue.fetchData, thatVue.dataRefreshInterval * 1000);
+            refreshTimerSet = true;
           }      
         }
       },      
