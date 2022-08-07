@@ -710,7 +710,7 @@
         thatVue.busyCount = thatVue.busyCount + 1;
 
         if (thatVue.dataRefreshTimer) {
-          dataRefreshTimer = clearInterval(thatVue.dataRefreshTimer);
+          thatVue.dataRefreshTimer = clearInterval(thatVue.dataRefreshTimer);
         }
 
         if (thatVue.busyCount > 0) {
