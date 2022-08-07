@@ -376,15 +376,7 @@
     data() {
       return {
 
-            tab1Options: {
-              responsiveLayout: 'collapse', // enable responsive layouts
-              height: '64vh', //with responsiveCollapse we need to specify an absolute height
-              layout: 'fitDataFill',
-              //layout: 'fitColumns',
-              responsiveLayoutCollapseStartOpen: false,
-              resizableColumns: true,
-
-              columns: [
+            colsPress :[
                 {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
                 //{title: '', field:"StatusColor", formatter:"color"},
 
@@ -467,6 +459,16 @@
                 {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175, headerSort:false}
                                                                  
               ],
+
+            tab1Options: {
+              responsiveLayout: 'collapse', // enable responsive layouts
+              height: '64vh', //with responsiveCollapse we need to specify an absolute height
+              layout: 'fitDataFill',
+              //layout: 'fitColumns',
+              responsiveLayoutCollapseStartOpen: false,
+              resizableColumns: true,
+
+              columns: [],
             },
 
             tabShotHistOpt: {
@@ -580,6 +582,9 @@
       //were reactive.
       thatVue.theasParams = thatVue.$th.theasParams;
       thatVue.theasLastError = thatVue.$th.lastError;  
+
+      // set column layout (for the particular flavor of screen we are showing)
+      thatVue.$set(thatVue.tab1Options, columns, colsPress);    
 
       // perform the initial fetch of data
       thatVue.fetchData(true);
