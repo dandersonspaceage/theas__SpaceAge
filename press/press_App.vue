@@ -515,8 +515,8 @@
         theasParams: {},
         theasLastError: {},
                 
-        dataRefreshInterval: 240, //auto-refresh, in seconds
-        refreshTimerSet: false,
+        dataRefreshInterval: 10, //auto-refresh, in seconds
+        dataRefreshTimer:  null,
 
         enableFetching: true,
         today: moment().toDate(),
@@ -709,9 +709,14 @@
 
         thatVue.busyCount = thatVue.busyCount + 1;
 
+        if (thatVue.dataRefreshTimer) {
+          clearInterval(thatVue.dataRefreshTimer);
+        }
+
         if (thatVue.busyCount > 0) {
           thatVue.curCursor = 'progress';
-        }        
+        }
+                
       },
 
       decBusy: function() {
@@ -724,9 +729,8 @@
           document.body.style.cursor = 'default';
 
           // set timer for auto-refresh
-          if (thatVue.dataRefreshInterval && ! thatVue.refreshTimerSet) {
-            setTimeout(thatVue.fetchData, thatVue.dataRefreshInterval * 1000);
-            thatVue.refreshTimerSet = true;
+          if (thatVue.dataRefreshInterval && !thatVue.dataRefreshTimer) {
+            that.dataRefreshTimer = setInterval(thatVue.fetchData, thatVue.dataRefreshInterval * 1000);
           }      
         }
       },      
