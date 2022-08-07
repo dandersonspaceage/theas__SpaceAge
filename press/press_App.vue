@@ -584,7 +584,7 @@
       thatVue.theasLastError = thatVue.$th.lastError;  
 
       // set column layout (for the particular flavor of screen we are showing)
-      thatVue.$set(thatVue.tab1Options.columns, thatVue.colsPress);    
+      thatVue.$set(thatVue.tab1Options, 'columns', thatVue.colsPress);    
 
       // perform the initial fetch of data
       thatVue.fetchData(true);
