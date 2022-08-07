@@ -757,6 +757,8 @@
         
         thatVue.data_WOs = [];
         thatVue.lastFetch_WOs = null;
+        thatVue.data_Shots = [];
+        thatVue.lastFetch_Shots = null;        
         thatVue.fetchWOs();
       },
 
