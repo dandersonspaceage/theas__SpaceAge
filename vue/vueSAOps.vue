@@ -888,12 +888,6 @@
         thatVue.lastFetch_WOs = null; 
 
         thatVue.fetchWOs();
-        
-        if (thatVue.isPress) {
-          thatVue.data_Shots = [];
-          thatVue.lastFetch_Shots = null;                 
-          thatVue.fetchShots();        
-        }
       },
 
       fetchWorkers: function (workerType) {
@@ -1285,6 +1279,12 @@
       showHistory: function() {        
         let thatVue = this;
 
+        if (thatVue.isPress) {
+          thatVue.data_Shots = [];
+          thatVue.lastFetch_Shots = null;                 
+          thatVue.fetchShots();        
+        }
+        
         thatVue.$bvModal.show('ShotHistoryModal');         
 
         setTimeout(function(){
