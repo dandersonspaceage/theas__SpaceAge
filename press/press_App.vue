@@ -379,10 +379,12 @@
             screenVariant : 'press',
             //screenVarient : 'spray',
 
+            /*
             colcBtnComplete : function(cell, formatterParams){
               //returns plain text value
               return '<b-button variant="primary">Complete</b-button>';
             },
+            */
 
             colevtBtnClick : function(e, cell)  {
               alert('colevtBtnClick');
@@ -470,11 +472,13 @@
 
                 {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175, headerSort:false},
 
+                /*
                 {formatter:this.colcBtnComplete, width:40, align: 'center', 
                    cellClick:function(e, cell) {
                       alert("Cliecked"); 
                    }
-                }                
+                }
+                */               
                                                                  
               ],
 
