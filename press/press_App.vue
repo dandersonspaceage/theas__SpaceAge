@@ -459,10 +459,7 @@
                 //{title: 'Finish', field: 'SurfaceFinish', responsive: 4, minWidth: 150},
 
 
-                {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175, headerSort:false},
-
-
-                {title: 'test', field: 'WONumber', colID: 1234}                    
+                {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175, headerSort:false}                 
                                            
               ],
 
