@@ -379,6 +379,14 @@
             screenVariant : 'press',
             //screenVarient : 'spray',
 
+            colcBtnComplete : function(cell, formatterParams){
+              //returns plain text value
+              return '<b-button variant="primary">Complete</b-button>';
+            },
+
+            colevtBtnClick : function(e, cell)  {
+              alert('colevtBtnClick');
+            },
 
             colsPress :[
                 {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
@@ -460,7 +468,13 @@
                 //{title: 'Finish', field: 'SurfaceFinish', responsive: 4, minWidth: 150},
 
 
-                {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175, headerSort:false}
+                {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175, headerSort:false},
+
+                {formatter:cocBtnComplete, width:40, align: 'center', 
+                   cellClick:function(e, cell) {
+                      alert("Cliecked"); 
+                   }
+                }                
                                                                  
               ],
 
@@ -504,7 +518,14 @@
                   formatterParams: {formatStr: "dd MM/DD"}
                 },     
 
-                {title: 'WO', field: 'WONumber', responsive: 0, headerSort:false},        
+                {title: 'WO', field: 'WONumber', responsive: 0, headerSort:false},
+
+                {formatter:cocBtnComplete, width:40, align: 'center', 
+                   cellClick:function(e, cell) {
+                      alert("Cliecked"); 
+                   }
+                },
+
                 {title: 'Customer', field: 'CustomerName', responsive: 3, minWidth: 175, headerSort:false},
 
                 {title: 'Qty Remain', field: 'QtyRemaining', responsive: 0, headerSort:false},
