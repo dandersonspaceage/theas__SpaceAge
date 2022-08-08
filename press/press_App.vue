@@ -61,7 +61,7 @@
 
   <b-row :style="{cursor: curCursor}">
     <b-col>
-        <Vue-Tabulator ref="tabulator" class="table-striped table-sm" v-model="data_WOs" :options="tab1Options" />
+        <Vue-Tabulator ref="tabulator" class="table-striped table-sm" v-model="data_WOs" :options="tab1Options"  @cell-click="testCellClick"/>
     </b-col>
   </b-row>
 
@@ -378,6 +378,10 @@
 
             screenVariant : 'press',
             //screenVarient : 'spray',
+
+            testCellClick: function(e, cell){
+              alert('Cell was clicked');
+            },
 
             colsPress :[
                 {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
