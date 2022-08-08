@@ -376,8 +376,8 @@
     data() {
       return {
 
-            //screenVariant : 'press',
-            screenVarient : 'spray',
+            screenVariant : 'press',
+            //screenVarient : 'spray',
 
 
             colsPress :[
