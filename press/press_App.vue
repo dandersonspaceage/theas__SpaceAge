@@ -690,6 +690,8 @@
     computed: {
 
       pageVariant : function() {
+        let thatVue = this;
+        
         if (!thatVue.variant) {
           // default is press
           return 'press';
