@@ -75,7 +75,13 @@ import vueOpsWO from "{{ '/press/press_App.vue'|theasResource }}"
 
     let thisVue = new Vue({
         delimiters: ["[[", "]]"],
-        render: h => h(vueOpsWO),
+        render: h => h(
+          vueOpsWO,
+          {
+            props: {
+              pageType: 'press'
+            }
+          }),
     });
 
     // Set the reference to the vue object in this.th
