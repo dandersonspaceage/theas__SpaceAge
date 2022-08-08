@@ -615,6 +615,7 @@
 
         asyncResource_WOs: 'vue/vueSAOps.vue',
         asyncCmd_WOs: 'fetchWOsForPress',
+        asyncCmd_Shots: 'fetchShotsForPress',        
         asyncCmd_Workers: 'fetchWorkers',
 
         pressCodes: ['N', 'NW', 'S', 'W'],
@@ -1243,7 +1244,7 @@
               thatVue.fetchShots();
             }
             thatVue.fetchWorkers();
-            
+
             // can add additional fetches here
           }
         }
