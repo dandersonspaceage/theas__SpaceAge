@@ -379,10 +379,6 @@
             screenVariant : 'press',
             //screenVarient : 'spray',
 
-            testCellClick: function(e, cell){
-              alert('Cell was clicked');
-            },
-
             colsPress :[
                 {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
                 //{title: '', field:"StatusColor", formatter:"color"},
@@ -738,6 +734,9 @@
         }
       }, 
 
+      testCellClick: function(e, cell){
+        alert('Cell was clicked');
+      },
 
       async print (whatDiv) {
         let thatVue = this;
