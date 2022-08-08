@@ -740,7 +740,7 @@
 
       testCellClick: function(e, cell){
         if (cell._cell.column.definition.colName == 'testCol'){
-          alert('Cell was clicked');
+          alert(`Cell was clicked for row ${cell._cell.row.data.qguid}`);
         }        
       },
 
