@@ -183,7 +183,7 @@
             <h6 class="p-0" style="font-size:calc(1em + .2vmin)">#[[ (curWOTable1) ? Number(curWOTable1.CurrentShotCount) + 1 : '0']] of [[ (curWOTable1) ? curWOTable1.Quantity : '0']]</h6>              
 
             <b-button v-if="isPress" @click="completeShot('Table1')" variant="warning">Shot</b-button>
-            <b-button v-if="isSand" @click="completeSand()" variant="warning">Board Sanded</b-button>                          
+            <b-button v-if="isSand" @click="completeSand()" variant="primary">Board Sanded</b-button>                          
           </b-col>      
         </b-row>      
      
