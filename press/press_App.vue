@@ -651,7 +651,7 @@
       thatVue.theasLastError = thatVue.$th.lastError;  
 
       // set column layout (for the particular flavor of screen we are showing)
-      switch (thatVue.screenVarient) {
+      switch (thatVue.screenVariant {
 
         case ('press'):
           thatVue.$set(thatVue.tab1Options, 'columns', thatVue.colsPress);
