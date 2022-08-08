@@ -376,6 +376,10 @@
     data() {
       return {
 
+            //screenVariant : 'press',
+            screenVarient : 'spray',
+
+
             colsPress :[
                 {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
                 //{title: '', field:"StatusColor", formatter:"color"},
@@ -455,6 +459,69 @@
 
                 //{title: 'Finish', field: 'SurfaceFinish', responsive: 4, minWidth: 150},
 
+
+                {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175, headerSort:false}
+                                                                 
+              ],
+
+            colsSpray :[
+                {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
+                //{title: '', field:"StatusColor", formatter:"color"},
+
+                {title: '', field:"ActiveTable2", hozAlign:"center", headerSort:false,
+                  formatter: function(cell, formatterParams, onRendered){
+                    let thisVal = cell.getValue();
+                    let thisColor = '#FFFFFF'
+
+                    if (thisVal == '2') {
+                      // primary
+                      thisColor = "#007bff";
+                    }                           
+
+                    cell.getElement().style.backgroundColor = thisColor;
+
+                    return thisVal;
+                    },
+
+                  formatterParams: {formatStr: "dd MM/DD"}
+                },                            
+
+                {title: '', field:"ActiveTable1", hozAlign:"center", headerSort:false,
+                  formatter: function(cell, formatterParams, onRendered){
+                    let thisVal = cell.getValue();
+                    let thisColor = '#FFFFFF'
+                        
+                    if (thisVal == '1') {
+                      // warning
+                      thisColor = "#ffc107";
+                    }
+
+                    cell.getElement().style.backgroundColor = thisColor;
+
+                    return thisVal;
+                  },
+
+                  formatterParams: {formatStr: "dd MM/DD"}
+                },     
+
+                {title: 'WO', field: 'WONumber', responsive: 0, headerSort:false},        
+                {title: 'Customer', field: 'CustomerName', responsive: 3, minWidth: 175, headerSort:false},
+
+                {title: 'Qty Remain', field: 'QtyRemaining', responsive: 0, headerSort:false},
+                {title: 'Qty Needed', field: 'Quantity', responsive: 3, headerSort:false},                
+
+                {title: 'Hours Remain', field: 'PressHoursRemain', headerSort:false},
+
+                {title: 'Thick', field: 'DimThickness_Finished', headerSort:false},
+                {title: 'Thick OP', field: 'DimThickness_OffPress', headerSort:false},
+                {title: 'Width OP', field: 'DimWidth_OffPress', headerSort:false},
+                {title: 'Length OP', field: 'DimLength_OffPress', headerSort:false},
+
+                {title: 'Weight Sanded', field: 'Weight_Sanded', headerSort:false},                
+
+                {title: 'Item', field: 'ItemNumber', responsive: 3, minWidth: 150, headerSort:false},
+
+                {title: 'SO', field: 'LinkedSONumber', responsive: 3, headerSort:false},                
 
                 {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175, headerSort:false}
                                                                  
@@ -584,7 +651,25 @@
       thatVue.theasLastError = thatVue.$th.lastError;  
 
       // set column layout (for the particular flavor of screen we are showing)
-      thatVue.$set(thatVue.tab1Options, 'columns', thatVue.colsPress);    
+      switch (thatVue.screenVarient) {
+
+        case ('press'):
+          thatVue.$set(thatVue.tab1Options, 'columns', thatVue.colsPress);
+          break;
+
+        case ('glass'):
+          thatVue.$set(thatVue.tab1Options, 'columns', thatVue.colsGlass);
+          break;              
+
+        case ('sand'):
+          thatVue.$set(thatVue.tab1Options, 'columns', thatVue.colsSand);
+          break;    
+
+        case ('spray'):
+          thatVue.$set(thatVue.tab1Options, 'columns', thatVue.colsSpray);
+          break;              
+      }
+
 
       // perform the initial fetch of data
       thatVue.fetchData(true);
