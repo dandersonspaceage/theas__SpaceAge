@@ -373,7 +373,7 @@
     delimiters: ["[[", "]]"],
 
     props: {
-      variant: String
+      pageType: String
     },
 
     data() {
@@ -691,13 +691,13 @@
 
       pageVariant : function() {
         let thatVue = this;
-        
-        if (!thatVue.variant) {
+
+        if (!thatVue.pageType) {
           // default is press
           return 'press';
         }        
         else {
-          return thatVue.variant;
+          return thatVue.pageType;
         }
       },
 
