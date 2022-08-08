@@ -462,7 +462,7 @@
                 {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175, headerSort:false},
 
 
-                {title: 'test', field: 'WONumber', colID: 1234}                    
+                {title: 'test', field: 'WONumber', colName: 'testCol'}                    
                                            
               ],
 
@@ -537,6 +537,7 @@
               //layout: 'fitColumns',
               responsiveLayoutCollapseStartOpen: false,
               resizableColumns: true,
+              debugInvalidOptions:false,               
 
               columns: [],
             },
@@ -738,7 +739,9 @@
       }, 
 
       testCellClick: function(e, cell){
-        alert('Cell was clicked');
+        if (cell._cell.column.definition.colID == 'testCol'){
+          alert('Cell was clicked');
+        }        
       },
 
       async print (whatDiv) {
