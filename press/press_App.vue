@@ -378,7 +378,7 @@
 
     data() {
       return {
-            colsPress :[
+            colsPress: [
                 {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
                 //{title: '', field:"StatusColor", formatter:"color"},
 
@@ -460,9 +460,12 @@
 
                 {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175, headerSort:false}           
                                            
-              ],
+            ],
 
-            colsSpray :[
+            colsGlass: [
+            ],
+
+            colsSand: [
                 {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
                 //{title: '', field:"StatusColor", formatter:"color"},
 
@@ -526,7 +529,10 @@
 
                 {title: 'test', field: 'WONumber', colName: 'testCol'}                         
                                                                  
-              ],
+            ],
+
+            colsSpray: [
+            ],
 
             tab1Options: {
               responsiveLayout: 'collapse', // enable responsive layouts
