@@ -368,18 +368,15 @@
 </template>
 
 <script>
-var gPageVariant = 'press';
-</script>
-
-<script>
 
   export default {
     delimiters: ["[[", "]]"],
 
+
     data() {
       return {
 
-            pageVariant : gPageVariant,
+            screenVariant : 'press',
             //screenVarient : 'spray',
 
             colsPress :[
@@ -657,7 +654,7 @@ var gPageVariant = 'press';
       thatVue.theasLastError = thatVue.$th.lastError;  
 
       // set column layout (for the particular flavor of screen we are showing)
-      switch (thatVue.pageVariant) {
+      switch (thatVue.screenVariant) {
 
         case ('press'):
           thatVue.$set(thatVue.tab1Options, 'columns', thatVue.colsPress);
