@@ -470,7 +470,7 @@
 
                 {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175, headerSort:false},
 
-                {formatter:cocBtnComplete, width:40, align: 'center', 
+                {formatter:colcBtnComplete, width:40, align: 'center', 
                    cellClick:function(e, cell) {
                       alert("Cliecked"); 
                    }
