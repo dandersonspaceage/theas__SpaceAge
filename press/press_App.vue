@@ -376,7 +376,7 @@
     data() {
       return {
 
-            pageVariant : gPageVariant,
+            pageVariant : 'press',
             //screenVarient : 'spray',
 
             colsPress :[

@@ -5,10 +5,8 @@ import vueNewPage1 from "{{ '/press/press_App.vue'|theasResource }}"
     // Then we set the value in the --vh custom property to the root of the document
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 
-    var gPageVariant = 'press';
 
-    Vue.config.productionTip = false;
-
+    Vue.config.productionTip = false
     Vue.use(BootstrapVue);
 
     const paperOptions = {
@@ -25,7 +23,7 @@ import vueNewPage1 from "{{ '/press/press_App.vue'|theasResource }}"
       timeout: 1000, // default timeout before the print window appears
       autoClose: true, // if false, the window will not close after printing
       windowTitle: window.document.title, // override the window title
-    };
+    }
     
     Vue.use(VueHtmlToPaper, paperOptions);
 
