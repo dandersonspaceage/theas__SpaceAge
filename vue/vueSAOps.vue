@@ -1221,7 +1221,7 @@
         }, 100);        
       },
 
-      completeSand : function() {}
+      completeSand : function() {
       },
 
       completeShot: function(tableCode) {
