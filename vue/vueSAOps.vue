@@ -612,8 +612,9 @@
 
         lastFetch_WOs: null,
         lastFetch_Workers: null,
+        lastFetch_Shots: null,     
 
-        asyncResource_WOs: 'vue/vueSAOps.vue',
+        asyncResource_Ops: 'vue/vueSAOps.vue',
         asyncCmd_WOs: 'fetchWOsForOp',
         asyncCmd_Shots: 'fetchShotsForOp',        
         asyncCmd_Workers: 'fetchWorkers',
@@ -901,7 +902,7 @@
         }
 
         thatVue.$th.sendAsync({
-          url: "/async/" + thatVue.asyncResource_WOs,
+          url: "/async/" + thatVue.asyncResource_Ops,
           asyncCmd: thatVue.asyncCmd_Workers,
           lastFetchDate: thatVue.lastFetch_Workers,
           data: {workerType: workerType}, //note: passes to @FormParams
@@ -983,7 +984,7 @@
         thatVue.incBusy();        
 
         thatVue.$th.sendAsync({
-          url: "/async/" + thatVue.asyncResource_WOs,
+          url: "/async/" + thatVue.asyncResource_Ops,
           asyncCmd: thatVue.asyncCmd_WOs,
           lastFetchDate: thatVue.lastFetch_WOs,
           data: {listName: thatVue.curWOListCode}, //note: passes to @FormParams
@@ -1131,7 +1132,7 @@
         thatVue.incBusy();        
 
         thatVue.$th.sendAsync({
-          url: "/async/" + thatVue.asyncResource_WOs,
+          url: "/async/" + thatVue.asyncResource_Ops,
           asyncCmd: thatVue.asyncCmd_Shots,
           lastFetchDate: thatVue.lastFetch_Shots,
           data: {listName: thatVue.curWOListCode}, //note: passes to @FormParams
@@ -1356,7 +1357,7 @@
           });
 
           thatVue.$th.sendAsync({
-            url: "/async/" + thatVue.asyncResource_WOs,
+            url: "/async/" + thatVue.asyncResource_Ops,
             asyncCmd: 'selectWO',              
             data: {qguid: qguid, tableCode: tableCode}, //note: passes to @FormParams
 
@@ -1392,7 +1393,7 @@
           thatVue.curShot = {}
 
           thatVue.$th.sendAsync({
-            url: "/async/" + thatVue.asyncResource_WOs,
+            url: "/async/" + thatVue.asyncResource_Ops,
             asyncCmd: 'completeShot',              
             data: {Shot: thisShot}, //note: passes to @FormParams
             thisShot: thisShot, //note: pased into onResponse as part of config
