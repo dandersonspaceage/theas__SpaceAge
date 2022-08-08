@@ -376,7 +376,7 @@
     data() {
       return {
 
-            screenVariant : 'press',
+            pageVariant : gPageVariant,
             //screenVarient : 'spray',
 
             colsPress :[
@@ -654,7 +654,7 @@
       thatVue.theasLastError = thatVue.$th.lastError;  
 
       // set column layout (for the particular flavor of screen we are showing)
-      switch (thatVue.screenVariant) {
+      switch (thatVue.pageVariant) {
 
         case ('press'):
           thatVue.$set(thatVue.tab1Options, 'columns', thatVue.colsPress);
