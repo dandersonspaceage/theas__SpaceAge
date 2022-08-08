@@ -885,10 +885,15 @@
         let thatVue = this;    
         
         thatVue.data_WOs = [];
-        thatVue.lastFetch_WOs = null;
-        thatVue.data_Shots = [];
-        thatVue.lastFetch_Shots = null;        
+        thatVue.lastFetch_WOs = null; 
+
         thatVue.fetchWOs();
+        
+        if (thatVue.isPress) {
+          thatVue.data_Shots = [];
+          thatVue.lastFetch_Shots = null;                 
+          thatVue.fetchShots();        
+        }
       },
 
       fetchWorkers: function (workerType) {
