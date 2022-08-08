@@ -612,7 +612,7 @@
         lastFetch_WOs: null,
         lastFetch_Workers: null,
 
-        asyncResource_WOs: 'sched/sched_App.vue',
+        asyncResource_WOs: 'vueSAOps.vue',
         asyncCmd_WOs: 'fetchWOsForPress',
         asyncCmd_Workers: 'fetchWorkers',
 
