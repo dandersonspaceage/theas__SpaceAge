@@ -1,4 +1,4 @@
-import vueNewPage1 from "{{ '/press/press_App.vue'|theasResource }}"
+import vueOpsWO from "{{ '/press/press_App.vue'|theasResource }}"
 
     // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
     let vh = window.innerHeight * 0.01;
@@ -75,7 +75,7 @@ import vueNewPage1 from "{{ '/press/press_App.vue'|theasResource }}"
 
     let thisVue = new Vue({
         delimiters: ["[[", "]]"],
-        render: h => h(vueNewPage1),
+        render: h => h(vueOpsWO),
     });
 
     // Set the reference to the vue object in this.th
