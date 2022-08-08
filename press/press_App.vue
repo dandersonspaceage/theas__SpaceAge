@@ -739,7 +739,7 @@
       }, 
 
       testCellClick: function(e, cell){
-        if (cell._cell.column.definition.colID == 'testCol'){
+        if (cell._cell.column.definition.colName == 'testCol'){
           alert('Cell was clicked');
         }        
       },
