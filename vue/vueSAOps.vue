@@ -67,13 +67,13 @@
 
   <b-row style="height: 150px" class="bottom">
 
-      <b-col xs="*">
+      <b-col  v-if="isPress" xs="*">
 
         <b-row>
           <b-col>
             <b-row>
 
-              <b-col v-if="isPress">
+              <b-col>
                 <h4 class="p-0 m-0 caption3">Table&nbsp;2</h4>
 
                 <b-form-group label="Active WO"
