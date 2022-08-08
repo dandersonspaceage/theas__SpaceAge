@@ -612,7 +612,7 @@
         lastFetch_WOs: null,
         lastFetch_Workers: null,
 
-        asyncResource_WOs: 'vueSAOps.vue',
+        asyncResource_WOs: '/vue/vueSAOps.vue',
         asyncCmd_WOs: 'fetchWOsForPress',
         asyncCmd_Workers: 'fetchWorkers',
 
