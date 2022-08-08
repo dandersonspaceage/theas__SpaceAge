@@ -372,13 +372,12 @@
   export default {
     delimiters: ["[[", "]]"],
 
+    props: {
+      pageVariant: String
+    },
 
     data() {
       return {
-
-            pageVariant : 'press',
-            //screenVarient : 'spray',
-
             colsPress :[
                 {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
                 //{title: '', field:"StatusColor", formatter:"color"},
@@ -652,6 +651,11 @@
       //were reactive.
       thatVue.theasParams = thatVue.$th.theasParams;
       thatVue.theasLastError = thatVue.$th.lastError;  
+
+      if (!thatVue.pageVariant) {
+        // default is press
+        thatVue.pageVariant = 'press';
+      }
 
       // set column layout (for the particular flavor of screen we are showing)
       switch (thatVue.pageVariant) {
