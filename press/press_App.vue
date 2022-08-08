@@ -373,7 +373,7 @@
     delimiters: ["[[", "]]"],
 
     props: {
-      pageVariant: String
+      variant: String
     },
 
     data() {
@@ -652,11 +652,6 @@
       thatVue.theasParams = thatVue.$th.theasParams;
       thatVue.theasLastError = thatVue.$th.lastError;  
 
-      if (!thatVue.pageVariant) {
-        // default is press
-        thatVue.pageVariant = 'press';
-      }
-
       // set column layout (for the particular flavor of screen we are showing)
       switch (thatVue.pageVariant) {
 
@@ -693,6 +688,18 @@
 
 
     computed: {
+
+      pageVariant : function() {
+        if (!thatVue.variant) {
+          // default is press
+          return 'press';
+        }        
+        else {
+          return thatVue.variant;
+        }
+      },
+
+
       busy : function () {
         return this.busyCount > 0;
       }, 
