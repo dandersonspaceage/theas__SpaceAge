@@ -614,8 +614,8 @@
         lastFetch_Workers: null,
 
         asyncResource_WOs: 'vue/vueSAOps.vue',
-        asyncCmd_WOs: 'fetchWOsForPress',
-        asyncCmd_Shots: 'fetchShotsForPress',        
+        asyncCmd_WOs: 'fetchWOsForOp',
+        asyncCmd_Shots: 'fetchShotsForOp',        
         asyncCmd_Workers: 'fetchWorkers',
 
         pressCodes: ['N', 'NW', 'S', 'W'],
