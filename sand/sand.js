@@ -78,7 +78,7 @@ let thisVue = new Vue({
       vueSAOps,
       {
         props: {
-          pageType: 'press'
+          pageType: 'sand'
         }
       }),
 });
