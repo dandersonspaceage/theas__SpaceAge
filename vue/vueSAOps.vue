@@ -182,7 +182,8 @@
             <h5 class="p-0" style="font-size:calc(1em + .5vmin)">WO [[ (curWOTable1) ? curWOTable1.WONumber : 'none']]</h5>
             <h6 class="p-0" style="font-size:calc(1em + .2vmin)">#[[ (curWOTable1) ? Number(curWOTable1.CurrentShotCount) + 1 : '0']] of [[ (curWOTable1) ? curWOTable1.Quantity : '0']]</h6>              
 
-            <b-button v-if="isPress" @click="completeShot('Table1')" variant="warning">Shot</b-button>            
+            <b-button v-if="isPress" @click="completeShot('Table1')" variant="warning">Shot</b-button>
+            <b-button v-if="isSand" @click="completeSand()" variant="warning">Board Sanded</b-button>                          
           </b-col>      
         </b-row>      
      
@@ -712,6 +713,11 @@
         return thatVue.pageVariant === 'press';
       },
 
+      isSand : function() {
+        let thatVue = this;
+        return thatVue.pageVariant === 'sand';
+      },      
+
       busy : function () {
         return this.busyCount > 0;
       }, 
@@ -1213,6 +1219,9 @@
             thatVue.$refs.tabuShotHistory.tabulatorInstance.redraw(true);
         //});            
         }, 100);        
+      },
+
+      completeSand : function() {}
       },
 
       completeShot: function(tableCode) {
