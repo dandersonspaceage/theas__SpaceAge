@@ -1108,6 +1108,68 @@
 
               }
 
+              if (thatVue.$th.theasDebug) { 
+                console.timeEnd('fetchWOs:onResponse')
+              }
+
+            }
+            thatVue.decBusy();
+          },
+        });
+      },
+
+      fetchShots: function (qguid, reFetch) {
+        // save reference to Vue object
+        let thatVue = this;
+
+        //for now, force a full refresh (not incremental) so that
+        //we can remove stale WOs
+        thatVue.lastFetch_Shots = null;
+        reFetch = true;
+
+        thatVue.incBusy();        
+
+        thatVue.$th.sendAsync({
+          url: "/async/" + thatVue.asyncResource_WOs,
+          asyncCmd: thatVue.asyncCmd_Shots,
+          lastFetchDate: thatVue.lastFetch_Shots,
+          data: {listName: thatVue.curWOListCode}, //note: passes to @FormParams
+          qguid: qguid,
+          reFetch: reFetch,
+
+          onResponse: function (rd, response, config) {
+            // rd contains the response data split into an object (of name/value pairs)
+            // (might have been returned as either a string of URL-encoded name/value
+            // pairs, or as a JSON strong)
+
+            // response contains the complete response object, in which .data contains
+            // the raw data that was received.
+
+            let thisObj;
+            let thisData;
+            let thisFetchDate;
+
+            thisObj = {};
+            thisData = [];
+            thisFetchDate = null;            
+
+           if (!thatVue.$th.haveError(true)) {
+
+
+              if (thatVue.$th.theasDebug) { 
+                console.time('fetchShots:onResponse')
+              }
+
+              if (rd["General"]) {
+                thisObj = JSON.parse(rd["General"]);
+                if (thisObj.PressCode) {
+                  thatVue.lockPressSelection = true;
+                  thatVue.curWOListCode = thisObj.PressCode;
+                }
+                else {
+                  thatVue.lockPressSelection = false;
+                }
+              }
 
               // Shots
               if (1==1 && rd["Shots"]) {
@@ -1123,7 +1185,7 @@
                 if (thisData) {
 
                   if (thatVue.$th.theasDebug) { 
-                    console.log(`fetchWOs received ${thisData.length} Shots rows`);
+                    console.log(`fetchShots received ${thisData.length} Shots rows`);
                   }                
 
                   thatVue.data_Shots = thatVue.$th.merge(
@@ -1148,14 +1210,14 @@
               }
 
               if (thatVue.$th.theasDebug) { 
-                console.timeEnd('fetchWOs:onResponse')
+                console.timeEnd('fetchShots:onResponse')
               }
 
             }
             thatVue.decBusy();
           },
         });
-      },
+      },      
 
       fetchData: function (forceOnError) {
         let thatVue = this;
@@ -1169,14 +1231,19 @@
         if (
             (forceOnError || !this.$th.theasParams.th$ErrorMessage) &&
                 thatVue.$th.loadingCount < 5
-        ) {
+           )
+        {
           if (thatVue.modalShowing === true) {
             thatVue.enableFetching = false;
           }
 
           if (thatVue.enableFetching === true) {
             thatVue.fetchWOs();
+            if (thatVue.isPress) {
+              thatVue.fetchShots();
+            }
             thatVue.fetchWorkers();
+            
             // can add additional fetches here
           }
         }
