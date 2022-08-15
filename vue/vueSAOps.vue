@@ -593,7 +593,7 @@
         theasParams: {},
         theasLastError: {},
                 
-        dataRefreshInterval: 15, //auto-refresh, in seconds
+        dataRefreshInterval: 90, //auto-refresh, in seconds
         dataRefreshTimer:  null,
 
         enableFetching: true,
