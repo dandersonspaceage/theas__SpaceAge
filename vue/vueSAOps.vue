@@ -1284,7 +1284,7 @@
 //          thatVue.data_Shots = [];
 //          thatVue.lastFetch_Shots = null;                 
 //          thatVue.fetchShots();        
-        }
+//        }
         
         thatVue.$bvModal.show('ShotHistoryModal');         
 
