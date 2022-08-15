@@ -593,7 +593,7 @@
         theasParams: {},
         theasLastError: {},
                 
-        dataRefreshInterval: 120, //auto-refresh, in seconds
+        dataRefreshInterval: 15, //auto-refresh, in seconds
         dataRefreshTimer:  null,
 
         enableFetching: true,
@@ -1237,9 +1237,6 @@
                 thatVue.$th.loadingCount < 5
            )
         {
-          if (thatVue.modalShowing === true) {
-            thatVue.enableFetching = false;
-          }
 
           if (thatVue.enableFetching === true) {
             thatVue.fetchWOs();
