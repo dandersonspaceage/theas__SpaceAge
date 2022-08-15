@@ -883,9 +883,12 @@
 
       switchWOList: function() {
         let thatVue = this;    
-        
-        thatVue.data_WOs = [];
+
+        thatVue.data_WOs.splice(0, thatVue.data_WOs.length) //clear out WOs               
         thatVue.lastFetch_WOs = null; 
+
+        thatVue.data_Shots.splice(0, thatVue.data_WOs.length) //clear out Shots            
+        thatVue.lastFetch_Shots = null;         
 
         thatVue.fetchData();
       },
@@ -1033,7 +1036,7 @@
 
                 if (config.reFetch) {
                   //thatVue.data_WOs.length = 0; //NOT REACTIVE
-                  thatVue.data_WOs.splice(0, thatVue.data_WOs.length) //clear out WO                    
+                  thatVue.data_WOs.splice(0, thatVue.data_WOs.length) //clear out WOs
                 }          
 
                 if (thisData) {
@@ -1182,7 +1185,7 @@
    
                 if (config.reFetch) {
                   //thatVue.data_Shots.length = 0; //NOT REACTIVE
-                  thatVue.data_Shots.splice(0, thatVue.data_Shots.length) //clear out WO                    
+                  thatVue.data_Shots.splice(0, thatVue.data_Shots.length) //clear out WOs
                 }     
 
 
