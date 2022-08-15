@@ -887,7 +887,7 @@
         thatVue.data_WOs = [];
         thatVue.lastFetch_WOs = null; 
 
-        thatVue.fetchWOs();
+        thatVue.fetchData();
       },
 
       fetchWorkers: function (workerType) {
