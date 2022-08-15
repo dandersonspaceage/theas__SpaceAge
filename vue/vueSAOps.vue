@@ -1243,9 +1243,10 @@
 
           if (thatVue.enableFetching === true) {
             thatVue.fetchWOs();
-            if (thatVue.isPress) {
-              thatVue.fetchShots();
-            }
+
+            //if (thatVue.isPress) {
+            thatVue.fetchShots();
+            //}
             thatVue.fetchWorkers();
 
             // can add additional fetches here
