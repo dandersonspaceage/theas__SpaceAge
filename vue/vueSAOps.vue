@@ -971,14 +971,14 @@
         });
       },
 
-      fetchWOs: function (qguid, reFetch) {
+      fetchWOs: function (qguid) {
         // save reference to Vue object
         let thatVue = this;
 
         //for now, force a full refresh (not incremental) so that
         //we can remove stale WOs
         thatVue.lastFetch_WOs = null;
-        reFetch = true;
+        let reFetch = true;
 
         thatVue.incBusy();        
 
@@ -1032,7 +1032,8 @@
 
 
                 if (config.reFetch) {
-                  thatVue.data_WOs.length = 0; //clear out WO      
+                  //thatVue.data_WOs.length = 0; //NOT REACTIVE
+                  thatVue.data_WOs.splice(0, thatVue.data_WOs.length) //clear out WO                    
                 }          
 
                 if (thisData) {
@@ -1119,14 +1120,14 @@
         });
       },
 
-      fetchShots: function (qguid, reFetch) {
+      fetchShots: function (qguid) {
         // save reference to Vue object
         let thatVue = this;
 
         //for now, force a full refresh (not incremental) so that
         //we can remove stale WOs
         thatVue.lastFetch_Shots = null;
-        reFetch = true;
+        let reFetch = true;
 
         thatVue.incBusy();        
 
@@ -1178,10 +1179,12 @@
                 thisData = thisObj["JSONData"];
                 thisFetchDate = thisObj["FetchDate"];
 
+   
                 if (config.reFetch) {
-                  //thatVue.data_Shots.length = 0; //clear out WO      
-                  thatVue.data_Shots = [];
-                }          
+                  //thatVue.data_Shots.length = 0; //NOT REACTIVE
+                  thatVue.data_Shots.splice(0, thatVue.data_Shots.length) //clear out WO                    
+                }     
+
 
                 if (thisData) {
 
