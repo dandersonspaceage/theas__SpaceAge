@@ -359,7 +359,7 @@ Theas.prototype.sendAsync = function (config) {
        method: 'post',
        url: config.url,
        data: theasFormData,
-       refetch: config.refetch,
+       reFetch: config.reFetch,
        echo: config.echo,
 
        onUploadProgress: config.onUploadProgress,
