@@ -1391,10 +1391,10 @@
             }
 
           }
-          else {
+          //else {
             // new shot
-            thatVue.data_Shots.unshift(thatVue.curShot);
-          }
+          //  thatVue.data_Shots.unshift(thatVue.curShot);
+          //}
 
           let thisShot = thatVue.curShot;
           thatVue.curShot = {}
@@ -1441,6 +1441,16 @@
                     thisShot[key] = value;
                   }                                
 
+
+                  let thisIndex = thatVue.data_Shots.findIndex((el) => el.qguid === thisShot.qguid);
+                  if (thisIndex >= 0) {
+                    thatVue.$set(thatVue.data_Shots, thisIndex, thatVue.thisShot);
+                  }
+                  else {
+                    thatVue.data_Shots.unshift(thisShot);
+                  }
+            
+            
                   let thisIndexWO = thatVue.data_WOs.findIndex((el) => el.qguid === shotResp.qguidWO);
                   if (thisIndexWO >= 0) {
                     let thisWO = thatVue.data_WOs[thisIndexWO];
