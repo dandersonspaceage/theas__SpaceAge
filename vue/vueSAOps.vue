@@ -1403,7 +1403,7 @@
             url: "/async/" + thatVue.asyncResource_Ops,
             asyncCmd: 'completeShot',              
             data: {Shot: thisShot}, //note: passes to @FormParams
-            thisShot: thisShot, //note: pased into onResponse as part of config
+            echo: {thisShot: thisShot}, //note: pased into onResponse as part of config
 
             onResponse: function (rd, response, config) {
                 // rd contains the response data split into an object (of name/value pairs)
@@ -1421,7 +1421,12 @@
                 */
 
               let shotResp = {};
-              let thisShot = config.thisShot;      
+           
+              let thisShot = {};
+
+              if (config.echo) {
+                let thisShot = config.echo.thisShot;                        
+              }           
 
               if (!thatVue.$th.haveError(true)) {
 
