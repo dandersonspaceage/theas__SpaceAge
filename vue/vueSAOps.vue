@@ -1383,14 +1383,13 @@
           // make sure curShot has been saved to data_Shots
 
           if (thatVue.curShot.qguid) {
-            // updating existing shot
-
+            // updating existing shot...immediately, before sending aysnc request
             let thisIndex = thatVue.data_Shots.findIndex((el) => el.qguid === thatVue.curShot.qguid);
             if (thisIndex >= 0) {
               thatVue.$set(thatVue.data_Shots, thisIndex, thatVue.curShot);
             }
-
           }
+          // note:  we do NOT save a newly-added shot to data_shots until after we receive a response
           //else {
             // new shot
           //  thatVue.data_Shots.unshift(thatVue.curShot);
@@ -1444,9 +1443,11 @@
 
                   let thisIndex = thatVue.data_Shots.findIndex((el) => el.qguid === thisShot.qguid);
                   if (thisIndex >= 0) {
+                    // update existing shot
                     thatVue.$set(thatVue.data_Shots, thisIndex, thatVue.thisShot);
                   }
                   else {
+                    // finally add new shot
                     thatVue.data_Shots.unshift(thisShot);
                   }
             
