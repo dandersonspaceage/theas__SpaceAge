@@ -1425,7 +1425,7 @@
               let thisShot = {};
 
               if (config.echo) {
-                let thisShot = config.echo.thisShot;                        
+                thisShot = config.echo.thisShot;                        
               }           
 
               if (!thatVue.$th.haveError(true)) {
