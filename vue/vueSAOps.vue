@@ -1086,39 +1086,43 @@
 
 
                 //apply server-side WO table assignments
-                if (thatVue && thatVue.data_WOs && thatVue.data_WOs.length > 0) {
-                    let thisIndex1 = thatVue.data_WOs.findIndex((el) => el.ActiveTable1 === '1');
-                    if (thisIndex1 >= 0) {
-                      //thatVue.curWOTable1 = thatVue.data_WOs[thisIndex1];
-                      thatVue.$set(thatVue, 'curWOTable1', thatVue.data_WOs[thisIndex1]);                      
-                    }
-                    else {
-                      //thatVue.curWOTable1 = {};
-                      thatVue.$set(thatVue, 'curWOTable1', {});
-                    }
+                //if (thatVue && thatVue.data_WOs && thatVue.data_WOs.length > 0) {
+                if (thatVue) {                  
+                    if (thatVue.data_WOs && thatVue.data_WOs.length > 0) {
+                      // have WorkOrders.  Try to set selections
 
-                    thatVue.curWOqguid_Table1 = null;
-                    if (thatVue.curWOTable1.qguid) {
-                      //thatVue.curWOqguid_Table1 = thatVue.curWOTable1.qguid;                        
-                      thatVue.$set(thatVue, 'curWOTable1', thatVue.data_WOs[thisIndex1]);                                          
+                      let thisIndex1 = thatVue.data_WOs.findIndex((el) => el.ActiveTable1 === '1');
+                      if (thisIndex1 >= 0) {
+                        thatVue.$set(thatVue, 'curWOTable1', thatVue.data_WOs[thisIndex1]);                      
+                        thatVue.curWOqguid_Table1 = thatVue.curWOTable1.qguid;                         
+                      }
+                      else {
+                        //active WO for Table1 not found
+                        thatVue.$set(thatVue, 'curWOTable1', {});
+                        thatVue.curWOqguid_Table1 = null;                          
+                      }                      
+                                 
+                      let thisIndex2 = thatVue.data_WOs.findIndex((el) => el.ActiveTable2 === '2');                    
+                      if (thisIndex2 >= 0) {
+                        thatVue.$set(thatVue, 'curWOTable2', thatVue.data_WOs[thisIndex2]);
+                        thatVue.curWOqguid_Table2 = thatVue.curWOTable2.qguid;                           
+                      }
+                      else {
+                        //active WO for Table2 not found                        
+                        thatVue.$set(thatVue, 'curWOTable2', {});
+                        thatVue.curWOqguid_Table2 = null;                   
+                      }                                                                              
                     }
-                          
+                
+                  else {      
+                    // no work orders, so clear out selections
 
-                    let thisIndex2 = thatVue.data_WOs.findIndex((el) => el.ActiveTable2 === '2');                    
-                    if (thisIndex2 >= 0) {
-                      //thatVue.curWOTable2 = thatVue.data_WOs[thisIndex2];
-                      thatVue.$set(thatVue, 'curWOTable2', thatVue.data_WOs[thisIndex2]);
-                    }
-                    else {
-                      //thatVue.curWOTable2 = {};
-                      thatVue.$set(thatVue, 'curWOTable1', {});                        
-                    }                                                                              
+                    thatVue.$set(thatVue, 'curWOTable1', {});  
+                    thatVue.curWOqguid_Table1 = null;                       
 
-                    thatVue.curWOqguid_Table2 = null;
-                    if (thatVue.curWOTable2.qguid) {
-                      thatVue.curWOqguid_Table2 = thatVue.curWOTable2.qguid;                       
-                    }
-
+                    thatVue.$set(thatVue, 'curWOTable2', {});                      
+                    thatVue.curWOqguid_Table2 = null;                    
+                  }
                 }                             
 
               }
