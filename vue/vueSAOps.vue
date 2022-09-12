@@ -1018,6 +1018,12 @@
 
               if (rd["General"]) {
                 thisObj = JSON.parse(rd["General"]);
+
+                if (thatVue.CurrentShift != thisObj.CurrentShift) {
+                  thatVue.curWorkerQGUID = null;  // a new shift, so clear out the current
+                  thatVue.CurrentShift = thisObj.CurrentShift;                 
+                }
+
                 if (thisObj.PressCode) {
                   thatVue.lockPressSelection = true;
                   thatVue.curWOListCode = thisObj.PressCode;
@@ -1090,13 +1096,16 @@
                     }
                     thatVue.curWOqguid_Table1 = null;
                     if (thatVue.curWOTable1.qguid) {
-                      thatVue.curWOqguid_Table1 = thatVue.curWOTable1.qguid;                       
+                      thatVue.$set(thatVue, 'curWOTable1', thatVue.data_WOs[thisIndex1]);                      
+                      //thatVue.curWOqguid_Table1 = thatVue.curWOTable1.qguid;                       
                     }
                           
                     if (thatVue.data_WOs.length > 1) {
                       let thisIndex2 = thatVue.data_WOs.findIndex((el) => el.ActiveTable2 === '2');                    
                       if (thisIndex2 >= 0) {
-                        thatVue.curWOTable2 = thatVue.data_WOs[thisIndex2];
+
+                        thatVue.$set(thatVue, 'curWOTable2', thatVue.data_WOs[thisIndex2]);
+                        //thatVue.curWOTable2 = thatVue.data_WOs[thisIndex2];
                       }
                       else {
                         thatVue.curWOTable2 = {};
@@ -1460,7 +1469,7 @@
                     thisWO.LastSetTime = shotResp.LastSetTime,                                      
                     thisWO.LastShotFinished = shotResp.LastShotFinished;                    
                   }
-
+xxx What about north press table 2?
                 }     
 
               }    
