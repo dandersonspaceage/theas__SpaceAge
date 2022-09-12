@@ -89,7 +89,7 @@
                                   @change="changeActiveWO('Table2', curWOqguid_Table2)"
                                   >
   
-                        <b-form-select-option value=null>No Selection</b-form-select-option>                                
+                        <b-form-select-option value="">No Selection</b-form-select-option>                                
                     </b-form-select>                          
                   </b-form-group>
   
@@ -151,7 +151,7 @@
                                   @change="changeActiveWO('Table1', curWOqguid_Table1)"
                                   >
   
-                                  <b-form-select-option value=null>No Selection</b-form-select-option>                                
+                                  <b-form-select-option value="">No Selection</b-form-select-option>                                
                     </b-form-select>                          
                   </b-form-group>
   
