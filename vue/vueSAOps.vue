@@ -897,6 +897,71 @@
         thatVue.fetchData();
       },
 
+      setWOSelections: function(set_from_array) {
+        //apply server-side WO table assignments             
+
+        let thisIndex1 = null;
+        let thisIndex2 = null;
+          
+          
+        if (set_from_array) {
+
+          // set selections from data_WOs[].ActiveTable1 and .ActiveTable2
+
+          if (thatVue.data_WOs && thatVue.data_WOs.length > 0) {
+            // have WorkOrders.  Try to set selections
+            thisIndex1 = thatVue.data_WOs.findIndex((el) => el.ActiveTable1 === '1');
+            thisIndex2 = thatVue.data_WOs.findIndex((el) => el.ActiveTable2 === '2');
+          }
+        }
+
+        else {
+          //set selections from curWOqguid_Table1 and Table2 which was set by the select control
+          thisIndex1 = thatVue.data_WOs.findIndex((el) => el.qugid === curWOqguid_Table1); 
+          thisIndex2 = thatVue.data_WOs.findIndex((el) => el.qugid === curWOqguid_Table2);                 
+        }
+
+
+        // set thatVue.curWOTable1 and thatVue.curWOTable2 objects
+        if (thisIndex1 >= 0) {
+          thatVue.$set(thatVue, 'curWOTable1', thatVue.data_WOs[thisIndex1]);                                            
+        }
+        else {
+          //active WO for Table1 not found
+          thatVue.$set(thatVue, 'curWOTable1', {});                     
+        }       
+                  
+        if (thisIndex2 >= 0) {
+          thatVue.$set(thatVue, 'curWOTable2', thatVue.data_WOs[thisIndex2]);                        
+        }
+        else {
+          //active WO for Table2 not found                        
+          thatVue.$set(thatVue, 'curWOTable2', {});             
+        }
+                       
+
+        if (set_from_array){
+
+          if (thatVue.curWOTable1 && thatVue.curWOTable1.qguid) {
+            thatVue.curWOqguid_Table1 = thatVue.curWOTable1.qguid;                
+          }
+          else {
+            thatVue.curWOqguid_Table1 = null   
+            thatVue.$set(thatVue, 'curWOTable1', {});            
+          }
+
+          if (thatVue.curWOTable2 && thatVue.curWOTable2.qguid) {
+            thatVue.curWOqguid_Table2 = thatVue.curWOTable2.qguid;                
+          }
+          else {
+            thatVue.curWOqguid_Table2 = null   
+            thatVue.$set(thatVue, 'curWOTable2', {});              
+          }              
+
+        }      
+          
+      },
+
       fetchWorkers: function (workerType) {
         // save reference to Vue object
         let thatVue = this;
@@ -1089,45 +1154,7 @@
                 }
 
 
-                //apply server-side WO table assignments
-                //if (thatVue && thatVue.data_WOs && thatVue.data_WOs.length > 0) {
-                if (thatVue) {                  
-                    if (thatVue.data_WOs && thatVue.data_WOs.length > 0) {
-                      // have WorkOrders.  Try to set selections
-
-                      let thisIndex1 = thatVue.data_WOs.findIndex((el) => el.ActiveTable1 === '1');
-                      if (thisIndex1 >= 0) {
-                        thatVue.$set(thatVue, 'curWOTable1', thatVue.data_WOs[thisIndex1]);                      
-                        thatVue.curWOqguid_Table1 = thatVue.curWOTable1.qguid;                         
-                      }
-                      else {
-                        //active WO for Table1 not found
-                        thatVue.$set(thatVue, 'curWOTable1', {});
-                        thatVue.curWOqguid_Table1 = null;                          
-                      }                      
-                                 
-                      let thisIndex2 = thatVue.data_WOs.findIndex((el) => el.ActiveTable2 === '2');                    
-                      if (thisIndex2 >= 0) {
-                        thatVue.$set(thatVue, 'curWOTable2', thatVue.data_WOs[thisIndex2]);
-                        thatVue.curWOqguid_Table2 = thatVue.curWOTable2.qguid;                           
-                      }
-                      else {
-                        //active WO for Table2 not found                        
-                        thatVue.$set(thatVue, 'curWOTable2', {});
-                        thatVue.curWOqguid_Table2 = null;                   
-                      }                                                                              
-                    }
-                
-                  else {      
-                    // no work orders, so clear out selections
-
-                    thatVue.$set(thatVue, 'curWOTable1', {});  
-                    thatVue.curWOqguid_Table1 = null;                       
-
-                    thatVue.$set(thatVue, 'curWOTable2', {});                      
-                    thatVue.curWOqguid_Table2 = null;                    
-                  }
-                }                             
+                thatVue.setWOSelections(true);       
 
               }
 
@@ -1277,26 +1304,21 @@
       changeActiveWO: function (tableCode, qguid) {
         let thatVue = this; 
 
-        let wo = thatVue.data_WOs.find((el) => el.qguid === qguid);
-
         if (tableCode == 'Table1') {
-          if (thatVue.curWOTable1 != wo) {
-            //thatVue.curWOTable1 = wo;
-            thatVue.$set(thatVue, 'curWOTable1', wo);
-
+          if (thatVue.curWOqguid_Table1 != qguid) {
+            thatVue.curWOqguid_Table1 != qguid;
             thatVue.saveSelectWO(qguid, tableCode);
           }
         }
 
         else if (tableCode == 'Table2') {
-          if (thatVue.curWOTable2 != wo) {          
-            thatVue.curWOTable2 = wo;    
-            thatVue.$set(thatVue, 'curWOTable2', wo);
-
+          if (thatVue.curWOqguid_Table2 != qguid) {
+            thatVue.curWOqguid_Table2 != qguid;
             thatVue.saveSelectWO(qguid, tableCode);
-          }          
+          }        
         }
-
+            
+        thatVue.setWOSelections(false);
       },
 
       showHistory: function() {        
