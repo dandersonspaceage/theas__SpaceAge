@@ -1469,7 +1469,7 @@
                     thisWO.LastSetTime = shotResp.LastSetTime,                                      
                     thisWO.LastShotFinished = shotResp.LastShotFinished;                    
                   }
-xxx What about north press table 2?
+//xxx What about north press table 2?
                 }     
 
               }    
