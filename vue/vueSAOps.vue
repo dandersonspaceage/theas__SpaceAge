@@ -1089,28 +1089,30 @@
                 if (thatVue && thatVue.data_WOs && thatVue.data_WOs.length > 0) {
                     let thisIndex1 = thatVue.data_WOs.findIndex((el) => el.ActiveTable1 === '1');
                     if (thisIndex1 >= 0) {
-                      thatVue.curWOTable1 = thatVue.data_WOs[thisIndex1];
+                      //thatVue.curWOTable1 = thatVue.data_WOs[thisIndex1];
+                      thatVue.$set(thatVue, 'curWOTable1', thatVue.data_WOs[thisIndex1]);                      
                     }
                     else {
-                      thatVue.curWOTable1 = {};
+                      //thatVue.curWOTable1 = {};
+                      thatVue.$set(thatVue, 'curWOTable1', {});
                     }
+
                     thatVue.curWOqguid_Table1 = null;
                     if (thatVue.curWOTable1.qguid) {
-                      thatVue.$set(thatVue, 'curWOTable1', thatVue.data_WOs[thisIndex1]);                      
-                      //thatVue.curWOqguid_Table1 = thatVue.curWOTable1.qguid;                       
+                      //thatVue.curWOqguid_Table1 = thatVue.curWOTable1.qguid;                        
+                      thatVue.$set(thatVue, 'curWOTable1', thatVue.data_WOs[thisIndex1]);                                          
                     }
                           
-                    if (thatVue.data_WOs.length > 1) {
-                      let thisIndex2 = thatVue.data_WOs.findIndex((el) => el.ActiveTable2 === '2');                    
-                      if (thisIndex2 >= 0) {
 
-                        thatVue.$set(thatVue, 'curWOTable2', thatVue.data_WOs[thisIndex2]);
-                        //thatVue.curWOTable2 = thatVue.data_WOs[thisIndex2];
-                      }
-                      else {
-                        thatVue.curWOTable2 = {};
-                      }                                                                              
+                    let thisIndex2 = thatVue.data_WOs.findIndex((el) => el.ActiveTable2 === '2');                    
+                    if (thisIndex2 >= 0) {
+                      //thatVue.curWOTable2 = thatVue.data_WOs[thisIndex2];
+                      thatVue.$set(thatVue, 'curWOTable2', thatVue.data_WOs[thisIndex2]);
                     }
+                    else {
+                      //thatVue.curWOTable2 = {};
+                      thatVue.$set(thatVue, 'curWOTable1', {});                        
+                    }                                                                              
 
                     thatVue.curWOqguid_Table2 = null;
                     if (thatVue.curWOTable2.qguid) {
@@ -1271,7 +1273,8 @@
 
         if (tableCode == 'Table1') {
           if (thatVue.curWOTable1 != wo) {
-            thatVue.curWOTable1 = wo;
+            //thatVue.curWOTable1 = wo;
+            thatVue.$set(thatVue, 'curWOTable1', wo);
 
             thatVue.saveSelectWO(qguid, tableCode);
           }
@@ -1280,6 +1283,7 @@
         else if (tableCode == 'Table2') {
           if (thatVue.curWOTable2 != wo) {          
             thatVue.curWOTable2 = wo;    
+            thatVue.$set(thatVue, 'curWOTable2', wo);
 
             thatVue.saveSelectWO(qguid, tableCode);
           }          
@@ -1469,7 +1473,7 @@
                     thisWO.LastSetTime = shotResp.LastSetTime,                                      
                     thisWO.LastShotFinished = shotResp.LastShotFinished;                    
                   }
-//xxx What about north press table 2?
+
                 }     
 
               }    
