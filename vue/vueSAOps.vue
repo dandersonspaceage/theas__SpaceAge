@@ -918,8 +918,8 @@
   
           else {
             //set selections from curWOqguid_Table1 and Table2 which was set by the select control
-            thisIndex1 = thatVue.data_WOs.findIndex((el) => el.qugid === thatVue.curWOqguid_Table1); 
-            thisIndex2 = thatVue.data_WOs.findIndex((el) => el.qugid === thatVue.curWOqguid_Table2);                 
+            thisIndex1 = thatVue.data_WOs.findIndex((el) => el.qguid === thatVue.curWOqguid_Table1); 
+            thisIndex2 = thatVue.data_WOs.findIndex((el) => el.qguid === thatVue.curWOqguid_Table2);                 
           }
   
   
