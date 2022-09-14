@@ -387,7 +387,7 @@
                   {title: '', responsive: 0, formatter:"responsiveCollapse", headerSort:false},                   
                   //{title: '', field:"StatusColor", formatter:"color"},
   
-                  {title: '', field:"ActiveTable2", hozAlign:"center", headerSort:false,
+                  {title: '', field:"ActiveTable2", hozAlign:"center", headerSort:false, responsive:0,
                     formatter: function(cell, formatterParams, onRendered){
                       let thisVal = cell.getValue();
                       let thisColor = '#FFFFFF'
@@ -463,7 +463,7 @@
                   //{title: 'Finish', field: 'SurfaceFinish', responsive: 4, minWidth: 150},
   
   
-                  {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175, maxWidth: 500, headerSort:false, responsive: 3}           
+                  {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175, maxWidth: 400, headerSort:false}           
                                              
               ],
   
