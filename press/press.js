@@ -1,5 +1,5 @@
 //import vueSAOps from "{{ '/press/press_App.vue'|theasResource }}"
-import vueSAOps from "{{ '/vue/vueSAOps.vue'|theasResource }}"
+import vueSAOps from "{{ 'vue/vueSAOps.vue'|theasResource }}"
 
 // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
 let vh = window.innerHeight * 0.01;
