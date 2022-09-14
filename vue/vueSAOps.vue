@@ -898,7 +898,7 @@
         },
   
         setWOSelections: function(set_from_array) {
-          //apply server-side WO table assignments 
+          //apply server-side WO table assignments             
           let thatVue = this;            
   
           let thisIndex1 = null;
