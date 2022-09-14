@@ -405,7 +405,7 @@
                     formatterParams: {formatStr: "dd MM/DD"}
                   },                            
   
-                  {title: '', field:"ActiveTable1", hozAlign:"center", headerSort:false,
+                  {title: '', field:"ActiveTable1", hozAlign:"center", headerSort:false, responsive:0
                     formatter: function(cell, formatterParams, onRendered){
                       let thisVal = cell.getValue();
                       let thisColor = '#FFFFFF'
@@ -463,7 +463,7 @@
                   //{title: 'Finish', field: 'SurfaceFinish', responsive: 4, minWidth: 150},
   
   
-                  {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175, maxWidth: 600, headerSort:false}           
+                  {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175, maxWidth: 200, headerSort:false}           
                                              
               ],
   
