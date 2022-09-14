@@ -1155,7 +1155,7 @@
                   }
   
   
-                  thatVue.setWOSelections(true);       
+                  //thatVue.setWOSelections(true);       
   
                 }
   
