@@ -405,7 +405,7 @@
                     formatterParams: {formatStr: "dd MM/DD"}
                   },                            
   
-                  {title: '', field:"ActiveTable1", hozAlign:"center", headerSort:false, responsive:0
+                  {title: '', field:"ActiveTable1", hozAlign:"center", headerSort:false, responsive:0,
                     formatter: function(cell, formatterParams, onRendered){
                       let thisVal = cell.getValue();
                       let thisColor = '#FFFFFF'
