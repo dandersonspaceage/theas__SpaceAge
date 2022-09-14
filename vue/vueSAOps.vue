@@ -463,7 +463,8 @@
                   //{title: 'Finish', field: 'SurfaceFinish', responsive: 4, minWidth: 150},
   
   
-                  {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175, maxWidth: 400, headerSort:false}           
+                  {title: 'Notes', field: 'Notes', responsive: 0, minWidth: 175, maxWidth: 400, headerSort:false},
+                  {title: 'Notes (long)', field: 'NotesLong', responsive: 10, headerSort:false}                              
                                              
               ],
   
