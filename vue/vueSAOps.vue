@@ -1307,17 +1307,13 @@
           let thatVue = this; 
   
           if (tableCode == 'Table1') {
-            if (thatVue.curWOqguid_Table1 != qguid) {
-              thatVue.curWOqguid_Table1 = qguid;
-              thatVue.saveSelectWO(qguid, tableCode);
-            }
+            thatVue.curWOqguid_Table1 = qguid;
+            thatVue.saveSelectWO(qguid, tableCode);
           }
   
           else if (tableCode == 'Table2') {
-            if (thatVue.curWOqguid_Table2 != qguid) {
-              thatVue.curWOqguid_Table2 = qguid;
-              thatVue.saveSelectWO(qguid, tableCode);
-            }        
+            thatVue.curWOqguid_Table2 = qguid;
+            thatVue.saveSelectWO(qguid, tableCode);     
           }
               
           thatVue.setWOSelections(false);
