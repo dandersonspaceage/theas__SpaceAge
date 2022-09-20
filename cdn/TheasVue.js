@@ -119,7 +119,7 @@ Theas.prototype.updateAllTheasParams = function (nv) {
     // save reference to Theas object
     let thatTheas = this;
 
-    done = false
+    let done = false
 
     // handle Theas params sent to us in __TheasParams=xxx (in the top level of the response)
     if (typeof nv == 'object') {
