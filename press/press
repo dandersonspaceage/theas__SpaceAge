@@ -57,19 +57,10 @@
     </style>
 
 
-    <!--Global scripts-->
-
-    <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
-    <script>
-      window.TrackJS && TrackJS.install({ 
-        token: "08bbfc132bf143dab47bd2ad10a94ff4"
-        // for more configuration options, see https://docs.trackjs.com
-      });
-    </script>    
+    <!--Global scripts-->  
 
     <script nomodule>
         document.getElementById("thapp").innerHTML = "This application will not work with your browser because your browser doesn't support JavaScript modules.";
-        TrackJS.track('No JavascriptModules support.');
     </script>
 
     <script src="{{ '/cdn/axios/axios.min.js'|theasResource }}"></script>
@@ -95,7 +86,6 @@
 
   <body style="height:85vh; width:100%">
     <script>
-      TrackJS.track('OK: press/press loaded.');
       document.body.style.cursor = 'progress';      
     </script>  
 

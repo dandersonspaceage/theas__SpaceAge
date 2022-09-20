@@ -119,46 +119,59 @@ Theas.prototype.updateAllTheasParams = function (nv) {
     // save reference to Theas object
     let thatTheas = this;
 
+    done = false
 
+    // handle Theas params sent to us in __TheasParams=xxx (in the top level of the response)
     if (typeof nv == 'object') {
       if (nv['__TheasParams']) {
         thatTheas.updateAllTheasParams(JSON.parse(nv['__TheasParams']));
+        done = true;
       }
 
-      //Update all theas controls as per the updateStr
+       // handle Theas params sent to us in General.TheasParams (in the General object)      
+      if (nv['General']) {
+        gen = JSON.parse(nv['General'])
+        if (gen && gen['TheasParams']):
+          thatTheas.updateAllTheasParams(gen.TheasParams);
+          done = true;
+      }      
 
-      const pfx = 'theas:th:';
-      const pfx2 = 'theas$';
-      
-      let isTheasParam = false;
+      if (!done){
+        //Update all theas controls as per the updateStr
 
-      for (let n in nv) {
-          let k;
+        const pfx = 'theas:th:';
+        const pfx2 = 'theas$';
+        
+        let isTheasParam = false;
+
+        for (let n in nv) {
+            let k;
 
 
-          isTheasParam = false;
+            isTheasParam = false;
 
-          if (nv.hasOwnProperty(n)) {
-              if (n.startsWith(pfx) || n.startsWith(pfx2)) {
-                  k = n.substring(pfx.length);
-                  isTheasParam = true;
-              }
-              else {
-                k = n;
-              }
+            if (nv.hasOwnProperty(n)) {
+                if (n.startsWith(pfx) || n.startsWith(pfx2)) {
+                    k = n.substring(pfx.length);
+                    isTheasParam = true;
+                }
+                else {
+                  k = n;
+                }
 
-              if (k) {
-                  k = k.replace(':', '$');
-                  if (isTheasParam) {
-                    //thatTheas.theasParams[k] = nv[n];
-                    thatTheas.thatVue.$set(thatTheas.theasParams, k, nv[n]);
-                  }
-              }
-          }
+                if (k) {
+                    k = k.replace(':', '$');
+                    if (isTheasParam) {
+                      //thatTheas.theasParams[k] = nv[n];
+                      thatTheas.thatVue.$set(thatTheas.theasParams, k, nv[n]);
+                    }
+                }
+            }
+        }
+
+        let thisErr = thatTheas.theasParams['th$ErrorMessage'];   
+
       }
-
-      let thisErr = thatTheas.theasParams['th$ErrorMessage'];   
-
     }
 
     /*
