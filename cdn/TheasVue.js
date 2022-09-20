@@ -130,7 +130,7 @@ Theas.prototype.updateAllTheasParams = function (nv) {
 
        // handle Theas params sent to us in General.TheasParams (in the General object)      
       if (nv['General']) {
-        gen = JSON.parse(nv['General'])
+        let gen = JSON.parse(nv['General'])
         if (gen && gen['TheasParams']){
           thatTheas.updateAllTheasParams(gen.TheasParams);
           done = true;
