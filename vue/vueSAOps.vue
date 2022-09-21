@@ -1485,7 +1485,7 @@
                     let thisIndex = thatVue.data_Shots.findIndex((el) => el.qguid === thisShot.qguid);
                     if (thisIndex >= 0) {
                       // update existing shot
-                      thatVue.$set(thatVue.data_Shots, thisIndex, thatVue.thisShot);
+                      thatVue.$set(thatVue.data_Shots, thisIndex, thisShot);
                     }
                     else {
                       // finally add new shot
