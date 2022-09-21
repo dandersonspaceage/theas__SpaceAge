@@ -1494,8 +1494,8 @@
                     if (thisIndexWO >= 0) {
                       let thisWO = thatVue.data_WOs[thisIndexWO];
                       thisWO.CurrentShotCount = shotResp.CurrentShotCount;    
-                      thisWO.QtyRemaining = shotResp.QtyRemaining,
-                      thisWO.LastSetTime = shotResp.LastSetTime,                                      
+                      thisWO.QtyRemaining = shotResp.QtyRemaining;
+                      thisWO.LastSetTime = shotResp.LastSetTime;                                    
                       thisWO.LastShotFinished = shotResp.LastShotFinished;                    
                     }
   
