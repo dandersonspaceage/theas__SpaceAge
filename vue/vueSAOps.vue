@@ -926,8 +926,8 @@
             thatVue.curWOTable1 = thatVue.data_WOs[thisIndex1];                                                        
           }
           else {
-            //active WO for Table1 not found
-            thatVue.curWOTable1 = {}                                     
+            //active WO for Table1 not found      
+            thatVue.$set(thatVue, 'curWOTable1', {});                                          
           }       
                     
           if (thisIndex2 >= 0) {   
@@ -935,7 +935,7 @@
           }
           else {
             //active WO for Table2 not found                        
-            thatVue.curWOTable2 = {}            
+            thatVue.$set(thatVue, 'curWOTable2', {});
           }
                          
   
@@ -945,8 +945,8 @@
               thatVue.curWOqguid_Table1 = thatVue.curWOTable1.qguid;                
             }
             else {
-              thatVue.curWOqguid_Table1 = null   
-              thatVue.curWOTable1 = {};            
+              thatVue.curWOqguid_Table1 = null
+              thatVue.$set(thatVue, 'curWOTable1', {});
             }
   
             if (thatVue.curWOTable2 && thatVue.curWOTable2.qguid) {
@@ -954,7 +954,8 @@
             }
             else {
               thatVue.curWOqguid_Table2 = null   
-              thatVue.curWOTable2 = {};
+              thatVue.$set(thatVue, 'curWOTable2', {});
+
             }              
   
           }      
