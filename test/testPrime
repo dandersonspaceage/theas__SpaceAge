@@ -9,7 +9,12 @@
 
         <script src="{{ '/cdn/vue3/vue.esm-browser.js'|theasResource }}"></script>
         <script src="{{ '/cdn/primevue/core/core.min.js'|theasResource }}"></script>
-        <script src="{{ '/cdn/primevue/slider/slider.min.js'|theasResource }}"></script>               
+        <script src="{{ '/cdn/primevue/slider/slider.min.js'|theasResource }}"></script>         
+        
+        
+        <script>
+          import { createApp } from "{{ '/cdn/vue3/vue.esm-browser.js'|theasResource }}"; 
+        </script> 
     </head>
 
     <body>
