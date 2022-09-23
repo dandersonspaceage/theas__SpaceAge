@@ -7,14 +7,10 @@
         <link type="text/css" rel="stylesheet" href="{{ '/cdn/primevue/resources/primevue.min.css'|theasResource }}">
         <link type="text/css" rel="stylesheet" href="{{ '/cdn/primeicons/primeicons.css'|theasResource }}">
 
-        <script src="{{ '/cdn/vue3/vue.esm-browser.js'|theasResource }}"></script>
+        <script src="{{ '/cdn/vue3/vue.global.js'|theasResource }}"></script>
         <script src="{{ '/cdn/primevue/core/core.min.js'|theasResource }}"></script>
         <script src="{{ '/cdn/primevue/slider/slider.min.js'|theasResource }}"></script>         
         
-        
-        <script>
-          import { createApp } from "{{ '/cdn/vue3/vue.esm-browser.js'|theasResource }}"; 
-        </script> 
     </head>
 
     <body>
