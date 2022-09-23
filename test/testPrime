@@ -8,8 +8,8 @@
         <link type="text/css" rel="stylesheet" href="{{ '/cdn/primeicons/primeicons.css'|theasResource }}">
 
         <script src="{{ '/cdn/vue3/vue.global.js'|theasResource }}"></script>
-        <script src="{{ '/cdn/primevue/core/core.min.js'|theasResource }}"></script>
-        <script src="{{ '/cdn/primevue/slider/slider.min.js'|theasResource }}"></script>         
+        <script src="{{ '/cdn/primevue/core/core.js'|theasResource }}"></script>
+        <script src="{{ '/cdn/primevue/slider/slider.js'|theasResource }}"></script>         
         
     </head>
 
