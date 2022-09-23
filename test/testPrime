@@ -34,7 +34,10 @@
                 }
             };
 
-            createApp(App).use(primevue.config.default).mount("#app");
+            let cfg = primevue.config.default;
+            cfg.compilerOptions.delimeters = ["[[", "]]"];
+
+            createApp(App).use(cfg).mount("#app");
         </script>
     </body>
 </html>
