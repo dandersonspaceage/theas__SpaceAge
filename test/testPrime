@@ -7,7 +7,7 @@
         <link type="text/css" rel="stylesheet" href="{{ '/cdn/primevue/resources/primevue.min.css'|theasResource }}">
         <link type="text/css" rel="stylesheet" href="{{ '/cdn/primeicons/primeicons.css'|theasResource }}">
 
-        <script src="{{ '/cdn/vue/vue.js'|theasResource }}"></script>
+        <script src="{{ '/cdn/vue3/vue.js'|theasResource }}"></script>
         <script src="{{ '/cdn/primevue/core/core.min.js'|theasResource }}"></script>
         <script src="{{ '/cdn/primevue/slider/slider.min.js'|theasResource }}"></script>               
     </head>
