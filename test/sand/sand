@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="SpaceAge Sanding">
+    <meta name="keywords" content="Theas,OpsStream,UI,Sample">
+    <meta name="author" content="github.com/davidrueter/theas">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+        <!--
+          https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+          If content is set to yes, the web application runs in full-screen mode; otherwise, it does not. The default behavior is to use Safari to display web content.
+          You can determine whether a webpage is displayed in full-screen mode using the window.navigator.standalone read-only Boolean JavaScript property.        
+        -->
+    <meta name="apple-mobile-web-app-title" content="SpaceAge Sanding">
+    <meta name="application-name" content="SpaceAge Sanding">    
+
+    <!--favicon resources.  Build with https://favicon.io or other or create by hand.
+    More Info: 
+    https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs
+    See https://www.emergeinteractive.com/insights/detail/The-Essentials-of-FavIcons/
+    https://medium.com/dev-channel/how-to-add-a-web-app-manifest-and-mobile-proof-your-site-450e6e485638
+    -->    
+    <link rel="icon" href="/favicon.ico" sizes="any"><!-- 32?32 -->
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180?180 -->
+    <link rel="manifest" href="/manifest.webmanifest">     
+
+    <!--https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name/theme-color-->
+    <meta name="theme-color" content="#ffffff">
+
+    <link type="text/css" rel="stylesheet" href="{{ '/cdn/bootstrap4/css/bootstrap.css'|theasResource }}">   
+    <link type="text/css" rel="stylesheet" href="{{ '/cdn/bootstrap-vue/bootstrap-vue.css'|theasResource }}">
+    <link type="text/css" rel="stylesheet" href="{{ '/cdn/font-awesome/css/all.css'|theasResource }}">
+
+
+    <title>SpaceAge Sanding</title>
+
+    <!--Static global styles-->
+    <!-- https://stackoverflow.com/questions/54239306/need-to-increase-b-modal-width-vuejs-bootsrap Yuriy Korovko Jan 18, 2019 at 7:56 -->
+    <style>
+      @media (min-width: 992px) { .modal .modal-huge { max-width: 95% !important; width: 95% !important;; } }      
+
+
+      .fullheight {height: 100vh}
+      .fastscroll {overflow-y:scroll; -webkit-overflow-scrolling: touch;}
+      
+      .collapsed > .when-opened,
+      .not-collapsed > .when-closed {
+        display: none;
+      }
+
+      .tabulator .tabulator-header .tabulator-col .tabulator-col-content .tabulator-col-title{
+        white-space: pre-wrap;
+        text-overflow: clip;
+      }      
+    </style>
+
+
+    <!--Global scripts-->
+
+    <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+    <script>
+      window.TrackJS && TrackJS.install({ 
+        token: "08bbfc132bf143dab47bd2ad10a94ff4"
+        // for more configuration options, see https://docs.trackjs.com
+      });
+    </script>    
+
+    <script nomodule>
+        document.getElementById("thapp").innerHTML = "This application will not work with your browser because your browser doesn't support JavaScript modules.";
+        TrackJS.track('No JavascriptModules support.');
+    </script>
+
+    <script src="{{ '/cdn/axios/axios.min.js'|theasResource }}"></script>
+    <script src="{{ '/cdn/hammerjs/hammer.min.js'|theasResource }}"></script>
+    <script src="{{ '/cdn/moment/moment.js'|theasResource }}"></script>
+    <script src="{{ '/cdn/screenfull/screenfull.js'|theasResource }}"></script>
+    <script src="{{ '/cdn/vue/vue.js'|theasResource }}"></script>
+    <script src="{{ '/cdn/popper.js/umd/popper.js'|theasResource }}"></script>
+    <script src="{{ '/cdn/portal-vue/portal-vue.umd.min.js'|theasResource }}"></script>
+    <script src="{{ '/cdn/bootstrap-vue/bootstrap-vue.js'|theasResource }}"></script>
+    <script src="{{ '/cdn/TheasVue.js'|theasResource }}"></script>
+
+    <link type="text/css" rel="stylesheet" href="{{ '/cdn/tabulator-tables/css/bootstrap/tabulator_bootstrap4.min.css'|theasResource }}">
+
+    <script src="{{ '/cdn/screenfull/screenfull.js'|theasResource }}"></script>
+    <script src="{{ '/cdn/tabulator-tables/js/tabulator.min.js'|theasResource }}"></script>
+    <script src="{{ 'cdn/vue-tabulator/vue-tabulator.umd.min.js'|theasResource }}"></script>
+    <script src="{{ '/cdn/vue-html-to-paper/vue-html-to-paper.js'|theasResource }}"></script>
+
+    <script  type="module" src="{{ '/sand/sand.js'|theasResource }}"></script>
+
+  </head>
+
+  <body style="height:85vh; width:100%">
+    <script>
+      TrackJS.track('OK: sand/sand loaded.');
+      document.body.style.cursor = 'progress';      
+    </script>  
+
+      <!--This form is used internally by Theas for session tracking et al.  It must have id="theasForm"-->
+      <form method="post" class="form-horizontal" id="theasForm">
+          {{ "__th"|theasXSRF }}
+          {{ "__th"|theasSessionToken(vuejs=True) }}
+      </form>
+
+      <b-container>
+        <main>
+          <!--The div with id="thapp" wiil be replaced by Vue-rendered content-->
+          <div id="thapp">Please wait while this page is being loaded.  <a href="javascript:window.location.reload(true)">Click here to reload if the page does not load properly.</a></div>
+        </main>
+      </b-container>
+    
+  </body>
+
+</html>

@@ -1,8 +1,10 @@
-import vueNewPage1 from "{{ '/test/NewPage1_App.vue'|theasResource }}"
+import vueNewPage1 from "{{ '/sched/sched_App.vue'|theasResource }}"
 
     Vue.config.productionTip = false
+    Vue.use(BootstrapVue);
 
     Vue.prototype.$th = new Theas()
+    
 
    //use Axios instead of vue-resource for HTTP calls as per https://medium.com/the-vue-point/retiring-vue-resource-871a82880af4
     Vue.prototype.$http = axios;
