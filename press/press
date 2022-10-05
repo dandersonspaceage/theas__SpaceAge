@@ -80,6 +80,7 @@
     <script src="{{ 'cdn/vue-tabulator/vue-tabulator.umd.min.js'|theasResource }}"></script>
     <script src="{{ '/cdn/vue-html-to-paper/vue-html-to-paper.js'|theasResource }}"></script>
 
+    <!--TEST:  following should be /test/press/press.js for test.  /press/press.js for live.-->
     <script  type="module" src="{{ '/test/press/press.js'|theasResource }}"></script>
 
   </head>
