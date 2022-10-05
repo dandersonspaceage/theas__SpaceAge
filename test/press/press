@@ -34,7 +34,7 @@
     <link type="text/css" rel="stylesheet" href="{{ '/cdn/font-awesome/css/all.css'|theasResource }}">
 
 
-    <title>SpaceAge Press test2</title>
+    <title>SpaceAge Press test3</title>
 
     <!--Static global styles-->
     <!-- https://stackoverflow.com/questions/54239306/need-to-increase-b-modal-width-vuejs-bootsrap Yuriy Korovko Jan 18, 2019 at 7:56 -->
