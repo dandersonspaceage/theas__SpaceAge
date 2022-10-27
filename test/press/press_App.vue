@@ -586,7 +586,11 @@
         qualityLevels: [
           { value: 'A', text: 'A' },
           { value: 'B', text: 'B' },
-          { value: 'RW', text: 'RW' }
+          { value: 'RW', text: 'RW' },
+          { value: 'BO', text: 'Break Out' },
+          { value: 'BR', text: 'Break Return' },
+          { value: 'NS', text: 'Not A Shot' }
+                         
         ],
 
         theasParams: {},
