@@ -748,7 +748,7 @@
           return this.isNumPress(this.curShot.qaActualSetTime, 3600);
         },                        
         validQuality : function() {
-          return ((['A', 'B', 'RW'].includes(this.curShot.Quality)));
+          return ((['A', 'B', 'RW', 'BO', 'BR', 'NS'].includes(this.curShot.Quality)));
         },
   
         curWorkerName : function() {
