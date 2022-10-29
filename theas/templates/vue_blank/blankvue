@@ -81,7 +81,7 @@
     <script src="{{ '/cdn/vue-html-to-paper/vue-html-to-paper.js'|theasResource }}"></script>
 
 
-    <script  type="module" src="{{ '/theas/templates/vue_blank/blankvue.js'|theasResource }}"></script>
+    <script  type="module" src="./blankvue.js"></script>    
 
   </head>
 
