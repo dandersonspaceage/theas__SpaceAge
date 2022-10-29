@@ -587,9 +587,12 @@
               },
   
           qualityLevels: [
-            { value: 'A', text: 'A' },
-            { value: 'B', text: 'B' },
-            { value: 'RW', text: 'RW' }
+          { value: 'A', text: 'A' },
+          { value: 'B', text: 'B' },
+          { value: 'RW', text: 'RW' },
+          { value: 'BO', text: 'Break Out' },
+          { value: 'BR', text: 'Break Return' },
+          { value: 'NS', text: 'Not A Shot' }
           ],
   
           theasParams: {},
@@ -745,7 +748,7 @@
           return this.isNumPress(this.curShot.qaActualSetTime, 3600);
         },                        
         validQuality : function() {
-          return ((['A', 'B', 'RW'].includes(this.curShot.Quality)));
+          return ((['A', 'B', 'RW', 'BO', 'BR', 'NS'].includes(this.curShot.Quality)));
         },
   
         curWorkerName : function() {
