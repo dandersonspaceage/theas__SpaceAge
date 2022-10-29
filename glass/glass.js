@@ -1,4 +1,4 @@
-import vueNewPage1 from "{{ '/glass/glass_App.vue'|theasResource }}"
+import vueNewPage1 from "{{ '/vue/vueSAOps.vue'|theasResource }}"
 
     // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
     let vh = window.innerHeight * 0.01;
