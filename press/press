@@ -12,8 +12,8 @@
           If content is set to yes, the web application runs in full-screen mode; otherwise, it does not. The default behavior is to use Safari to display web content.
           You can determine whether a webpage is displayed in full-screen mode using the window.navigator.standalone read-only Boolean JavaScript property.        
         -->
-    <meta name="apple-mobile-web-app-title" content="TestJQ1">
-    <meta name="application-name" content="TestJQ1">    
+    <meta name="apple-mobile-web-app-title" content="Pres">
+    <meta name="application-name" content="Press">    
 
     <!--favicon resources.  Build with https://favicon.io or other or create by hand.
     More Info: 
@@ -77,11 +77,11 @@
 
     <script src="{{ '/cdn/screenfull/screenfull.js'|theasResource }}"></script>
     <script src="{{ '/cdn/tabulator-tables/js/tabulator.min.js'|theasResource }}"></script>
-    <script src="{{ 'cdn/vue-tabulator/vue-tabulator.umd.min.js'|theasResource }}"></script>
+    <script src="{{ '/cdn/vue-tabulator/vue-tabulator.umd.min.js'|theasResource }}"></script>
     <script src="{{ '/cdn/vue-html-to-paper/vue-html-to-paper.js'|theasResource }}"></script>
 
-    <!--TEST:  following should be /test/press/press.js for test.  /press/press.js for live.-->
-    <script  type="module" src="{{ '/test/press/press.js'|theasResource }}"></script>
+
+    <script  type="module" src="{{ '/press/press.js'|theasResource }}"></script>
 
   </head>
 
