@@ -1,0 +1,186 @@
+$thInclude_incHeader
+
+<title>SpaceAge Synthetics</title>
+</head>
+
+
+<body class="bg-white">
+
+<form class="form-horizontal" method="post" id="theasForm">
+<!--Theas session management -->
+{{ "__th"|theasSessionToken }}
+{{ "__th"|theasXSRF }}
+{{ ""|theasHidden(name="th:ErrorMessage") }}
+{{ ""|theasHidden(name="th:NextPage") }}
+{{ "__th"|theasHidden(name="th:NextPage") }}
+{{ "__th"|theasHidden(name="th:doHistoryGoBack") }}
+
+<div class="container">
+
+$thInclude_incSiteNav
+
+
+<div class="row">
+    <div class="col-12">
+        <!--------------------------------->
+
+        <h1>Sample Sample Sample</h1>
+
+<table class="table">
+
+<thead>
+    <tr>
+        <th>WO Number</th>
+        <th>Customer Name</th>
+        <th>Item Number</th>
+        <th>Quantity</th>
+    </tr>
+</thead>
+{% for thisRow in data.WOs %}
+         <tr>
+             <td>{{thisRow.WONumber}}</td>
+             <td>{{thisRow.CustomerName}}</td>
+             <td>{{thisRow.ItemNumber}}</td>
+             <td>{{thisRow.Quantity}}</td>
+         </tr>
+{% endfor %}
+
+</table>
+         
+        <!--------------------------------->
+    </div>
+</div>
+
+
+</form>
+
+$thInclude_incBodyEnd
+
+<script>
+
+    $(document).ready(function() {
+      if (!th.haveError()) {
+        th.raiseError('No error, so here is a fake one');
+      }
+      
+//th.raiseError('Sample Error');
+
+        th.get('theas:doResetPTL', 0);
+        th.get('theas:doCompleteStepGUID', '');
+
+
+        var OverlayIsShowing = false;
+
+        var OverlayShow = (function (s) {
+            $('#overlay-panel').html(s);
+            $('#overlay').fadeIn(200);
+            OverlayIsShowing = true;
+        });
+
+
+        //-----------------------------------------------------------------------------------
+
+        var OverlayClose = (function() {
+            $('#overlay').fadeOut(200);
+            OverlayIsShowing = false;
+        });
+
+
+        //Set up event handlers
+
+        $('#btnCollapseDataNav').click(function () {
+            var isShowing = 1; //default
+
+            var $dataNav = $('#colDataNav');
+            if ($dataNav.hasClass('hidden')) {
+                //already hidden:  need to show
+                $('#btnCollapseDataNav').removeClass('fa-step-forward pull-left');
+                $('#btnCollapseDataNav').addClass('fa-step-backward pull-right');
+
+                $('.colCollapseBtn').removeClass('col-md-1');
+                $('.colCollapseBtn').addClass('col-md-5');
+
+                $('#colEntry').removeClass('col-md-12');
+                $('#colEntry').addClass('col-md-9');
+                $dataNav.removeClass('hidden');
+            }
+            else {
+                //already showing:  need to hide
+
+                $('#btnCollapseDataNav').removeClass('fa-step-backward pull-right');
+                $('#btnCollapseDataNav').addClass('fa-step-forward pull-left');
+
+                $('.colCollapseBtn').removeClass('col-md-5');
+                $('.colCollapseBtn').addClass('col-md-1');
+
+                $dataNav.addClass('hidden');
+                $('#colEntry').removeClass('col-md-9');
+                $('#colEntry').addClass('col-md-12');
+
+                isShowing = 0;
+            }
+
+            localStorage.setItem('NavVisible_MOInstances', isShowing);
+        });
+
+        if ((localStorage.getItem('NavVisible_MOInstances') == 1) && ($('#colDataNav').hasClass('hidden'))) {
+            $('#btnCollapseDataNav').click();
+        }
+
+
+
+        $('#btnSaveAndComplete').click(function () {
+            $('#btnSaveAndComplete').prop('disabled', true); //disable button to prevent double-click
+            var msg = '';
+            msg = '<div class="row"><div class="col-md-12" style="margin:10px">' +
+                    '<p><b>Saving your changes ...</b></p>' +
+                    '</div></div>';
+            OverlayShow(msg);
+
+            var completeStepGUID = {% if data.General.StepGUID %}"{{ data.General.StepGUID }}"{% else %}null{% endif %};
+            th.get('theas:doResetPTL', 0);
+            th.get('th:PerformUpdate', '1');
+            th.get('theas:doCompleteStepGUID', completeStepGUID);
+            th.submitForm();
+        });
+
+
+        $('#btnResetPTL').click(function () {
+            $('#btnResetPTL').prop('disabled', true); //disable button to prevent double-click
+            th.get('theas:doCompleteStepGUID', '');
+            th.get('theas:doResetPTL', 1);
+            th.submitForm();
+        });
+
+
+        $('.btnShowAttach').click(function () {
+            OverlayShow(
+                    '<a id="btnClose" class="btn btn-large btn-success btn-block" href="#"><span class="btn-label">Close</span></a><br /><br />' +
+                    '<div style="width:100%;height:90vh;overflow-y:scroll"><img src="//opsstream.agricover.com/attach/' + $(this).data('attachguid') + '" style="width:100%"></img></div>');
+                    
+
+            $('#btnClose').click(function () {
+                OverlayClose();
+            });
+
+        });
+    });
+
+</script>
+
+
+<div id="overlay1" class="hidden">
+    <p>
+        Have you completed all the items indicated on this order?
+    </p>
+    <p>
+        If so, click this button: <button class="btnbig_complete btnmed"><span
+                class="fa fa-check icon_big"></span><br />Complete</button>
+    </p>
+    <p>
+        If not, you can close this overlay and then adjust the quantity completed using the "-" or the "-10" buttons.
+    </p>
+</div>
+
+
+$thInclude_incHTMLEnd
