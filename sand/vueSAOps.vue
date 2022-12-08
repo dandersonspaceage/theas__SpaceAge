@@ -1699,7 +1699,7 @@
           }
   
           if (!maxValue) {
-            maxValue = 250;
+            maxValue = 250; 
           }
        
           let isValid = (this.isQARequired() === false && thisValLen === 0) || (Number(thisVal) >= 0 && Number(thisVal) <= maxValue);
