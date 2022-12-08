@@ -1557,7 +1557,7 @@
             thisAbbrev = thisWorker.WorkerAbbreviation;
           }
           
-          return thisAbbrev
+          return thisAbbrev 
         },
   
         isQARequired : function() {
