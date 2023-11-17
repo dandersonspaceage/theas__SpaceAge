@@ -742,7 +742,7 @@
           return this.isNumPress(this.curShot.qaCaliperBack);
         },
         validActualWeight : function() {
-          return this.isNumPress(this.curShot.qaActualWeight);
+          return this.isNumPress(this.curShot.qaActualWeight, 250);
         },
         validActualSetTime : function() {
           return this.isNumPress(this.curShot.qaActualSetTime, 3600);
