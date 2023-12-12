@@ -770,14 +770,8 @@
           let thatVue = this;          
           thatVue.curDate = thatVue.formatDate(null, 'ddd MM/DD/YYYY HH:mm');
         },
-                        
-        printLabel : function(whichDiv) {
-          let thatVue = this;
-          thatVue.refreshCurDate();
-          print(whichDiv);
-        }
                 
-        fullscreen: function () {
+        fullscreen: function() {
           if (screenfull.isEnabled) {
             screenfull.request();
           }
@@ -789,8 +783,10 @@
           }        
         },
   
-        async print (whatDiv) {
+        async print(whatDiv) {
           let thatVue = this;
+          
+          thatVue.refreshCurDate();          
   
           if (!thatVue.curWorkerQGUID) {
             //TechnicalMessage|FriendlyMessage|ShowTech?|Title
