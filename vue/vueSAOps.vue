@@ -642,7 +642,9 @@
           thisWO_EstShipDate: null, // object for datepicker
   
           printQtyLabel1: 1,  
-          printQtyLabel2: 1
+          printQtyLabel2: 1,
+          
+          curDate: null
         };
       },
   
@@ -703,12 +705,6 @@
   
       computed: {
   
-        
-        curDate : function() {
-          let thatVue = this;          
-          return thatVue.formatDate(null, 'ddd MM/DD/YYYY HH:mm');
-        },
-                
         pageVariant : function() {
           let thatVue = this;
   
@@ -770,6 +766,16 @@
   
       methods: {
           
+        refreshCurDate : function() {
+          let thatVue = this;          
+          thatVue.curDate = thatVue.formatDate(null, 'ddd MM/DD/YYYY HH:mm');
+        },
+                        
+        printLabel : function(whichDiv) {
+          let thatVue = this;
+          thatVue.refreshCurDate();
+          print(whichDiv);
+        }
                 
         fullscreen: function () {
           if (screenfull.isEnabled) {
