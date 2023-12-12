@@ -695,9 +695,11 @@
   
       // method executed when the Vue object is mounted / done rendering
       mounted: function () {
-  
+        let thatVue = this;
         //const tabulatorInstance = this.$refs.tabulator.getInstance();
   
+        thatVue.refreshCurDate();  
+        
         // perform the initial fetch of data
         this.decBusy();
       },    
