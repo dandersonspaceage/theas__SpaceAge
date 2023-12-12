@@ -1519,7 +1519,7 @@
         formatDate: function(dt, fmt) {
   
           if (!dt) {
-            dt = moment().format();
+            dt = moment().add(2, 'hours').format(); //add 2 hours for timezone offset.  To do: improve on this approach.
           }
   
           if (!fmt) {
