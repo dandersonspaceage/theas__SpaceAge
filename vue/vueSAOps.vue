@@ -758,15 +758,16 @@
         curWorkerAbbrev: function() {
           return this.workerAbbrev(this.curWorkerQGUID);
         },      
-  
-        curDate : function() {
-          return this.formatDate(null, 'ddd MM/DD/YYYY HH:mm');
-        }      
+     
   
       },
   
       methods: {
-  
+        
+        curDate : function() {
+          return this.formatDate(null, 'ddd MM/DD/YYYY HH:mm');
+        },
+                
         fullscreen: function () {
           if (screenfull.isEnabled) {
             screenfull.request();
