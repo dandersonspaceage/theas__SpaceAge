@@ -93,7 +93,7 @@
                   </b-form-group>
   
                   <div>
-                    <b-button @click="printLabel('printPressLabel2')" variant="success" size="sm" class="p-0 m-0 mt-1">Print Pallet Label</b-button>
+                    <b-button @click="print('printPressLabel2')" variant="success" size="sm" class="p-0 m-0 mt-1">Print Pallet Label</b-button>
                     <input name="qtyLabel2" v-model="printQtyLabel2" class="printqty" size="2">
   
                     <div id="printPressLabel2" style="visibility: hidden">
@@ -153,7 +153,7 @@
                   </b-form-group>
   
                   <div>
-                    <b-button @click="printLabel('printPressLabel1')" variant="success" size="sm" class="p-0 m-0 mt-1">Print Pallet Label</b-button>
+                    <b-button @click="print('printPressLabel1')" variant="success" size="sm" class="p-0 m-0 mt-1">Print Pallet Label</b-button>
                     <input name="qtyLabel1" v-model="printQtyLabel1" class="printqty pt-1" size="1">             
   
                     <div id="printPressLabel1" style="visibility: hidden">
@@ -642,9 +642,7 @@
           thisWO_EstShipDate: null, // object for datepicker
   
           printQtyLabel1: 1,  
-          printQtyLabel2: 1,
-          
-          curDate: null
+          printQtyLabel2: 1
         };
       },
   
@@ -705,6 +703,12 @@
   
       computed: {
   
+        
+        curDate : function() {
+          let thatVue = this;          
+          return thatVue.formatDate(null, 'ddd MM/DD/YYYY HH:mm');
+        },
+                
         pageVariant : function() {
           let thatVue = this;
   
@@ -765,17 +769,7 @@
       },
   
       methods: {
-
-        refreshCurDate: function () {
-          let thatVue = this;
-          thatVue.curDate = thatVue.formatDate(null, 'ddd MM/DD/YYYY HH:mm');
-        },
-                
-        printLabel: function(whichDiv) {
-          let thatVue = this;
-          thatVue.refreshCurDate();
-          return print(whichDiv);
-        },
+          
                 
         fullscreen: function () {
           if (screenfull.isEnabled) {
