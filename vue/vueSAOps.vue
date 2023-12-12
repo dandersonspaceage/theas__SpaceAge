@@ -110,7 +110,7 @@
                       <h2 class="py-4 printlabel" style="font-size:2em">Finished Thickness: <span class="font-weight-bold">[[ curWOTable2.DimThickness_Finished ]]</span></h2>                                                        
                       <h2 class="py-4 printlabel" style="font-size:2em">Quantity: <span class="font-weight-bold">[[ printQtyLabel2 ]]</span></h2>                              
                       <h2 class="py-4 printlabel" style="font-size:2em">Shot By: <span class="font-weight-bold">[[ curWorkerAbbrev]]</span></h2>                                           
-                      <h2 class="py-4 printlabel" style="font-size:2em">Date: <span class="font-weight-bold">[[ curDate ]]</span></h2>                      
+                      <h2 class="py-4 printlabel" style="font-size:2em">Date: <span class="font-weight-bold">[[ curDate() ]]</span></h2>                      
                     </div>  
                   </div>                
   
@@ -170,7 +170,7 @@
                       <h2 class="py-4 printlabel" style="font-size:2em">Finished Thickness: <span class="font-weight-bold">[[ curWOTable1.DimThickness_Finished ]]</span></h2>                        
                       <h2 class="py-4 printlabel" style="font-size:2em">Quantity: <span class="font-weight-bold">[[ printQtyLabel1 ]]</span></h2>                              
                       <h2 class="py-4 printlabel" style="font-size:2em">Shot By: <span class="font-weight-bold">[[ curWorkerAbbrev]]</span></h2>                                           
-                      <h2 class="py-4 printlabel" style="font-size:2em">Date: <span class="font-weight-bold">[[ curDate ]]</span></h2>                      
+                      <h2 class="py-4 printlabel" style="font-size:2em">Date: <span class="font-weight-bold">[[ curDate() ]]</span></h2>                      
                     </div>  
                   </div>                    
   
