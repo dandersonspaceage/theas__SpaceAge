@@ -642,7 +642,7 @@
           thisWO_EstShipDate: null, // object for datepicker
   
           printQtyLabel1: 1,  
-          printQtyLabel2: 1,
+          QtyLabel2: 1,
           
           curDate: null
         };
@@ -785,7 +785,7 @@
           }        
         },
   
-        async print(whatDiv) {
+        print(whatDiv) {
           let thatVue = this;
           
           thatVue.refreshCurDate();          
