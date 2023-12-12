@@ -798,7 +798,7 @@
           else {
             Vue.nextTick(function () { 
               // Pass the element id here
-              this.$htmlToPaper(whatDiv);
+              thatVue.$htmlToPaper(whatDiv);
             });
           }
         },
