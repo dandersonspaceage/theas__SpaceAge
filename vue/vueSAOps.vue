@@ -93,7 +93,7 @@
                   </b-form-group>
   
                   <div>
-                    <b-button @click="print('printPressLabel2')" variant="success" size="sm" class="p-0 m-0 mt-1">Print Pallet Label</b-button>
+                    <b-button @click="printLabel('printPressLabel2')" variant="success" size="sm" class="p-0 m-0 mt-1">Print Pallet Label</b-button>
                     <input name="qtyLabel2" v-model="printQtyLabel2" class="printqty" size="2">
   
                     <div id="printPressLabel2" style="visibility: hidden">
@@ -110,7 +110,7 @@
                       <h2 class="py-4 printlabel" style="font-size:2em">Finished Thickness: <span class="font-weight-bold">[[ curWOTable2.DimThickness_Finished ]]</span></h2>                                                        
                       <h2 class="py-4 printlabel" style="font-size:2em">Quantity: <span class="font-weight-bold">[[ printQtyLabel2 ]]</span></h2>                              
                       <h2 class="py-4 printlabel" style="font-size:2em">Shot By: <span class="font-weight-bold">[[ curWorkerAbbrev]]</span></h2>                                           
-                      <h2 class="py-4 printlabel" style="font-size:2em">Date: <span class="font-weight-bold">[[ curDate() ]]</span></h2>                      
+                      <h2 class="py-4 printlabel" style="font-size:2em">Date: <span class="font-weight-bold">[[ curDate ]]</span></h2>                      
                     </div>  
                   </div>                
   
@@ -153,7 +153,7 @@
                   </b-form-group>
   
                   <div>
-                    <b-button @click="print('printPressLabel1')" variant="success" size="sm" class="p-0 m-0 mt-1">Print Pallet Label</b-button>
+                    <b-button @click="printLabel('printPressLabel1')" variant="success" size="sm" class="p-0 m-0 mt-1">Print Pallet Label</b-button>
                     <input name="qtyLabel1" v-model="printQtyLabel1" class="printqty pt-1" size="1">             
   
                     <div id="printPressLabel1" style="visibility: hidden">
@@ -170,7 +170,7 @@
                       <h2 class="py-4 printlabel" style="font-size:2em">Finished Thickness: <span class="font-weight-bold">[[ curWOTable1.DimThickness_Finished ]]</span></h2>                        
                       <h2 class="py-4 printlabel" style="font-size:2em">Quantity: <span class="font-weight-bold">[[ printQtyLabel1 ]]</span></h2>                              
                       <h2 class="py-4 printlabel" style="font-size:2em">Shot By: <span class="font-weight-bold">[[ curWorkerAbbrev]]</span></h2>                                           
-                      <h2 class="py-4 printlabel" style="font-size:2em">Date: <span class="font-weight-bold">[[ curDate() ]]</span></h2>                      
+                      <h2 class="py-4 printlabel" style="font-size:2em">Date: <span class="font-weight-bold">[[ curDate ]]</span></h2>                      
                     </div>  
                   </div>                    
   
@@ -642,7 +642,9 @@
           thisWO_EstShipDate: null, // object for datepicker
   
           printQtyLabel1: 1,  
-          printQtyLabel2: 1      
+          printQtyLabel2: 1,
+          
+          curDate: null
         };
       },
   
@@ -764,8 +766,16 @@
   
       methods: {
         
-        curDate : function() {
-          return this.formatDate(null, 'ddd MM/DD/YYYY HH:mm');
+        refreshCurDate : function() {
+          let thatVue = this;
+          thatVue.curDate = thatVue.formatDate(null, 'ddd MM/DD/YYYY HH:mm');
+          return thatVue.curDate;
+        },
+        
+        printLabel: function(whichDiv) {
+          let thatVue = this;
+          thatVue.refreshCurDate();
+          return print(whichDiv);
         },
                 
         fullscreen: function () {
