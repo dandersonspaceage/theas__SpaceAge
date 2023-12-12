@@ -765,13 +765,12 @@
       },
   
       methods: {
-        
-        refreshCurDate : function() {
+
+        refreshCurDate: function () {
           let thatVue = this;
           thatVue.curDate = thatVue.formatDate(null, 'ddd MM/DD/YYYY HH:mm');
-          return thatVue.curDate;
         },
-        
+                
         printLabel: function(whichDiv) {
           let thatVue = this;
           thatVue.refreshCurDate();
