@@ -624,9 +624,9 @@
           asyncCmd_Shots: 'fetchShotsForOp',        
           asyncCmd_Workers: 'fetchWorkers',
   
-          pressCodes: ['N', 'NW', 'S', 'W'],
+          pressCodes: ['N', 'NE', 'NW', 'S', 'W'],
   
-          woListNames: ['N', 'NW', 'S', 'W'],
+          woListNames: ['N', 'NE', 'NW', 'S', 'W'],
           curWOListCode: '',
           lockPressSelection: true,
   

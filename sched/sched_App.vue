@@ -309,9 +309,9 @@
         asyncResource_WOs: 'sched/sched_App.vue',
         asyncCmd_WOs: 'fetchWOs',
 
-        pressCodes: ['N', 'NW', 'S', 'W'],
+        pressCodes: ['N', 'NE', 'NW', 'S', 'W'],
 
-        woListNames: ['Unscheduled', 'N', 'NW', 'S', 'W'],
+        woListNames: ['Unscheduled', 'N', 'NE', 'NW', 'S', 'W'],
         curWOList: 'Unscheduled',
 
         data_ThisWO: {},
