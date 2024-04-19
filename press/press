@@ -21,10 +21,10 @@
     See https://www.emergeinteractive.com/insights/detail/The-Essentials-of-FavIcons/
     https://medium.com/dev-channel/how-to-add-a-web-app-manifest-and-mobile-proof-your-site-450e6e485638
     -->    
-    <link rel="icon" href="/favicon.ico" sizes="any"><!-- 32?32 -->
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180?180 -->
-    <link rel="manifest" href="/manifest.webmanifest">     
+    <link rel="icon" href="{{ '/favicon.ico'|theasResource }}" sizes="any"><!-- 32?32 -->
+    <link rel="icon" href="{{ '/icon.svg'|theasResource }}" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="{{'/apple-touch-icon.png'|theasResource }}"><!-- 180?180 -->
+    <link rel="manifest" href="{{ '/manifest.webmanifest'|theasResource }}">     
 
     <!--https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name/theme-color-->
     <meta name="theme-color" content="#ffffff">
